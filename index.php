@@ -6,18 +6,8 @@
     	<? include("includes/header.php"); ?>        
     </div>  
     <div id="menu">
-    	<? switch ($_SESSION['rol']) {
-    case 0:
-    	    include("includes/menu.php");
-        break;
-    case 1:
-    	    include("includes/menu1.php");
-        break;
-    case 2:
-    	    include("includes/menu2.php");
-        break;
-        } ?>
-	    </div>	
+    	<? include("includes/menu.php"); ?>
+    </div>	
     <div id="contenido">
     	<? include("includes/pages.php"); ?>        
         <br style="clear:both;" />

@@ -5,5 +5,6 @@
     <a href="index.php?page=pantalla_instalacion2">Instalacion2</a>&nbsp;&nbsp;|&nbsp;&nbsp;
     <a href="index.php?page=pantalla_configuracion">Configuracion</a>&nbsp;&nbsp;|&nbsp;&nbsp;
     <a href="index.php?page=pantalla_configuracion1">Configuracion1</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-    <a href="index.php?page=pantalla_banco">Banco</a>
+    <a href="index.php?page=pantalla_banco">Banco</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href="index.php?page=acceso">Acceso</a>
 </div>

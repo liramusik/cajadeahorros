@@ -1,3 +1,3 @@
 <?
-$login = "SELECT usuario, clave, rol FROM usuario WHERE usuario = '".$usuario."' and clave = '".$password."'"
+$data = "SELECT usuario, password, rol FROM tb_usuarios WHERE usuario = '".$usuario."' and password = '".$password."'"
 ?>
