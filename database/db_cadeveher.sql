@@ -57,7 +57,7 @@ create table tb_estatus_solicitud_prestamo (
 
 create table tb_solicitud_prestamo (
 	id				serial primary key,
-	id_estatus_solicitud_prestamo	int references tb_solicitud_prestamo(id),
+	id_estatus_solicitud_prestamo	int references tb_estatus_solicitud_prestamo(id),
 	id_tipo_pago			int references tb_tipo_pago(id),
 	cedula_usuario			varchar(8) references tb_usuarios(cedula),
 	monto				real not null,
