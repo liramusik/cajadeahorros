@@ -3,8 +3,15 @@ create table tb_roles (
 	descripcion			varchar(25)
 );
 
+create table tb_nacionalidad (
+	id				serial primary key,
+	nacionalidad			varchar(10)
+);
+
 create table tb_usuarios (
-	cedula				varchar(8) primary key,
+	cedula				integer primary key,
+	id_nacionalidad			int references tb_nacionalidad(id),
+	id_rol				int references tb_roles(id),
 	nombre				varchar(25) not null,
 	apellido			varchar(25) not null,
 	telefono			varchar(11) not null,
@@ -14,8 +21,7 @@ create table tb_usuarios (
 	fecha_egreso			integer,
 	usuario				varchar(15) not null,
 	password			varchar(33) not null,
-	estatus				boolean default true,
-	id_rol				int references tb_roles(id)
+	estatus				boolean default true
 );
 
 create table tb_bancos (
@@ -37,7 +43,7 @@ create table tb_tipo_transacciones (
 
 create table tb_transacciones (
 	id				serial primary key,
-	cedula_usuario			varchar(8) references tb_usuarios(cedula),
+	cedula_usuario			integer references tb_usuarios(cedula),
 	id_cuenta			int references tb_cuentas(id),
 	id_tipo_transaccion		int references tb_tipo_transacciones(id),
 	fecha				integer not null,
@@ -59,7 +65,7 @@ create table tb_solicitud_prestamo (
 	id				serial primary key,
 	id_estatus_solicitud_prestamo	int references tb_estatus_solicitud_prestamo(id),
 	id_tipo_pago			int references tb_tipo_pago(id),
-	cedula_usuario			varchar(8) references tb_usuarios(cedula),
+	cedula_usuario			integer references tb_usuarios(cedula),
 	monto				real not null,
 	fecha				integer not null,
 	tiempo				integer not null,
@@ -78,6 +84,7 @@ comment on column tb_roles.id is 'ID del rol';
 comment on column tb_roles.descripcion is 'Descripción del rol Administrador, Asociado, No Asociado';
 
 comment on column tb_usuarios.cedula is 'Cédula de Identidad';
+comment on column tb_usuarios.id_rol is 'Referencia con la tabla tb_toles(id_rol)';
 comment on column tb_usuarios.nombre is 'Nombre';
 comment on column tb_usuarios.apellido is 'Apellido';
 comment on column tb_usuarios.telefono is 'Teléfono';
@@ -86,7 +93,6 @@ comment on column tb_usuarios.direccion is 'Dirección';
 comment on column tb_usuarios.fecha_ingreso is 'Fecha de ingreso';
 comment on column tb_usuarios.usuario is 'Usuario';
 comment on column tb_usuarios.password is 'password';
-comment on column tb_usuarios.id_rol is 'Referencia con la tabla tb_toles(id_rol)';
 
 comment on column tb_bancos.id is 'ID del banco';
 comment on column tb_bancos.nombre is 'Nombre del banco';
@@ -128,8 +134,11 @@ insert into tb_roles values(default, 'Administrador');
 insert into tb_roles values(default, 'Asociado');
 insert into tb_roles values(default, 'No Asociado');
 
-insert into tb_usuarios values('16409503', 'Lilibeth', 'Ramírez', '04165023756', 'liramusik@gmail.com', 'Caracas - Venezuela', '1332547200', 0, 'liramusik', md5('liramusik'), 'TRUE', 1);
-insert into tb_usuarios values('17108742', 'David', 'Mora', '04264719868', 'davidmora000@gmail.com', 'Caracas - Venezuela', '1332547200', 0, 'davidmora', md5('davidmora'), 'TRUE', 1);
+insert into tb_nacionalidad values(default, 'Venezolano');
+insert into tb_nacionalidad values(default, 'Extranjero');
+
+insert into tb_usuarios values(16409503, 1, 1, 'Lilibeth', 'Ramírez', '04165023756', 'liramusik@gmail.com', 'Caracas - Venezuela', '1332547200', 0, 'liramusik', md5('liramusik'), 'TRUE');
+insert into tb_usuarios values(17108742, 1, 2, 'David', 'Mora', '04264719868', 'davidmora000@gmail.com', 'Caracas - Venezuela', '1332547200', 0, 'davidmora', md5('davidmora'), 'TRUE');
 
 insert into tb_bancos values(default, 'Banco de Venezuela');
 insert into tb_bancos values(default, 'BBVA Banco Provincial');
