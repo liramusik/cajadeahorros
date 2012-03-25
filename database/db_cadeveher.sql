@@ -52,7 +52,7 @@ create table tb_tipo_pago (
 
 create table tb_estatus_solicitud_prestamo (
 	id				serial primary key,
-	estatus				varchar(9) not null
+	estatus				varchar(9) not null default 'Pendiente'
 );
 
 create table tb_solicitud_prestamo (
