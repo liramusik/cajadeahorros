@@ -14,7 +14,7 @@ create table tb_usuarios (
 	fecha_egreso			integer,
 	usuario				varchar(15) not null,
 	password			varchar(33) not null,
-	estatus				boolean,
+	estatus				boolean default true,
 	id_rol				int references tb_roles(id)
 );
 
@@ -47,7 +47,7 @@ create table tb_transacciones (
 
 create table tb_tipo_pago (
 	id				serial primary key,
-	tipo				varchar(30)
+	tipo				varchar(40)
 );
 
 create table tb_estatus_solicitud_prestamo (
@@ -134,3 +134,10 @@ insert into tb_tipo_transacciones values(default, 'Aporte mensual');
 insert into tb_tipo_transacciones values(default, 'Aporte especial');
 insert into tb_tipo_transacciones values(default, 'Pago de préstamo');
 insert into tb_tipo_transacciones values(default, 'Excedente');
+
+insert into tb_tipo_pago values(default, 'Pago de Intereses mas Amortización');
+insert into tb_tipo_pago values(default, 'Pago de Intereses');
+
+insert into tb_estatus_solicitud_prestamo values(default, 'Pendiente');
+insert into tb_estatus_solicitud_prestamo values(default, 'Aprobado');
+insert into tb_estatus_solicitud_prestamo values(default, 'Rechazado');
