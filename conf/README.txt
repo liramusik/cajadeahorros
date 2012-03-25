@@ -9,4 +9,8 @@ Configuración del servidor de base de datos
 	$ createdb -U user_cadeveher -W db_cadeveher
 5.- Restaurar la base de datos
 	$ psql -U user_cadeveher -W db_cadeveher < db_cadeveher.sql
-6.- No modificar el archivo de configuración
+6.- Cambiar en pg_hba.conf la siguiente línea
+	local   all             all                                     peer
+	a:
+	local   all             all                                     trust
+7.- No modificar el archivo de configuración
