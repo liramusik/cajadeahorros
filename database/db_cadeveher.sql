@@ -10,8 +10,8 @@ create table tb_usuarios (
 	telefono			varchar(11) not null,
 	email				varchar(25) not null,
 	direccion			varchar(255) not null,
-	fecha_ingreso			date not null,
-	fecha_egreso			date,
+	fecha_ingreso			integer not null,
+	fecha_egreso			integer,
 	usuario				varchar(15) not null,
 	password			varchar(33) not null,
 	estatus				boolean default true,
@@ -40,7 +40,7 @@ create table tb_transacciones (
 	cedula_usuario			varchar(8) references tb_usuarios(cedula),
 	id_cuenta			int references tb_cuentas(id),
 	id_tipo_transaccion		int references tb_tipo_transacciones(id),
-	fecha				date not null,
+	fecha				integer not null,
 	monto				real not null,
 	deposito			varchar(20)
 );
@@ -61,7 +61,7 @@ create table tb_solicitud_prestamo (
 	id_tipo_pago			int references tb_tipo_pago(id),
 	cedula_usuario			varchar(8) references tb_usuarios(cedula),
 	monto				real not null,
-	fecha				date not null,
+	fecha				integer not null,
 	tiempo				integer not null,
 	porcentaje			integer,
 	observacion			text,
