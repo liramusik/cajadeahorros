@@ -5,7 +5,7 @@ create table tb_roles (
 
 create table tb_nacionalidad (
 	id				serial primary key,
-	nacionalidad			varchar(10)
+	nacionalidad			varchar(1)
 );
 
 create table tb_usuarios (
@@ -134,8 +134,8 @@ insert into tb_roles values(default, 'Administrador');
 insert into tb_roles values(default, 'Asociado');
 insert into tb_roles values(default, 'No Asociado');
 
-insert into tb_nacionalidad values(default, 'Venezolano');
-insert into tb_nacionalidad values(default, 'Extranjero');
+insert into tb_nacionalidad values(default, 'V');
+insert into tb_nacionalidad values(default, 'E');
 
 insert into tb_usuarios values(16409503, 1, 1, 'Lilibeth', 'Ramírez', '04165023756', 'liramusik@gmail.com', 'Caracas - Venezuela', '1332547200', 0, 'liramusik', md5('liramusik'), 'TRUE');
 insert into tb_usuarios values(17108742, 1, 2, 'David', 'Mora', '04264719868', 'davidmora000@gmail.com', 'Caracas - Venezuela', '1332547200', 0, 'davidmora', md5('davidmora'), 'TRUE');
