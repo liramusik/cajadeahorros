@@ -1,0 +1,17 @@
+<h1>Instalador de la Aplicacion</h1>
+
+<form action="pages/validar_usuario.php" method="post" id="login" name="login">
+    <fieldset>
+        <label for="name_database">Nombre de usuario : *</label><br>
+        <input type="text" name="name_database" id="name_database" title="name_database" maxlength="60" placeholder="Nombre de la Base de Datos" autocomplete="off" required/>
+        <p>
+        <label for="password">Contrasena : *</label><br>
+        <input type="password" name="password_database" id="password_database" title="password_database" maxlength="40" placeholder="Contrasena de la BD" autocomplete="off" required/>
+        <p>
+        <label for="conf_password">Confirmar contrasena: *</label><br>
+        <input type="password" name="password_database" id="password_database" title="password_database" maxlength="40" placeholder="Confirmar contrasena de la BD" autocomplete="off" required/>
+        <p>
+        <input type="submit" value="Siguiente" class="boton1"/>
+    </fieldset>
+   
+</form>

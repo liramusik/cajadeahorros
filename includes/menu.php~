@@ -1,0 +1,7 @@
+<div id="menu">
+    	<a href="index.php">Principal</a>&nbsp;&nbsp;|&nbsp;&nbsp;    
+    <a href="index.php?page=aboutus">Aserca de.</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href="index.php?page=services">Servicios</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href="index.php?page=contactus">Contact Us</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href="index.php?page=pantalla_instalacion2">Iniciar Session</a>
+</div>

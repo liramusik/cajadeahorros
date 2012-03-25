@@ -1,0 +1,15 @@
+<h1>Iniciar Sesion</h1>
+
+<form action="pages/validar_usuario.php" method="post" id="login" name="login">
+    <fieldset>
+        <label for="usuario">Usuario:</label><br>
+        <input type="text" name="username" id="username" title="Usuario" maxlength="60" placeholder="Usuario" autocomplete="off" required/>
+        <p>
+        <label for="Clave">Contrasena:</label><br>
+        <input type="password" name="password" id="password" title="password" maxlength="40" placeholder="Contrasena" autocomplete="off" required/>
+        <p>
+        <input type="submit" value="Iniciar Sesion" class="boton"/>
+         <div id="message"></div>
+    </fieldset>
+   
+</form>
