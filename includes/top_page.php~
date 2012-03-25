@@ -5,34 +5,6 @@
 <title>Caja de Ahorrro</title>
 <link href="style.css" rel="stylesheet" type="text/css" />
 <script language="javascript" src="js/jquery.min.js"></script>
-<script language="javascript">
-$(document).ready(function() {
-    $().ajaxStart(function() {
-        $('#loading').show();
-        $('#message').hide();
-    }).ajaxStop(function() {
-        $('#loading').hide();
-        $('#message').fadeIn('slow');
-    });
-    $('#form, #fat, #fo3').submit(function() {
-        $.ajax({
-            type: 'POST',
-            url: $(this).attr('action'),
-            data: $(this).serialize(),
-            success: function(data) {
-		if(data == '1'){
-			top.location.href='index.php?page=services';
-		}
-		else
-		{
-			$('#message').html(data);
-		}
-            }
-        })
-        
-        return false;
-    }); 
-})  
-</script>
+<script language="javascript" src="js/headers.js"></script>
 </head>
 <body>

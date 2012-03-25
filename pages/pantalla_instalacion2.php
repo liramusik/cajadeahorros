@@ -7,7 +7,7 @@
     	<tr>
     		<td>
     			<label for="name_user">Nombre de usuario : *</label><br>
-    			<input type="text" name="name_database" id="name_database" title="name_database" maxlength="60" placeholder="Nombre de usuario" autocomplete="off" required/>
+    			<input type="text" name="name_database" id="name_database" title="name_database"  maxlength="60" placeholder="Nombre de usuario" autocomplete="off" required/>
     		</td>
     	</tr>
     	<tr>

@@ -5,6 +5,7 @@
 <title>Caja de Ahorrro</title>
 <link href="style.css" rel="stylesheet" type="text/css" />
 <script language="javascript" src="js/jquery.min.js"></script>
+<script language="javascript" src="js/jquery.validate.min.js"></script>
 <script language="javascript" src="js/headers.js"></script>
 </head>
 <body>
