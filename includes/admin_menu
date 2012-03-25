@@ -1,0 +1,7 @@
+<div id="menu">
+    <a href="index.php">Nuevo usuario</a>&nbsp;&nbsp;|&nbsp;&nbsp;    
+    <a href="index.php?page=aboutus">eliminar usuario</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href="index.php?page=services">Borrar</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href="index.php?page=contactus">Contact Us</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href="index.php?page=acceso">Iniciar Session</a>
+</div>
