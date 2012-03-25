@@ -68,6 +68,12 @@ create table tb_solicitud_prestamo (
 	respuesta			text
 );
 
+create table tb_prestamo (
+	id_solicitud_prestamo		int references tb_solicitud_prestamo(id),
+	id_transaccion			int references tb_transacciones(id),
+	primary key(id_solicitud_prestamo, id_transaccion)
+);
+
 comment on column tb_roles.id is 'ID del rol';
 comment on column tb_roles.descripcion is 'Descripción del rol Administrador, Asociado, No Asociado';
 
