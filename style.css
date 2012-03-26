@@ -99,3 +99,9 @@ h1 {
     outline: 0 none transparent;
 
 }
+
+#menu .usuario {
+	color: white;
+	text-align: right;
+	margin-right: 10px;
+}
