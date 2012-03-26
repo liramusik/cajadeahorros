@@ -5,11 +5,10 @@
 		<? include("includes/header.php"); ?>
 	</div>
 	<div id="menu">
-		<?php /*if(isset($_SESSION['session_usuario'])): ?>
-			<div class="usuario">Usuario: <?php print $_SESSION['session_usuario']; ?> <a href="/pages/logout.php">Cerrar Sesión</a></div>
-		<?php endif; */?>
+		<?php if(isset($_SESSION['session_usuario'])): ?>
+			<div class="usuario">Usuario: <?php print $_SESSION['session_usuario']; ?> <a href="?page=logout">Cerrar Sesión</a></div>
+		<?php endif;?>
 
-         <?php   include("includes/menu.php");?>
 	</div>
 	<div id="contenido">
 		<?php /*
