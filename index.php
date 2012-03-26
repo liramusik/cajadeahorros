@@ -12,7 +12,7 @@
 	</div>
 	<div id="content">
 		<div id="menu-izquierdo">
-			<?php print $_SESSION['session_usuario']; ?>
+			<?php include("includes/menu.php"); ?>
 		</div>
 		<div id="contenido">
 			<?php include("includes/pages.php"); ?>
