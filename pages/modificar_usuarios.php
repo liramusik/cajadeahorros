@@ -133,7 +133,7 @@
 			<input id="submit" type="submit" value="Registrar" name="submit" class="boton1"/>
 			<div id="message"></div>
 		</form>
-	<?php else: ?>
-		<div class="mensaje">Usted no posee privilegios <a href="index.php">Regresar</a></div>
 	<?php endif; ?>
+<?php else: ?>
+	<div class="mensaje">Usted no posee privilegios <a href="index.php">Regresar</a></div>
 <?php endif; ?>
