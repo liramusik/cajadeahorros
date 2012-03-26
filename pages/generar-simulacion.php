@@ -38,11 +38,12 @@ class simulacion {
 			$total_intereses += $intereses[$i];
 			$fechas[$i] = strtotime("+1 month", $fechas[$i-1]);
 		}
-		$this->imprimir($intereses, $fechas, $total_intereses, $this->monto);
+		$this->imprimir($intereses, $fechas, $total_intereses);
 	}
 	private function intereses_amortizacion() {
+
 	}
-	private function imprimir(&$intereses, &$fechas, $total_intereses, $monto) {
+	private function imprimir(&$intereses, &$fechas, $total_intereses) {
 		print '<h1>Resultado de la Simulación</h1>';
 		print '<table>';
 		for($i = 1; $i <= sizeof($intereses); $i++) {
@@ -53,7 +54,7 @@ class simulacion {
 			print '</tr>';
 		}
 		print '</table>';
-		$total = $total_intereses + $monto;
+		$total = $total_intereses + $this->monto;
 		print '<div>Total de intereses a pagar ' . $total_intereses . ' Bs.</div>';
 		print '<div>Total del préstamo ' . $total . ' Bs. que deberá ser pagado el ' . date("d-m-Y", $fechas[sizeof($fechas) - 1]) . '</div>';
 	}
