@@ -1,6 +1,6 @@
 <?php
 if (!isset($_GET['page'])) {
-    include("pages/homepage.php");
+    include("pages/acceso.php");
 } else {
     include("pages/".$_GET['page'].".php");
 }

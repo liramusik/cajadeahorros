@@ -4,7 +4,7 @@
 session_start();
 ?>
 
-<form action="login.php" method="post" id="login" name="login">
+<form action="index.php?page=login" method="post" id="login" name="login">
     <fieldset>
         <legend>Acceso</legend>
     <table>
