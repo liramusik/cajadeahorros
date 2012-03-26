@@ -24,15 +24,17 @@ class login {
 
 		$db_connect = pg_connect("host=$db_hostname dbname=$db_database user=$db_username password=$db_password") or die ("Imposible conectarse al servidor " . pg_last_error());
 
-		$result = pg_query($db_connect,"SELECT usuario, password, id_rol FROM tb_usuarios where usuario='" . $usuario . "'");
+		$result = pg_query($db_connect,"SELECT cedula, usuario, password, id_rol FROM tb_usuarios where usuario='" . $usuario . "'");
 
 		while($rows = pg_fetch_object($result)) {
+			$db_cedula = $rows->cedula;
 			$db_usuario = $rows->usuario;
 			$db_password = $rows->password;
 			$db_id_rol = $rows->id_rol;
 		}
 
 		if(($usuario == $db_usuario) && ($clave==$db_password)) {
+			$_SESSION['session_cedula'] = $db_cedula;
 			$_SESSION['session_usuario'] = $db_usuario;
 			$_SESSION['session_id_rol'] = $db_id_rol;
 
