@@ -1,9 +1,6 @@
 <?php if(isset($_SESSION['session_usuario'])): ?>
 	<?php if($_SESSION['session_id_rol'] == 2): ?>
-
-
-	<?php
-		
+		<?php
 		$db_hostname = "localhost";
 		$db_database = "db_cadeveher";
 		$db_username = "user_cadeveher";
@@ -18,7 +15,6 @@
 			print "Error" . pg_last_error();
 		}
 		?>
-
 		<table>
 			<?php while($rows = pg_fetch_object($result)): ?>
 				<tr>
