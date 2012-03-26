@@ -31,12 +31,12 @@ private function verifica_usuario($tiempo, $usuario, $clave) {
 	$db_connect = pg_connect("host=$db_hostname dbname=$db_database user=$db_username password=$db_password") or die ("Imposible conectarse al servidor " . pg_last_error());
 
 
-	$result = pg_query($db_connect,"SELECT usuario, password, rol FROM tb_usuarios where usuario='" . $usuario. "'");
+	$result = pg_query($db_connect,"SELECT usuario, password, id_rol FROM tb_usuarios where usuario='" . trim($usuario) . "'");
 
 	while ($row = pg_fetch_object($result)) {
 		$db_usuario = trim($row->usuario);
 		$db_clave = trim(md5($row->password));
-		$db_rol = $row->rol;
+		$db_rol = $row->id_rol;
 		
 		if($usuario==$db_usuario && $clave==$db_clave) {
 		// Si la clave es correcta
