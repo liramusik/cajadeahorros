@@ -1,4 +1,4 @@
-<h1>Instalador de la Aplicacion</h1>
+<h1>Iniciar sesion</h1>
 
 <form action="index.php?page=login" method="post" id="login" name="login">
 	<fieldset>
