@@ -7,7 +7,7 @@
         <tr>
         	<td>
         		<label for="name_box">Nombre de la caja de ahorro : *</label><br>
-        		<input type="text" name="name_box" id="name_box" title="name_box"  pattern="[a-zA-Z][0-9]{3,}" maxlength="60" placeholder="Nombre de la caja de ahorro" autocomplete="off" required/>
+        		<input type="text" name="name_box" id="name_box" title="Nombre de la caja"  pattern="[a-zA-Z][0-9]{3,}" maxlength="60" placeholder="Nombre de la caja de ahorro" autocomplete="off" required/>
         	</td>
         	<td>
         		<label for="rif_box">Rif : *</label><br>

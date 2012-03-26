@@ -1,7 +1,7 @@
 <?php $cedula = $_SESSION['session_cedula']; ?>
 
 <h1>Simulación</h1>
-<form action="index.php?page=generar-simulacion" method="post">
+<form action="index.php?page=generar-simulacion" method="post" id="simula" name="simula">
 	<fieldset>
 		<legend>Datos de la Simulación</legend>
 		<table>
@@ -18,7 +18,7 @@
 					<label for="monto">Monto</label>
 				</td>
 				<td>
-					<input name="monto" type="text" />
+				<input name="monto" type="number" pattern="[0-9]{2,}" title="Monto a solicitar Ejem: 10000"  required/>
 				</td>
 			</tr>
 			<tr>
@@ -26,7 +26,7 @@
 					<label for="tiempo">Tiempo</label>
 				</td>
 				<td>
-					<input name="tiempo" type="text" />
+				<input name="tiempo" type="number" pattern="[0-9]{1,}" title="Tiempo en meses Ejem: 12 "  required/>
 				</td>
 			</tr>
 			<tr>

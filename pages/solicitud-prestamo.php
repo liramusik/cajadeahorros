@@ -7,7 +7,7 @@ $pago = $_GET['pago'];
 ?>
 
 <h1>Solicitud de Préstamo</h1>
-<form action="index.php?page=generar-solicitud" method="post">
+<form action="index.php?page=generar-solicitud" method="post" id="prestamo">
 	<fieldset>
 		<legend>Solicitud de Préstamo</legend>
 		<table>
@@ -16,7 +16,7 @@ $pago = $_GET['pago'];
 					<label for="cedula">Cédula de Identidad</label>
 				</td>
 				<td>
-					<input name="cedula" type="text" value="<?php print $cedula; ?>" disabled />
+					<input name="cedula" type="number" pattern="[0-9]{3,}" value="<?php print $cedula; ?>" disabled />
 				</td>
 			</tr>
 			<tr>
@@ -24,7 +24,7 @@ $pago = $_GET['pago'];
 					<label for="monto">Monto</label>
 				</td>
 				<td>
-				<input name="monto" type="text" value="<?php print $monto; ?>" <?php isset($monto) ? print "disabled" : "" ?> />
+				<input name="monto" type="number" pattern="[0-9]{2,}" value="<?php print $monto; ?>" <?php isset($monto) ? print "disabled" : "" ?>  required/>
 				</td>
 			</tr>
 			<tr>
@@ -32,7 +32,7 @@ $pago = $_GET['pago'];
 					<label for="tiempo">Tiempo</label>
 				</td>
 				<td>
-					<input name="tiempo" type="text" value="<?php print $tiempo; ?>" <?php isset($tiempo) ? print "disabled" : "" ?> />
+					<input name="tiempo" type="number" pattern="[0-9]{1,}" value="<?php print $tiempo; ?>" <?php isset($tiempo) ? print "disabled" : "" ?> required/>
 				</td>
 			</tr>
 			<tr>
@@ -54,5 +54,5 @@ $pago = $_GET['pago'];
 			</tr>
 		</table>
 	</fieldset>
-	<input class="boton1" type="submit" value="Generar simulación" />
+	<input class="boton1" type="submit" value="Enviar" />
 </form>
