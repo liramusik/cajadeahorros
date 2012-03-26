@@ -10,8 +10,14 @@
 		<?php endif;?>
 
 	</div>
-	<div id="contenido">
-		<? include("includes/pages.php"); ?>
+	<div id="content">
+		<div id="menu-izquierdo">
+			<?php print $_SESSION['session_usuario']; ?>
+		</div>
+		<div id="contenido">
+			<?php include("includes/pages.php"); ?>
+		</div>
+		<div style="clear: both"></div>
 	</div>
 	<div id="footer">
 		<?php include("includes/footer.php"); ?>
