@@ -1,44 +1,43 @@
 <?php if(isset($_SESSION['session_usuario'])): ?>
-	<?php if($_SESSION['session_id_rol'] == 1): ?>
-		<?php
-		$db_hostname = "localhost";
-		$db_database = "db_cadeveher";
-		$db_username = "user_cadeveher";
-		$db_password = "123456";
+	<?php
+	$db_hostname = "localhost";
+	$db_database = "db_cadeveher";
+	$db_username = "user_cadeveher";
+	$db_password = "123456";
 
-		$db_connect = pg_connect("host=$db_hostname dbname=$db_database user=$db_username password=$db_password") or die ("Imposible conectarse al servidor " . pg_last_error());
+	$db_connect = pg_connect("host=$db_hostname dbname=$db_database user=$db_username password=$db_password") or die ("Imposible conectarse al servidor " . pg_last_error());
 
-		$cedula = $_GET['m_cedula'];
+	$cedula = $_GET['m_cedula'];
 
-		$query_usuarios = "select * from tb_usuarios left join tb_nacionalidad on id_nacionalidad = tb_nacionalidad.id left join tb_roles on id_rol = tb_roles.id where cedula=$cedula;";
-		$query_roles = "select * from tb_roles";
+	$query_usuarios = "select * from tb_usuarios left join tb_nacionalidad on id_nacionalidad = tb_nacionalidad.id left join tb_roles on id_rol = tb_roles.id where cedula=$cedula;";
+	$query_roles = "select * from tb_roles";
 
-		$result_usuarios = pg_query($db_connect, $query_usuarios);
-		if(!$result_usuarios) {
-			print "Error" . pg_last_error();
-		}
+	$result_usuarios = pg_query($db_connect, $query_usuarios);
+	if(!$result_usuarios) {
+		print "Error" . pg_last_error();
+	}
 
-		$result_roles = pg_query($db_connect, $query_roles);
-		if(!$result_roles) {
-			print "Error" . pg_last_error();
-		}
+	$result_roles = pg_query($db_connect, $query_roles);
+	if(!$result_roles) {
+		print "Error" . pg_last_error();
+	}
 
-		while($rows = pg_fetch_object($result_usuarios)) {
-			$cedula = $rows->cedula;
-			$nombre = $rows->nombre;
-			$apellido = $rows->apellido;
-			$telefono = $rows->telefono;
-			$email = $rows->email;
-			$direccion = $rows->direccion;
-			$direccion = $rows->direccion;
-			$fecha_ingreso = date("d-m-Y", $rows->fecha_ingreso);
-			$fecha_egreso = !empty($rows->fecha_egreso) ? date("d-m-Y", $rows->fecha_egreso) : "";
-			$nacionalidad = $rows->nacionalidad;
-			$id_rol = $rows->id_rol;
-			$usuario = $rows->usuario;
-		}
-		?>
-
+	while($rows = pg_fetch_object($result_usuarios)) {
+		$cedula = $rows->cedula;
+		$nombre = $rows->nombre;
+		$apellido = $rows->apellido;
+		$telefono = $rows->telefono;
+		$email = $rows->email;
+		$direccion = $rows->direccion;
+		$direccion = $rows->direccion;
+		$fecha_ingreso = date("d-m-Y", $rows->fecha_ingreso);
+		$fecha_egreso = !empty($rows->fecha_egreso) ? date("d-m-Y", $rows->fecha_egreso) : "";
+		$nacionalidad = $rows->nacionalidad;
+		$id_rol = $rows->id_rol;
+		$usuario = $rows->usuario;
+	}
+	?>
+	<?php if(($_SESSION['session_id_rol'] == 1) || ($_SESSION['session_cedula'] == $cedula)) : ?>
 		<h1>Usuario</h1>
 
 		<form action="pages/validar_usuario.php" method="post" id="usuario" name="usuario">
