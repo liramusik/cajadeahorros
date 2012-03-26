@@ -37,7 +37,7 @@ class login {
 			$_SESSION['session_id_rol'] = $db_id_rol;
 
 			setcookie("cookie_usuario", $db_usuario, time() + $tiempo);
-			header("Location: index.php?page=listar_usuarios");
+			header("Location: index.php?page=bienvenida");
 		} else {
 			header("Location: index.php?error=1");
 		}
