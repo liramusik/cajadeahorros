@@ -6,7 +6,7 @@
 	</div>
 	<div id="menu">
 		<?php if(isset($_SESSION['session_usuario'])): ?>
-			<div class="usuario">Usuario: <?php print $_SESSION['session_usuario']; ?></div>
+			<div class="usuario">Usuario: <?php print $_SESSION['session_usuario']; ?> <a href="/pages/logout.php">Cerrar Sesión</a></div>
 		<?php endif; ?>
 	</div>
 	<div id="contenido">
