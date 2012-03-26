@@ -7,6 +7,9 @@
 			<li><a href="index.php?page=listar_usuarios">Usuarios</a></li>
 		</li>
 		<li>
+			<a href="index.php?page=solicitud-prestamo">Solicitud de Préstamo</a>
+		</li>
+		<li>
 			<a href="index.php?page=simulacion">Simulación</a>
 		</li>
 	</ul>
