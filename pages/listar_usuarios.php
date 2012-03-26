@@ -1,5 +1,5 @@
 <?php if(isset($_SESSION['session_usuario'])): ?>
-	<?php if($_SESSION['session_id_rol'] == 2): ?>
+	<?php if($_SESSION['session_id_rol'] == 1): ?>
 		<?php
 		$db_hostname = "localhost";
 		$db_database = "db_cadeveher";
