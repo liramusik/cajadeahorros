@@ -11,16 +11,7 @@
 
 	</div>
 	<div id="contenido">
-		<?php /*
-		if(!isset($_SESSION['session_usuario'])) {
-			include("includes/pages.php");
-		} else {
-			include("includes/bienvenida.php");
-		}
-		*/?>
-
-<? include("includes/pages.php"); ?>
-        <br style="clear:both;" />
+		<? include("includes/pages.php"); ?>
 	</div>
 	<div id="footer">
 		<?php include("includes/footer.php"); ?>
