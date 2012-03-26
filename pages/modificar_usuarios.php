@@ -47,11 +47,19 @@
 					<tr>
 						<td>
 							<label for="tipe_user">Tipo de usuario: *</label>
-							<select name="select">
-								<?php while($rows = pg_fetch_object($result_roles)): ?>
-									<option value="<?php print $rows->id; ?>" <?php ($id_rol == $rows->id) ? print "selected" : print ""; ?>><?php print $rows->descripcion; ?></option>
-								<?php endwhile; ?>
-							</select>
+							<?php if(($_SESSION['session_id_rol'] == 1)): ?>
+								<select name="select">
+									<?php while($rows = pg_fetch_object($result_roles)): ?>
+										<option value="<?php print $rows->id; ?>" <?php ($id_rol == $rows->id) ? print "selected" : print ""; ?>><?php print $rows->descripcion; ?></option>
+									<?php endwhile; ?>
+								</select>
+							<?php else: ?>
+								<select name="select" disabled>
+									<?php while($rows = pg_fetch_object($result_roles)): ?>
+										<option value="<?php print $rows->id; ?>" <?php ($id_rol == $rows->id) ? print "selected" : print ""; ?>><?php print $rows->descripcion; ?></option>
+									<?php endwhile; ?>
+								</select>
+							<?php endif; ?>
 						</td>
 					</tr>
 					<tr>
