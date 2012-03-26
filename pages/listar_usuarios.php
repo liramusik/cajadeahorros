@@ -15,6 +15,7 @@
 			print "Error" . pg_last_error();
 		}
 		?>
+		<h1>Listado de Usuarios</h1>
 		<table>
 			<?php while($rows = pg_fetch_object($result)): ?>
 				<tr>
