@@ -2,46 +2,46 @@
 <table>
 	<?php if($this->pago == 1): ?>
 		<thead>
-			<th>Cuota</th>
-			<th>Interés</th>
-			<th>Fecha de pago</th>
+			<th class="t_cuota">Cuota</th>
+			<th class="t_interes">Interés</th>
+			<th class="t_fecha">Fecha de pago</th>
 		</thead>
 		<?php for($i = 1; $i <= $this->tiempo; $i++): ?>
 			<?php if($i % 2 == 0): ?>
 				<tr class="odd">
-					<td><?php print $i; ?></td>
-					<td><?php print $intereses[$i]; ?></td>
-					<td><?php print date("d-m-Y", $fechas[$i]); ?></td>
+					<td class="cuota"><?php print $i; ?></td>
+					<td class="interes"><?php printf("%1\$.2f", $intereses[$i]); ?></td>
+					<td class="fecha"><?php print date("d-m-Y", $fechas[$i]); ?></td>
 				</tr>
 			<?php else: ?>
 				<tr class="even">
-					<td><?php print $i; ?></td>
-					<td><?php print $intereses[$i]; ?></td>
-					<td><?php print date("d-m-Y", $fechas[$i]); ?></td>
+					<td class="cuota"><?php print $i; ?></td>
+					<td class="interes"><?php printf("%1\$.2f", $intereses[$i]); ?></td>
+					<td class="fecha"><?php print date("d-m-Y", $fechas[$i]); ?></td>
 				</tr>
 			<?php endif; ?>
 		<?php endfor; ?>
 	<?php elseif($this->pago == 2): ?>
 		<thead>
-			<th>Cuota</th>
-			<th>Interés</th>
-			<th>Amortización</th>
-			<th>Fecha de pago</th>
+			<th class="t_cuota">Cuota</th>
+			<th class="t_interes">Interés</th>
+			<th class="t_amortizacion">Amortización</th>
+			<th class="t_fecha">Fecha de pago</th>
 		</thead>
 		<?php for($i = 1; $i <= $this->tiempo; $i++): ?>
 			<?php if($i % 2 == 0): ?>
 				<tr class="odd">
-					<td><?php print $i; ?></td>
-					<td><?php printf("%1\$.2f", $intereses[$i]); ?></td>
-					<td><?php printf("%1\$.2f", $amortizacion[$i]); ?></td>
-					<td><?php print date("d-m-Y", $fechas[$i]); ?></td>
+					<td class="cuota"><?php print $i; ?></td>
+					<td class="interes"><?php printf("%1\$.2f", $intereses[$i]); ?></td>
+					<td class="amortizacion"><?php printf("%1\$.2f", $amortizacion[$i]); ?></td>
+					<td class="fecha"><?php print date("d-m-Y", $fechas[$i]); ?></td>
 				</tr>
 			<?php else: ?>
 				<tr class="even">
-					<td><?php print $i; ?></td>
-					<td><?php printf("%1\$.2f", $intereses[$i]); ?></td>
-					<td><?php printf("%1\$.2f", $amortizacion[$i]); ?></td>
-					<td><?php print date("d-m-Y", $fechas[$i]); ?></td>
+					<td class="cuota"><?php print $i; ?></td>
+					<td class="interes"><?php printf("%1\$.2f", $intereses[$i]); ?></td>
+					<td class="amortizacion"><?php printf("%1\$.2f", $amortizacion[$i]); ?></td>
+					<td class="fecha"><?php print date("d-m-Y", $fechas[$i]); ?></td>
 				</tr>
 			<?php endif; ?>
 		<?php endfor; ?>
