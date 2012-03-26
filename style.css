@@ -50,6 +50,7 @@ h1 {
 
 .boton {
 	background-color: #D14836;
+	background-image: -webkit-linear-gradient(center top , #DD4B39, #D14836);
 	background-image: -moz-linear-gradient(center top , #DD4B39, #D14836);
 	border: 1px solid transparent;
 	border-radius: 2px 2px 2px 2px;
@@ -60,6 +61,7 @@ h1 {
 
 .boton:hover {
 	background-color: #C53727;
+	background-image: -webkit-linear-gradient(center top , #DD4B39, #C53727);
 	background-image: -moz-linear-gradient(center top , #DD4B39, #C53727);
 	border-color: #B0281A #B0281A #AF301F;
 	border-style: solid;
@@ -76,6 +78,7 @@ h1 {
 
 .boton1 {
 	background-color: #4D90FE;		
+	background-image: -webkit-linear-gradient(center top ,,#4D90FE, #4787ED);
 	background-image: -moz-linear-gradient(center top ,,#4D90FE, #4787ED);
 	border: 1px solid transparent;
 	border-radius: 2px 2px 2px 2px;
@@ -86,6 +89,7 @@ h1 {
 
 .boton1:hover {
 	background-color: #4787ED;
+	background-image: -webkit-linear-gradient(center top ,#4D90FE, #4787ED);
 	background-image: -moz-linear-gradient(center top ,#4D90FE, #4787ED);
 	border-color: #B0281A #B0281A #AF301F;
 	border-style: solid;
@@ -104,4 +108,14 @@ h1 {
 	color: white;
 	text-align: right;
 	margin-right: 10px;
+}
+
+#menu-izquierdo {
+	float: left;
+	width: 200px;
+}
+
+#contenido {
+	float: left;
+	width: 560px;
 }
