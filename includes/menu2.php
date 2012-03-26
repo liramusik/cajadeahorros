@@ -4,5 +4,8 @@
 		<li>
 			<a href="index.php?page=modificar_usuarios&m_cedula=<?php print $cedula; ?>">Cuenta</a>
 		</li>
+		<li>
+			<a href="index.php?page=simulacion">Simulación</a>
+		</li>
 	</ul>
 </div>
