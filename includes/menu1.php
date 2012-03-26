@@ -10,5 +10,8 @@
 			</ul>
 
 		</li>
+		<li>
+			<a href="index.php?page=simulacion">Simulación</a>
+		</li>
 	</ul>
 </div>
