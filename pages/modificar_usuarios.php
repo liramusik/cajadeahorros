@@ -96,7 +96,11 @@
 					<tr>
 						<td>
 							<label for="datein_user">Fecha de ingreso : *</label><br>
-							<input type="number" name="datein_user" id="datein_user" title="Fecha de ingreso" maxlength="40" placeholder="Fecha de ingreso" autocomplete="off" value="<?php print $fecha_ingreso; ?>" required />
+							<?php if(($_SESSION['session_id_rol'] == 1)): ?>
+								<input type="number" name="datein_user" id="datein_user" title="Fecha de ingreso" maxlength="40" placeholder="Fecha de ingreso" autocomplete="off" value="<?php print $fecha_ingreso; ?>" required />
+							<?php else: ?>
+								<input type="number" name="datein_user" id="datein_user" title="Fecha de ingreso" maxlength="40" placeholder="Fecha de ingreso" autocomplete="off" value="<?php print $fecha_ingreso; ?>" disabled required />
+							<?php endif; ?>
 						</td>
 						<td>
 							<label for="datexit_user">Fecha de egreso : *</label><br>
