@@ -1,6 +1,9 @@
 <div id="menu-principal">
 	<ul>
 		<li>
+			<a href="index.php">Inicio</a>
+		</li>
+		<li>
 			<a href="#">Usuarios</a>
 			<ul>
 				<li><a href="index.php?page=listar_usuarios">Ejemplo1</a></li>
