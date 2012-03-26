@@ -40,7 +40,7 @@ $pago = $_GET['pago'];
 					<label for="pago">Forma de pago</label>
 				</td>
 				<td>
-					<input name="pago" type="radio" value="1" <?php if(isset($pago) and ($pago==1)) { print "checked"; } ?> /> Pago de intereses<br />
+					<input name="pago" type="radio" value="1" <?php if(isset($pago) and ($pago==1)) { print "checked"; } elseif(!isset($pago)) { print "checked"; } ?> /> Pago de intereses<br />
 					<input name="pago" type="radio" value="2" <?php if(isset($pago) and ($pago==2)) { print "checked"; } ?> /> Pago de intereres, mas amortización a capital
 				</td>
 			</tr>
