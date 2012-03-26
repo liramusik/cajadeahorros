@@ -26,8 +26,8 @@
 			<tr>
 				<td>
 					<label for="pago">Forma de pago
-						<input name="pago" type="radio" /> Pago de intereses
-						<input name="pago" type="radio" /> Pago de intereres, mas amortización a capital
+						<input name="pago" type="radio" value="1" checked /> Pago de intereses
+						<input name="pago" type="radio" value="2" /> Pago de intereres, mas amortización a capital
 					</label>
 				</td>
 			</tr>
