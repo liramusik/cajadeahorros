@@ -44,6 +44,14 @@ $pago = $_GET['pago'];
 					<input name="pago" type="radio" value="2" <?php if(isset($pago) and ($pago==2)) { print "checked"; } ?> /> Pago de intereres, mas amortización a capital
 				</td>
 			</tr>
+			<tr>
+				<td>
+					<label for="observacion">Observación</label>
+				</td>
+				<td>
+					<textarea name="observacion"></textarea>
+				</td>
+			</tr>
 		</table>
 	</fieldset>
 	<input class="boton1" type="submit" value="Generar simulación" />
