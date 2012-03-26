@@ -58,12 +58,12 @@ create table tb_tipo_pago (
 
 create table tb_estatus_solicitud_prestamo (
 	id				serial primary key,
-	estatus				varchar(9) not null default 'Pendiente'
+	estatus				varchar(9) not null
 );
 
 create table tb_solicitud_prestamo (
 	id				serial primary key,
-	id_estatus_solicitud_prestamo	int references tb_estatus_solicitud_prestamo(id),
+	id_estatus_solicitud_prestamo	int references tb_estatus_solicitud_prestamo(id) default 1,
 	id_tipo_pago			int references tb_tipo_pago(id),
 	cedula_usuario			integer references tb_usuarios(cedula),
 	monto				real not null,
