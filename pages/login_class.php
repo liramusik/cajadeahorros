@@ -1,11 +1,8 @@
 <?php
 	
-	// archivos resqueridos
-	require("../conf/conexion.php");
-	
 class login {
 // Inicia sesion
-public function inicia($tiempo=3600, $usuario=NULL, $clave=NULL) { 
+public function inicia($tiempo, $usuario, $clave) { 
     if ($usuario==NULL && $clave==NULL) {
         // Verifica sesion
         if (isset($_SESSION['idusuario'])) {
@@ -21,22 +18,33 @@ public function inicia($tiempo=3600, $usuario=NULL, $clave=NULL) {
             }
         }
     } else {
-        $this->verifica_usuario($tiempo, $usuario, $clave);
+        $this->verifica_usuario($tiempo, $usuario, md5($clave));
     }
 }  
 //  Verifica login
 private function verifica_usuario($tiempo, $usuario, $clave) {
-	
-	$result = pg_query($conn,"SELECT usuario, password FROM tb_usuarios");
+	$db_hostname = "localhost";
+	$db_database = "db_cadeveher";
+	$db_username = "user_cadeveher";
+	$db_password = "123456";
 
-	while ($row = pg_fetch_row($result)) {
+	$db_connect = pg_connect("host=$db_hostname dbname=$db_database user=$db_username password=$db_password") or die ("Imposible conectarse al servidor " . pg_last_error());
+
+
+	$result = pg_query($db_connect,"SELECT usuario, password, rol FROM tb_usuarios where usuario='" . $usuario. "'");
+
+	while ($row = pg_fetch_object($result)) {
+		$db_usuario = trim($row->usuario);
+		$db_clave = trim(md5($row->password));
+		$db_rol = $row->rol;
 		
-		if ($usuario==$row['usuario'] && $clave==$row['password']) {
+		if($usuario==$db_usuario && $clave==$db_clave) {
 		// Si la clave es correcta
-		$idusuario=$this->codificar_usuario($usuario);
-		setcookie("idusuario", $idusuario, time()+$tiempo);
-		$_SESSION['idusuario']=$idusuario;
-		header( "Location: ../index.php" );
+		$idusuario=$this->codificar_usuario($usuario,$db_rol);
+		setcookie("cooke_usuario", $idusuario,"cooke_rol",$db_rol,time()+$tiempo);
+		$_SESSION['session_usuario']=$idusuario;
+		$_SESSION['session_rol']=$db_rol;
+		header( "Location: index.php?page=usuario" );
 	} else {
 		// Si la clave es incorrecta
 		header( "Location: index.php?error=1" );
