@@ -67,7 +67,7 @@
 					<tr>
 						<td>
 							<label for="id_user">Cedula : *</label>        		
-							<input type="number" name="nacionalidad" id="nacionalidad" title="Nacionalidad" pattern="[0-9]{3,}" size="1" maxlength="1" placeholder="Cedula" autocomplete="off" value="<?php print $nacionalidad; ?>" disabled required />
+							<input type="number" name="nacionalidad" id="nacionalidad" title="Nacionalidad" size="1" maxlength="1" value="<?php print $nacionalidad; ?>" disabled required />
 							<input type="number" name="id_user" id="cedula" title="Cedula" pattern="[0-9]{3,}" size="8" maxlength="20" placeholder="Cedula" autocomplete="off" value="<?php print $cedula; ?>" disabled required />
 						</td>
 						<td>
