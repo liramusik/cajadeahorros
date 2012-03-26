@@ -56,7 +56,6 @@ h1 {
 	border-radius: 2px 2px 2px 2px;
 	color: #FFFFFF;
 	text-shadow: 0 1px rgba(0, 0, 0, 0.1);
-	text-transform: uppercase;
 }
 
 .boton:hover {
@@ -84,7 +83,6 @@ h1 {
 	border-radius: 2px 2px 2px 2px;
 	color: #FFFFFF;
 	text-shadow: 0 1px rgba(0, 0, 0, 0.1);
-	text-transform: uppercase;
 }
 
 .boton1:hover {
