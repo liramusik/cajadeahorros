@@ -1,12 +1,8 @@
 <h1>Resultado de la Simulación</h1>
 
-<?php if($this->pago == 1): ?>
-	<?php $total = $total_intereses + $this->monto; ?>
-	<div>Total de intereses a pagar <?php print $total_intereses; ?> Bs.</div>
-	<div>Total del préstamo <?php print $this->monto; ?> Bs.</div>
-<?php else: ?>
-	
-<?php endif; ?>
+<?php $total = $total_intereses + $this->monto; ?>
+<h2>Total de intereses a pagar <?php print $total_intereses; ?> Bs.</h2>
+<h3>Total del préstamo <?php print $this->monto; ?> Bs.</h3>
 
 <table>
 	<?php if($this->pago == 1): ?>

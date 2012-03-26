@@ -148,6 +148,7 @@ h1 {
 }
 
 table {
+	border-spacing: 0;
 	width: 100%;
 }
 
@@ -161,9 +162,18 @@ table tr td.amortizacion {
 	text-align: right;
 }
 
-table thead tr {
-
+table thead {
 }
+
+table th {
+	border-bottom: 1px solid #F90;
+}
+
+table th,
+table td {
+	border-spacing: 0;
+}
+
 
 table tr.even {
 }
