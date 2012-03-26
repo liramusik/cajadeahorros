@@ -146,3 +146,28 @@ h1 {
 	color: black;
 	font-size: 12px;
 }
+
+table {
+	width: 100%;
+}
+
+table tr td.cuota,
+table tr td.fecha {
+	text-align: center;
+}
+
+table tr td.interes,
+table tr td.amortizacion {
+	text-align: right;
+}
+
+table thead tr {
+
+}
+
+table tr.even {
+}
+
+table tr.odd {
+	background: #FECC41;
+}
