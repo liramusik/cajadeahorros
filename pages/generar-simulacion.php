@@ -41,6 +41,7 @@ class simulacion {
 		$this->imprimir($intereses, $fechas, $total_intereses);
 	}
 	private function intereses_amortizacion() {
+		$total_intereses = 0;
 		$intereses = array();
 		$fechas = array();
 		$monto = array();
@@ -49,7 +50,7 @@ class simulacion {
 		$monto[0] = $this->monto;
 		$cuota = ($monto[0] / $this->tiempo);
 		for($i = 1; $i <= $this->tiempo; $i++) {
-			$intereses[$i] = (($monto[$i - 1] * 6)) / 100;
+			$intereses[$i] = (($monto[$i - 1] * 6) / 100);
 			$total_intereses += $intereses[$i];
 			$amortizacion[$i] = $intereses[$i] + $cuota;
 			$monto[$i] = $monto[$i-1] - $cuota;
