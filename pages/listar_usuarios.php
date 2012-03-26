@@ -20,6 +20,7 @@
 				<tr>
 					<td><?php print $rows->nombre; ?></td>
 					<td><?php print $rows->apellido; ?></td>
+					<td><a href="<?php print "index.php?page=notificar&n_cedula=" . $rows->cedula; ?>">Notificar</a></td>
 					<td><a href="<?php print "index.php?page=modificar_usuarios&m_cedula=" . $rows->cedula; ?>">Modificar</a></td>
 					<td><a href="<?php print "index.php?page=listar_usuarios&d_cedula=" . $rows->cedula; ?>">Deshabilitar</a></td>
 				</tr>
