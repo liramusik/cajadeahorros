@@ -119,3 +119,30 @@ h1 {
 	float: left;
 	width: 610px;
 }
+
+#menu-principal ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#menu-principal ul > li > a {
+	text-decoration: none;
+	color: black;
+	font-size: 12px;
+}
+
+#menu-principal ul > li > ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+#menu-principal ul > li > ul > li {
+}
+
+#menu-principal ul > li > ul > li a {
+	text-decoration: none;
+	color: black;
+	font-size: 12px;
+}
