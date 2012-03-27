@@ -118,6 +118,10 @@ h1 {
 	width: 740px;
 }
 
+#menu-principal {
+	margin: 30px 0 0 20px;
+}
+
 #menu-principal ul {
 	margin: 0;
 	padding: 0;
@@ -125,9 +129,9 @@ h1 {
 }
 
 #menu-principal ul > li > a {
+	color: #33170D;
+	font-size: 18px;
 	text-decoration: none;
-	color: black;
-	font-size: 12px;
 }
 
 #menu-principal ul > li > ul {
