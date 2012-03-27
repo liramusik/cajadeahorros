@@ -16,9 +16,14 @@
 		}
 		?>
 		<h1>Listado de Usuarios</h1>
-		<form>
-			<input id="buscar" type="text" />
-		</form>
+		<script>
+			$(document).ready(function() {
+				$('#listado').dataTable({
+					"bLengthChange": false,
+					"bInfo": false
+				});
+			});
+		</script>
 		<table id="listado">
 			<thead>
 				<tr>
@@ -31,30 +36,16 @@
 					<th></th>
 				</tr>
 			</thead>
-			<?php $i = 0; ?>
 			<?php while($rows = pg_fetch_object($result)): ?>
-				<?php if($i % 2 == 0): ?>
-					<tr class="even">
-						<td><?php print $rows->nombre; ?></td>
-						<td><?php print $rows->apellido; ?></td>
-						<td><?php print $rows->telefono; ?></td>
-						<td><?php print $rows->email; ?></td>
-						<td><a href="<?php print "index.php?page=notificar&n_cedula=" . $rows->cedula; ?>"><img src="img/notificar.png" title="Notificar" alt="Notificar"></a></td>
-						<td><a href="<?php print "index.php?page=modificar_usuarios&m_cedula=" . $rows->cedula; ?>"><img src="img/modificar.png" title="Modificar" alt="Modificar"></a></td>
-						<td><a href="<?php print "index.php?page=listar_usuarios&d_cedula=" . $rows->cedula; ?>"><img src="img/deshabilitar.png" title="Deshabilitar" alt="Deshabilitar"></a></td>
-					</tr>
-				<?php else: ?>
-					<tr class="odd">
-						<td><?php print $rows->nombre; ?></td>
-						<td><?php print $rows->apellido; ?></td>
-						<td><?php print $rows->telefono; ?></td>
-						<td><?php print $rows->email; ?></td>
-						<td><a href="<?php print "index.php?page=notificar&n_cedula=" . $rows->cedula; ?>"><img src="img/notificar.png" title="Notificar" alt="Notificar"></a></td>
-						<td><a href="<?php print "index.php?page=modificar_usuarios&m_cedula=" . $rows->cedula; ?>"><img src="img/modificar.png" title="Modificar" alt="Modificar"></a></td>
-						<td><a href="<?php print "index.php?page=listar_usuarios&d_cedula=" . $rows->cedula; ?>"><img src="img/deshabilitar.png" title="Deshabilitar" alt="Deshabilitar"></a></td>
-					</tr>
-				<?php endif; ?>
-				<?php $i++; ?>
+				<tr>
+					<td><?php print $rows->nombre; ?></td>
+					<td><?php print $rows->apellido; ?></td>
+					<td><?php print $rows->telefono; ?></td>
+					<td><?php print $rows->email; ?></td>
+					<td><a href="<?php print "index.php?page=notificar&n_cedula=" . $rows->cedula; ?>"><img src="img/notificar.png" title="Notificar" alt="Notificar"></a></td>
+					<td><a href="<?php print "index.php?page=modificar_usuarios&m_cedula=" . $rows->cedula; ?>"><img src="img/modificar.png" title="Modificar" alt="Modificar"></a></td>
+					<td><a href="<?php print "index.php?page=listar_usuarios&d_cedula=" . $rows->cedula; ?>"><img src="img/deshabilitar.png" title="Deshabilitar" alt="Deshabilitar"></a></td>
+				</tr>
 			<?php endwhile; ?>
 		</table>
 	<?php endif; ?>

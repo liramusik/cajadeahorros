@@ -4,7 +4,7 @@
 <form action="index.php?page=generar-simulacion" method="post" id="simula" name="simula">
 	<fieldset>
 		<legend>Datos de la Simulación</legend>
-		<table>
+		<table id="listado">
 			<tr>
 				<td>
 					<label for="cedula">Cédula de Identidad</label>

@@ -179,8 +179,12 @@ table td {
 
 
 table tr.even {
+	background: #FECC41;
 }
 
 table tr.odd {
-	background: #FECC41;
+}
+
+table#listado {
+	cursor: pointer;
 }
