@@ -54,7 +54,7 @@
 				<?php $i++; ?>
 			<?php endwhile; ?>
 		</table>
+	<?php endif; ?>
        <?php else: ?>
                 <div class="mensaje">Usted no posee privilegios ver esta pagina <a href="index.php">Regresar</a></div>
-	<?php endif; ?>
 <?php endif; ?>

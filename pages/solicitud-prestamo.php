@@ -51,7 +51,7 @@
 						<label for="observacion">Observación</label>
 					</td>
 					<td>
-						<textarea name="observacion"></textarea>
+						<textarea name="observacion" ></textarea>
 					</td>
 				</tr>
 			</table>
@@ -59,3 +59,5 @@
 		<input class="boton1" type="submit" value="Enviar" />
 	</form>
 <?php endif; ?>
+        <div class="mensaje">Usted no posee privilegios <a href="index.php">Regresar</a></div>
+
