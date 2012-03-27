@@ -50,8 +50,8 @@
 					<td><?php print $rows->telefono; ?></td>
 					<td><?php print $rows->email; ?></td>
 					<td><a href="<?php print "index.php?page=notificar&n_cedula=" . $rows->cedula; ?>"><img src="img/notificar.png" title="Notificar" alt="Notificar"></a></td>
-					<td><a href="<?php print "index.php?page=modificar_usuarios&m_cedula=" . $rows->cedula; ?>"><img src="img/modificar.png" title="Modificar" alt="Modificar"></a></td>
-					<td><a href="<?php print "index.php?page=listar_usuarios&d_cedula=" . $rows->cedula; ?>"><img src="img/deshabilitar.png" title="Deshabilitar" alt="Deshabilitar"></a></td>
+					<td><a href="<?php print "index.php?page=modificar-usuarios&m_cedula=" . $rows->cedula; ?>"><img src="img/modificar.png" title="Modificar" alt="Modificar"></a></td>
+					<td><a href="<?php print "index.php?page=listar-usuarios&d_cedula=" . $rows->cedula; ?>"><img src="img/deshabilitar.png" title="Deshabilitar" alt="Deshabilitar"></a></td>
 				</tr>
 			<?php endwhile; ?>
 		</table>

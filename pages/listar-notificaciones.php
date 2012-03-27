@@ -7,7 +7,7 @@
 
 		$db_connect = pg_connect("host=$db_hostname dbname=$db_database user=$db_username password=$db_password") or die ("Imposible conectarse al servidor " . pg_last_error());
 
-		$query = "select fecha, asunto, nombre, apellido, email from tb_notificaciones left join tb_usuarios on cedula_usuario = cedula order by fecha desc;";
+		$query = "select id, fecha, asunto, nombre, apellido, email from tb_notificaciones left join tb_usuarios on cedula_usuario = cedula order by fecha desc;";
 
 		$result = pg_query($db_connect, $query);
 		if(!$result) {
@@ -44,7 +44,7 @@
 					<td><?php print date("d-m-Y H:i", $rows->fecha); ?></td>
 					<td><?php print $rows->nombre . " " . $rows->apellido; ?></td>
 					<td><?php print $rows->email; ?></td>
-					<td><?php print $rows->asunto; ?></td>
+					<td><a href="index.php?page=descripcion-notificacion&n_notificacion=<?php print $rows->id; ?>"><?php print $rows->asunto; ?></a></td>
 				</tr>
 			<?php endwhile; ?>
 		</table>
