@@ -4,7 +4,10 @@
 			<a href="index.php">Inicio</a>
 		</li>
 		<li>
-			<li><a href="index.php?page=listar_usuarios">Usuarios</a></li>
+			<li><a href="index.php?page=listar-usuarios">Usuarios</a></li>
+		</li>
+		<li>
+			<li><a href="index.php?page=listar-notificaciones">Notificaciones</a></li>
 		</li>
 		<li>
 			<a href="#">Préstamo</a>
