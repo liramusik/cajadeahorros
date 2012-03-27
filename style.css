@@ -131,6 +131,7 @@ h1 {
 }
 
 #menu-principal ul > li > ul {
+	display: none;
 	margin: 0 0 0 20px;
 	padding: 0;
 	list-style: none;
