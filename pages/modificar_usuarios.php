@@ -54,7 +54,7 @@
 									<?php endwhile; ?>
 								</select>
 							<?php else: ?>
-								<select name="select" disabled>
+								<select name="select" readonly="readonly">
 									<?php while($rows = pg_fetch_object($result_roles)): ?>
 										<option value="<?php print $rows->id; ?>" <?php ($id_rol == $rows->id) ? print "selected" : print ""; ?>><?php print $rows->descripcion; ?></option>
 									<?php endwhile; ?>
@@ -75,8 +75,8 @@
 					<tr>
 						<td>
 							<label for="id_user">Cedula : *</label>        		
-							<input type="number" name="nacionalidad" id="nacionalidad" title="Nacionalidad" size="1" maxlength="1" value="<?php print $nacionalidad; ?>" disabled required />
-							<input type="number" name="id_user" id="cedula" title="Cedula" pattern="[0-9]{3,}" size="8" maxlength="20" placeholder="Cedula" autocomplete="off" value="<?php print $cedula; ?>" disabled required />
+							<input type="number" name="nacionalidad" id="nacionalidad" title="Nacionalidad" size="1" maxlength="1" value="<?php print $nacionalidad; ?>" readonly="readonly" required />
+							<input type="number" name="id_user" id="cedula" title="Cedula" pattern="[0-9]{3,}" size="8" maxlength="20" placeholder="Cedula" autocomplete="off" value="<?php print $cedula; ?>" readonly="readonly" required />
 						</td>
 						<td>
 							<label for="phone_user">Telefono : *</label><br>
@@ -99,7 +99,7 @@
 							<?php if(($_SESSION['session_id_rol'] == 1)): ?>
 								<input type="number" name="datein_user" id="datein_user" title="Fecha de ingreso" maxlength="40" placeholder="Fecha de ingreso" autocomplete="off" value="<?php print $fecha_ingreso; ?>" required />
 							<?php else: ?>
-								<input type="number" name="datein_user" id="datein_user" title="Fecha de ingreso" maxlength="40" placeholder="Fecha de ingreso" autocomplete="off" value="<?php print $fecha_ingreso; ?>" disabled required />
+								<input type="number" name="datein_user" id="datein_user" title="Fecha de ingreso" maxlength="40" placeholder="Fecha de ingreso" autocomplete="off" value="<?php print $fecha_ingreso; ?>" readonly="readonly" required />
 							<?php endif; ?>
 						</td>
 						<td>
@@ -115,7 +115,7 @@
 					<tr>
 						<td>
 							<label for="user_user">Usuario : *</label><br>
-							<input type="text" name="user_user" id="user_user" title="Usuario" maxlength="40" placeholder="Usuario" autocomplete="off" value="<?php print $usuario; ?>" disabled required/>
+							<input type="text" name="user_user" id="user_user" title="Usuario" maxlength="40" placeholder="Usuario" autocomplete="off" value="<?php print $usuario; ?>" readonly="readonly" required/>
 						</td>
 					</tr>
 					<tr>
