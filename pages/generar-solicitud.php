@@ -16,6 +16,9 @@ $sql = "INSERT INTO tb_solicitud_prestamo (cedula_usuario, monto, fecha, tiempo,
 
 $result = pg_query($db_connect, $sql);
      if (!$result) {
-         die("Error in SQL query: " . pg_last_error());
+         print ("Error in SQL query: " . pg_last_error());
      }
+
 ?>
+<div class="mensaje">Su solicitud de prestamos se realizo con exito <a href="index.php">Aceptar</a></div>
+
