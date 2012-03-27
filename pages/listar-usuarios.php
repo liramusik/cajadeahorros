@@ -51,11 +51,8 @@
 					<td><?php print $rows->email; ?></td>
 					<td><a href="<?php print "index.php?page=notificar&n_cedula=" . $rows->cedula; ?>"><img src="img/notificar.png" title="Notificar" alt="Notificar"></a></td>
 					<td><a href="<?php print "index.php?page=modificar-usuarios&m_cedula=" . $rows->cedula; ?>"><img src="img/modificar.png" title="Modificar" alt="Modificar"></a></td>
-<<<<<<< HEAD
 					<td><a href="<?php print "index.php?page=deshabilitar-usuarios&d_cedula=" . $rows->cedula; ?>"><img src="img/deshabilitar.png" title="Deshabilitar" alt="Deshabilitar"></a></td>
-=======
 					<td><a href="<?php print "index.php?page=listar-usuarios&d_cedula=" . $rows->cedula; ?>"><img src="img/deshabilitar.png" title="Deshabilitar" alt="Deshabilitar"></a></td>
->>>>>>> 0e4dd75a2bf08e7abaa6e1733a43b2c9e753c746
 				</tr>
 			<?php endwhile; ?>
 		</table>
