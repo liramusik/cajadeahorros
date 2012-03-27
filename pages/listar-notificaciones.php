@@ -26,6 +26,7 @@
 			$('#listado').dataTable({
 				"bLengthChange": false,
 				"bInfo": false,
+				"aaSorting": [[ 0, "desc" ]],
 				"oLanguage": {
 					"sSearch": "",
 					"oPaginate": {

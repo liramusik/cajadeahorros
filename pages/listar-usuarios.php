@@ -31,6 +31,9 @@
 				});
 			});
 		</script>
+		<div class="notificar-todos">
+			<a href="index.php?page=notificar&n_cedula=all"><img src="img/notificar.png" title="Notificar a todos" alt="Notificar a todos"></a>
+		</div>
 		<table id="listado">
 			<thead>
 				<tr>
