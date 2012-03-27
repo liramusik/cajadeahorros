@@ -58,6 +58,6 @@
 		</fieldset>
 		<input class="boton1" type="submit" value="Enviar" />
 	</form>
-<?php endif; ?>
+<?php else: ?>
         <div class="mensaje">Usted no posee privilegios <a href="index.php">Regresar</a></div>
-
+<?php endif; ?>
