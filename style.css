@@ -189,6 +189,6 @@ table tr.even {
 table tr.odd {
 }
 
-table#listado {
+table#listado th {
 	cursor: pointer;
 }
