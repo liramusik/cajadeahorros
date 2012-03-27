@@ -10,7 +10,7 @@
 					<label for="cedula">Cédula de Identidad</label>
 				</td>
 				<td>
-					<input name="cedula" type="text" value="<?php print $cedula; ?>" disabled />
+					<input name="cedula" type="text" value="<?php print $cedula; ?>" readonly="readonly" />
 				</td>
 			</tr>
 			<tr>

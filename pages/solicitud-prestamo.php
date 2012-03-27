@@ -1,7 +1,6 @@
 <?php if(isset($_SESSION['session_usuario'])): ?>
 	<?php $cedula = $_SESSION['session_cedula']; ?>
 
-
 	<?php
 	$monto = $_GET['monto'];
 	$tiempo = $_GET['tiempo'];
@@ -18,7 +17,7 @@
 						<label for="cedula">Cédula de Identidad</label>
 					</td>
 					<td>
-						<input name="cedula" type="number" pattern="[0-9]{3,}" value="<?php print $cedula; ?>" disabled />
+						<input name="cedula" type="number" pattern="[0-9]{3,}" value="<?php print $cedula; ?>" readonly="readonly"/>
 					</td>
 				</tr>
 				<tr>
@@ -26,7 +25,7 @@
 						<label for="monto">Monto</label>
 					</td>
 					<td>
-					<input name="monto" type="number" pattern="[0-9]{2,}" value="<?php print $monto; ?>" <?php isset($monto) ? print "disabled" : "" ?>  required/>
+					<input name="monto" type="number" pattern="[0-9]{2,}" value="<?php print $monto; ?>" <?php isset($monto) ? print 'readonly="readonly"' : "" ?>  required/>
 					</td>
 				</tr>
 				<tr>
@@ -34,7 +33,7 @@
 						<label for="tiempo">Tiempo</label>
 					</td>
 					<td>
-						<input name="tiempo" type="number" pattern="[0-9]{1,}" value="<?php print $tiempo; ?>" <?php isset($tiempo) ? print "disabled" : "" ?> required/>
+						<input name="tiempo" type="number" pattern="[0-9]{1,}" value="<?php print $tiempo; ?>" <?php isset($tiempo) ? print 'readonly="readonly"' : "" ?> required/>
 					</td>
 				</tr>
 				<tr>
