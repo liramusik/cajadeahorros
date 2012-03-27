@@ -1,13 +1,20 @@
-<?php if(isset($_SESSION['session_usuario']) && ($_SESSION['session_id_rol'] == 1)): ?>
+<?php if(isset($_SESSION['session_usuario'])): ?>
 		<?php
 		$db_hostname = "localhost";
 		$db_database = "db_cadeveher";
 		$db_username = "user_cadeveher";
 		$db_password = "123456";
 
+		$cedula = $_SESSION['session_cedula'];
+
 		$db_connect = pg_connect("host=$db_hostname dbname=$db_database user=$db_username password=$db_password") or die ("Imposible conectarse al servidor " . pg_last_error());
 
-		$query = "select id, fecha, asunto, nombre, apellido, email from tb_notificaciones left join tb_usuarios on cedula_usuario = cedula order by fecha desc;";
+
+		if($_SESSION['session_id_rol'] == 1) {
+			$query = "select id, fecha, asunto, nombre, apellido, email from tb_notificaciones left join tb_usuarios on cedula_usuario = cedula order by fecha desc";
+		} else {
+			$query = "select id, fecha, asunto, nombre, apellido, email from tb_notificaciones left join tb_usuarios on cedula_usuario = cedula where cedula=$cedula order by fecha desc";
+		}
 
 		$result = pg_query($db_connect, $query);
 		if(!$result) {
@@ -44,7 +51,7 @@
 					<td><?php print date("d-m-Y H:i", $rows->fecha); ?></td>
 					<td><?php print $rows->nombre . " " . $rows->apellido; ?></td>
 					<td><?php print $rows->email; ?></td>
-					<td><a href="index.php?page=descripcion-notificacion&n_notificacion=<?php print $rows->id; ?>"><?php print $rows->asunto; ?></a></td>
+					<td><a href="index.php?page=mostrar-notificacion&n_notificacion=<?php print $rows->id; ?>"><?php print $rows->asunto; ?></a></td>
 				</tr>
 			<?php endwhile; ?>
 		</table>
