@@ -51,7 +51,7 @@
 						<label for="observacion">Observación</label>
 					</td>
 					<td>
-						<textarea name="observacion" ></textarea>
+						<textarea name="observacion" maxlength="250"></textarea>
 					</td>
 				</tr>
 			</table>
