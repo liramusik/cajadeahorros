@@ -20,7 +20,14 @@
 			$(document).ready(function() {
 				$('#listado').dataTable({
 					"bLengthChange": false,
-					"bInfo": false
+					"bInfo": false,
+					"oLanguage": {
+						"sSearch": "",
+						"oPaginate": {
+							"sPrevious": "Atras",
+							"sNext": "Siguiente"
+						}
+					}
 				});
 			});
 		</script>
