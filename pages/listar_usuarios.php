@@ -16,7 +16,10 @@
 		}
 		?>
 		<h1>Listado de Usuarios</h1>
-		<table>
+		<form>
+			<input id="buscar" type="text" />
+		</form>
+		<table id="listado">
 			<thead>
 				<tr>
 					<th>Nombre</th>
