@@ -80,6 +80,14 @@ create table tb_prestamo (
 	primary key(id_solicitud_prestamo, id_transaccion)
 );
 
+create table tb_notificaciones (
+	id				serial primary key,
+	cedula_usuario			integer references tb_usuarios(cedula),
+	fecha				integer not null,
+	asunto				varchar(255) not null,
+	mensaje				text not null
+);
+
 comment on column tb_roles.id is 'ID del rol';
 comment on column tb_roles.descripcion is 'Descripción del rol Administrador, Asociado, No Asociado';
 
@@ -130,6 +138,12 @@ comment on column tb_solicitud_prestamo.porcentaje is 'Porcentaje';
 comment on column tb_solicitud_prestamo.observacion is 'Observación';
 comment on column tb_solicitud_prestamo.respuesta is 'Respuesta';
 
+comment on column tb_notificaciones.id is 'ID de la notificación';
+comment on column tb_notificaciones.cedula_usuario is 'Cédula de identidad del usuario';
+comment on column tb_notificaciones.fecha is 'Fecha de envío de la notificación';
+comment on column tb_notificaciones.asunto is 'Asunto';
+comment on column tb_notificaciones.mensaje is 'Mensaje';
+
 insert into tb_roles values(default, 'Administrador');
 insert into tb_roles values(default, 'Asociado');
 insert into tb_roles values(default, 'No Asociado');
@@ -156,3 +170,4 @@ insert into tb_tipo_pago values(default, 'Pago de Intereses');
 insert into tb_estatus_solicitud_prestamo values(default, 'Pendiente');
 insert into tb_estatus_solicitud_prestamo values(default, 'Aprobado');
 insert into tb_estatus_solicitud_prestamo values(default, 'Rechazado');
+insert into tb_estatus_solicitud_prestamo values(default, 'Pagado');
