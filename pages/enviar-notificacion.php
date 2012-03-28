@@ -20,6 +20,9 @@
 		if(!$results) {
 			print "Ha ocurrido un error " . pg_last_error();
 		}
+		if(!empty($emails[$i])) {
+			mail($emails[$i], $asunto, wordwrap($mensaje));
+		}
 	}
 	?>
 <?php else: ?>
