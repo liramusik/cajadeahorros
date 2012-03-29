@@ -21,7 +21,7 @@
 					"bLengthChange": false,
 					"bInfo": false,
 					"oLanguage": {
-						"sSearch": "",
+						"sSearch": "Filtrar usuarios",
 						"oPaginate": {
 							"sPrevious": "Atras",
 							"sNext": "Siguiente"
