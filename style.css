@@ -151,6 +151,7 @@ h1 {
 }
 
 table {
+	margin-top: 10px;
 	border-spacing: 0;
 	width: 100%;
 }
