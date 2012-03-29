@@ -12,7 +12,7 @@
 	if(isset($cedula) and ($cedula == 'all')) {
 		$query = "select cedula, nombre, apellido, email from tb_usuarios where estatus=true";
 	} elseif($cedula != 'all') {
-		$query = "select cedula, nombre, apellido, email from tb_usuarios where cedula=$cedula";
+		$query = "select cedula, nombre, apellido, email from tb_usuarios where cedula=$cedula and estatus=true";
 	}
 	$result = pg_query($db_connect, $query);
 
