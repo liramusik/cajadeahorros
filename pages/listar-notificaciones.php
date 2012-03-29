@@ -37,9 +37,7 @@
 			});
 		});
 	</script>
-	<div class="notificar-todos">
-		<a href="index.php?page=notificar&n_cedula=all"><img src="img/notificar.png" title="Notificar a todos" alt="Notificar a todos"></a>
-	</div>
+	<div class="notificar-todos">Presione clic <a href="index.php?page=notificar&n_cedula=all">aquí</a> si desea notificar a todos los asociados</div>
 	<table id="listado">
 		<thead>
 			<tr>
