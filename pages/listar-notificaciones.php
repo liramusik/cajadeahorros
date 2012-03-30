@@ -38,7 +38,7 @@
 				<td><?php print date("d-m-Y H:i", $rows->fecha); ?></td>
 				<td><?php print $rows->nombre . " " . $rows->apellido; ?></td>
 				<td><?php print $rows->email; ?></td>
-				<td><a href="index.php?page=mostrar-notificacion&n_notificacion=<?php print $rows->id; ?>"><?php print $rows->asunto; ?></a></td>
+				<td><a href="index.php?page=ver-notificacion&n_notificacion=<?php print $rows->id; ?>"><?php print $rows->asunto; ?></a></td>
 			</tr>
 		<?php endwhile; ?>
 	</table>
