@@ -8,7 +8,7 @@
 		<ul class="subnavegador">
 			<li><a href="index.php?page=solicitud-prestamo">Solicitar</a></li>
 			<li><a href="index.php?page=simulacion">Simulación</a></li>
-			<li><a href="index.php?page=listar-solicitud-prestamos">Listar</a></li>
+			<li><a href="index.php?page=listar-prestamos">Listar</a></li>
 		</ul>
 	</li>
 </ul>
