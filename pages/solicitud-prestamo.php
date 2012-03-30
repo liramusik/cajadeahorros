@@ -2,9 +2,9 @@
 	<?php $cedula = $_SESSION['session_cedula']; ?>
 
 	<?php
-	$monto = $_GET['monto'];
-	$tiempo = $_GET['tiempo'];
-	$pago = $_GET['pago'];
+	if(isset($_GET['monto'])) { $monto = $_GET['monto']; }
+	if(isset($_GET['tiempo'])) { $tiempo = $_GET['tiempo']; }
+	if(isset($_GET['pago'])) { $pago = $_GET['pago']; }
 	?>
 
 	<h1>Solicitud de Préstamo</h1>
