@@ -9,6 +9,8 @@
 
 	//}
 	?>
+	<h1>Detalles de Préstamo</h1>
+	<h2></h2>
 <?php else: ?>
 	<div class="mensaje">Usted no posee privilegios ver esta pagina <a href="index.php">Regresar</a></div>
 <?php endif; ?>
