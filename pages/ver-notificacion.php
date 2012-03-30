@@ -1,22 +1,10 @@
 <?php if(isset($_SESSION['session_usuario'])): ?>
 	<?php
-	$db_hostname = "localhost";
-	$db_database = "db_cadeveher";
-	$db_username = "user_cadeveher";
-	$db_password = "123456";
+	$notificacion = $_GET['notificacion'];
 
-	$db_connect = pg_connect("host=$db_hostname dbname=$db_database user=$db_username password=$db_password") or die ("Imposible conectarse al servidor " . pg_last_error());
+	$n->setQuery("select fecha, asunto, mensaje, nombre, apellido, email from tb_notificaciones left join tb_usuarios on cedula_usuario = cedula where id=$notificacion;");
 
-	$notificacion = $_GET['n_notificacion'];
-
-	$query = "select fecha, asunto, mensaje, nombre, apellido, email from tb_notificaciones left join tb_usuarios on cedula_usuario = cedula where id=$notificacion;";
-
-	$result = pg_query($db_connect, $query);
-	if(!$result) {
-		print "Error " . pg_last_error();
-	}
-
-	while($rows = pg_fetch_object($result)) {
+	while($rows = pg_fetch_object($n->getQuery())) {
 		$db_fecha = $rows->fecha;
 		$db_asunto = $rows->asunto;
 		$db_mensaje  = $rows->mensaje;
