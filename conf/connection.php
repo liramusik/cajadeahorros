@@ -14,9 +14,6 @@ class connection {
 		$this->connect = pg_connect("host=$this->hostname dbname=$this->database user=$this->username password=$this->password")
 			or die ("Imposible conectarse al servidor " . pg_last_error());
 	}
-	public function __destruct() {
-		pg_close($this->connect);
-	}
 	public function setQuery($str) {
 		$this->result = pg_query($this->connect, $str);
 		if(!$this->result) {
