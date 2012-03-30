@@ -7,11 +7,16 @@
 <script language="javascript" src="js/jquery.min.js"></script>
 <script language="javascript" src="js/jquery.validate.min.js"></script>
 <script language="javascript" src="js/headers.js"></script>
-<script language="javascript" src="js/jquery.lksMenu.js"></script>
 <script language="javascript" src="js/jquery.dataTables.js"></script>
-<script language="javascript">
-	$('document').ready(function(){
-		$('#menu-principal').lksMenu();
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("ul.subnavegador").not('.selected').hide();
+		$("a.desplegable").click(function(e) {
+			var desplegable = $(this).parent().find("ul.subnavegador");
+			$('.desplegable').parent().find("ul.subnavegador").not(desplegable).slideUp('slow');
+			desplegable.slideToggle('slow');
+			e.preventDefault();
+		});
 	});
 </script>
 </head>
