@@ -7,7 +7,7 @@
 
 	$db_connect = pg_connect("host=$db_hostname dbname=$db_database user=$db_username password=$db_password") or die ("Imposible conectarse al servidor " . pg_last_error());
 
-	$cedula = trim($_GET['n_cedula']);
+	$cedula = trim($_GET['cedula']);
 
 	if(isset($cedula) and ($cedula == 'all')) {
 		$query = "select cedula, nombre, apellido, email from tb_usuarios where estatus=true";

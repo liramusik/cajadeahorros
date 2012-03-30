@@ -7,7 +7,7 @@
 
 	$db_connect = pg_connect("host=$db_hostname dbname=$db_database user=$db_username password=$db_password") or die ("Imposible conectarse al servidor " . pg_last_error());
 
-	$cedula = $_GET['m_cedula'];
+	$cedula = $_GET['cedula'];
 
 	$query_usuarios = "select * from tb_usuarios left join tb_nacionalidad on id_nacionalidad = tb_nacionalidad.id left join tb_roles on id_rol = tb_roles.id where cedula=$cedula;";
 	$query_roles = "select * from tb_roles";
