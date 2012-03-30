@@ -2,7 +2,7 @@
 	<?php
 	$notificacion = $_GET['notificacion'];
 
-	$n->setQuery("select fecha, asunto, mensaje, nombre, apellido, email from tb_notificaciones left join tb_usuarios on cedula_usuario = cedula where id=$notificacion;");
+	$c->setQuery("select fecha, asunto, mensaje, nombre, apellido, email from tb_notificaciones left join tb_usuarios on cedula_usuario = cedula where id=$notificacion;");
 
 	while($rows = pg_fetch_object($n->getQuery())) {
 		$db_fecha = $rows->fecha;

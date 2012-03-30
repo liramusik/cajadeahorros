@@ -1,9 +1,9 @@
 <?php if(isset($_SESSION['session_usuario'])): ?>
 	<?php
 	if($_SESSION['session_id_rol'] == 1) {
-		$n->setQuery("select id, fecha, asunto, nombre, apellido, email from tb_notificaciones left join tb_usuarios on cedula_usuario = cedula order by fecha desc");
+		$c->setQuery("select id, fecha, asunto, nombre, apellido, email from tb_notificaciones left join tb_usuarios on cedula_usuario = cedula order by fecha desc");
 	} else {
-		$n->setQuery("select id, fecha, asunto, nombre, apellido, email from tb_notificaciones left join tb_usuarios on cedula_usuario = cedula where cedula=$cedula order by fecha desc");
+		$c->setQuery("select id, fecha, asunto, nombre, apellido, email from tb_notificaciones left join tb_usuarios on cedula_usuario = cedula where cedula=$cedula order by fecha desc");
 	}
 	?>
 	<h1>Listado de Usuarios</h1>

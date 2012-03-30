@@ -1,10 +1,10 @@
 <?php if(isset($_SESSION['session_usuario'])): ?>
 	<?php
 	if($_SESSION['session_id_rol'] == 1) {
-		$n->setQuery("select tb_solicitud_prestamo.id, cedula, nombre, apellido, monto, fecha, tb_estatus_solicitud_prestamo.estatus from tb_solicitud_prestamo left join tb_estatus_solicitud_prestamo on tb_solicitud_prestamo.id_estatus_solicitud_prestamo = tb_estatus_solicitud_prestamo.id left join tb_usuarios on cedula_usuario = cedula order by fecha desc;");
+		$c->setQuery("select tb_solicitud_prestamo.id, cedula, nombre, apellido, monto, fecha, tb_estatus_solicitud_prestamo.estatus from tb_solicitud_prestamo left join tb_estatus_solicitud_prestamo on tb_solicitud_prestamo.id_estatus_solicitud_prestamo = tb_estatus_solicitud_prestamo.id left join tb_usuarios on cedula_usuario = cedula order by fecha desc;");
 	} else {
 		$cedula = $_SESSION['session_cedula'];
-		$n->setQuery("select tb_solicitud_prestamo.id, cedula, nombre, apellido, monto, fecha, tb_estatus_solicitud_prestamo.estatus from tb_solicitud_prestamo left join tb_estatus_solicitud_prestamo on tb_solicitud_prestamo.id_estatus_solicitud_prestamo = tb_estatus_solicitud_prestamo.id left join tb_usuarios on cedula_usuario = cedula where cedula=$cedula");
+		$c->setQuery("select tb_solicitud_prestamo.id, cedula, nombre, apellido, monto, fecha, tb_estatus_solicitud_prestamo.estatus from tb_solicitud_prestamo left join tb_estatus_solicitud_prestamo on tb_solicitud_prestamo.id_estatus_solicitud_prestamo = tb_estatus_solicitud_prestamo.id left join tb_usuarios on cedula_usuario = cedula where cedula=$cedula");
 	}
 	?>
 	<h1>Listado General de Préstamos</h1>
