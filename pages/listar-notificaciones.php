@@ -33,7 +33,7 @@
 				<th>Asunto</th>
 			</tr>
 		</thead>
-		<?php while($rows = pg_fetch_object($n->getQuery())): ?>
+		<?php while($rows = pg_fetch_object($c->getQuery())): ?>
 			<tr>
 				<td><?php print date("d-m-Y H:i", $rows->fecha); ?></td>
 				<td><?php print $rows->nombre . " " . $rows->apellido; ?></td>

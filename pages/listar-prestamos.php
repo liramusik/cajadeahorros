@@ -34,11 +34,11 @@
 				<th>Estatus</th>
 			</tr>
 		</thead>
-		<?php while($rows = pg_fetch_object($n->getQuery())): ?>
+		<?php while($rows = pg_fetch_object($c->getQuery())): ?>
 			<tr>
 				<td><a href="index.php?page=ver-solicitud&solicitud=<?php print $rows->id; ?>"><?php printf("No.- %05d", $rows->id); ?></a></td>
 				<td><?php print $rows->nombre . " " . $rows->apellido; ?></td>
-				<td><?php print $rows->monto; ?></td>
+				<td><?php printf("%.2f", $rows->monto); ?></td>
 				<td><?php print date("d-m-Y H:i", $rows->fecha); ?></td>
 				<td><?php print $rows->estatus; ?></td>
 			</tr>
