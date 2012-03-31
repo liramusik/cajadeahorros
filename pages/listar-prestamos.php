@@ -15,7 +15,7 @@
 				"bInfo": false,
 				"aaSorting": [[ 0, "desc" ]],
 				"oLanguage": {
-					"sSearch": "Filtrar usuarios",
+					"sSearch": "",
 					"oPaginate": {
 						"sPrevious": "Atras",
 						"sNext": "Siguiente"
