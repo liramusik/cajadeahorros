@@ -29,7 +29,7 @@
 			<tr>
 				<td class="cuota"><?php print $i; ?></td>
 				<td class="interes"><?php printf("%1\$.2f", $intereses[$i]); ?></td>
-				<td class="fecha"><?php print date("d-m-Y", $fechas[$i]); ?></td>
+				<td class="fecha"><?php print date("d/m/Y", $fechas[$i]); ?></td>
 			</tr>
 		<?php endfor; ?>
 	<?php elseif($this->pago == 2): ?>
@@ -44,7 +44,7 @@
 				<td class="cuota"><?php print $i; ?></td>
 				<td class="interes"><?php printf("%1\$.2f", $intereses[$i]); ?></td>
 				<td class="amortizacion"><?php printf("%1\$.2f", $amortizacion[$i]); ?></td>
-				<td class="fecha"><?php print date("d-m-Y", $fechas[$i]); ?></td>
+				<td class="fecha"><?php print date("d/m/Y", $fechas[$i]); ?></td>
 			</tr>
 		<?php endfor; ?>
 	<?php endif; ?>
