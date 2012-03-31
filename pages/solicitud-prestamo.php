@@ -40,9 +40,9 @@
 					<td>
 						<label for="pago">Forma de pago</label>
 					</td>
-					<td>
-						<input name="pago" type="radio" value="1" <?php if(isset($pago) and ($pago==1)) { print "checked"; } elseif(!isset($pago)) { print "checked"; } ?> /> Pago de intereses<br />
-						<input name="pago" type="radio" value="2" <?php if(isset($pago) and ($pago==2)) { print "checked"; } ?> /> Pago de intereres, mas amortización a capital
+					 <td>
+						<input name="pago" type="radio" value="1" <?php if(isset($pago) and ($pago==1)) { print "checked "; print "disabled"; } elseif(!isset($pago)) { print "checked "; } else { print "disabled"; } ?> /> Pago de intereses<br />
+						<input name="pago" type="radio" value="2" <?php if(isset($pago) and ($pago==2)) { print "checked "; print "disabled"; } else { print "disabled"; } ?> /> Pago de intereres, mas amortización a capital
 					</td>
 				</tr>
 				<tr>
