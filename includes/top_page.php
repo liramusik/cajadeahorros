@@ -4,9 +4,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Caja de Ahorrro</title>
 <link href="css/style.css" rel="stylesheet" type="text/css" />
-<link href="jquery.ui/css/ui-lightness/jquery-ui-1.8.18.custom.css" rel="stylesheet" type="text/css" />
-<script language="javascript" src="jquery.ui/js/jquery-1.7.1.min.js"></script>
-<script language="javascript" src="jquery.ui/js/jquery-ui-1.8.18.custom.min.js"></script>
+<link href="js/jquery.ui/css/ui-lightness/jquery-ui-1.8.18.custom.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="js/jquery.ui/js/jquery-1.7.1.min.js"></script>
+<script language="javascript" src="js/jquery.ui/js/jquery-ui-1.8.18.custom.min.js"></script>
 <script language="javascript" src="js/jquery.dataTables.js"></script>
 <script type="text/javascript">
         $(function() {
