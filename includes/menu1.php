@@ -8,7 +8,10 @@
 	<div class="group">
 		<h3><a href="#">Usuarios</a></h3>
 		<div>
-			<a href="index.php?page=listar-usuarios">Usuarios</a>
+			<ul>
+				<li><a href="index.php?page=agregar-usuarios">Agregar</a></li>
+				<li><a href="index.php?page=listar-usuarios">Listar</a></li>
+			</ul>
 		</div>
 	</div>
 	<div class="group">
