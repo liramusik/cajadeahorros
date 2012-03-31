@@ -23,7 +23,11 @@
                                         ui.item.children( "h3" ).triggerHandler( "focusout" );
                                 }
                         });
-        });
+	});
+	$(function() {
+		$("#datein_user").datepicker();
+		$("#datexit_user").datepicker();
+	});
 </script>
 </head>
 <body>
