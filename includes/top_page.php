@@ -3,8 +3,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Caja de Ahorrro</title>
-<link href="style.css" rel="stylesheet" type="text/css" />
-<script language="javascript" src="js/jquery.min.js"></script>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+<link href="css/jquery-ui-1.8.18.custom.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="js/jquery-1.7.1.min.js"></script>
+<script language="javascript" src="js/jquery-ui-1.8.18.custom.min.js"></script>
 <script language="javascript" src="js/jquery.validate.min.js"></script>
 <script language="javascript" src="js/headers.js"></script>
 <script language="javascript" src="js/jquery.dataTables.js"></script>
