@@ -1,9 +1,9 @@
 <?php if(isset($_SESSION['session_usuario'])): ?>
 	<?php
 	if($_SESSION['session_id_rol'] == 1) {
-		$c->setQuery("select id, fecha, asunto, nombre, apellido, email from tb_notificaciones left join tb_usuarios on cedula_usuario = cedula order by fecha desc");
+		$c->setQuery("select id, to_char(fecha, 'DD/MM/YYYY HH:MI a.m.') as fecha, asunto, nombre, apellido, email from tb_notificaciones left join tb_usuarios on cedula_usuario = cedula order by fecha desc");
 	} else {
-		$c->setQuery("select id, fecha, asunto, nombre, apellido, email from tb_notificaciones left join tb_usuarios on cedula_usuario = cedula where cedula=$cedula order by fecha desc");
+		$c->setQuery("select id, to_char(fecha, 'DD/MM/YYYY HH:MI a.m.') as fecha, asunto, nombre, apellido, email from tb_notificaciones left join tb_usuarios on cedula_usuario = cedula where cedula=$cedula order by fecha desc");
 	}
 	?>
 	<h1>Listado de Usuarios</h1>
@@ -35,7 +35,7 @@
 		</thead>
 		<?php while($rows = pg_fetch_object($c->getQuery())): ?>
 			<tr>
-				<td><?php print date("d-m-Y H:i", $rows->fecha); ?></td>
+				<td><?php print $rows->fecha; ?></td>
 				<td><?php print $rows->nombre . " " . $rows->apellido; ?></td>
 				<td><?php print $rows->email; ?></td>
 				<td><a href="index.php?page=ver-notificacion&notificacion=<?php print $rows->id; ?>"><?php print $rows->asunto; ?></a></td>

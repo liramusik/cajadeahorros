@@ -1,4 +1,8 @@
 <?php if(isset($_SESSION['session_usuario'])): ?>
+	<?php
+	$x = new connection();
+	$x->setQuery("select * from tb_roles;");
+	?>
 	<h1>Agregar Usuario</h1>
 	<form action="<?php print $_SERVER['PHP_SELF']; ?>" method="post" id="usuario" name="usuario">
 		<fieldset>
@@ -9,7 +13,7 @@
 						<label for="tipe_user">Tipo de usuario: *</label>
 						<?php if(($_SESSION['session_id_rol'] == 1)): ?>
 							<select name="select">
-								<?php while($rows = pg_fetch_object($result_roles)): ?>
+								<?php while($rows = pg_fetch_object($x->getQuery())): ?>
 									<option value="<?php print $rows->id; ?>" <?php ($id_rol == $rows->id) ? print "selected" : print ""; ?>><?php print $rows->descripcion; ?></option>
 								<?php endwhile; ?>
 							</select>
@@ -35,8 +39,7 @@
 				<tr>
 					<td>
 						<label for="id_user">Cedula : *</label>        		
-						<input type="number" name="nacionalidad" id="nacionalidad" title="Nacionalidad" size="1" maxlength="1" value="<?php print $nacionalidad; ?>" readonly="readonly" required />
-						<input type="number" name="id_user" id="cedula" title="Cedula" pattern="[0-9]{3,}" size="8" maxlength="20" placeholder="Cedula" autocomplete="off" value="<?php print $cedula; ?>" readonly="readonly" required />
+						<input type="number" name="id_user" id="cedula" title="Cedula" pattern="[0-9]{3,}" size="8" maxlength="20" placeholder="Cedula" autocomplete="off" required />
 					</td>
 					<td>
 						<label for="phone_user">Telefono : *</label><br>

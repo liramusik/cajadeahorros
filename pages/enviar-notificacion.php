@@ -2,7 +2,7 @@
 	<?php
 	$emails = preg_split("/\,/", $_POST['emails']);
 	$cedulas = preg_split("/\,/", $_POST['cedulas']);
-	$fecha = time();
+	$fecha = date("Y-m-d H:i:s", time());
 	$asunto = $_POST['asunto'];
 	$mensaje = $_POST['mensaje'];
 
@@ -15,7 +15,8 @@
 
 	for($i = 0; $i < sizeof($cedulas) - 1; $i++) {
 		$ced = $cedulas[$i];
-		$querys = "insert into tb_notificaciones values(default, $ced, $fecha, '" . $asunto . "','" . $mensaje . "')";
+		$querys = "insert into tb_notificaciones values(default, $ced, '" . $fecha . "', '" . $asunto . "','" . $mensaje . "')";
+
 		$results = pg_query($db_connect, $querys);
 		if(!$results) {
 			print "Ha ocurrido un error " . pg_last_error();
@@ -25,6 +26,7 @@
 		}
 	}
 	?>
+	<div class="mensaje">Su notificación ha sido enviada con éxito <a href="index.php">Regresar</a></div>
 <?php else: ?>
 	<div class="mensaje">Usted no posee privilegios <a href="index.php">Regresar</a></div>
 <?php endif; ?>

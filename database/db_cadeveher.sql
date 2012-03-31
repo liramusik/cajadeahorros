@@ -6,7 +6,7 @@ create table tb_roles (
 create table tb_porcentajes (
 	id				serial primary key,
 	id_roles			int references tb_roles(id),
-	fecha				date not null default now(),
+	fecha				timestamp not null default now(),
 	porcentaje			real not null
 );
 
@@ -24,8 +24,8 @@ create table tb_usuarios (
 	telefono			varchar(11) not null,
 	email				varchar(25) not null,
 	direccion			varchar(255) not null,
-	fecha_ingreso			date not null default now(),
-	fecha_egreso			date,
+	fecha_ingreso			timestamp not null default now(),
+	fecha_egreso			timestamp,
 	usuario				varchar(15) not null,
 	password			varchar(33) not null,
 	estatus				boolean default true
@@ -59,7 +59,7 @@ create table tb_transacciones (
 	id_cuenta			int references tb_cuentas(id),
 	id_tipo_transaccion		int references tb_tipo_transacciones(id),
 	id_estatus_transaccion		int references tb_estatus_transacciones(id) default 1,
-	fecha				date not null,
+	fecha				timestamp not null,
 	monto				real not null,
 	deposito			varchar(20)
 );
@@ -80,7 +80,7 @@ create table tb_solicitud_prestamo (
 	id_tipo_pago			int references tb_tipo_pago(id),
 	cedula_usuario			integer references tb_usuarios(cedula),
 	monto				real not null,
-	fecha				date not null,
+	fecha				timestamp not null,
 	tiempo				integer not null,
 	porcentaje			integer,
 	observacion			text,
@@ -96,7 +96,7 @@ create table tb_prestamo (
 create table tb_notificaciones (
 	id				serial primary key,
 	cedula_usuario			integer references tb_usuarios(cedula),
-	fecha				date,
+	fecha				timestamp,
 	asunto				varchar(255) not null,
 	mensaje				text not null
 );
