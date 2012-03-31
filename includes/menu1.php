@@ -2,7 +2,10 @@
 	<div class="group">
 		<h3><a href="#">Inicio</a></h3>
 		<div>
-			<a href="index.php">Inicio</a>
+			<ul>
+				<li><a href="index.php">Inicio</a></li>
+				<li><a href="index.php?page=listar-cuentas">Cuentas</a></li>
+			</ul>
 		</div>
 	</div>
 	<div class="group">
