@@ -3,6 +3,13 @@ create table tb_roles (
 	descripcion			varchar(25)
 );
 
+create table tb_porcentajes (
+	id				serial primary key,
+	id_roles			int references tb_roles(id),
+	fecha				date not null default now(),
+	porcentaje			real not null
+);
+
 create table tb_nacionalidad (
 	id				serial primary key,
 	nacionalidad			varchar(1)
@@ -17,8 +24,8 @@ create table tb_usuarios (
 	telefono			varchar(11) not null,
 	email				varchar(25) not null,
 	direccion			varchar(255) not null,
-	fecha_ingreso			integer not null,
-	fecha_egreso			integer,
+	fecha_ingreso			date not null default now(),
+	fecha_egreso			date,
 	usuario				varchar(15) not null,
 	password			varchar(33) not null,
 	estatus				boolean default true
@@ -52,7 +59,7 @@ create table tb_transacciones (
 	id_cuenta			int references tb_cuentas(id),
 	id_tipo_transaccion		int references tb_tipo_transacciones(id),
 	id_estatus_transaccion		int references tb_estatus_transacciones(id) default 1,
-	fecha				integer not null,
+	fecha				date not null,
 	monto				real not null,
 	deposito			varchar(20)
 );
@@ -73,7 +80,7 @@ create table tb_solicitud_prestamo (
 	id_tipo_pago			int references tb_tipo_pago(id),
 	cedula_usuario			integer references tb_usuarios(cedula),
 	monto				real not null,
-	fecha				integer not null,
+	fecha				date not null,
 	tiempo				integer not null,
 	porcentaje			integer,
 	observacion			text,
@@ -89,7 +96,7 @@ create table tb_prestamo (
 create table tb_notificaciones (
 	id				serial primary key,
 	cedula_usuario			integer references tb_usuarios(cedula),
-	fecha				integer not null,
+	fecha				date,
 	asunto				varchar(255) not null,
 	mensaje				text not null
 );
@@ -160,8 +167,9 @@ insert into tb_roles values(default, 'No Asociado');
 insert into tb_nacionalidad values(default, 'V');
 insert into tb_nacionalidad values(default, 'E');
 
-insert into tb_usuarios values(16409503, 1, 1, 'Lilibeth', 'Ramírez', '04165023756', 'liramusik@gmail.com', 'Caracas - Venezuela', '1332547200', 0, 'liramusik', md5('liramusik'), 'TRUE');
-insert into tb_usuarios values(17108742, 1, 2, 'David', 'Mora', '04264719868', 'davidmora000@gmail.com', 'Caracas - Venezuela', '1332547200', 0, 'davidmora', md5('davidmora'), 'TRUE');
+insert into tb_usuarios values(16409503, 1, 1, 'Lilibeth', 'Ramírez', '04165023756', 'liramusik@gmail.com', 'Caracas - Venezuela', default, null, 'liramusik', md5('liramusik'), 'TRUE');
+insert into tb_usuarios values(17108742, 1, 2, 'David', 'Mora', '04264719868', 'davidmora000@gmail.com', 'Caracas - Venezuela', default, null, 'davidmora', md5('davidmora'), 'TRUE');
+insert into tb_usuarios values(16541550, 1, 3, 'Héctor', 'Lozada', '04268061734', 'imatsu@gmail.com', 'Caracas - Venezuela', default, null, 'hlozada', md5('hlozada'), 'TRUE');
 
 insert into tb_bancos values(default, 'Banco de Venezuela');
 insert into tb_bancos values(default, 'BBVA Banco Provincial');
