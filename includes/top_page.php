@@ -11,15 +11,19 @@
 <script language="javascript" src="js/headers.js"></script>
 <script language="javascript" src="js/jquery.dataTables.js"></script>
 <script type="text/javascript">
-	$(document).ready(function() {
-		$("ul.subnavegador").not('.selected').hide();
-		$("a.desplegable").click(function(e) {
-			var desplegable = $(this).parent().find("ul.subnavegador");
-			$('.desplegable').parent().find("ul.subnavegador").not(desplegable).slideUp('slow');
-			desplegable.slideToggle('slow');
-			e.preventDefault();
-		});
-	});
+        $(function() {
+                $("#ui-accordion")
+                        .accordion({
+                                header: "> div > h3"
+                        })
+                        .sortable({
+                                axis: "y",
+                                handle: "h3",
+                                stop: function(event, ui) {
+                                        ui.item.children( "h3" ).triggerHandler( "focusout" );
+                                }
+                        });
+        });
 </script>
 </head>
 <body>
