@@ -41,11 +41,17 @@ create table tb_tipo_transacciones (
 	tipo				varchar(25) not null
 );
 
+create table tb_estatus_transacciones (
+	id				serial primary key,
+	estatus				varchar(25) not null
+);
+
 create table tb_transacciones (
 	id				serial primary key,
 	cedula_usuario			integer references tb_usuarios(cedula),
 	id_cuenta			int references tb_cuentas(id),
 	id_tipo_transaccion		int references tb_tipo_transacciones(id),
+	id_estatus_transaccion		int references tb_estatus_transacciones(id) default 1,
 	fecha				integer not null,
 	monto				real not null,
 	deposito			varchar(20)
@@ -113,6 +119,9 @@ comment on column tb_cuentas.cuenta is 'Número de cuenta';
 comment on column tb_tipo_transacciones.id is 'ID del tipo de transacción';
 comment on column tb_tipo_transacciones.tipo is 'Tipo de transacción';
 
+comment on column tb_estatus_transacciones.id is 'ID del estatus de transacción';
+comment on column tb_estatus_transacciones.estatus is 'Estatus de la transacción';
+
 comment on column tb_transacciones.id is 'ID del transaccion';
 comment on column tb_transacciones.cedula_usuario is 'Cédula de identidad del usuario';
 comment on column tb_transacciones.id_cuenta is 'ID de la cuenta donde se ha realizado el transaccion';
@@ -163,6 +172,10 @@ insert into tb_tipo_transacciones values(default, 'Aporte mensual');
 insert into tb_tipo_transacciones values(default, 'Aporte especial');
 insert into tb_tipo_transacciones values(default, 'Pago de préstamo');
 insert into tb_tipo_transacciones values(default, 'Excedente');
+
+insert into tb_estatus_transacciones values(default, 'Comprobando');
+insert into tb_estatus_transacciones values(default, 'Aceptado');
+insert into tb_estatus_transacciones values(default, 'Rechazado');
 
 insert into tb_tipo_pago values(default, 'Pago de Intereses mas Amortización');
 insert into tb_tipo_pago values(default, 'Pago de Intereses');
