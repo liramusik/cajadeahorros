@@ -21,10 +21,13 @@
 	<table id="listado">
 		<thead>
 			<tr>
-				<th>Nombre</th>
-				<th>Apellido</th>
-				<th>Teléfono</th>
-				<th>Email</th>
+				<th rowspan="2">Nombre</th>
+				<th rowspan="2">Apellido</th>
+				<th rowspan="2">Teléfono</th>
+				<th rowspan="2">Email</th>
+				<th colspan="3" style="border-bottom: 0">Acciones</th>
+			</tr>
+			<tr>
 				<th></th>
 				<th></th>
 				<th></th>
