@@ -5,73 +5,53 @@
 		<table>
 			<tr>
 				<td>
-					<label for="tipe_user">Tipo de usuario: *</label>
-					<?php if(($_SESSION['session_id_rol'] == 1)): ?>
-						<select name="select">
+					<label for="tipo">Tipo de usuario <span class="obligatorio">*</span></label><br>
+						<select name="tipo">
 							<?php while($rows = pg_fetch_object($x->getQuery())): ?>
-								<option value="<?php print $rows->id; ?>" <?php ($id_rol == $rows->id) ? print "selected" : print ""; ?>><?php print $rows->descripcion; ?></option>
+								<option value="<?php print $rows->id; ?>" <?php ($rows->id == 2) ? print "selected" : print ""; ?>><?php print $rows->descripcion; ?></option>
 							<?php endwhile; ?>
 						</select>
-					<?php else: ?>
-						<select name="select" readonly="readonly">
-							<?php while($rows = pg_fetch_object($x->getQuery())): ?>
-								<option value="<?php print $rows->id; ?>" <?php ($id_rol == $rows->id) ? print "selected" : print ""; ?>><?php print $rows->descripcion; ?></option>
-							<?php endwhile; ?>
-						</select>
-					<?php endif; ?>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<label for="name_user">Nombre : *</label><br>
-					<input type="text" name="name_user" id="name_user" title="Nombre"  pattern="[a-zA-Z ]{3,}" maxlength="40" placeholder="Nombre" autocomplete="off" value="<?php print $nombre; ?>" required />
+					<label for="nombre">Nombre <span class="obligatorio">*</span></label><br>
+					<input type="text" name="nombre" id="nombre" title="Nombre" pattern="[a-zA-Z]{3,}" maxlength="40" placeholder="Nombre" autocomplete="off" required />
 				</td>
 				<td>
-					<label for="surname_user">Apellido : *</label><br>
-					<input type="text" name="surname_user" id="surname_user" title="Apellido" pattern="[a-zA-Z ]{3,}" maxlength="40" placeholder="Apellido" autocomplete="off" value="<?php print $apellido; ?>" required />
+					<label for="apellido">Apellido <span class="obligatorio">*</span></label><br>
+					<input type="text" name="apellido" id="apellido" title="Apellido" pattern="[a-zA-Z]{3,}" maxlength="40" placeholder="Apellido" autocomplete="off" required />
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<label for="id_user">Cedula : *</label>        		
-					<select name="select" readonly="readonly">
+					<label for="cedula">Cedula <span class="obligatorio">*</span></label><br>
+					<select name="cedula" readonly="readonly">
 						<?php while($rows = pg_fetch_object($y->getQuery())): ?>
-							<option value="<?php print $rows->id; ?>" <?php ($id_rol == $rows->id) ? print "selected" : print ""; ?>><?php print $rows->nacionalidad; ?></option>
+							<option value="<?php print $rows->id; ?>" <?php ($rows->id == 1) ? print "selected" : print ""; ?>><?php print $rows->nacionalidad; ?></option>
 						<?php endwhile; ?>
 					</select>
-					<input type="number" name="id_user" id="cedula" title="Cedula" pattern="[0-9]{3,}" size="8" maxlength="20" placeholder="Cedula" autocomplete="off" required />
+					<input type="text" name="cedula" id="cedula" title="Cedula" pattern="[0-9]{3,}" size="8" maxlength="8" placeholder="Cedula" autocomplete="off" required />
 				</td>
 				<td>
-					<label for="phone_user">Telefono : *</label><br>
-					<input type="number" name="phone_user" id="phone_user" title="Telefono" pattern="[0-9]{11,}" maxlength="40" placeholder="Telefono" autocomplete="off" value="<?php print $telefono; ?>"required/>
+					<label for="telefono">Telefono <span class="obligatorio">*</span></label><br>
+					<input type="text" name="telefono" id="telefono" title="Telefono" pattern="[0-9]{11,}" maxlength="40" placeholder="Telefono" autocomplete="off" required />
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<label for="email_user">Correo electronico : *</label><br>
-					<input type="email" name="email_user" id="email_user" title="Correo electronico del usuario" maxlength="40" placeholder="Correo electronico" autocomplete="off" value="<?php print $email; ?>" required/>
+					<label for="email">Correo electronico <span class="obligatorio">*</span></label><br>
+					<input type="email" name="email" id="email" title="Email" maxlength="40" placeholder="Email" autocomplete="off" required />
 				</td>   
 				<td>
-					<label for="address_user">Direccion de habitacion : *</label><br>
-					<input type="text" name="address_user" id="address_user" title="Direccion de habitacion" maxlength="40" placeholder="Direccion de habitacion" autocomplete="off" value="<?php print $direccion; ?>" required/>
+					<label for="direccion">Dirección <span class="obligatorio">*</span></label><br>
+					<textarea name="direccion" id="direccion" cols="50" rows="5" required ></textarea>
 				<td>
 			</tr>
 			<tr>
 				<td>
-					<label for="datein_user">Fecha de ingreso : *</label><br>
-					<?php if(($_SESSION['session_id_rol'] == 1)): ?>
-						<input type="number" name="datein_user" id="datein_user" title="Fecha de ingreso" maxlength="40" placeholder="Fecha de ingreso" autocomplete="off" value="<?php print $fecha_ingreso; ?>" required />
-					<?php else: ?>
-						<input type="number" name="datein_user" id="datein_user" title="Fecha de ingreso" maxlength="40" placeholder="Fecha de ingreso" autocomplete="off" value="<?php print $fecha_ingreso; ?>" readonly="readonly" required />
-					<?php endif; ?>
-				</td>
-				<td>
-					<label for="datexit_user">Fecha de egreso : *</label><br>
-					<?php if(($_SESSION['session_id_rol'] == 1)): ?>
-						<input type="number" name="datexit_user" id="datexit_user" title="Fecha de egreso" maxlength="40" placeholder="Fecho de egreso" autocomplete="off" value="<?php print $fecha_egreso; ?>" required />
-					<?php else: ?>
-						<input type="number" name="datexit_user" id="datexit_user" title="Fecha de egreso" maxlength="40" placeholder="Fecho de egreso" autocomplete="off" value="<?php print $fecha_egreso; ?>" readonly="readonly" required />
-					<?php endif; ?>
+					<label for="fecha_ingreso">Fecha de ingreso <span class="obligatorio">*</span></label><br>
+					<input type="text" name="fecha_ingreso" id="fecha_ingreso" title="Fecha de ingreso" maxlength="40" placeholder="Fecha de ingreso" autocomplete="off" required />
 				</td>
 			</tr>
 		</table>
@@ -81,18 +61,18 @@
 		<table>
 			<tr>
 				<td>
-					<label for="user_user">Usuario : *</label><br>
-					<input type="text" name="user_user" id="user_user" title="Usuario" maxlength="40" placeholder="Usuario" autocomplete="off" required/>
+					<label for="usuario">Usuario <span class="obligatorio">*</span></label><br>
+					<input type="text" name="usuario" id="usuario" title="Usuario" maxlength="40" placeholder="Usuario" autocomplete="off" required/>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<label for="password_user">Contrasena : *</label><br>
-					<input type="password" name="password_user" id="password_user" title="Contrasena" maxlength="40" placeholder="Contrasena" autocomplete="off" required/>
+					<label for="password">Contrasena <span class="obligatorio">*</span></label><br>
+					<input type="password" name="password" id="password" title="Password" maxlength="40" placeholder="Contrasena" autocomplete="off" required/>
 				</td>
 				<td>
-					<label for="confir_user">Confirmar contrasena : *</label><br>
-					<input type="password" name="confir_user" id="confir_user" title="Confirmar contrasena" maxlength="40" placeholder="Confirmar contrasena" autocomplete="off" required/>
+					<label for="confirmar_password">Confirmar contrasena <span class="obligatorio">*</span></label><br>
+					<input type="confirmar_password" name="confirmar_password" id="confirmar_password" title="Confirmar Password" maxlength="40" placeholder="Confirmar Password" autocomplete="off" required/>
 				</td>
 			</tr>
 		</table>

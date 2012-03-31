@@ -25,8 +25,8 @@
                         });
 	});
 	$(function() {
-		$("#datein_user").datepicker();
-		$("#datexit_user").datepicker();
+		$("#fecha_ingreso").datepicker();
+		$("#fecha_egreso").datepicker();
 	});
 </script>
 </head>

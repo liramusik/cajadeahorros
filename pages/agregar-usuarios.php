@@ -11,6 +11,11 @@
 	} elseif(isset($_POST['submit'])) {
 		unset($x);
 		unset($y);
+
+		$cedula = $_POST['cédula'];
+		$nombre = $_POST['nombre'];
+		$apellidpo = $_POST['apellido'];
+
 		$x = new connection();
 		$x->setQuery = "";
 		print '<div class="mensaje">El usuario se ha agregado correctamente <a href="index.php">Regresar</a></div>';
