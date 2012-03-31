@@ -150,7 +150,7 @@ h1 {
 	font-size: 12px;
 }
 
-table {
+table.dataTable {
 	border-bottom: 1px solid #F90;
 	margin-top: 10px;
 	border-spacing: 0;
