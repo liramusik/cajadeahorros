@@ -9,7 +9,7 @@
 
 	$cedula = $_GET['cedula'];
 
-	$query_usuarios = "select cedula, nombre, apellido, telefono, email, direccion, to_char(fecha_ingreso, 'DD-MM-YYYY') as fecha_ingreso, to_char(fecha_egreso, 'DD-MM-YYYY') as fecha_egreso, nacionalidad, id_rol, usuario from tb_usuarios left join tb_nacionalidad on id_nacionalidad = tb_nacionalidad.id left join tb_roles on id_rol = tb_roles.id where cedula=$cedula";
+	$query_usuarios = "select cedula, nombre, apellido, telefono, email, direccion, to_char(fecha_ingreso, 'DD/MM/YYYY') as fecha_ingreso, to_char(fecha_egreso, 'DD/MM/YYYY') as fecha_egreso, nacionalidad, id_rol, usuario from tb_usuarios left join tb_nacionalidad on id_nacionalidad = tb_nacionalidad.id left join tb_roles on id_rol = tb_roles.id where cedula=$cedula";
 	$query_roles = "select * from tb_roles";
 
 	$result_usuarios = pg_query($db_connect, $query_usuarios);
@@ -103,7 +103,11 @@
 						</td>
 						<td>
 							<label for="datexit_user">Fecha de egreso : *</label><br>
-							<input type="number" name="datexit_user" id="datexit_user" title="Fecha de egreso" maxlength="40" placeholder="Fecho de egreso" autocomplete="off" value="<?php print $fecha_egreso; ?>" readonly="readonly" required />
+							<?php if(($_SESSION['session_id_rol'] == 1)): ?>
+								<input type="number" name="datexit_user" id="datexit_user" title="Fecha de egreso" maxlength="40" placeholder="Fecho de egreso" autocomplete="off" value="<?php print $fecha_egreso; ?>" required />
+							<?php else: ?>
+								<input type="number" name="datexit_user" id="datexit_user" title="Fecha de egreso" maxlength="40" placeholder="Fecho de egreso" autocomplete="off" value="<?php print $fecha_egreso; ?>" readonly="readonly" required />
+							<?php endif; ?>
 						</td>
 					</tr>
 				</table>
