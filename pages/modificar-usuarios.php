@@ -103,7 +103,7 @@
 						</td>
 						<td>
 							<label for="datexit_user">Fecha de egreso : *</label><br>
-							<input type="number" name="datexit_user" id="datexit_user" title="Fecha de egreso" maxlength="40" placeholder="Fecho de egreso" autocomplete="off" value="<?php print $fecha_egreso; ?>" required />
+							<input type="number" name="datexit_user" id="datexit_user" title="Fecha de egreso" maxlength="40" placeholder="Fecho de egreso" autocomplete="off" value="<?php print $fecha_egreso; ?>" readonly="readonly" required />
 						</td>
 					</tr>
 				</table>
