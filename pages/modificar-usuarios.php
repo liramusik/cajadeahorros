@@ -9,7 +9,7 @@
 
 	$cedula = $_GET['cedula'];
 
-	$query_usuarios = "select * from tb_usuarios left join tb_nacionalidad on id_nacionalidad = tb_nacionalidad.id left join tb_roles on id_rol = tb_roles.id where cedula=$cedula;";
+	$query_usuarios = "select cedula, nombre, apellido, telefono, email, direccion, to_char(fecha_ingreso, 'DD-MM-YYYY') as fecha_ingreso, to_char(fecha_egreso, 'DD-MM-YYYY') as fecha_egreso, nacionalidad, id_rol, usuario from tb_usuarios left join tb_nacionalidad on id_nacionalidad = tb_nacionalidad.id left join tb_roles on id_rol = tb_roles.id where cedula=$cedula";
 	$query_roles = "select * from tb_roles";
 
 	$result_usuarios = pg_query($db_connect, $query_usuarios);
@@ -29,9 +29,8 @@
 		$telefono = $rows->telefono;
 		$email = $rows->email;
 		$direccion = $rows->direccion;
-		$direccion = $rows->direccion;
-		$fecha_ingreso = date("d-m-Y", $rows->fecha_ingreso);
-		$fecha_egreso = !empty($rows->fecha_egreso) ? date("d-m-Y", $rows->fecha_egreso) : "";
+		$fecha_ingreso = $rows->fecha_ingreso;
+		$fecha_egreso = $rows->fecha_egreso;
 		$nacionalidad = $rows->nacionalidad;
 		$id_rol = $rows->id_rol;
 		$usuario = $rows->usuario;
@@ -133,6 +132,8 @@
 			<input id="submit" type="submit" value="Registrar" name="submit" class="boton1"/>
 			<div id="message"></div>
 		</form>
+	<?php else: ?>
+		<div class="mensaje">Usted no posee privilegios <a href="index.php">Regresar</a></div>
 	<?php endif; ?>
 <?php else: ?>
 	<div class="mensaje">Usted no posee privilegios <a href="index.php">Regresar</a></div>
