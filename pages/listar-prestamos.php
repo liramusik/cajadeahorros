@@ -13,7 +13,7 @@
 			$('#listado').dataTable({
 				"bLengthChange": false,
 				"bInfo": false,
-				"aaSorting": [[ 3, "desc" ]],
+				"aaSorting": [[ 0, "desc" ]],
 				"oLanguage": {
 					"sSearch": "Filtrar usuarios",
 					"oPaginate": {
