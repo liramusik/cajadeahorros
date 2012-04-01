@@ -6,21 +6,21 @@
 			<tr>
 				<td>
 					<label for="tipo">Tipo de usuario <span class="obligatorio">*</span></label><br>
-						<select name="tipo">
-							<?php while($rows = pg_fetch_object($x->getQuery())): ?>
-								<option value="<?php print $rows->id; ?>" <?php ($rows->id == 2) ? print "selected" : print ""; ?>><?php print $rows->descripcion; ?></option>
-							<?php endwhile; ?>
-						</select>
+					<select name="tipo">
+						<?php while($rows = pg_fetch_object($x->getQuery())): ?>
+							<option value="<?php print $rows->id; ?>" <?php ($rows->id == 2) ? print "selected" : print ""; ?>><?php print $rows->descripcion; ?></option>
+						<?php endwhile; ?>
+					</select>
 				</td>
 			</tr>
 			<tr>
 				<td>
 					<label for="nombre">Nombre <span class="obligatorio">*</span></label><br>
-					<input type="text" name="nombre" id="nombre" title="Nombre" pattern="[a-zA-Z]{3,}" maxlength="40" placeholder="Nombre" autocomplete="off" required />
+					<input type="text" name="nombre" id="nombre" title="Nombre" pattern="[a-zA-Z|(áéíóú)]{3,}" maxlength="40" placeholder="Nombre" autocomplete="off" required />
 				</td>
 				<td>
 					<label for="apellido">Apellido <span class="obligatorio">*</span></label><br>
-					<input type="text" name="apellido" id="apellido" title="Apellido" pattern="[a-zA-Z]{3,}" maxlength="40" placeholder="Apellido" autocomplete="off" required />
+					<input type="text" name="apellido" id="apellido" title="Apellido" pattern="[a-zA-Z|(áéíóú)]{3,}" maxlength="40" placeholder="Apellido" autocomplete="off" required />
 				</td>
 			</tr>
 			<tr>
@@ -67,12 +67,12 @@
 			</tr>
 			<tr>
 				<td>
-					<label for="password">Contrasena <span class="obligatorio">*</span></label><br>
-					<input type="password" name="password" id="password" title="Password" maxlength="40" placeholder="Contrasena" autocomplete="off" required/>
+					<label for="password">Contraseña <span class="obligatorio">*</span></label><br>
+					<input type="password" name="password" id="password" title="Password" maxlength="40" placeholder="Contrasena" autocomplete="off" required />
 				</td>
 				<td>
-					<label for="confirmar_password">Confirmar contrasena <span class="obligatorio">*</span></label><br>
-					<input type="confirmar_password" name="confirmar_password" id="confirmar_password" title="Confirmar Password" maxlength="40" placeholder="Confirmar Password" autocomplete="off" required/>
+					<label for="confirmar_password">Confirmar contraseña <span class="obligatorio">*</span></label><br>
+					<input type="password" name="confirmar_password" id="confirmar_password" title="Confirmar Password" maxlength="40" placeholder="Confirmar Password" autocomplete="off" required />
 				</td>
 			</tr>
 		</table>
