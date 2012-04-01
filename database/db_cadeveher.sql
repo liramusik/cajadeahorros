@@ -104,6 +104,11 @@ create table tb_notificaciones (
 comment on column tb_roles.id is 'ID del rol';
 comment on column tb_roles.descripcion is 'Descripción del rol Administrador, Asociado, No Asociado';
 
+comment on column tb_porcentajes.id is 'ID';
+comment on column tb_porcentajes.id_roles is 'ID del rol';
+comment on column tb_porcentajes.fecha is 'Fecha';
+comment on column tb_porcentajes.porcentaje is 'Porcentaje';
+
 comment on column tb_usuarios.cedula is 'Cédula de Identidad';
 comment on column tb_usuarios.id_rol is 'Referencia con la tabla tb_toles(id_rol)';
 comment on column tb_usuarios.nombre is 'Nombre';
