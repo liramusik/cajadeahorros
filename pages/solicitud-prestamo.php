@@ -3,9 +3,9 @@
 	$cedula = $_SESSION['session_cedula'];
 	if(isset($_GET['monto'])) { $monto = $_GET['monto']; }
 	if(isset($_GET['tiempo'])) { $tiempo = $_GET['tiempo']; }
-	if(isset($_GET['pago'])) { $tiempo = $_GET['pago']; }
+	if(isset($_GET['pago'])) { $pago = $_GET['pago']; }
 	if(isset($_GET['porcentaje'])) {
-		$pago = $_GET['porcentaje'];
+		$porcentaje = $_GET['porcentaje'];
 	} else {
 		$rol = $_SESSION['session_id_rol'];
 		$x = new connection();
