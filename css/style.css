@@ -249,7 +249,8 @@ td.textarea {
 
 td.textarea > label {
 	position: absolute;
-	top: 6px;
+	top: 7px;
+	right: 6px;
 }
 
 label.error {
