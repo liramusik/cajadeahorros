@@ -30,7 +30,7 @@
 					<label for="nombre">Nombre: <span class="obligatorio">*</span></label>
 				</td>
 				<td>
-					<input type="text" name="nombre" id="nombre" title="Nombre" pattern="[a-zA-Z|(áéíóúñ)]{3,}" maxlength="40" placeholder="Nombre" autocomplete="off" value="<?php print $nombre; ?>" required />
+					<input type="text" name="nombre" id="nombre" pattern="[a-zA-Z|(áéíóúñ)]{3,}" maxlength="40" placeholder="Nombre" autocomplete="off" value="<?php print $nombre; ?>" required />
 				</td>
 			</tr>
 			<tr>
@@ -38,7 +38,7 @@
 					<label for="apellido">Apellido: <span class="obligatorio">*</span></label>
 				</td>
 				<td>
-					<input type="text" name="apellido" id="apellido" title="Apellido" pattern="[a-zA-Z|(áéíóúñ)]{3,}" maxlength="40" placeholder="Apellido" autocomplete="off" value="<?php print $apellido; ?>" required />
+					<input type="text" name="apellido" id="apellido" pattern="[a-zA-Z|(áéíóúñ)]{3,}" maxlength="40" placeholder="Apellido" autocomplete="off" value="<?php print $apellido; ?>" required />
 				</td>
 			</tr>
 			<tr>
