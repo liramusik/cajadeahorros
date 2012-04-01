@@ -207,12 +207,15 @@ label {
 	font-weight: bold;
 }
 
-input,
+input[type="text"],
+input[type="email"],
+input[type="datetime"],
+input[type="password"],
 textarea {
 	font-family: sans-serif;
 	font-size: 1em;
 	padding: 3px .35em;
-	background: #EEE url('/images/jformer/input-bg.gif') repeat-x 0 1px scroll;
+	background: #EEE url('../img/input-bg.gif') repeat-x 0 1px scroll;
 	border: 1px solid #AAA;
 }
 
@@ -239,7 +242,23 @@ td.direccion {
 	vertical-align: top;
 }
 
+td.texarea {
+	position: relative;
+}
+
+td.texarea > label {
+	position: absolute;
+	top: 6px;
+}
+
 label.error {
+	display: inline-block;
+	border: 1px solid #d8000c;
+	color: #d8000c;
+	background: #ffbaba url("../img/error.png") 3px center no-repeat;
+	margin-left: 10px;
+	padding: 3px 0 3px 25px;
+	width: 150px;
 }
 
 /* Fin de Formularios */

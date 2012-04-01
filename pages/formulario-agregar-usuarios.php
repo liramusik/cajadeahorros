@@ -64,7 +64,7 @@
 				<td class="etiqueta direccion">
 					<label for="direccion">Dirección <span class="obligatorio">*</span></label>
 				</td>
-				<td>
+				<td class="textarea">
 					<textarea name="direccion" id="direccion" cols="40" rows="5" required ></textarea>
 				<td>
 			</tr>
@@ -73,7 +73,7 @@
 					<label for="fecha_ingreso">Fecha de ingreso <span class="obligatorio">*</span></label>
 				</td>
 				<td>
-					<input type="text" name="fecha_ingreso" id="fecha_ingreso" title="Fecha de ingreso" maxlength="40" placeholder="Fecha de ingreso" autocomplete="off" required />
+					<input type="datetime" name="fecha_ingreso" id="fecha_ingreso" title="Fecha de ingreso" maxlength="40" placeholder="Fecha de ingreso" autocomplete="off" required />
 				</td>
 			</tr>
 		</table>
