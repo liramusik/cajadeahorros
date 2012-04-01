@@ -1,11 +1,13 @@
 <h1>Agregar Usuario</h1>
-<form action="index.php?page=agregar-usuarios" method="post" id="usuario" name="usuario">
+<form action="index.php?page=agregar-usuarios" method="post" id="agregar-usuario">
 	<fieldset>
 		<legend>Información personal</legend>
 		<table>
 			<tr>
 				<td>
-					<label for="tipo">Tipo de usuario <span class="obligatorio">*</span></label><br>
+					<label for="tipo">Tipo de usuario <span class="obligatorio">*</span></label>
+				</td>
+				<td>
 					<select name="tipo">
 						<?php while($rows = pg_fetch_object($x->getQuery())): ?>
 							<option value="<?php print $rows->id; ?>" <?php ($rows->id == 2) ? print "selected" : print ""; ?>><?php print $rows->descripcion; ?></option>
@@ -15,9 +17,14 @@
 			</tr>
 			<tr>
 				<td>
-					<label for="nombre">Nombre <span class="obligatorio">*</span></label><br>
-					<input type="text" name="nombre" id="nombre" title="Nombre" pattern="[a-zA-Z|(áéíóú)]{3,}" maxlength="40" placeholder="Nombre" autocomplete="off" required />
+					<label for="nombre">Nombre <span class="obligatorio">*</span></label>
 				</td>
+				<td>
+					<input type="text" name="nombre" id="nombre" title="Nombre" pattern="[a-zA-Z|(áéíóú)]{3,}" maxlength="40" placeholder="Nombre" autocomplete="off" required />
+					<br />
+				</td>
+			</tr>
+			<tr>
 				<td>
 					<label for="apellido">Apellido <span class="obligatorio">*</span></label><br>
 					<input type="text" name="apellido" id="apellido" title="Apellido" pattern="[a-zA-Z|(áéíóú)]{3,}" maxlength="40" placeholder="Apellido" autocomplete="off" required />
