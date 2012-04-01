@@ -22,7 +22,7 @@
 		<h3><a href="#">Préstamos</a></h3>
 		<div>
 			<ul>
-				<li><a href="index.php?page=solicitud-prestamo">Solicitar</a></li>
+				<li><a href="index.php?page=solicitar-prestamo">Solicitar</a></li>
 				<li><a href="index.php?page=simulacion">Simulación</a></li>
 				<li><a href="index.php?page=listar-prestamos">Listar</a></li>
 			</ul>
