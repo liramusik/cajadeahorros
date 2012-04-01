@@ -5,8 +5,8 @@ $(document).ready(function(){
 			'password': 'required'
 		},
 		messages: {
-			'usuario': 'Atributo usuario requerido',
-			'password': 'Atributo password requerido'
+			'usuario': 'Es necesario ingresar un Usuario',
+			'password': 'Es necesario ingresar una Contraseña'
 		}
 	});
 });
