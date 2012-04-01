@@ -13,42 +13,38 @@ $(document).ready(function(){
 $(document).ready(function(){
 	$("#agregar-usuario").validate({
 		rules: {
-			'nombre': 'required',
-			'nombre': {
+			nombre: {
 				required: true,
-				minlength: 3
+				minlength: 3,
 			},
-			'apellido': 'required',
-			'apellido': {
+			apellido: {
 				required: true,
-				minlength: 5
+				minlength: 3,
 			},
-			'cedula': 'required',
-			'cedula': {
+			cedula: {
 				required: true,
 				minlength: 8,
-				number: true
+				digits: true
 			},
-			'telefono': 'required',
-			'telefono': {
+			telefono: {
 				required: true,
 				minlength: 11,
-				number: true
+				digits: true
 			},
-			'email': 'required',
-			'email': {
+			email: {
 				required: true,
 				minlength: 15,
 				email: true
 			},
-			'direccion': 'required',
-			'direccion': {
+			direccion: {
 				required: true,
 				minlength: 15,
 			},
-			'fecha_ingreso': 'required',
-			'usuario': 'usuario',
-			'usuario': {
+			fecha_ingreso: {
+				required: true,
+				minlength: 10,
+			},
+			usuario: {
 				required: true,
 				minlength: 8,
 			},
@@ -62,7 +58,31 @@ $(document).ready(function(){
 				equalTo: "#password"
 			}
 		},
-		messages: {
+	});
+});
+
+/* Para la cédula */
+$(document).ready(function() {
+	$("#cedula").keydown(function(event) {
+		if(event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || (event.keyCode == 65 && event.ctrlKey === true) || (event.keyCode >= 35 && event.keyCode <= 39)) {
+			 return;
+		} else {
+			if((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105 )) {
+				event.preventDefault(); 
+			}   
+		}
+	});
+});
+
+/* Para el teléfono */
+$(document).ready(function() {
+	$("#telefono").keydown(function(event) {
+		if(event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || (event.keyCode == 65 && event.ctrlKey === true) || (event.keyCode >= 35 && event.keyCode <= 39)) {
+			 return;
+		} else {
+			if((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105 )) {
+				event.preventDefault(); 
+			}   
 		}
 	});
 });
