@@ -37,6 +37,7 @@
 		if($x->getQuery()) {
 			print '<div class="mensaje">El usuario se ha agregado correctamente <a href="index.php">Regresar</a></div>';
 		}
+		unset($x);
 	}
 	?>
 <?php else: ?>
