@@ -14,7 +14,7 @@
 
 		$tipo = $_POST['tipo'];
 		$nombre = $_POST['nombre'];
-		$apellidpo = $_POST['apellido'];
+		$apellido = $_POST['apellido'];
 		$nacionalidad = $_POST['nacionalidad'];
 		$cedula = $_POST['cedula'];
 		$telefono = $_POST['telefono'];
