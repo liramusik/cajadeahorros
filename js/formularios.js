@@ -61,6 +61,47 @@ $(document).ready(function(){
 	});
 });
 
+$(document).ready(function(){
+	$("#modificar-usuario").validate({
+		rules: {
+			nombre: {
+				required: true,
+				minlength: 3,
+			},
+			apellido: {
+				required: true,
+				minlength: 3,
+			},
+			telefono: {
+				required: true,
+				minlength: 11,
+				digits: true
+			},
+			email: {
+				required: true,
+				minlength: 15,
+				email: true
+			},
+			direccion: {
+				required: true,
+				minlength: 15,
+			},
+			usuario: {
+				required: true,
+				minlength: 8,
+			},
+			password: {
+				minlength: 5
+			},
+			confirmar_password: {
+				minlength: 5,
+				equalTo: "#password"
+			}
+		},
+	});
+});
+
+
 /* Para la cédula */
 $(document).ready(function() {
 	$("#cedula").keydown(function(event) {
