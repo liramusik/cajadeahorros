@@ -224,6 +224,7 @@ input#apellido,
 input#telefono,
 input#email,
 input#fecha_ingreso,
+input#fecha_egreso,
 input#usuario,
 input#password,
 input#confirmar_password {
@@ -259,6 +260,10 @@ label.error {
 	margin-left: 10px;
 	padding: 3px 0 3px 25px;
 	width: 150px;
+}
+
+input#nacionalidad {
+	width: 28px;
 }
 
 /* Fin de Formularios */
