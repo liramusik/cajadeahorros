@@ -164,6 +164,19 @@ insert into tb_roles values(default, 'Administrador');
 insert into tb_roles values(default, 'Asociado');
 insert into tb_roles values(default, 'No Asociado');
 
+insert into tb_porcentajes values(default, 1, '2009-01-01 01:01', 5.22);
+insert into tb_porcentajes values(default, 2, '2009-01-01 01:01', 5.22);
+insert into tb_porcentajes values(default, 3, '2009-01-01 01:01', 6.33);
+insert into tb_porcentajes values(default, 1, '2010-01-01 01:01', 6.35);
+insert into tb_porcentajes values(default, 2, '2010-01-01 01:01', 6.35);
+insert into tb_porcentajes values(default, 3, '2010-01-01 01:01', 7.78);
+insert into tb_porcentajes values(default, 1, '2011-01-01 01:01', 7.10);
+insert into tb_porcentajes values(default, 2, '2011-01-01 01:01', 7.10);
+insert into tb_porcentajes values(default, 3, '2011-01-01 01:01', 8.54);
+insert into tb_porcentajes values(default, 1, '2012-01-01 01:01', 8.54);
+insert into tb_porcentajes values(default, 2, '2012-01-01 01:01', 8.54);
+insert into tb_porcentajes values(default, 3, '2012-01-01 01:01', 9.13);
+
 insert into tb_nacionalidad values(default, 'V');
 insert into tb_nacionalidad values(default, 'E');
 
