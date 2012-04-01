@@ -195,6 +195,9 @@ table#listado th {
 	cursor: pointer;
 }
 
+label.error {
+}
+
 /* DataTables */
 
 .dataTables_wrapper {
