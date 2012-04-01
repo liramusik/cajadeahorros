@@ -27,7 +27,7 @@
 						<label for="cedula">Cédula de Identidad</label>
 					</td>
 					<td>
-						<input name="cedula" type="number" pattern="[0-9]{3,}" value="<?php print $cedula; ?>" readonly="readonly"/>
+						<input name="cedula" type="text" pattern="[0-9]{3,}" value="<?php print $cedula; ?>" readonly="readonly" />
 					</td>
 				</tr>
 				<tr>
@@ -35,7 +35,7 @@
 						<label for="monto">Monto</label>
 					</td>
 					<td>
-						<input name="monto" type="number" pattern="[0-9]{2,}" value="<?php print $monto; ?>" <?php isset($monto) ? print 'readonly="readonly"' : "" ?>  required/>
+						<input name="monto" type="text" pattern="[0-9]{2,}" value="<?php print $monto; ?>" <?php isset($monto) ? print 'readonly="readonly"' : "" ?>  required />
 					</td>
 				</tr>
 				<tr>
@@ -43,7 +43,7 @@
 						<label for="tiempo">Tiempo</label>
 					</td>
 					<td>
-						<input name="tiempo" type="number" pattern="[0-9]{1,}" value="<?php print $tiempo; ?>" <?php isset($tiempo) ? print 'readonly="readonly"' : "" ?> required/>
+						<input name="tiempo" type="text" pattern="[0-9]{1,}" value="<?php print $tiempo; ?>" <?php isset($tiempo) ? print 'readonly="readonly"' : "" ?> required />
 					</td>
 				</tr>
 				<tr>
@@ -60,7 +60,7 @@
 						<label for="observacion">Observación</label>
 					</td>
 					<td>
-						<textarea name="observacion" maxlength="250"></textarea>
+						<textarea name="observacion" maxlength="250" cols="50" rows="5"></textarea>
 					</td>
 				</tr>
 			</table>
