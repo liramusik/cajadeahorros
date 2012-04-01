@@ -18,7 +18,7 @@
 					<label for="monto">Monto</label>
 				</td>
 				<td>
-				<input name="monto" type="number" pattern="[0-9]{2,}" title="Monto a solicitar Ejem: 10000"  required/>
+					<input name="monto" type="text" pattern="[0-9]{2,}" title="Monto a solicitar Ejem: 10000" required />
 				</td>
 			</tr>
 			<tr>
@@ -26,7 +26,7 @@
 					<label for="tiempo">Tiempo</label>
 				</td>
 				<td>
-				<input name="tiempo" type="number" pattern="[0-9]{1,}" title="Tiempo en meses Ejem: 12 "  required/>
+					<input name="tiempo" type="text" pattern="[0-9]{1,}" title="Tiempo en meses Ejem: 12 " required />
 				</td>
 			</tr>
 			<tr>
