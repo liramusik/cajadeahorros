@@ -20,7 +20,7 @@
 					<label for="nombre">Nombre <span class="obligatorio">*</span></label>
 				</td>
 				<td>
-					<input type="text" name="nombre" id="nombre" title="Nombre" pattern="[a-zA-Z|(áéíóú)]{3,}" maxlength="40" placeholder="Nombre" autocomplete="off" required />
+					<input type="text" name="nombre" id="nombre" title="Nombre" pattern="[a-zA-Z|(áéíóúñ)]{3,}" maxlength="40" placeholder="Nombre" autocomplete="off" required />
 				</td>
 			</tr>
 			<tr>
@@ -28,7 +28,7 @@
 					<label for="apellido">Apellido <span class="obligatorio">*</span></label>
 				</td>
 				<td>
-					<input type="text" name="apellido" id="apellido" title="Apellido" pattern="[a-zA-Z|(áéíóú)]{3,}" maxlength="40" placeholder="Apellido" autocomplete="off" required />
+					<input type="text" name="apellido" id="apellido" title="Apellido" pattern="[a-zA-Z|(áéíóúñ)]{3,}" maxlength="40" placeholder="Apellido" autocomplete="off" required />
 				</td>
 			</tr>
 			<tr>
