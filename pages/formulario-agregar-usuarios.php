@@ -26,7 +26,7 @@
 			<tr>
 				<td>
 					<label for="cedula">Cedula <span class="obligatorio">*</span></label><br>
-					<select name="cedula" readonly="readonly">
+					<select name="nacionalidad" readonly="readonly">
 						<?php while($rows = pg_fetch_object($y->getQuery())): ?>
 							<option value="<?php print $rows->id; ?>" <?php ($rows->id == 1) ? print "selected" : print ""; ?>><?php print $rows->nacionalidad; ?></option>
 						<?php endwhile; ?>
