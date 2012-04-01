@@ -20,7 +20,7 @@
 					<label for="nombre">Nombre <span class="obligatorio">*</span></label>
 				</td>
 				<td>
-					<input type="text" name="nombre" id="nombre" title="Nombre" pattern="[a-zA-Z|(áéíóúñ)]{3,}" maxlength="40" placeholder="Nombre" autocomplete="off" required />
+					<input type="text" name="nombre" id="nombre" title="Nombre" pattern="[a-zA-Z|(áéíóúñ)]{3,}" maxlength="40" placeholder="Nombre" autocomplete="on" required />
 				</td>
 			</tr>
 			<tr>
@@ -28,7 +28,7 @@
 					<label for="apellido">Apellido <span class="obligatorio">*</span></label>
 				</td>
 				<td>
-					<input type="text" name="apellido" id="apellido" title="Apellido" pattern="[a-zA-Z|(áéíóúñ)]{3,}" maxlength="40" placeholder="Apellido" autocomplete="off" required />
+					<input type="text" name="apellido" id="apellido" title="Apellido" pattern="[a-zA-Z|(áéíóúñ)]{3,}" maxlength="40" placeholder="Apellido" autocomplete="on" required />
 				</td>
 			</tr>
 			<tr>
@@ -41,7 +41,7 @@
 							<option value="<?php print $rows->id; ?>" <?php ($rows->id == 1) ? print "selected" : print ""; ?>><?php print $rows->nacionalidad; ?></option>
 						<?php endwhile; ?>
 					</select>
-					<input type="text" name="cedula" id="cedula" title="Cedula" pattern="[0-9]{3,}" size="13" maxlength="8" placeholder="Cedula" autocomplete="off" required />
+					<input type="text" name="cedula" id="cedula" title="Cedula" pattern="[0-9]{3,}" size="13" maxlength="8" placeholder="Cedula" autocomplete="on" required />
 				</td>
 			</tr>
 			<tr>
@@ -49,7 +49,7 @@
 					<label for="telefono">Telefono <span class="obligatorio">*</span></label>
 				</td>
 				<td>
-					<input type="text" name="telefono" id="telefono" title="Telefono" pattern="[0-9]{11,}" maxlength="40" placeholder="Telefono" autocomplete="off" required />
+					<input type="text" name="telefono" id="telefono" title="Telefono" pattern="[0-9]{11,}" maxlength="11" placeholder="Telefono" autocomplete="on" required />
 				</td>
 			</tr>
 			<tr>
@@ -57,7 +57,7 @@
 					<label for="email">Correo electronico <span class="obligatorio">*</span></label>
 				</td>
 				<td>
-					<input type="email" name="email" id="email" title="Email" maxlength="40" placeholder="Email" autocomplete="off" required />
+					<input type="email" name="email" id="email" title="Email" maxlength="40" placeholder="Email" autocomplete="on" required />
 				</td>
 			</tr>
 			<tr>
@@ -73,7 +73,7 @@
 					<label for="fecha_ingreso">Fecha de ingreso <span class="obligatorio">*</span></label>
 				</td>
 				<td>
-					<input type="datetime" name="fecha_ingreso" id="fecha_ingreso" title="Fecha de ingreso" maxlength="40" placeholder="Fecha de ingreso" autocomplete="off" required />
+					<input type="datetime" name="fecha_ingreso" id="fecha_ingreso" title="Fecha de ingreso" maxlength="40" placeholder="Fecha de ingreso" autocomplete="on" required />
 				</td>
 			</tr>
 		</table>
@@ -86,7 +86,7 @@
 					<label for="usuario">Usuario <span class="obligatorio">*</span></label>
 				</td>
 				<td>
-					<input type="text" name="usuario" id="usuario" title="Usuario" maxlength="40" placeholder="Usuario" autocomplete="off" required/>
+					<input type="text" name="usuario" id="usuario" title="Usuario" maxlength="40" placeholder="Usuario" autocomplete="on" required/>
 				</td>
 			</tr>
 			<tr>

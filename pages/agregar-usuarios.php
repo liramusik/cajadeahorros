@@ -25,7 +25,7 @@
 		$password = md5($_POST['password']);
 
 		$fecha_split = preg_split("/\//", $fecha_ingreso);
-		$fecha = $fecha_split[2] . '-' . $fecha_split[0] . '-' . $fecha_split[1];
+		$fecha = $fecha_split[2] . '-' . $fecha_split[1] . '-' . $fecha_split[0];
 
 		$hora = date("H:i:s", time());
 
