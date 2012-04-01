@@ -195,8 +195,54 @@ table#listado th {
 	cursor: pointer;
 }
 
+/* Formularios */
+
+span.obligatorio {
+	color: red;
+}
+
+label {
+	font-family: sans-serif;
+	font-size: 1em;
+	font-weight: bold;
+}
+
+input,
+textarea {
+	font-family: sans-serif;
+	font-size: 1em;
+	padding: 3px .35em;
+	background: #EEE url('/images/jformer/input-bg.gif') repeat-x 0 1px scroll;
+	border: 1px solid #AAA;
+}
+
+input#nombre,
+input#apellido,
+input#telefono,
+input#email,
+input#fecha_ingreso,
+input#usuario,
+input#password,
+input#confirmar_password {
+	width: 218px;
+}
+
+input#cedula {
+	width: 177px;
+}
+
+td.etiqueta {
+	width: 150px;
+}
+
+td.direccion {
+	vertical-align: top;
+}
+
 label.error {
 }
+
+/* Fin de Formularios */
 
 /* DataTables */
 
