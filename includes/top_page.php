@@ -25,8 +25,12 @@
 					});
 			});
 			$(function() {
-				$("#fecha_ingreso").datepicker();
-				$("#fecha_egreso").datepicker();
+				$("#fecha_ingreso").datepicker({
+					dateFormat: 'dd/mm/yy'
+				});
+				$("#fecha_egreso").datepicker({
+					dateFormat: 'dd/mm/yy'
+				});
 			});
 		</script>
 	</head>
