@@ -1,10 +1,20 @@
 <?php if(isset($_SESSION['session_usuario'])): ?>
-	<?php $cedula = $_SESSION['session_cedula']; ?>
-
 	<?php
+	$cedula = $_SESSION['session_cedula'];
 	if(isset($_GET['monto'])) { $monto = $_GET['monto']; }
 	if(isset($_GET['tiempo'])) { $tiempo = $_GET['tiempo']; }
-	if(isset($_GET['pago'])) { $pago = $_GET['pago']; }
+	if(isset($_GET['pago'])) { $tiempo = $_GET['pago']; }
+	if(isset($_GET['porcentaje'])) {
+		$pago = $_GET['porcentaje'];
+	} else {
+		$rol = $_SESSION['session_id_rol'];
+		$x = new connection();
+		$x->setQuery("select porcentaje from tb_porcentajes where id_roles=$rol order by fecha desc limit 1;");
+		while($rows = pg_fetch_object($x->getQuery())) {
+			$porcentaje = $rows->porcentaje;
+		}
+		unset($x);
+	}
 	?>
 
 	<h1>Solicitud de Préstamo</h1>
@@ -25,7 +35,7 @@
 						<label for="monto">Monto</label>
 					</td>
 					<td>
-					<input name="monto" type="number" pattern="[0-9]{2,}" value="<?php print $monto; ?>" <?php isset($monto) ? print 'readonly="readonly"' : "" ?>  required/>
+						<input name="monto" type="number" pattern="[0-9]{2,}" value="<?php print $monto; ?>" <?php isset($monto) ? print 'readonly="readonly"' : "" ?>  required/>
 					</td>
 				</tr>
 				<tr>
@@ -55,6 +65,7 @@
 				</tr>
 			</table>
 		</fieldset>
+		<input name="porcentaje" type="hidden" value="<?php print $porcentaje; ?>" />
 		<input class="boton1" type="submit" value="Enviar" />
 	</form>
 <?php else: ?>

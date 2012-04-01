@@ -48,7 +48,7 @@ class simulacion {
 			$total_intereses += $intereses[$i];
 			$fechas[$i] = strtotime("+1 month", $fechas[$i-1]);
 		}
-		$this->imprimir($intereses, $fechas, $amortizacion, $total_intereses);
+		$this->imprimir($intereses, $fechas, $amortizacion, $total_intereses, $this->porcentaje);
 	}
 	private function intereses_amortizacion() {
 		$total_intereses = 0;
@@ -66,9 +66,9 @@ class simulacion {
 			$monto[$i] = $monto[$i-1] - $cuota;
 			$fechas[$i] = strtotime("+1 month", $fechas[$i-1]);
 		}
-		$this->imprimir($intereses, $fechas, $amortizacion, $total_intereses);
+		$this->imprimir($intereses, $fechas, $amortizacion, $total_intereses, $this->porcentaje);
 	}
-	private function imprimir(&$intereses, &$fechas, &$amortizacion, &$total_intereses) {
+	private function imprimir(&$intereses, &$fechas, &$amortizacion, &$total_intereses, $porcentaje) {
 		include("pages/reporte-simulacion.php");
 	}
 }
