@@ -151,9 +151,7 @@ h1 {
 }
 
 table.dataTable {
-	border-bottom: 1px solid #F90;
 	margin-top: 10px;
-	border-spacing: 0;
 	width: 100%;
 }
 
@@ -171,21 +169,13 @@ table tr td.amortizacion {
 	text-align: right;
 }
 
-table thead {
-}
-
-table th {
-	border-bottom: 1px solid #F90;
-}
-
-table th,
-table td {
-	border-spacing: 0;
+table.listado {
+	border-collapse: collapse;
 }
 
 table.listado tbody td.nombre > div,
 table.listado tbody td.solicitud > div {
-	margin-left: 20px;
+	padding-left: 20px;
 }
 
 table.listado tbody tr.odd {
@@ -223,12 +213,24 @@ table.listado tr td a {
 	text-decoration: none;
 }
 
-table.listado tr td a:hover {
+table.listado tr td div.fecha a:hover,
+table.listado tr td div.solicitud a:hover {
 	border-bottom: 1px solid #eb8f00;
 }
 
 table.listado th {
 	cursor: pointer;
+}
+
+table.listado tbody tr {
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
+}
+
+table.listado tbody tr td {
+}
+
+table.listado tbody tr td div {
 }
 
 /* Formularios */

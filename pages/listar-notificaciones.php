@@ -35,10 +35,10 @@
 		</thead>
 		<?php while($rows = pg_fetch_object($c->getQuery())): ?>
 			<tr>
-				<td class="fecha"><span class="icon"></span><div><?php print $rows->fecha; ?></div></td>
+				<td class="fecha"><span class="icon"></span><div class="fecha"><a href="index.php?page=ver-notificacion&notificacion=<?php print $rows->id; ?>"><?php print $rows->fecha; ?></a></div></td>
 				<td><div><?php print $rows->nombre . " " . $rows->apellido; ?></div></td>
 				<td><div><?php print $rows->email; ?></div></td>
-				<td><div><a href="index.php?page=ver-notificacion&notificacion=<?php print $rows->id; ?>"><?php print $rows->asunto; ?></a></div></td>
+				<td><div><?php print $rows->asunto; ?></div></td>
 			</tr>
 		<?php endwhile; ?>
 	</table>

@@ -39,9 +39,9 @@
 				<td><div><?php print $rows->apellido; ?></div></td>
 				<td><div><?php print $rows->telefono; ?></div></td>
 				<td><div><?php print $rows->email; ?></div></td>
-				<td><a href="<?php print "index.php?page=notificar&cedula=" . $rows->cedula; ?>"><img src="img/notificar.png" title="Notificar" alt="Notificar"></a></td>
-				<td><a href="<?php print "index.php?page=modificar-usuarios&cedula=" . $rows->cedula; ?>"><img src="img/modificar.png" title="Modificar" alt="Modificar"></a></td>
-				<td><a href="<?php print "index.php?page=deshabilitar-usuarios&cedula=" . $rows->cedula; ?>"><img src="img/deshabilitar.png" title="Deshabilitar" alt="Deshabilitar"></a></td>
+				<td><div><a href="<?php print "index.php?page=notificar&cedula=" . $rows->cedula; ?>"><img src="img/notificar.png" title="Notificar" alt="Notificar"></a></div></td>
+				<td><div><a href="<?php print "index.php?page=modificar-usuarios&cedula=" . $rows->cedula; ?>"><img src="img/modificar.png" title="Modificar" alt="Modificar"></a></div></td>
+				<td><div><a href="<?php print "index.php?page=deshabilitar-usuarios&cedula=" . $rows->cedula; ?>"><img src="img/deshabilitar.png" title="Deshabilitar" alt="Deshabilitar"></div></a></td>
 			</tr>
 		<?php endwhile; ?>
 	</table>
