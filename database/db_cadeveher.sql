@@ -26,7 +26,7 @@ create table tb_usuarios (
 	direccion			varchar(255) not null,
 	fecha_ingreso			timestamp not null default now(),
 	fecha_egreso			timestamp,
-	usuario				varchar(15) not null,
+	usuario				varchar(15) not null unique,
 	password			varchar(33) not null,
 	estatus				boolean default true
 );
