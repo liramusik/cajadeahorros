@@ -235,14 +235,17 @@ input#cedula {
 	width: 177px;
 }
 
-#solicitar-prestamo input#cedula,
 #solicitar-prestamo input#monto,
 #solicitar-prestamo input#tiempo,
-#simular input#cedula,
 #simular input#monto,
 #simular input#tiempo {
 	width: 218px;
 	text-align: right;
+}
+
+#solicitar-prestamo input#cedula,
+#simular input#cedula {
+	width: 218px;
 }
 
 td.etiqueta {
