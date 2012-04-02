@@ -19,7 +19,9 @@
 	<div class="group">
 		<h3><a href="#">Notificaciones</a></h3>
 		<div>
-			<a href="index.php?page=listar-notificaciones">Notificaciones</a>
+			<ul>
+				<li><a href="index.php?page=listar-notificaciones">Notificaciones</a></li>
+			</ul>
 		</div>
 	</div>
 	<div class="group">
