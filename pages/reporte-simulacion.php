@@ -18,7 +18,7 @@
 	});
 </script>
 
-<table id=listado>
+<table id="listado" class="listado">
 	<?php if($this->pago == 1): ?>
 		<thead>
 			<th class="t_cuota">Cuota</th>
