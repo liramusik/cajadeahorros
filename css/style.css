@@ -131,7 +131,7 @@ h1 {
 	text-decoration: none;
 }
 
-#menu-izquierdo #ui-accordion ul li span {
+#menu-izquierdo #ui-accordion ul li span.icon {
 	position: absolute;
 	display: block;
 	width: 16px;
@@ -183,15 +183,51 @@ table td {
 	border-spacing: 0;
 }
 
-
-table tr.even {
-	background: #FECC41;
+table.listado tbody td.nombre > div,
+table.listado tbody td.solicitud > div {
+	margin-left: 20px;
 }
 
-table tr.odd {
+table.listado tbody tr.odd {
+	color: #1C94C4;
 }
 
-table#listado th {
+table.listado tbody tr.even {
+	color: #1C94C4;
+	background: #F6F6F6 url(../js/jquery.ui/css/ui-lightness/images/ui-bg_glass_100_f6f6f6_1x400.png) 50% 50% repeat-x;
+}
+
+table.listado tbody tr:hover {
+	color: #EB8F00;
+	background: #F6F6F6 url(../js/jquery.ui/css/ui-lightness/images/ui-bg_glass_100_fdf5ce_1x400.png) 50% 50% repeat-x;
+}
+
+table.listado tbody tr:hover a {
+	color: #EB8F00;
+}
+
+table.listado tbody tr span.icon {
+	position: absolute;
+	display: block;
+	width: 16px;
+	height: 16px;
+}
+
+table.listado tbody tr:hover span.icon {
+	background-image: url(../js/jquery.ui/css/ui-lightness/images/ui-icons_ef8c08_256x240.png);
+	background-position: -32px -16px;
+}
+
+table.listado tr td a {
+	color: #1C94C4;
+	text-decoration: none;
+}
+
+table.listado tr td a:hover {
+	border-bottom: 1px solid #eb8f00;
+}
+
+table.listado th {
 	cursor: pointer;
 }
 

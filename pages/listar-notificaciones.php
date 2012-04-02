@@ -24,7 +24,7 @@
 		});
 	</script>
 	<div class="notificar-todos">Presione clic <a href="index.php?page=notificar&n_cedula=all">aquí</a> si desea notificar a todos los asociados</div>
-	<table id="listado">
+	<table id="listado" class="listado">
 		<thead>
 			<tr>
 				<th>Fecha</th>
@@ -35,10 +35,10 @@
 		</thead>
 		<?php while($rows = pg_fetch_object($c->getQuery())): ?>
 			<tr>
-				<td><?php print $rows->fecha; ?></td>
-				<td><?php print $rows->nombre . " " . $rows->apellido; ?></td>
-				<td><?php print $rows->email; ?></td>
-				<td><a href="index.php?page=ver-notificacion&notificacion=<?php print $rows->id; ?>"><?php print $rows->asunto; ?></a></td>
+				<td class="fecha"><span class="icon"></span><div><?php print $rows->fecha; ?></div></td>
+				<td><div><?php print $rows->nombre . " " . $rows->apellido; ?></div></td>
+				<td><div><?php print $rows->email; ?></div></td>
+				<td><div><a href="index.php?page=ver-notificacion&notificacion=<?php print $rows->id; ?>"><?php print $rows->asunto; ?></a></div></td>
 			</tr>
 		<?php endwhile; ?>
 	</table>

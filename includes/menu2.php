@@ -4,7 +4,7 @@
 		<h3><a href="#">Inicio</a></h3>
 		<div>
 			<ul>
-				<li><span></span><a href="index.php">Inicio</a></li>
+				<li><span class="icon"></span><a href="index.php">Inicio</a></li>
 			</ul>
 		</div>
 	</div>
@@ -12,7 +12,7 @@
 		<h3><a href="#">Cuenta</a></h3>
 		<div>
 			<ul>
-				<li><span></span><a href="index.php?page=modificar-usuarios&cedula=<?php print $cedula; ?>">Cuenta</a></li>
+				<li><span class="icon"></span><a href="index.php?page=modificar-usuarios&cedula=<?php print $cedula; ?>">Cuenta</a></li>
 			</ul>
 		</div>
 	</div>
@@ -26,9 +26,9 @@
 		<h3><a href="#">Préstamos</a></h3>
 		<div>
 			<ul>
-				<li><span></span><a href="index.php?page=solicitar-prestamo">Solicitar</a></li>
-				<li><span></span><a href="index.php?page=simulacion">Simulación</a></li>
-				<li><span></span><a href="index.php?page=listar-prestamos">Listar</a></li>
+				<li><span class="icon"></span><a href="index.php?page=solicitar-prestamo">Solicitar</a></li>
+				<li><span class="icon"></span><a href="index.php?page=simulacion">Simulación</a></li>
+				<li><span class="icon"></span><a href="index.php?page=listar-prestamos">Listar</a></li>
 			</ul>
 		</div>
 	</div>

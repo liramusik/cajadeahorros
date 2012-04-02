@@ -18,7 +18,7 @@
 			});
 		});
 	</script>
-	<table id="listado">
+	<table id="listado" class="listado">
 		<thead>
 			<tr>
 				<th rowspan="2">Nombre</th>
@@ -35,10 +35,10 @@
 		</thead>
 		<?php while($rows = pg_fetch_object($c->getQuery())): ?>
 			<tr>
-				<td><?php print $rows->nombre; ?></td>
-				<td><?php print $rows->apellido; ?></td>
-				<td><?php print $rows->telefono; ?></td>
-				<td><?php print $rows->email; ?></td>
+				<td class="nombre"><span class="icon"></span><div><?php print $rows->nombre; ?></div></td>
+				<td><div><?php print $rows->apellido; ?></div></td>
+				<td><div><?php print $rows->telefono; ?></div></td>
+				<td><div><?php print $rows->email; ?></div></td>
 				<td><a href="<?php print "index.php?page=notificar&cedula=" . $rows->cedula; ?>"><img src="img/notificar.png" title="Notificar" alt="Notificar"></a></td>
 				<td><a href="<?php print "index.php?page=modificar-usuarios&cedula=" . $rows->cedula; ?>"><img src="img/modificar.png" title="Modificar" alt="Modificar"></a></td>
 				<td><a href="<?php print "index.php?page=deshabilitar-usuarios&cedula=" . $rows->cedula; ?>"><img src="img/deshabilitar.png" title="Deshabilitar" alt="Deshabilitar"></a></td>

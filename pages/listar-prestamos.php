@@ -24,7 +24,7 @@
 			});
 		});
 	</script>
-	<table id="listado">
+	<table id="listado" class="listado">
 		<thead>
 			<tr>
 				<th>Solicitud</th>
@@ -36,11 +36,11 @@
 		</thead>
 		<?php while($rows = pg_fetch_object($c->getQuery())): ?>
 			<tr>
-				<td><a href="index.php?page=ver-prestamos&solicitud=<?php print $rows->id; ?>"><?php printf("No.- %05d", $rows->id); ?></a></td>
-				<td><?php print $rows->nombre . " " . $rows->apellido; ?></td>
-				<td><?php printf("%.2f", $rows->monto); ?></td>
-				<td><?php print $rows->fecha; ?></td>
-				<td><?php print $rows->estatus; ?></td>
+				<td class="solicitud"><span class="icon"></span><div><a href="index.php?page=ver-prestamos&solicitud=<?php print $rows->id; ?>"><?php printf("No.- %05d", $rows->id); ?></a></div></td>
+				<td><div><?php print $rows->nombre . " " . $rows->apellido; ?></div></td>
+				<td><div><?php printf("%.2f", $rows->monto); ?></div></td>
+				<td><div><?php print $rows->fecha; ?></div></td>
+				<td><div><?php print $rows->estatus; ?></div></td>
 			</tr>
 		<?php endwhile; ?>
 	</table>
