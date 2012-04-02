@@ -37,7 +37,7 @@ h1 {
 	text-decoration:underline;
 }
 #contenido {
-	padding:20px;
+	margin: 20px 10px 20px 20px;
 	font-size:12px;
 }
 #footer {
@@ -109,45 +109,45 @@ h1 {
 }
 
 #menu-izquierdo {
+	padding: 30px 0 30px 10px;
 	float: left;
 	width: 200px;
 }
 
+#menu-izquierdo #ui-accordion ul {
+	padding: 0;
+	list-style: none;
+}
+
+#menu-izquierdo #ui-accordion ul li {
+	position: relative;
+}
+
+#menu-izquierdo #ui-accordion ul li a  {
+	color: #EB8F00;
+	font-size: .9em;
+	font-weight: bold;
+	margin-left: 20px;
+	text-decoration: none;
+}
+
+#menu-izquierdo #ui-accordion ul li span {
+	position: absolute;
+	display: block;
+	width: 16px;
+	height: 16px;
+	background-image: url(../js/jquery.ui/css/ui-lightness/images/ui-icons_ef8c08_256x240.png);
+	background-position: -32px -16px;
+}
+
+#menu-izquierdo #ui-accordion ul li a:hover {
+	color: #1C94C4;
+}
+
+
 #contenido {
 	float: left;
 	width: 740px;
-}
-
-#menu-principal {
-	margin: 30px 0 0 20px;
-}
-
-#menu-principal ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-#menu-principal ul > li > a {
-	color: #33170D;
-	font-size: 18px;
-	text-decoration: none;
-}
-
-#menu-principal ul > li > ul {
-	display: none;
-	margin: 0 0 0 20px;
-	padding: 0;
-	list-style: none;
-}
-
-#menu-principal ul > li > ul > li {
-}
-
-#menu-principal ul > li > ul > li a {
-	text-decoration: none;
-	color: black;
-	font-size: 12px;
 }
 
 table.dataTable {
