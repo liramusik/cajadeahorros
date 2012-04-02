@@ -3,7 +3,7 @@
 <?php $total = $total_intereses + $this->monto; ?>
 <h2>Total de intereses a pagar <?php print $total_intereses; ?> Bs.</h2>
 <h3>Total del préstamo <?php print $this->monto; ?> Bs.</h3>
-<h4>Para realizar la solicitud de préstamo en base a esta simulación, por favor haga clic <a href="index.php?page=solicitud-prestamo&monto=<?php print $this->monto; ?>&tiempo=<?php print $this->tiempo; ?>&pago=<?php print $this->pago; ?>&porcentaje=<?php print $porcentaje; ?>">aquí</a></h4>
+<h4>Para realizar la solicitud de préstamo en base a esta simulación, por favor haga clic <a href="index.php?page=solicitar-prestamo&monto=<?php print $this->monto; ?>&tiempo=<?php print $this->tiempo; ?>&pago=<?php print $this->pago; ?>&porcentaje=<?php print $porcentaje; ?>">aquí</a></h4>
 
 <script>
 	$(document).ready(function() {
