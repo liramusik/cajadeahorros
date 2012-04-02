@@ -231,6 +231,10 @@ input#confirmar_password {
 	width: 218px;
 }
 
+input#cedula {
+	width: 177px;
+}
+
 #solicitar-prestamo input#cedula,
 #solicitar-prestamo input#monto,
 #solicitar-prestamo input#tiempo,
