@@ -150,6 +150,10 @@ h1 {
 	width: 740px;
 }
 
+table {
+	width: 100%;
+}
+
 table.dataTable {
 	margin-top: 10px;
 	width: 100%;
