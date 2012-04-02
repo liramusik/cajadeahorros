@@ -10,6 +10,7 @@ $(document).ready(function(){
 		}
 	});
 });
+
 $(document).ready(function(){
 	$("#agregar-usuario").validate({
 		rules: {
@@ -101,6 +102,28 @@ $(document).ready(function(){
 	});
 });
 
+$(document).ready(function(){
+	$("#solicitar-prestamo").validate({
+		rules: {
+			monto: {
+				required: true,
+				minlength: 3,
+				minlength: 3,
+				digits: true
+			},
+			tiempo: {
+				required: true,
+				minlength: 1,
+				maxlength: 2,
+				digits: true
+			},
+			observacion: {
+				required: true,
+				minlength: 15,
+			}
+		},
+	});
+});
 
 /* Para la cédula */
 $(document).ready(function() {
@@ -118,6 +141,30 @@ $(document).ready(function() {
 /* Para el teléfono */
 $(document).ready(function() {
 	$("#telefono").keydown(function(event) {
+		if(event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || (event.keyCode == 65 && event.ctrlKey === true) || (event.keyCode >= 35 && event.keyCode <= 39)) {
+			 return;
+		} else {
+			if((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105 )) {
+				event.preventDefault(); 
+			}   
+		}
+	});
+});
+
+$(document).ready(function() {
+	$("#monto").keydown(function(event) {
+		if(event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || (event.keyCode == 65 && event.ctrlKey === true) || (event.keyCode >= 35 && event.keyCode <= 39)) {
+			 return;
+		} else {
+			if((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105 )) {
+				event.preventDefault(); 
+			}   
+		}
+	});
+});
+
+$(document).ready(function() {
+	$("#tiempo").keydown(function(event) {
 		if(event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || (event.keyCode == 65 && event.ctrlKey === true) || (event.keyCode >= 35 && event.keyCode <= 39)) {
 			 return;
 		} else {

@@ -18,49 +18,49 @@
 	?>
 
 	<h1>Solicitar Préstamo</h1>
-	<form action="index.php?page=generar-solicitud" method="post" id="prestamo">
+	<form action="index.php?page=generar-solicitud" method="post" id="solicitar-prestamo">
 		<fieldset>
 			<legend>Solicitud de Préstamo</legend>
 			<table>
 				<tr>
-					<td>
+					<td class="etiqueta">
 						<label for="cedula">Cédula de Identidad</label>
 					</td>
 					<td>
-						<input name="cedula" type="text" pattern="[0-9]{3,}" value="<?php print $cedula; ?>" readonly="readonly" />
+						<input id="cedula" name="cedula" type="text" pattern="[0-9]{3,}" value="<?php print $cedula; ?>" readonly="readonly" />
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td class="etiqueta">
 						<label for="monto">Monto</label>
 					</td>
 					<td>
-						<input name="monto" type="text" pattern="[0-9]{2,}" value="<?php isset($monto) ? print $monto: ""; ?>" <?php isset($monto) ? print 'readonly="readonly"' : "" ?>  required />
+						<input id="monto" name="monto" type="text" pattern="[0-9]{2,}" maxlength="5" value="<?php isset($monto) ? print $monto: ""; ?>" <?php isset($monto) ? print 'readonly="readonly"' : "" ?>  required />
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td class="etiqueta">
 						<label for="tiempo">Tiempo</label>
 					</td>
 					<td>
-						<input name="tiempo" type="text" pattern="[0-9]{1,}" value="<?php isset($tiempo) ? print $tiempo : ""; ?>" <?php isset($tiempo) ? print 'readonly="readonly"' : "" ?> required />
+						<input id="tiempo" name="tiempo" type="text" pattern="[0-9]{1,}" maxlength="2" value="<?php isset($tiempo) ? print $tiempo : ""; ?>" <?php isset($tiempo) ? print 'readonly="readonly"' : "" ?> required />
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td class="etiqueta pago">
 						<label for="pago">Forma de pago</label>
 					</td>
-					 <td>
+					<td>
 						<input name="pago" type="radio" value="1" <?php if(isset($pago) and ($pago==1)) { print "checked "; print "readonly='readonly '"; } elseif(!isset($pago)) { print "checked "; } else { print "disabled"; } ?> /> Pago de intereses<br />
 						<input name="pago" type="radio" value="2" <?php if(isset($pago) and ($pago==2)) { print "checked "; print "readonly='readonly '"; } elseif(isset($pago) && ($pago == 1)) { print "readonly='readonly'"; } ?> /> Pago de intereres, mas amortización a capital
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td class="etiqueta observacion">
 						<label for="observacion">Observación</label>
 					</td>
-					<td>
-						<textarea name="observacion" maxlength="250" cols="50" rows="5"></textarea>
+					<td class="textarea">
+						<textarea name="observacion" maxlength="250" cols="40" rows="5"></textarea>
 					</td>
 				</tr>
 			</table>

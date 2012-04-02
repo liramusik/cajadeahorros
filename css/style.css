@@ -231,15 +231,23 @@ input#confirmar_password {
 	width: 218px;
 }
 
-input#cedula {
-	width: 177px;
+#solicitar-prestamo input#cedula,
+#solicitar-prestamo input#monto,
+#solicitar-prestamo input#tiempo,
+#simular input#cedula,
+#simular input#monto,
+#simular input#tiempo {
+	width: 218px;
+	text-align: right;
 }
 
 td.etiqueta {
 	width: 150px;
 }
 
-td.direccion {
+td.direccion,
+td.observacion,
+td.pago {
 	vertical-align: top;
 }
 
