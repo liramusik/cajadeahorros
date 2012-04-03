@@ -2,7 +2,7 @@
 $solicitud = $_GET['solicitud'];
 $x = new connection();
 
-$x->setQuery("select tb_solicitud_prestamo.id, cedula, nombre, apellido, monto, fecha, tiempo, porcentaje, observacion, respuesta, tb_estatus_solicitud_prestamo.estatus from tb_solicitud_prestamo left join tb_estatus_solicitud_prestamo on tb_solicitud_prestamo.id_estatus_solicitud_prestamo = tb_estatus_solicitud_prestamo.id left join tb_usuarios on cedula_usuario = cedula where tb_solicitud_prestamo.id=$solicitud");
+$x->setQuery("select tb_solicitud_prestamo.id, cedula, nombre, apellido, monto, to_char(fecha, 'DD/MM/YYYY') as fecha, tiempo, porcentaje, observacion, respuesta, tb_estatus_solicitud_prestamo.estatus from tb_solicitud_prestamo left join tb_estatus_solicitud_prestamo on tb_solicitud_prestamo.id_estatus_solicitud_prestamo = tb_estatus_solicitud_prestamo.id left join tb_usuarios on cedula_usuario = cedula where tb_solicitud_prestamo.id=$solicitud");
 while($rows = pg_fetch_object($x->getQuery())) {
 	$cedula = $rows->cedula;
 	$nombre = $rows->nombre;
@@ -17,3 +17,8 @@ while($rows = pg_fetch_object($x->getQuery())) {
 }
 unset($x);
 ?>
+
+<h2><?php print $nombre . " " . $apellido; ?>, solicitud No.- <?php printf("%05d", $solicitud); ?>, con fecha <?php print $fecha; ?></h2>
+<table id="detalles-prestamo">
+	
+</table>
