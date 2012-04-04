@@ -1,9 +1,9 @@
 <div id="ui-accordion">
 	<div class="group">
-		<h3><a href="#">Inicio</a></h3>
+		<h3><a href="#">Cuentas</a></h3>
 		<div>
 			<ul>
-				<li><span class="icon"></span><a href="index.php">Inicio</a></li>
+				<li><span class="icon"></span><a href="index.php?page=crear-cuentas">Cuentas</a></li>
 				<li><span class="icon"></span><a href="index.php?page=listar-cuentas">Cuentas</a></li>
 			</ul>
 		</div>
@@ -12,7 +12,7 @@
 		<h3><a href="#">Usuarios</a></h3>
 		<div>
 			<ul>
-				<li><span class="icon"></span><a href="index.php?page=agregar-usuarios">Agregar</a></li>
+				<li><span class="icon"></span><a href="index.php?page=crear-usuarios">Agregar</a></li>
 				<li><span class="icon"></span><a href="index.php?page=listar-usuarios">Listar</a></li>
 			</ul>
 		</div>
