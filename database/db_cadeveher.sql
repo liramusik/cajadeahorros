@@ -233,8 +233,9 @@ insert into tb_estatus_transacciones values(default, 'Comprobando');
 insert into tb_estatus_transacciones values(default, 'Aceptado');
 insert into tb_estatus_transacciones values(default, 'Rechazado');
 
-insert into tb_tipo_pago values(default, 'Pago de Intereses mas Amortización');
 insert into tb_tipo_pago values(default, 'Pago de Intereses');
+insert into tb_tipo_pago values(default, 'Pago por cuotas');
+insert into tb_tipo_pago values(default, 'Pago al final de cuotas + intereses');
 
 insert into tb_estatus_solicitud_prestamo values(default, 'Pendiente');
 insert into tb_estatus_solicitud_prestamo values(default, 'Aprobado');

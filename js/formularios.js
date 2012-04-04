@@ -117,10 +117,6 @@ $(document).ready(function(){
 				maxlength: 2,
 				digits: true
 			},
-			observacion: {
-				required: true,
-				minlength: 15,
-			}
 		},
 	});
 });
