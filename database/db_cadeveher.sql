@@ -33,13 +33,18 @@ create table tb_usuarios (
 
 create table tb_bancos (
 	id				serial primary key,
-	nombre				varchar(25) not null
+	nombre				varchar(50) not null
+);
+
+create table tb_tipo_cuentas (
+	id				serial primary key,
+	tipo				varchar(10)
 );
 
 create table tb_cuentas (
 	id				serial primary key,
 	id_banco			int references tb_bancos(id),
-	tipo				varchar(1) not null,
+	id_tipo_cuenta			int references tb_tipo_cuentas(id),
 	cuenta				varchar(20) not null
 );
 
@@ -123,9 +128,12 @@ comment on column tb_usuarios.password is 'password';
 comment on column tb_bancos.id is 'ID del banco';
 comment on column tb_bancos.nombre is 'Nombre del banco';
 
+comment on column tb_tipo_cuentas.id is 'ID del tipo de cuenta';
+comment on column tb_tipo_cuentas.tipo is 'Tipo de cuenta, ahorro o corriente etc';
+
 comment on column tb_cuentas.id is 'ID de la cuenta';
 comment on column tb_cuentas.id_banco is 'Referencia a la tabla tb_bacos(id)';
-comment on column tb_cuentas.tipo is 'Tipo de cuenta';
+comment on column tb_cuentas.id_tipo_cuenta is 'ID del tipo de cuenta';
 comment on column tb_cuentas.cuenta is 'Número de cuenta';
 
 comment on column tb_tipo_transacciones.id is 'ID del tipo de transacción';
@@ -189,10 +197,31 @@ insert into tb_usuarios values(16409503, 1, 1, 'Lilibeth', 'Ramírez', '04165023
 insert into tb_usuarios values(17108742, 1, 2, 'David', 'Mora', '04264719868', 'davidmora000@gmail.com', 'Caracas - Venezuela', default, null, 'davidmora', md5('davidmora'), 'TRUE');
 insert into tb_usuarios values(16541550, 1, 3, 'Héctor', 'Lozada', '04268061734', 'imatsu@gmail.com', 'Caracas - Venezuela', default, null, 'hlozada', md5('hlozada'), 'TRUE');
 
+insert into tb_bancos values(default, '100% Banco');
+insert into tb_bancos values(default, 'Banco Activo');
+insert into tb_bancos values(default, 'Banco Mercantil');
 insert into tb_bancos values(default, 'Banco de Venezuela');
 insert into tb_bancos values(default, 'BBVA Banco Provincial');
 insert into tb_bancos values(default, 'Banesco');
+insert into tb_bancos values(default, 'BanCaribe');
+insert into tb_bancos values(default, 'Banco Agrícola de Venezuela');
+insert into tb_bancos values(default, 'Banco Caroní');
 insert into tb_bancos values(default, 'Banco del Tesoro');
+insert into tb_bancos values(default, 'Banco Exterior');
+insert into tb_bancos values(default, 'Banco Guayana');
+insert into tb_bancos values(default, 'Banco Internacional de desarrollo C.A.');
+insert into tb_bancos values(default, 'Banco Nacional de Crédito');
+insert into tb_bancos values(default, 'Banco Occidental de Descuento');
+insert into tb_bancos values(default, 'Banco Plaza');
+insert into tb_bancos values(default, 'Banco Sofitasa');
+insert into tb_bancos values(default, 'Banplus');
+insert into tb_bancos values(default, 'Corp Banca C.A.');
+insert into tb_bancos values(default, 'Citibank');
+insert into tb_bancos values(default, 'BFC Banco Fondo Común');
+insert into tb_bancos values(default, 'Del Sur');
+
+insert into tb_tipo_cuentas values(default, 'Ahorro');
+insert into tb_tipo_cuentas values(default, 'Corriente');
 
 insert into tb_tipo_transacciones values(default, 'Aporte mensual');
 insert into tb_tipo_transacciones values(default, 'Aporte especial');
