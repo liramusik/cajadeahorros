@@ -271,7 +271,8 @@ input#fecha_egreso,
 input#usuario,
 input#password,
 input#confirmar_password,
-input#nombre_banco {
+input#nombre_banco,
+input#cuenta {
 	width: 218px;
 }
 

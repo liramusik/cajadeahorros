@@ -2,7 +2,9 @@
 	$(document).ready(function() {
 		var availableTags = [
 			<?php
+				$bancos = array();
 				while($rows = pg_fetch_object($listado_bancos->getQuery())) {
+					$bancos[] = $rows->nombre;
 					print "\"$rows->nombre\",\n";
 				}
 			?>
@@ -22,7 +24,8 @@
 					<label for="nombre_banco">Nombre del banco <span class="obligatorio">*</span></label>
 				</td>
 				<td>
-					<input type="text" name="nombre_banco" id="nombre_banco" pattern="[a-zA-Z|(áéíóúñ)]{3,}" maxlength="40" placeholder="Nombre del Banco" autocomplete="on" required />
+					<input type="text" name="nombre_banco" id="nombre_banco" maxlength="40" placeholder="Nombre del Banco" autocomplete="on" required />
+					<input type="hidden" name="bancos" id="bancos" maxlength="40" value="<?php foreach($bancos as $v) { print "$v,"; } ?>" />
 				</td>
 			</tr>
 			<tr>
@@ -37,7 +40,14 @@
 					</select>
 				</td>
 			</tr>
-
+			<tr>
+				<td class="etiqueta">
+					<label for="cuenta">Número de cuenta <span class="obligatorio">*</span></label>
+				</td>
+				<td>
+					<input type="text" name="cuenta" id="cuenta" maxlength="20" pattern="[0-9]{3,}" placeholder="Nombre del Banco" autocomplete="on" required />
+				</td>
+			</tr>
 		</table>
 	</fieldset>
 	<input id="submit" type="submit" value="Registrar" name="submit" class="boton1"/>
