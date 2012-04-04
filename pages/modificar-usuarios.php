@@ -23,7 +23,27 @@
 			$usuario = $rows->usuario;
 		}
 	} else {
+		
+		$buscar = new connection();
+		$buscar->setQuery("select nombre, apellido, telefono, direccion, email from tb_usuarios");
 
+		while($rows = pg_fetch_object($buscar->getQuery())) {
+			$db_nombre = $rows->nombre;
+			$db_apellido = $rows->apellido;
+			$db_telefono = $rows->telefono;
+			$db_email = $rows->email;
+			$db_direccion = $rows->direccion;
+		}
+
+		$post_nombre = $_POST['nombre'];
+		$post_apellido = $_POST['apellido'];
+		$post_telefono = $_POST['telefono'];
+		$post_email = $_POST['email'];
+		$post_direccion = $_POST['direccion'];
+
+		if($post_nombre == $db_nombre){
+		
+		}
 
 }
 
