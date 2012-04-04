@@ -1,6 +1,6 @@
 <?php if(isset($_SESSION['session_usuario']) and ($_SESSION['session_id_rol'] == 1)): ?>
 	<?php
-	$c->setQuery("select * from tb_usuarios where estatus=true");
+	$c->setQuery("select nombre, apellido, telefono, email, usuario, descripcion from tb_usuarios left join tb_roles on tb_usuarios.id_rol = tb_roles.id where estatus=true");
 	?>
 	<h1>Listado de Usuarios</h1>
 	<script>
@@ -21,8 +21,9 @@
 	<table id="listado" class="listado">
 		<thead>
 			<tr>
-				<th rowspan="2">Nombre</th>
-				<th rowspan="2">Apellido</th>
+				<th rowspan="2">Nombre y Apellido</th>
+				<th rowspan="2">Usuario</th>
+				<th rowspan="2">Rol</th>
 				<th rowspan="2">Teléfono</th>
 				<th rowspan="2">Email</th>
 				<th colspan="3" style="border-bottom: 0">Acciones</th>
@@ -35,8 +36,9 @@
 		</thead>
 		<?php while($rows = pg_fetch_object($c->getQuery())): ?>
 			<tr>
-				<td class="nombre"><span class="icon"></span><div><?php print $rows->nombre; ?></div></td>
-				<td><div><?php print $rows->apellido; ?></div></td>
+				<td class="nombre"><span class="icon"></span><div><?php print $rows->nombre . " " . $rows->apellido; ?></div></td>
+				<td><div><?php print $rows->usuario; ?></div></td>
+				<td><div><?php print $rows->descripcion; ?></div></td>
 				<td><div><?php print $rows->telefono; ?></div></td>
 				<td><div><?php print $rows->email; ?></div></td>
 				<td><div><a href="<?php print "index.php?page=notificar&cedula=" . $rows->cedula; ?>"><img src="img/notificar.png" title="Notificar" alt="Notificar"></a></div></td>
