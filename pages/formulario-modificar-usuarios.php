@@ -1,5 +1,4 @@
 <h1>Usuario</h1>
-<span class="obligatorio"><span class="obligatorio">*</span></span></label>
 
 <form action="pages/validar_usuario.php" method="post" id="modificar-usuario">
 	<fieldset>
