@@ -1,6 +1,6 @@
 <h1>Usuario</h1>
 
-<form action="pages/validar_usuario.php" method="post" id="modificar-usuario">
+<form action="index.php?page=modificar-usuarios" method="post" id="modificar-usuario">
 	<fieldset>
 		<legend>Información personal</legend>
 		<table>
