@@ -21,7 +21,7 @@
 		<h3><a href="#">Notificaciones</a></h3>
 		<div>
 			<ul>
-				<li><span class="icon"></span><a href="index.php?page=listar-notificaciones">Notificaciones</a></li>
+				<li><span class="icon"></span><a href="index.php?page=listar-notificaciones">Listar</a></li>
 			</ul>
 		</div>
 	</div>

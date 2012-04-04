@@ -20,7 +20,7 @@
 		<h3><a href="#">Notificaciones</a></h3>
 		<div>
 			<ul>
-				<li><a href="index.php?page=listar-notificaciones">Notificaciones</a></li>
+				<li><a href="index.php?page=listar-notificaciones">Listar</a></li>
 			</ul>
 		</div>
 	</div>
