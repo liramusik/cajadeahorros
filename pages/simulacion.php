@@ -23,7 +23,7 @@
 			</tr>
 			<tr>
 				<td class="etiqueta">
-					<label for="tiempo">Tiempo</label>
+					<label for="tiempo">Tiempo del préstamo (meses)</label>
 				</td>
 				<td>
 					<input id="tiempo" name="tiempo" type="text" pattern="[0-9]{1,}" required />
@@ -35,7 +35,8 @@
 				</td>
 				<td>
 					<input name="pago" type="radio" value="1" checked /> Pago de intereses<br />
-					<input name="pago" type="radio" value="2" /> Pago de intereres, mas amortización a capital
+					<input name="pago" type="radio" value="2" /> Pago por cuotas<br />
+					<input name="pago" type="radio" value="3" /> Pago al final de cuotas + intereses
 				</td>
 			</tr>
 		</table>
