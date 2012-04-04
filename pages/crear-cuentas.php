@@ -16,7 +16,7 @@
 
 		if(!in_array($nombre_banco, $array_bancos)) {
 			$insertar_banco = new connection();
-			$insertar_banco->setQuery("insert into tb_bancos values(default, '" . $nombre_banco . "' )");
+			$insertar_banco->setQuery("insert into tb_bancos values(default, '" . $nombre_banco . "')");
 			if(!$insertar_banco->getQuery()) {
 				print "No se pudo insertar el banco";
 			}
@@ -30,7 +30,7 @@
 		}
 
 		$insertar_cuenta = new connection();
-		$insertar_cuenta->setQuery("insert into tb_cuentas values(default, $id_banco, $tipo_cuenta, '" . $cuenta . "')");
+		$insertar_cuenta->setQuery("insert into tb_cuentas values(default, $id_banco, $tipo_cuenta, '" . $cuenta . "', default)");
 		if(!$insertar_cuenta->getQuery()) {
 			print '<div class="mensaje">Se ha generado un error <a href="index.php">Regresar</a></div>' . pg_last_error();
 		} else {
