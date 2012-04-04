@@ -40,7 +40,7 @@
 				</tr>
 				<tr>
 					<td class="etiqueta">
-						<label for="tiempo">Tiempo</label>
+						<label for="tiempo">Tiempo del préstamo (meses)</label>
 					</td>
 					<td>
 						<input id="tiempo" name="tiempo" type="text" pattern="[0-9]{1,}" maxlength="2" value="<?php isset($tiempo) ? print $tiempo : ""; ?>" <?php isset($tiempo) ? print 'readonly="readonly"' : "" ?> required />
