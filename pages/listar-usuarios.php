@@ -39,9 +39,9 @@
 				<td><div><?php print $rows->apellido; ?></div></td>
 				<td><div><?php print $rows->telefono; ?></div></td>
 				<td><div><?php print $rows->email; ?></div></td>
-				<td><div class="notificar"><a href="<?php print "index.php?page=notificar&cedula=" . $rows->cedula; ?>"></a></div></td>
-				<td><div class="modificar"><a href="<?php print "index.php?page=modificar-usuarios&cedula=" . $rows->cedula; ?>"></a></div></td>
-				<td><div class="deshabilitar"><a href="<?php print "index.php?page=deshabilitar-usuarios&cedula=" . $rows->cedula; ?>"></a></div></td>
+				<td><div><a href="<?php print "index.php?page=notificar&cedula=" . $rows->cedula; ?>"><img src="img/notificar.png" title="Notificar" alt="Notificar"></a></div></td>
+				<td><div><a href="<?php print "index.php?page=modificar-usuarios&cedula=" . $rows->cedula; ?>"><img src="img/modificar.png" title="Modificar" alt="Modificar"></a></div></td>
+				<td><div><a href="<?php print "index.php?page=deshabilitar-usuarios&cedula=" . $rows->cedula; ?>"><img src="img/deshabilitar.png" title="Deshabilitar" alt="Deshabilitar"></a></div></td>
 			</tr>
 		<?php endwhile; ?>
 	</table>
