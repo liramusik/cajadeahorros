@@ -3,8 +3,8 @@
 		<h3><a href="#">Cuentas</a></h3>
 		<div>
 			<ul>
-				<li><span class="icon"></span><a href="index.php?page=crear-cuentas">Cuentas</a></li>
-				<li><span class="icon"></span><a href="index.php?page=listar-cuentas">Cuentas</a></li>
+				<li><span class="icon"></span><a href="index.php?page=crear-cuentas">Crear</a></li>
+				<li><span class="icon"></span><a href="index.php?page=listar-cuentas">Listar</a></li>
 			</ul>
 		</div>
 	</div>
