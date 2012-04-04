@@ -1,6 +1,6 @@
 <?php if(isset($_SESSION['session_usuario']) and ($_SESSION['session_id_rol'] == 1)): ?>
 	<?php
-	$c->setQuery("select nombre, apellido, telefono, email, usuario, descripcion from tb_usuarios left join tb_roles on tb_usuarios.id_rol = tb_roles.id where estatus=true");
+	$c->setQuery("select cedula, nombre, apellido, telefono, email, usuario, descripcion from tb_usuarios left join tb_roles on tb_usuarios.id_rol = tb_roles.id where estatus=true");
 	?>
 	<h1>Listado de Usuarios</h1>
 	<script>
