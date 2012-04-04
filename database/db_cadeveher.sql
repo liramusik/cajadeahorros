@@ -33,7 +33,7 @@ create table tb_usuarios (
 
 create table tb_bancos (
 	id				serial primary key,
-	nombre				varchar(50) not null
+	nombre				varchar(50) not null unique
 );
 
 create table tb_tipo_cuentas (
@@ -45,7 +45,8 @@ create table tb_cuentas (
 	id				serial primary key,
 	id_banco			int references tb_bancos(id),
 	id_tipo_cuenta			int references tb_tipo_cuentas(id),
-	cuenta				varchar(20) not null
+	cuenta				varchar(20) not null unique,
+	estatus				boolean default true
 );
 
 create table tb_tipo_transacciones (
