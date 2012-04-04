@@ -6,7 +6,6 @@
 		$y = new connection();
 		$y->setQuery("select * from tb_nacionalidad;");
 
-		print $_SERVER['PHP_SELF'];
 		include("formulario-crear-usuarios.php");
 	} else {
 		unset($x);
