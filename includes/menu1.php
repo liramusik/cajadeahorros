@@ -12,7 +12,7 @@
 		<h3><a href="#">Usuarios</a></h3>
 		<div>
 			<ul>
-				<li><span class="icon"></span><a href="index.php?page=crear-usuarios">Agregar</a></li>
+				<li><span class="icon"></span><a href="index.php?page=crear-usuarios">Crear</a></li>
 				<li><span class="icon"></span><a href="index.php?page=listar-usuarios">Listar</a></li>
 			</ul>
 		</div>
