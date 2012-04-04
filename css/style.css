@@ -253,6 +253,7 @@ input[type="text"],
 input[type="email"],
 input[type="datetime"],
 input[type="password"],
+select,
 textarea {
 	font-family: sans-serif;
 	font-size: 1em;
@@ -269,12 +270,18 @@ input#fecha_ingreso,
 input#fecha_egreso,
 input#usuario,
 input#password,
-input#confirmar_password {
+input#confirmar_password,
+input#nombre_banco {
 	width: 218px;
 }
 
+select#tipo_cuenta,
+select#tipo {
+	width: 228px;
+}
+
 input#cedula {
-	width: 177px;
+	width: 172px;
 }
 
 #solicitar-prestamo input#monto,

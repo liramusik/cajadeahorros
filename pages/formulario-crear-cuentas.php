@@ -30,7 +30,7 @@
 					<label for="tipo_cuenta">Tipo de cuenta <span class="obligatorio">*</span></label>
 				</td>
 				<td>
-					<select name="tipo_cuenta">
+					<select name="tipo_cuenta" id="tipo_cuenta">
 						<?php while($rows = pg_fetch_object($tipo_cuentas->getQuery())): ?>
 							<option value="<?php print $rows->id; ?>" <?php ($rows->id == 1) ? print "selected" : print ""; ?>><?php print $rows->tipo; ?></option>
 						<?php endwhile; ?>

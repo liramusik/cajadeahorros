@@ -8,7 +8,7 @@
 					<label for="tipo">Tipo de usuario <span class="obligatorio">*</span></label>
 				</td>
 				<td>
-					<select name="tipo">
+					<select name="tipo" id="tipo">
 						<?php while($rows = pg_fetch_object($x->getQuery())): ?>
 							<option value="<?php print $rows->id; ?>" <?php ($rows->id == 2) ? print "selected" : print ""; ?>><?php print $rows->descripcion; ?></option>
 						<?php endwhile; ?>
@@ -36,7 +36,7 @@
 					<label for="cedula">Cedula <span class="obligatorio">*</span></label>
 				</td>
 				<td>
-					<select name="nacionalidad" readonly="readonly">
+					<select name="nacionalidad" id="nacionalidad" readonly="readonly">
 						<?php while($rows = pg_fetch_object($y->getQuery())): ?>
 							<option value="<?php print $rows->id; ?>" <?php ($rows->id == 1) ? print "selected" : print ""; ?>><?php print $rows->nacionalidad; ?></option>
 						<?php endwhile; ?>
