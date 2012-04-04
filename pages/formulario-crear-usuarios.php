@@ -1,5 +1,5 @@
 <h1>Agregar Usuario</h1>
-<form action="index.php?page=agregar-usuarios" method="post" id="agregar-usuario">
+<form action="index.php?page=crear-usuarios" method="post" id="agregar-usuario">
 	<fieldset>
 		<legend>Información personal</legend>
 		<table>
