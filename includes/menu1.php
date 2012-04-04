@@ -1,6 +1,6 @@
 <div id="ui-accordion">
 	<div class="group">
-		<h3><a href="#">Cuentas</a></h3>
+		<h3><a href="#">Bancos</a></h3>
 		<div>
 			<ul>
 				<li><span class="icon"></span><a href="index.php?page=crear-cuentas">Crear</a></li>

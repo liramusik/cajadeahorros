@@ -1,14 +1,6 @@
 <?php $cedula = $_SESSION['session_cedula']; ?>
 <div id="ui-accordion">
 	<div class="group">
-		<h3><a href="#">Inicio</a></h3>
-		<div>
-			<ul>
-				<li><span class="icon"></span><a href="index.php">Inicio</a></li>
-			</ul>
-		</div>
-	</div>
-	<div class="group">
 		<h3><a href="#">Cuenta</a></h3>
 		<div>
 			<ul>
