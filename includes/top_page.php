@@ -31,6 +31,9 @@
 				$("#fecha_egreso").datepicker({
 					dateFormat: 'dd/mm/yy'
 				});
+				$("#fecha").datepicker({
+					dateFormat: 'dd/mm/yy'
+				});
 			});
 		</script>
 	</head>
