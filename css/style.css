@@ -169,7 +169,8 @@ table tr td.fecha {
 }
 
 table tr td.interes,
-table tr td.amortizacion {
+table tr td.amortizacion,
+table tr td.cuota-fija {
 	text-align: right;
 }
 
