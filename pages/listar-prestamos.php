@@ -29,11 +29,16 @@
 	<table id="listado" class="listado">
 		<thead>
 			<tr>
-				<th>Solicitud</th>
-				<th>Nombre</th>
-				<th>Monto</th>
-				<th>Fecha</th>
-				<th>Estatus</th>
+				<th rowspan="2">Solicitud</th>
+				<th rowspan="2">Nombre</th>
+				<th rowspan="2">Monto</th>
+				<th rowspan="2">Fecha</th>
+				<th rowspan="2">Estatus</th>
+				<th colspan="2">Acciones</th>
+			</tr>
+			<tr>
+				<th></th>
+				<th></th>
 			</tr>
 		</thead>
 		<?php while($rows = pg_fetch_object($c->getQuery())): ?>
@@ -43,6 +48,13 @@
 				<td><div><?php printf("%.2f", $rows->monto); ?></div></td>
 				<td><div><?php print $rows->fecha; ?></div></td>
 				<td><div><?php print $rows->estatus; ?></div></td>
+				<?php if($rows->estatus == 'Pendiente'): ?>
+					<td><div><a href="index.php?page=algunapagina&prestamo=<?php print $rows->id; ?>">xAction</a></div></td>
+					<td><div><a href="index.php?page=algunapagina&prestamo=<?php print $rows->id; ?>">xAction</a></div></td>
+				<?php else: ?>
+					<td></td>
+					<td></td>
+				<?php endif; ?>
 			</tr>
 		<?php endwhile; ?>
 	</table>
