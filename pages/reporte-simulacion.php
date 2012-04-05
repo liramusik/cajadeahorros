@@ -16,6 +16,7 @@
 </script>
 
 <?php if($this->pago == 1): ?>
+	<div>Para realizar la solicitud de préstamo en base a esta simulación, por favor haga clic <a href="index.php?page=solicitar-prestamo&monto=<?php print $this->monto; ?>&tiempo=<?php print $this->tiempo; ?>&pago=<?php print $this->pago; ?>&porcentaje=<?php print $porcentaje; ?>">aquí</a></div>
 	<table id="listado" class="listado">
 		<thead>
 			<th>No.</th>
@@ -33,6 +34,7 @@
 		<?php endfor; ?>
 	</table>
 <?php elseif($this->pago == 2): ?>
+	<div>Para realizar la solicitud de préstamo en base a esta simulación, por favor haga clic <a href="index.php?page=solicitar-prestamo&monto=<?php print $this->monto; ?>&tiempo=<?php print $this->tiempo; ?>&pago=<?php print $this->pago; ?>&porcentaje=<?php print $porcentaje; ?>">aquí</a></div>
 	<table id="listado" class="listado">
 		<thead>
 			<th>No.</th>
@@ -59,4 +61,5 @@
 	?>
 	<div>Total Interés Bs. <?php print number_format($interes_total, 2, ",", "."); ?></div>
 	<div>Para el día <?php print date("d/m/Y", $fecha[0]); ?>. Usted debe pagar un monto de Bs. <?php print number_format($this->monto + $interes_total, 2, ",", "."); ?></div>
+	<div>Para realizar la solicitud de préstamo en base a esta simulación, por favor haga clic <a href="index.php?page=solicitar-prestamo&monto=<?php print $this->monto; ?>&tiempo=<?php print $this->tiempo; ?>&pago=<?php print $this->pago; ?>&porcentaje=<?php print $porcentaje; ?>">aquí</a></div>
 <?php endif; ?>
