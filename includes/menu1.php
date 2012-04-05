@@ -5,6 +5,7 @@
 			<ul>
 				<li><span class="icon"></span><a href="index.php?page=crear-cuentas">Crear</a></li>
 				<li><span class="icon"></span><a href="index.php?page=listar-cuentas">Listar</a></li>
+				<li><span class="icon"></span><a href="index.php?page=intereses">Intereses</a></li>
 			</ul>
 		</div>
 	</div>
