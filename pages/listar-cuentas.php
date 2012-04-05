@@ -32,8 +32,8 @@
 				<td class="banco"><span class="icon"></span><div class="banco"><?php print $rows->nombre ?></div></td>
 				<td><div><?php print $rows->tipo; ?></div></td>
 				<td><div><?php print $rows->cuenta; ?></div></td>
-				<td><div><a href="<?php print "index.php?page=modificar-modificar&cuenta=" . $rows->id; ?>"><img src="img/modificar.png" title="Modificar" alt="Modificar"></a></div></td>
-				<td><div><a href="<?php print "index.php?page=deshabilitar-deshabilitar&cuenta=" . $rows->id; ?>"><img src="img/deshabilitar.png" title="Deshabilitar" alt="Deshabilitar"></a></div></td>
+				<td><div><a href="<?php print "index.php?page=modificar-cuenta&cuenta=" . $rows->id; ?>"><img src="img/modificar.png" title="Modificar" alt="Modificar"></a></div></td>
+				<td><div><a href="<?php print "index.php?page=deshabilitar-cuenta&cuenta=" . $rows->id; ?>"><img src="img/deshabilitar.png" title="Deshabilitar" alt="Deshabilitar"></a></div></td>
 			</tr>
 		<?php endwhile; ?>
 	</table>
