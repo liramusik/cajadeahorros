@@ -1,6 +1,6 @@
 <?php if(isset($_SESSION['session_usuario']) && ($_SESSION['session_id_rol'] == 1)): ?>
 	<?php
-	$c->setQuery("select nombre, tipo, cuenta from tb_cuentas left join tb_bancos on tb_cuentas.id_banco = tb_bancos.id left join tb_tipo_cuentas on tb_cuentas.id_tipo_cuenta = tb_tipo_cuentas.id;");
+	$c->setQuery("select tb_cuentas.id, nombre, tipo, cuenta from tb_cuentas left join tb_bancos on tb_cuentas.id_banco = tb_bancos.id left join tb_tipo_cuentas on tb_cuentas.id_tipo_cuenta = tb_tipo_cuentas.id;");
 	?>
 	<h1>Listado de Cuentas</h1>
 	<script>
@@ -32,6 +32,8 @@
 				<td class="banco"><span class="icon"></span><div class="banco"><?php print $rows->nombre ?></div></td>
 				<td><div><?php print $rows->tipo; ?></div></td>
 				<td><div><?php print $rows->cuenta; ?></div></td>
+				<td><div><a href="<?php print "index.php?page=modificar-modificar&cuenta=" . $rows->id; ?>"><img src="img/modificar.png" title="Modificar" alt="Modificar"></a></div></td>
+				<td><div><a href="<?php print "index.php?page=deshabilitar-deshabilitar&cuenta=" . $rows->id; ?>"><img src="img/deshabilitar.png" title="Deshabilitar" alt="Deshabilitar"></a></div></td>
 			</tr>
 		<?php endwhile; ?>
 	</table>
