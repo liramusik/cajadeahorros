@@ -45,7 +45,7 @@
 					<label for="cuenta">Número de cuenta <span class="obligatorio">*</span></label>
 				</td>
 				<td>
-					<input type="text" name="cuenta" id="cuenta" maxlength="20" pattern="[0-9]{3,}" placeholder="Nombre del Banco" autocomplete="on" required />
+					<input type="text" name="cuenta" id="cuenta" maxlength="20" pattern="[0-9]{3,}" placeholder="Número de cuenta" autocomplete="on" required />
 				</td>
 			</tr>
 		</table>
