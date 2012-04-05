@@ -24,9 +24,14 @@
 	<table id="listado" class="listado">
 		<thead>
 			<tr>
-				<th>Banco</th>
-				<th>Tipo de Cuenta</th>
-				<th>Cuenta</th>
+				<th rowspan="2">Banco</th>
+				<th rowspan="2">Tipo de Cuenta</th>
+				<th rowspan="2">Cuenta</th>
+				<th colspan="2">Acciones</th>
+			</tr>
+			<tr>
+				<th></th>
+				<th></th>
 			</tr>
 		</thead>
 		<?php while($rows = pg_fetch_object($c->getQuery())): ?>
