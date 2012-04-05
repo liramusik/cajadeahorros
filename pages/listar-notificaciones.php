@@ -24,7 +24,7 @@
 			});
 		});
 	</script>
-	<div class="notificar-todos">Presione clic <a href="index.php?page=notificar&n_cedula=all">aquí</a> si desea notificar a todos los asociados</div>
+	<div class="notificar-todos">Presione clic <a href="index.php?page=notificar&cedula=all">aquí</a> si desea notificar a todos los asociados</div>
 	<table id="listado" class="listado">
 		<thead>
 			<tr>
