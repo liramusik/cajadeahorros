@@ -1,4 +1,7 @@
+<?php session_start();?>
+
 <?php
+include("../conf/connection.php");
 if(!isset($_SESSION['session_usuario'])){
 	if (!isset($_GET['page'])) {
 		include("pages/acceso.php");
@@ -9,7 +12,7 @@ if(!isset($_SESSION['session_usuario'])){
 	if (!isset($_GET['page'])) {
 		include("pages/bienvenida.php");
 	} else {
-		include("pages/".$_GET['page'].".php");
+		include("../pages/".$_GET['page'].".php");
 	}
 }
 ?>

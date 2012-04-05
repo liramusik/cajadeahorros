@@ -3,7 +3,7 @@
 		<h3><a href="#">Bancos</a></h3>
 		<div>
 			<ul>
-				<li><span class="icon"></span><a href="index.php?page=crear-cuentas">Crear</a></li>
+				<li><span class="icon"></span><a href="#" id="crearcuentas">Crear</a></li>
 				<li><span class="icon"></span><a href="index.php?page=listar-cuentas">Listar</a></li>
 				<li><span class="icon"></span><a href="index.php?page=registrar-intereses">Intereses</a></li>
 			</ul>
@@ -37,3 +37,9 @@
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+	$("#crearcuentas").click(function(){
+		$("#contenido").load("includes/pages.php?page=crear-cuentas");
+	});
+</script>
+
