@@ -33,7 +33,7 @@
 	});
 </script>
 <h1>Registrar Interéses</h1>
-<form action="index.php?page=registrar-interes" method="post" id="registrar-interes">
+<form action="index.php?page=registrar-intereses" method="post" id="registrar-interes">
 	<fieldset>
 		<legend>Registrar Interés</legend>
 		<table>
