@@ -52,7 +52,7 @@ create table tb_cuentas (
 create table tb_intereses (
 	id				serial primary key,
 	id_cuenta			int references tb_cuentas(id),
-	fecha_interes			date not null,
+	fecha_interes			date not null default now(),
 	monto				real not null
 );
 
@@ -230,6 +230,17 @@ insert into tb_bancos values(default, 'Del Sur');
 
 insert into tb_tipo_cuentas values(default, 'Ahorro');
 insert into tb_tipo_cuentas values(default, 'Corriente');
+
+insert into tb_cuentas values(default, 4, 2, '12345678901234567890', default);
+insert into tb_cuentas values(default, 4, 2, '01234567890123456789', default);
+
+insert into tb_intereses values(default, 1, default, 5000);
+insert into tb_intereses values(default, 1, default, 6000);
+insert into tb_intereses values(default, 1, default, 7000);
+insert into tb_intereses values(default, 2, default, 9000);
+insert into tb_intereses values(default, 2, default, 9000);
+insert into tb_intereses values(default, 2, default, 1000);
+
 
 insert into tb_tipo_transacciones values(default, 'Aporte mensual');
 insert into tb_tipo_transacciones values(default, 'Aporte especial');
