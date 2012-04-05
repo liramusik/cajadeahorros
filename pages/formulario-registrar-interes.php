@@ -70,7 +70,7 @@
 					<label for="monto">Monto <span class="obligatorio">*</span></label>
 				</td>
 				<td>
-					<input type="text" name="monto" id="monto" maxlength="20" pattern="[0-9]{3,}" placeholder="Monto" autocomplete="on" required />
+					<input type="text" name="monto" id="monto" maxlength="7" pattern="[0-9]{3,}" placeholder="Monto" autocomplete="on" required />
 				</td>
 			</tr>
 		</table>
