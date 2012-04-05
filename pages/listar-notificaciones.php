@@ -14,8 +14,9 @@
 				"bInfo": false,
 				"aaSorting": [[ 0, "desc" ]],
 				"oLanguage": {
-		 	                "sEmptyTable": "No hay datos disponibles en la tabla",
-					"sSearch": "",
+                    "sEmptyTable": "No hay datos disponibles en la tabla",
+					"sZeroRecords": "No se han encontrado registros",
+					"sSearch": "Filtrar Búsqueda",
 					"oPaginate": {
 						"sPrevious": "Atras",
 						"sNext": "Siguiente"

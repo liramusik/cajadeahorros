@@ -17,7 +17,7 @@
 				"oLanguage": {
 					"sEmptyTable": "No hay datos disponibles en la tabla",
 					"sZeroRecords": "No se han encontrado registros",
-					"sSearch": "",
+					"sSearch": "Filtrar Búsqueda",
 					"oPaginate": {
 						"sPrevious": "Atras",
 						"sNext": "Siguiente"

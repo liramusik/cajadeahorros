@@ -9,9 +9,9 @@
 				"bLengthChange": false,
 				"bInfo": false,
 				"oLanguage": {
-                   			"sEmptyTable": "No hay datos disponibles en la tabla",
+           			"sEmptyTable": "No hay datos disponibles en la tabla",
 					"sZeroRecords": "No se han encontrado registros",
-					"sSearch": "Filtrar usuarios",
+					"sSearch": "Filtrar Búsqueda",
 					"oPaginate": {
 						"sPrevious": "Atras",
 						"sNext": "Siguiente"
