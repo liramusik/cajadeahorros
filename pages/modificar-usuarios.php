@@ -41,7 +41,7 @@
 		$post_telefono = $_POST['telefono'];
 		$post_email = $_POST['email'];
 		$post_direccion = $_POST['direccion'];
-		$post_password = md5($_POST['password']);
+		$post_password = $_POST['password'];
 		
 
 		$actualizar_usuarios=new connection();
@@ -86,7 +86,7 @@
 			}	
 		}
 		if(!empty($post_password)) {
-			$actualizar_usuarios->setQuery("update tb_usuarios set password = '" . $post_password . "' where cedula=$cedula");
+			$actualizar_usuarios->setQuery("update tb_usuarios set password = '" . md5($post_password) . "' where cedula=$cedula");
 			if(!$actualizar_usuarios->getQuery()) {
 				print "<p>No se pudo modificar Clave de usuario: $post_password</p>";
 			} else {
