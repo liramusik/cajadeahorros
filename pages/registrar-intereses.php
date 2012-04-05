@@ -20,8 +20,6 @@
 
 		$fecha .= " " . $hora;
 
-		print $fecha;
-
 		$interes = new connection();
 		$interes->setQuery("insert into tb_intereses values(default, $cuentas, '" . $fecha . "', $monto)");
 		if(!$interes->getQuery()) {
