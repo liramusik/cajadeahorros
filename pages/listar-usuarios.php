@@ -45,7 +45,11 @@
 				<td><div><?php print $rows->email; ?></div></td>
 				<td><div><a href="<?php print "index.php?page=notificar&cedula=" . $rows->cedula; ?>"><img src="img/notificar.png" title="Notificar" alt="Notificar"></a></div></td>
 				<td><div><a href="<?php print "index.php?page=modificar-usuarios&cedula=" . $rows->cedula; ?>"><img src="img/modificar.png" title="Modificar" alt="Modificar"></a></div></td>
-				<td><div><a href="<?php print "index.php?page=deshabilitar-usuarios&cedula=" . $rows->cedula; ?>"><img src="img/deshabilitar.png" title="Deshabilitar" alt="Deshabilitar"></a></div></td>
+				<?php if($_SESSION['session_cedula'] != $rows->cedula): ?>
+					<td><div><a href="<?php print "index.php?page=deshabilitar-usuarios&cedula=" . $rows->cedula; ?>"><img src="img/deshabilitar.png" title="Deshabilitar" alt="Deshabilitar"></a></div></td>
+				<?php else: ?>
+					<td><div><a href="#"><img src="img/deshabilitar.png" title="Deshabilitar" alt="Deshabilitar"></a></div></td>
+				<?php endif; ?>
 			</tr>
 		<?php endwhile; ?>
 	</table>
