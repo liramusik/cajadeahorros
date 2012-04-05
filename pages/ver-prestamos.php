@@ -1,5 +1,4 @@
 <?php if(isset($_SESSION['session_usuario'])): ?>
-	<h1>Detalles de Préstamo</h1>
 	<?php
 	$solicitud = $_GET['solicitud'];
 	if($_SESSION['session_id_rol'] == 1) {
