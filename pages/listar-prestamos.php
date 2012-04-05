@@ -34,9 +34,10 @@
 				<th rowspan="2">Monto</th>
 				<th rowspan="2">Fecha</th>
 				<th rowspan="2">Estatus</th>
-				<th colspan="2">Acciones</th>
+				<th colspan="3">Acciones</th>
 			</tr>
 			<tr>
+				<th></th>
 				<th></th>
 				<th></th>
 			</tr>
@@ -49,11 +50,21 @@
 				<td><div><?php print $rows->fecha; ?></div></td>
 				<td><div><?php print $rows->estatus; ?></div></td>
 				<?php if($rows->estatus == 'Pendiente'): ?>
-					<td><div><a href="index.php?page=algunapagina&prestamo=<?php print $rows->id; ?>">xAction</a></div></td>
-					<td><div><a href="index.php?page=algunapagina&prestamo=<?php print $rows->id; ?>">xAction</a></div></td>
-				<?php else: ?>
-					<td></td>
-					<td></td>
+					<td><div><a href="index.php?page=aprobar-prestamo&prestamo=<?php print $rows->id; ?>"><img src="img/aprobar-prestamo.png" /></a></div></td>
+					<td><div><a href="index.php?page=rechazar-prestamo&prestamo=<?php print $rows->id; ?>"><img src="img/rechazar-prestamo.png" /></a></div></td>
+					<td><div><a href="index.php?page=editar-prestamo&prestamo=<?php print $rows->id; ?>"><img src="img/modificar-prestamo.png" /></a></div></td>
+				<?php elseif($rows->estatus == 'Aprobado'): ?>
+					<td><div style="opacity: .5;"><img src="img/aprobar-prestamo.png" /></div></td>
+					<td><div style="opacity: .5;"><img src="img/rechazar-prestamo.png" /></div></td>
+					<td><div><a href="index.php?page=editar-prestamo&prestamo=<?php print $rows->id; ?>"><img src="img/modificar-prestamo.png" /></a></div></td>
+				<?php elseif($rows->estatus == 'Rechazado'): ?>
+					<td><div style="opacity: .5;"><img src="img/aprobar-prestamo.png" /></div></td>
+					<td><div style="opacity: .5;"><img src="img/rechazar-prestamo.png" /></div></td>
+					<td><div style="opacity: .5;"><img src="img/modificar-prestamo.png" /></div></td>
+				<?php elseif($rows->estatus == 'Pagado'): ?>
+					<td><div style="opacity: .5;"><img src="img/aprobar-prestamo.png" /></div></td>
+					<td><div style="opacity: .5;"><img src="img/rechazar-prestamo.png" /></div></td>
+					<td><div style="opacity: .5;"><img src="img/modificar-prestamo.png" /></div></td>
 				<?php endif; ?>
 			</tr>
 		<?php endwhile; ?>
