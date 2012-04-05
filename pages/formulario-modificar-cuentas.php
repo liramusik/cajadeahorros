@@ -18,7 +18,7 @@
 		});
 	</script>	
 	<h1>Crear Cuentas</h1>
-	<form action="index.php?page=crear-cuentas" method="post" id="crear-cuentas">
+	<form action="index.php?page=modificar-cuenta" method="post" id="crear-cuentas">
 		<fieldset>
 			<legend>Información</legend>
 			<table>
@@ -48,7 +48,8 @@
 						<label for="cuenta">Número de cuenta <span class="obligatorio">*</span></label>
 					</td>
 					<td>
-					<input type="text" name="cuenta" id="cuenta" maxlength="20" value="<?php print "$cuenta"; ?>" pattern="[0-9]{3,}" placeholder="Nombre del Banco" autocomplete="on" required />
+						<input type="text" name="cuenta" id="cuenta" maxlength="20" value="<?php print "$cuenta"; ?>" pattern="[0-9]{3,}" placeholder="Nombre del Banco" autocomplete="on" required />
+						<input type="hidden" name="id_cuenta" id="id_cuenta" value="<?php print $id_cuenta; ?>" />
 					</td>
 				</tr>
 			</table>
