@@ -10,6 +10,7 @@
 				"bInfo": false,
 				"aaSorting": [[ 0, "desc" ]],
 				"oLanguage": {
+		 	                "sEmptyTable": "No hay datos disponibles en la tabla",
 					"sSearch": "",
 					"oPaginate": {
 						"sPrevious": "Atras",

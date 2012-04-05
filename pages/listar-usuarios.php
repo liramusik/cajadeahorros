@@ -9,6 +9,7 @@
 				"bLengthChange": false,
 				"bInfo": false,
 				"oLanguage": {
+                   			"sEmptyTable": "No hay datos disponibles en la tabla",
 					"sSearch": "Filtrar usuarios",
 					"oPaginate": {
 						"sPrevious": "Atras",
