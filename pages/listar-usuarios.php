@@ -10,6 +10,7 @@
 				"bInfo": false,
 				"oLanguage": {
                    			"sEmptyTable": "No hay datos disponibles en la tabla",
+					"sZeroRecords": "No se han encontrado registros",
 					"sSearch": "Filtrar usuarios",
 					"oPaginate": {
 						"sPrevious": "Atras",
