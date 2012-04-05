@@ -52,7 +52,7 @@ create table tb_cuentas (
 create table tb_intereses (
 	id				serial primary key,
 	id_cuenta			int references tb_cuentas(id),
-	fecha_interes			date not null default now(),
+	fecha_interes			timestamp not null default now(),
 	monto				real not null
 );
 
