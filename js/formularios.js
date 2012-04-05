@@ -108,7 +108,7 @@ $(document).ready(function(){
 			monto: {
 				required: true,
 				minlength: 3,
-				minlength: 3,
+				maxlength: 7,
 				digits: true
 			},
 			tiempo: {
@@ -136,7 +136,27 @@ $(document).ready(function(){
 		},
 	});
 });
-
+$(document).ready(function(){
+	$("#registrar-interes").validate({
+		rules: {
+			bancos: {
+				required: true,
+			},
+			cuentas: {
+				required: true,
+			},
+			fecha: {
+				required: true,
+			},
+			monto: {
+				required: true,
+				minlength: 3,
+				maxlength: 7,
+				digits: true
+			}
+		},
+	});
+});
 
 /* Para la cédula */
 $(document).ready(function() {
