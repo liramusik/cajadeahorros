@@ -49,6 +49,13 @@ create table tb_cuentas (
 	estatus				boolean default true
 );
 
+create table tb_intereses (
+	id				serial primary key,
+	id_cuenta			int references tb_cuentas(id),
+	fecha_interes			date not null,
+	monto				real not null
+);
+
 create table tb_tipo_transacciones (
 	id				serial primary key,
 	tipo				varchar(25) not null
