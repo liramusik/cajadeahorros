@@ -29,46 +29,46 @@ class simulacion {
 		$this->porcentaje = $p_porcentaje;
 	}
 	public function generar() {
-		switch($this->pago) {
-			case 1:
-				$this->intereses();
-				break;
-			case 2:
-				$this->intereses_amortizacion();
-				break;
+		if($this->pago == 1) {
+			$this->intereses();
+		} elseif($this->pago == 2) {
+			$this->intereses_cuotas();
+		} elseif($this->pago == 3) {
+			$this->pago_final();
 		}
 	}
 	private function intereses() {
-		$total_intereses = 0;
-		$intereses = array();
-		$fechas = array();
-		$fechas[0] = $this->fecha;
+		$fecha[0] = $this->fecha;
+		$cuota[0] = ($this->monto / $this->tiempo);
 		for($i = 1; $i <= $this->tiempo; $i++) {
-			$intereses[$i] = (($this->monto * $this->porcentaje) / 100);
-			$total_intereses += $intereses[$i];
-			$fechas[$i] = strtotime("+1 month", $fechas[$i-1]);
+			$prestamo[$i] = $this->monto;
+			$interes[$i] = (($this->monto * $this->porcentaje) / 100);
+			$fecha[$i] = strtotime("+1 month", $fecha[$i-1]);
 		}
-		$this->imprimir($intereses, $fechas, $amortizacion, $total_intereses, $this->porcentaje);
+		$this->imprimir($prestamo, $interes, $cuota, $fecha, $this->porcentaje);
 	}
-	private function intereses_amortizacion() {
-		$total_intereses = 0;
-		$intereses = array();
-		$fechas = array();
-		$monto = array();
-		$amortizacion = array();
-		$fechas[0] = $this->fecha;
-		$monto[0] = $this->monto;
-		$cuota = ($monto[0] / $this->tiempo);
+	private function intereses_cuotas() {
+		$prestamo[0] = $this->monto;
+		$cuota[0] = ($this->monto / $this->tiempo);
+		$fecha[0] = $this->fecha;
 		for($i = 1; $i <= $this->tiempo; $i++) {
-			$intereses[$i] = (($monto[$i - 1] * $this->porcentaje) / 100);
-			$total_intereses += $intereses[$i];
-			$amortizacion[$i] = $intereses[$i] + $cuota;
-			$monto[$i] = $monto[$i-1] - $cuota;
-			$fechas[$i] = strtotime("+1 month", $fechas[$i-1]);
+			$prestamo[$i] = $prestamo[$i-1] - $cuota[0];
+			$interes[$i] = (($prestamo[$i-1] * $this->porcentaje) / 100);
+			$cuota[$i] = $cuota[0] + $interes[$i];
+			$fecha[$i] = strtotime("+1 month", $fecha[$i-1]);
 		}
-		$this->imprimir($intereses, $fechas, $amortizacion, $total_intereses, $this->porcentaje);
+		$this->imprimir($prestamo, $interes, $cuota, $fecha, $this->porcentaje);
 	}
-	private function imprimir(&$intereses, &$fechas, &$amortizacion, &$total_intereses, $porcentaje) {
+	private function pago_final() {
+		$cuota[0] = ($this->monto / $this->tiempo);
+		for($i = 1; $i <= $this->tiempo; $i++) {
+			$prestamo[$i] = $this->monto;
+			$interes[$i] = (($this->monto * $this->porcentaje) / 100);
+		}
+		$fecha[0] = strtotime("$this->tiempo month", $this->fecha);
+		$this->imprimir($prestamo, $interes, $cuota, $fecha, $this->porcentaje);
+	}
+	private function imprimir(&$prestamo, &$interes, &$cuota, &$fecha, $porcentaje) {
 		include("pages/reporte-simulacion.php");
 	}
 }
