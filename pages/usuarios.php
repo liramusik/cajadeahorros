@@ -42,7 +42,7 @@ $y->setQuery("select * from tb_nacionalidad;");
 				},
 				usuario: {
 					required: true,
-					minlength: 8,
+					minlength: 5,
 				},
 				password: {
 					required: true,
@@ -94,7 +94,6 @@ $y->setQuery("select * from tb_nacionalidad;");
 		function mostrarRespuesta(responseText) {
 			alert("Mensaje: " + responseText);
 			$('.form').resetForm();
-			$("#contenido").load("includes/pages.php?page=cuentas");
 		}; 
 	}); 
 </script>
