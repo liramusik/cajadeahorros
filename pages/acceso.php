@@ -1,6 +1,6 @@
 <h1>Iniciar sesion</h1>
 
-<form action="index.php?page=login" method="post" id="login" name="login">
+<form action="includes/pages.php?page=login" method="post" id="login" name="login">
 	<fieldset>
 		<legend>Acceso</legend>
 		<table>

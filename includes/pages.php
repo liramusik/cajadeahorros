@@ -1,4 +1,10 @@
-<?php
+<?php session_start(); ?>
+<?php 
+chdir("..");
+echo getcwd().$_GET["page"];
+include("conf/connection.php");
+
+$c = new connection();
 if(!isset($_SESSION['session_usuario'])){
 	if (!isset($_GET['page'])) {
 		include("pages/acceso.php");

@@ -5,7 +5,8 @@
 	<h1>Listado de Cuentas</h1>
 	<script>
 		$(document).ready(function() {
-			$('#listado').dataTable({
+            $('#listado').dataTable({
+                "bJQueryUI": true,
 				"bLengthChange": false,
 				"bInfo": false,
 				"aaSorting": [[ 0, "desc" ]],
@@ -27,6 +28,7 @@
 				<th>Banco</th>
 				<th>Tipo de Cuenta</th>
 				<th>Cuenta</th>
+				<th>Acciones</th>
 			</tr>
 		</thead>
 		<?php while($rows = pg_fetch_object($c->getQuery())): ?>
@@ -34,8 +36,8 @@
 				<td class="banco"><span class="icon"></span><div class="banco"><?php print $rows->nombre ?></div></td>
 				<td><div><?php print $rows->tipo; ?></div></td>
 				<td><div><?php print $rows->cuenta; ?></div></td>
-				<td><div><a href="<?php print "index.php?page=modificar-cuenta&cuenta=" . $rows->id; ?>"><img src="img/modificar.png" title="Modificar" alt="Modificar"></a></div></td>
-				<td><div><a href="<?php print "index.php?page=deshabilitar-cuenta&cuenta=" . $rows->id; ?>"><img src="img/deshabilitar.png" title="Deshabilitar" alt="Deshabilitar"></a></div></td>
+				<td><div><a href="<?php print "index.php?page=modificar-cuenta&cuenta=" . $rows->id; ?>"><img src="img/modificar.png" title="Modificar" alt="Modificar"></a></div>
+				<div><a href="<?php print "index.php?page=deshabilitar-cuenta&cuenta=" . $rows->id; ?>"><img src="img/deshabilitar.png" title="Deshabilitar" alt="Deshabilitar"></a></div></td>
 			</tr>
 		<?php endwhile; ?>
 	</table>

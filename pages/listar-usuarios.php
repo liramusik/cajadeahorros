@@ -6,6 +6,7 @@
 	<script>
 		$(document).ready(function() {
 			$('#listado').dataTable({
+                "bJQueryUI": true,
 				"bLengthChange": false,
 				"bInfo": false,
 				"oLanguage": {
@@ -23,17 +24,12 @@
 	<table id="listado" class="listado">
 		<thead>
 			<tr>
-				<th rowspan="2">Nombre y Apellido</th>
-				<th rowspan="2">Usuario</th>
-				<th rowspan="2">Rol</th>
-				<th rowspan="2">Teléfono</th>
-				<th rowspan="2">Email</th>
-				<th colspan="3" style="border-bottom: 0">Acciones</th>
-			</tr>
-			<tr>
-				<th></th>
-				<th></th>
-				<th></th>
+				<th>Nombre y Apellido</th>
+				<th>Usuario</th>
+				<th>Rol</th>
+				<th>Teléfono</th>
+				<th>Email</th>
+				<th>Acciones</th>
 			</tr>
 		</thead>
 		<?php while($rows = pg_fetch_object($c->getQuery())): ?>
@@ -43,9 +39,15 @@
 				<td><div><?php print $rows->descripcion; ?></div></td>
 				<td><div><?php print $rows->telefono; ?></div></td>
 				<td><div><?php print $rows->email; ?></div></td>
-				<td><div><a href="<?php print "index.php?page=notificar&cedula=" . $rows->cedula; ?>"><img src="img/notificar.png" title="Notificar" alt="Notificar"></a></div></td>
-				<td><div><a href="<?php print "index.php?page=modificar-usuarios&cedula=" . $rows->cedula; ?>"><img src="img/modificar.png" title="Modificar" alt="Modificar"></a></div></td>
-				<td><div><a href="<?php print "index.php?page=deshabilitar-usuarios&cedula=" . $rows->cedula; ?>"><img src="img/deshabilitar.png" title="Deshabilitar" alt="Deshabilitar"></a></div></td>
+                <td>
+                    <div class="accion"><a href="<?php print "index.php?page=notificar&cedula=" . $rows->cedula; ?>"><img src="img/notificar.png" title="Notificar" alt="Notificar"></a></div>
+                    <div class="accion"><a href="<?php print "index.php?page=modificar-usuarios&cedula=" . $rows->cedula; ?>"><img src="img/modificar.png" title="Modificar" alt="Modificar"></a></div>
+                    <?php if($_SESSION['session_cedula'] != $rows->cedula): ?>
+                        <div class="accion"><a href="<?php print "index.php?page=deshabilitar-usuarios&cedula=" . $rows->cedula; ?>"><img src="img/deshabilitar.png" title="Deshabilitar" alt="Deshabilitar"></a></div>
+                    <?php else: ?>
+                        <div class="accion"><a href="#"><img src="img/deshabilitar.png" title="Deshabilitar" alt="Deshabilitar"></a></div>
+                    <?php endif; ?>
+                </td>
 			</tr>
 		<?php endwhile; ?>
 	</table>

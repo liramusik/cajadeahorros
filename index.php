@@ -12,7 +12,7 @@
 			<?php include("includes/menu.php"); ?>
 		</div>
 		<div id="contenido">
-			<?php include("includes/pages.php"); ?>
+			<?php #include("includes/pages.php"); ?>
 		</div>
 		<div style="clear: both"></div>
 	</div>
@@ -21,3 +21,7 @@
 	</div>
 </div>
 <?php include("includes/bottom_page.php"); ?>
+
+<script type="text/javascript">
+    $("#contenido").load("includes/pages.php");
+</script>

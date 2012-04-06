@@ -150,6 +150,11 @@ h1 {
 	width: 740px;
 }
 
+div.accion {
+    float: left;
+    margin-right: 5px;
+}
+
 table {
 	width: 100%;
 }

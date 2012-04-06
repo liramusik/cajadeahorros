@@ -10,6 +10,7 @@
 	<script>
 		$(document).ready(function() {
 			$('#listado').dataTable({
+                "bJQueryUI": true,
 				"bLengthChange": false,
 				"bInfo": false,
 				"aaSorting": [[ 0, "desc" ]],
@@ -25,13 +26,13 @@
 			});
 		});
 	</script>
-	<div class="notificar-todos">Presione clic <a href="index.php?page=notificar&cedula=all">aquí</a> si desea notificar a todos los asociados</div>
+	<div class="notificar-todos">Presione clic <a href="index.php?page=notificar&cedula=all">aquí</a> si desea notificar a todos los asociados</div><br />
 	<table id="listado" class="listado">
 		<thead>
 			<tr>
 				<th>Fecha</th>
-				<th>Nombre</th>
-				<th>Email</th>
+				<th>Nombre y Apellido</th>
+				<th>E-mail</th>
 				<th>Asunto</th>
 			</tr>
 		</thead>
