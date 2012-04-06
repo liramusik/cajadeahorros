@@ -1,4 +1,4 @@
-<?php
+    <?php
 $x = new conexion();
 $x->setQuery("select * from tb_roles;");
 $y = new conexion();
@@ -19,7 +19,7 @@ $y->setQuery("select * from tb_nacionalidad;");
 				},
 				cedula: {
 					required: true,
-					minlength: 8,
+					minlength: 7,
 					digits: true
 				},
 				telefono: {
