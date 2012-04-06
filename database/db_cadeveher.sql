@@ -245,6 +245,7 @@ insert into tb_intereses values(default, 2, default, 1000);
 insert into tb_tipo_transacciones values(default, 'Aporte mensual');
 insert into tb_tipo_transacciones values(default, 'Aporte especial');
 insert into tb_tipo_transacciones values(default, 'Pago de préstamo');
+insert into tb_tipo_transacciones values(default, 'Abono');
 insert into tb_tipo_transacciones values(default, 'Excedente');
 
 insert into tb_estatus_transacciones values(default, 'Comprobando');
