@@ -3,9 +3,9 @@
 		<h3><a href="#">Bancos</a></h3>
 		<div>
 			<ul>
-				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="crear-cuentas">Crear</a></li>
-                <li><span class="icon"></span><a class="ajaxmenu" href="#" title="listar-cuentas">Listar</a></li>
-				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="registrar-intereses">Intereses</a></li>
+				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="cuentas">Crear</a></li>
+				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="listar-cuentas">Listar</a></li>
+				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="intereses">Intereses</a></li>
 			</ul>
 		</div>
 	</div>
@@ -38,12 +38,11 @@
 	</div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){
-    $(".ajaxmenu").click(function(){
-        var page = $(this).attr("title");
-        //alert(page);
-	    $("#contenido").load("includes/pages.php?page="+page);
-    });
-});    
+	$(document).ready(function() {
+		$(".ajaxmenu").click(function() {
+			var page = $(this).attr("title");
+			$("#contenido").load("includes/pages.php?page="+page);
+		});
+	});    
 </script>
 

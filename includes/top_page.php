@@ -9,6 +9,7 @@
 		<script language="javascript" src="js/jquery.ui/js/jquery-ui-1.8.18.custom.min.js"></script>
 		<script language="javascript" src="js/jquery.dataTables.js"></script>
 		<script language="javascript" src="js/jquery.validate.js"></script>
+		<script language="javascript" src="js/jquery.form.js"></script>
 		<script language="javascript" src="js/formularios.js"></script>
 		<script type="text/javascript">
 			$(function() {
@@ -36,5 +37,17 @@
 				});
 			});
 		</script>
+                <script type="text/javascript"> 
+                        $(document).ready(function() { 
+                                var opciones = {
+                                        success: mostrarRespuesta,
+                                };
+                                $('.form').ajaxForm(opciones);
+                                function mostrarRespuesta(responseText) {
+                                        alert("Mensaje: " + responseText);
+                                        $('.form').resetForm();
+                                }; 
+                        }); 
+                </script> 
 	</head>
 	<body>

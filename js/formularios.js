@@ -122,21 +122,6 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
-	$("#crear-cuentas").validate({
-		rules: {
-			nombre_banco: {
-				required: true,
-				minlength: 3,
-			},
-			cuenta: {
-				required: true,
-				minlength: 20,
-				digits: true
-			}
-		},
-	});
-});
-$(document).ready(function(){
 	$("#registrar-interes").validate({
 		rules: {
 			bancos: {
