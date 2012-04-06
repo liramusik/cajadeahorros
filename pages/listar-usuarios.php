@@ -40,7 +40,7 @@
 				<td><div><?php print $rows->telefono; ?></div></td>
 				<td><div><?php print $rows->email; ?></div></td>
                 <td>
-                    <div class="accion"><a href="<?php print "index.php?page=notificar&cedula=" . $rows->cedula; ?>"><img src="img/notificar.png" title="Notificar" alt="Notificar"></a></div>
+                    <div class="accion"><a href="#" id="<?php print $rows->cedula; ?>" class="notificar"><img src="img/notificar.png" title="Notificar" alt="Notificar"></a></div>
                     <div class="accion"><a href="<?php print "index.php?page=modificar-usuarios&cedula=" . $rows->cedula; ?>"><img src="img/modificar.png" title="Modificar" alt="Modificar"></a></div>
                     <?php if($_SESSION['session_cedula'] != $rows->cedula): ?>
                         <div class="accion"><a href="<?php print "index.php?page=deshabilitar-usuarios&cedula=" . $rows->cedula; ?>"><img src="img/deshabilitar.png" title="Deshabilitar" alt="Deshabilitar"></a></div>
@@ -54,3 +54,10 @@
 <?php else: ?>
 	<div class="mensaje">Usted no posee privilegios ver esta pagina <a href="index.php">Regresar</a></div>
 <?php endif; ?>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.notificar').click(function() {
+			$('#contenido').load("includes/pages.php?page=notificar&cedula="+$(this).attr('id'));
+		})
+	});
+</script>
