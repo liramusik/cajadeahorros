@@ -38,10 +38,16 @@
 	</div>
 </div>
 <script type="text/javascript">
+<<<<<<< HEAD
 $(".ajaxmenu").click(function(){
     var page = $(this).attr("title");
       alert(page);
 	$("#contenido").load("includes/pages.php?page="+page);
 });
+=======
+	$("#crearcuentas").click(function(){
+		$("#contenido").load("includes/pages.php?page=crear-cuentas");
+	});
+>>>>>>> 51f8abcc85c8e0e3654605edaea83c4638ca3d37
 </script>
 

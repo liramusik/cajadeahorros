@@ -50,6 +50,7 @@
 					<td><div><a href="index.php?page=rechazar-prestamo&prestamo=<?php print $rows->id; ?>"><img src="img/rechazar-prestamo.png" /></a></div></td>
 					<td><div><a href="index.php?page=editar-prestamo&prestamo=<?php print $rows->id; ?>"><img src="img/modificar-prestamo.png" /></a></div></td>
 				<?php elseif($rows->estatus == 'Aprobado'): ?>
+<<<<<<< HEAD
 					<td><div style="opacity: .5;"><img src="img/aprobar-prestamo.png" /></div>
 					<div style="opacity: .5;"><img src="img/rechazar-prestamo.png" /></div>
 					<div><a href="index.php?page=editar-prestamo&prestamo=<?php print $rows->id; ?>"><img src="img/modificar-prestamo.png" /></a></div></td>
@@ -61,6 +62,19 @@
 					<td><div style="opacity: .5;"><img src="img/aprobar-prestamo.png" /></div>
 					<div style="opacity: .5;"><img src="img/rechazar-prestamo.png" /></div>
 					<div style="opacity: .5;"><img src="img/modificar-prestamo.png" /></div></td>
+=======
+					<td><div style="opacity: .5;"><img src="img/aprobar-prestamo.png" /></div></td>
+					<td><div style="opacity: .5;"><img src="img/rechazar-prestamo.png" /></div></td>
+					<td><div><a href="index.php?page=editar-prestamo&prestamo=<?php print $rows->id; ?>"><img src="img/modificar-prestamo.png" /></a></div></td>
+				<?php elseif($rows->estatus == 'Rechazado'): ?>
+					<td><div style="opacity: .5;"><img src="img/aprobar-prestamo.png" /></div></td>
+					<td><div style="opacity: .5;"><img src="img/rechazar-prestamo.png" /></div></td>
+					<td><div style="opacity: .5;"><img src="img/modificar-prestamo.png" /></div></td>
+				<?php elseif($rows->estatus == 'Pagado'): ?>
+					<td><div style="opacity: .5;"><img src="img/aprobar-prestamo.png" /></div></td>
+					<td><div style="opacity: .5;"><img src="img/rechazar-prestamo.png" /></div></td>
+					<td><div style="opacity: .5;"><img src="img/modificar-prestamo.png" /></div></td>
+>>>>>>> 51f8abcc85c8e0e3654605edaea83c4638ca3d37
 				<?php endif; ?>
 			</tr>
 		<?php endwhile; ?>

@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <?php include("includes/top_page.php"); ?>
 <div id="wrapper">	
 	<div id="header">
