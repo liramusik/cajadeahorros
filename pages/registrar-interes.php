@@ -1,6 +1,5 @@
 <?php
-include("conexion.php");
-
+include("../conf/conexion.php");
 $cuentas = $_POST['cuentas'];
 $fecha = $_POST['fecha'];
 $monto = $_POST['monto'];

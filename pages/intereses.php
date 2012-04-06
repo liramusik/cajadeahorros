@@ -1,6 +1,5 @@
 <?php if(isset($_SESSION['session_usuario']) and ($_SESSION['session_id_rol'] == 1)): ?>
 	<?php
-	include("conexion.php");
 	$bancos = new conexion();
 	$bancos->getListarBancosEnCuentas();
 	$cuentas = new conexion();
@@ -39,6 +38,51 @@
 				$('#cuentas').html(scuentas);
 			});
 		});
+		$(document).ready(function(){
+			$("#registrar-interes").validate({
+				rules: {
+					bancos: {
+						required: true,
+					},
+					cuentas: {
+						required: true,
+					},
+					fecha: {
+						required: true,
+					},
+					monto: {
+						required: true,
+						minlength: 3,
+						maxlength: 7,
+						digits: true
+					}
+				},
+			});
+		});
+		$("#fecha").datepicker({
+			dateFormat: 'dd/mm/yy'
+		});
+		$(document).ready(function() {
+			$("#monto").keydown(function(event) {
+				if(event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || (event.keyCode == 65 && event.ctrlKey === true) || (event.keyCode >= 35 && event.keyCode <= 39)) {
+					 return;
+				} else {
+					if((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105 )) {
+						event.preventDefault(); 
+					}   
+				}
+			});
+		});
+		$(document).ready(function() { 
+			var opciones = {
+				success: mostrarRespuesta,
+			};
+			$('.form').ajaxForm(opciones);
+			function mostrarRespuesta(responseText) {
+				alert("Mensaje: " + responseText);
+				$('.form').resetForm();
+			}; 
+		}); 
 	</script>
 	<h1>Registrar Intereses</h1>
 	<form action="pages/registrar-interes.php" method="post" id="registrar-interes" class="form">
