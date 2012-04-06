@@ -37,17 +37,5 @@
 				});
 			});
 		</script>
-                <script type="text/javascript"> 
-                        $(document).ready(function() { 
-                                var opciones = {
-                                        success: mostrarRespuesta,
-                                };
-                                $('.form').ajaxForm(opciones);
-                                function mostrarRespuesta(responseText) {
-                                        alert("Mensaje: " + responseText);
-                                        $('.form').resetForm();
-                                }; 
-                        }); 
-                </script> 
 	</head>
 	<body>

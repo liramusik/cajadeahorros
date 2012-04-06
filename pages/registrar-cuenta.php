@@ -1,5 +1,5 @@
 <?php
-include("conexion.php");
+include("../conf/conexion.php");
 $insertar_banco = new conexion();
 
 $array_bancos = array();
@@ -17,7 +17,7 @@ if(!in_array($nombre_banco, $array_bancos)) {
 	unset($insertar_banco);
 }
 
-$buscar_banco  = new conexion();
+$buscar_banco = new conexion();
 $buscar_banco->setQuery("select id from tb_bancos where nombre='" . $nombre_banco . "'");
 while($rows = pg_fetch_object($buscar_banco->getQuery())) {
 	$id_banco = $rows->id;

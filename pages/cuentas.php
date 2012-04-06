@@ -1,6 +1,5 @@
 <?php if(isset($_SESSION['session_usuario']) and ($_SESSION['session_id_rol'] == 1)): ?>
 	<?php
-	include("conexion.php");
 	$listado_bancos = new conexion();
 	$listado_bancos->getListarNombreBancos();
 	$tipo_cuentas = new conexion();
@@ -37,10 +36,32 @@
 				},
 			});
 		});
+		$(document).ready(function() {
+			$("#cuenta").keydown(function(event) {
+				if(event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || (event.keyCode == 65 && event.ctrlKey === true) || (event.keyCode >= 35 && event.keyCode <= 39)) {
+					 return;
+				} else {
+					if((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105 )) {
+						event.preventDefault(); 
+					}   
+				}
+			});
+		});
+		$(document).ready(function() { 
+			var opciones = {
+				success: mostrarRespuesta,
+			};
+			$('.form').ajaxForm(opciones);
+			function mostrarRespuesta(responseText) {
+				alert("Mensaje: " + responseText);
+				$('.form').resetForm();
+				$("#contenido").load("includes/pages.php?page=cuentas");
+			}; 
+		}); 
 	</script>	
 
 	<h1>Crear Cuentas</h1>
-	<form action="registrar-cuenta.php" method="post" id="crear-cuentas" class="form">
+	<form action="pages/registrar-cuenta.php" method="post" id="crear-cuentas" class="form">
 		<fieldset>
 			<legend>Información</legend>
 			<table>
