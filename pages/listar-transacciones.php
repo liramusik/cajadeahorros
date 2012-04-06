@@ -8,6 +8,7 @@
 	<script>
 		$(document).ready(function() {
 			$('#listado').dataTable({
+				"bJQueryUI": true,
 				"bLengthChange": false,
 				"bInfo": false,
 				"oLanguage": {
@@ -25,19 +26,15 @@
 	<table id="listado" class="listado">
 		<thead>
 			<tr>
-				<th rowspan="2">Nombre y Apellido</th>
-				<th rowspan="2">Cuenta</th>
-				<th rowspan="2">Banco</th>
-				<th rowspan="2">Tipo</th>
-				<th rowspan="2">Fecha</th>
-				<th rowspan="2">Monto</th>
-				<th rowspan="2">Deposito</th>
-				<th rowspan="2">Estatus</th>
-				<th colspan="2" style="border-bottom: 0">Acciones</th>
-			</tr>
-			<tr>
-				<th></th>
-				<th></th>
+				<th>Nombre y Apellido</th>
+				<th>Cuenta</th>
+				<th>Banco</th>
+				<th>Tipo</th>
+				<th>Fecha</th>
+				<th>Monto</th>
+				<th>Deposito</th>
+				<th>Estatus</th>
+				<th>Acciones</th>
 			</tr>
 		</thead>
 		<?php while($rows = pg_fetch_object($c->getQuery())): ?>
@@ -50,16 +47,18 @@
 				<td><div><?php print $rows->monto; ?></div></td>
 				<td><div><?php print $rows->deposito; ?></div></td>
 				<td><div><?php print $rows->estatus; ?></div></td>
+				<td>
 				<?php if($rows->estatus == 'Pendiente'): ?>
-				<td><div><a href="<?php print "index.php?page=aprobar-transaccion&transaccion=" . $rows->id; ?>"><img src="img/aprobar-prestamo.png" title="Aceptado" alt="Aceptado"></a></div></td>   
-                                <td><div><a href="<?php print "index.php?page=rechazar-transaccion&transaccion=" . $rows->id; ?>"><img src="img/rechazar-prestamo.png" title="Rechazado" alt="Rechazado"></a></div></td>
+					<div class="accion"><a href="<?php print "index.php?page=aprobar-transaccion&transaccion=" . $rows->id; ?>"><img src="img/aprobar-prestamo.png" title="Aceptado" alt="Aceptado"></a></div>
+					<div class="accion"><a href="<?php print "index.php?page=rechazar-transaccion&transaccion=" . $rows->id; ?>"><img src="img/rechazar-prestamo.png" title="Rechazado" alt="Rechazado"></a></div>
 				<?php elseif($rows->estatus == 'Aceptado'): ?>
-                                        <td><div style="opacity: .5;"><img src="img/aprobar-prestamo.png" /></div></td>
-                                        <td><div style="opacity: .5;"><img src="img/rechazar-prestamo.png" /></div></td>
+                                        <div class="accion" style="opacity: .5;"><img src="img/aprobar-prestamo.png" /></div>
+                                        <div class="accion" style="opacity: .5;"><img src="img/rechazar-prestamo.png" /></div>
                                 <?php elseif($rows->estatus == 'Rechazado'): ?>
-                                        <td><div style="opacity: .5;"><img src="img/aprobar-prestamo.png" /></div></td>
-                                        <td><div style="opacity: .5;"><img src="img/rechazar-prestamo.png" /></div></td>
+                                        <div class="accion" style="opacity: .5;"><img src="img/aprobar-prestamo.png" /></div>
+                                        <div class="accion" style="opacity: .5;"><img src="img/rechazar-prestamo.png" /></div>
 				<?php endif; ?>
+				</td>
 			</tr>
 		<?php endwhile; ?>
 	</table>

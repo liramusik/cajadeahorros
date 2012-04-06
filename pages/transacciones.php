@@ -1,4 +1,4 @@
-<?php if(isset($_SESSION['session_usuario']) and ($_SESSION['session_id_rol'] == 1)); ?>
+<?php if(isset($_SESSION['session_usuario']) and ($_SESSION['session_id_rol'] == 1)): ?>
 	<?php
 	$cedula = $_SESSION['session_cedula'];
 	$bancos = new conexion();
