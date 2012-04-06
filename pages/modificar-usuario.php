@@ -1,101 +1,234 @@
-<?php if(isset($_SESSION['session_usuario'])): ?>
-	<?php
-	if(!isset($_POST['submit'])) {
-		
-		$cedula = $_GET['cedula'];
+<?php
+$cedula = $_GET['cedula'];
+$buscar_usuario = new conexion();
+$buscar_usuario->getModificarUsuario($cedula);
+$buscar_roles = new conexion();
+$buscar_roles->getRoles();
 
-		$c->setQuery("select cedula, nombre, apellido, telefono, email, direccion, to_char(fecha_ingreso, 'DD/MM/YYYY') as fecha_ingreso, to_char(fecha_egreso, 'DD/MM/YYYY') as fecha_egreso, nacionalidad, id_rol, usuario from tb_usuarios left join tb_nacionalidad on id_nacionalidad = tb_nacionalidad.id left join tb_roles on id_rol = tb_roles.id where cedula=$cedula");
-
-		$x = new connection();
-		$x->setQuery("select * from tb_roles");
-
-		while($rows = pg_fetch_object($c->getQuery())) {
-			$cedula = $rows->cedula;
-			$nombre = $rows->nombre;
-			$apellido = $rows->apellido;
-			$telefono = $rows->telefono;
-			$email = $rows->email;
-			$direccion = $rows->direccion;
-			$fecha_ingreso = $rows->fecha_ingreso;
-			$fecha_egreso = $rows->fecha_egreso;
-			$nacionalidad = $rows->nacionalidad;
-			$id_rol = $rows->id_rol;
-			$usuario = $rows->usuario;
-		}
-		include("formulario-modificar-usuarios.php");
-	} else {
-		$cedula = $_POST['cedula'];
-		$buscar = new connection();
-		$buscar->setQuery("select nombre, apellido, telefono, direccion, email from tb_usuarios where cedula=$cedula");
-
-		while($rows = pg_fetch_object($buscar->getQuery())) {
-			$db_nombre = $rows->nombre;
-			$db_apellido = $rows->apellido;
-			$db_telefono = $rows->telefono;
-			$db_email = $rows->email;
-			$db_direccion = $rows->direccion;
-		}
-
-		$post_nombre = $_POST['nombre'];
-		$post_apellido = $_POST['apellido'];
-		$post_telefono = $_POST['telefono'];
-		$post_email = $_POST['email'];
-		$post_direccion = $_POST['direccion'];
-		$post_password = $_POST['password'];
-		
-
-		$actualizar_usuarios=new connection();
-		if($post_nombre != $db_nombre) {
-			$actualizar_usuarios->setQuery("update tb_usuarios set nombre = '" . $post_nombre . "' where cedula=$cedula");
-			if(!$actualizar_usuarios->getQuery()){
-				print "<p>No se pudo modificar Nombre de usuario: $post_nombre </p>";
-			} else {
-				print "<p>El nombre se actualizo con exito por : $post_nombre </p>";
-			}	
-		}
-		if ($post_apellido != $db_apellido) {
-			$actualizar_usuarios->setQuery("update tb_usuarios set apellido = '" . $post_apellido . "' where cedula=$cedula");
-			if(!$actualizar_usuarios->getQuery()){
-				print "<p>No se pudo modificar Apellido de usuario: $post_apellido </p>";
-			} else {
-				print "<p>El apellido se actualizo con exito por : $post_apellido </p>";
-			}	
-		}
-		if($post_telefono != $db_telefono) {
-			$actualizar_usuarios->setQuery("update tb_usuarios set telefono = '" . $post_telefono . "' where cedula=$cedula");
-			if(!$actualizar_usuarios->getQuery()){
-				print "<p>No se pudo modificar Telefono de usuario: $post_telefono </p>";
-			} else {
-				print "<p>El telefono se actualizo con exito por : $post_telefono </p>";
-			}	
-		}
-		if($post_email != $db_email) {
-			$actualizar_usuarios->setQuery("update tb_usuarios set email = '" . $post_email . "' where cedula=$cedula");
-			if(!$actualizar_usuarios->getQuery()){
-				print "<p>No se pudo modificar Email de usuario: $post_email </p>";
-			} else {
-				print "<p>El campo email se actualizo con exito por : $post_email </p>";
-			}	
-		}
-		if($post_direccion != $db_direccion) {
-			$actualizar_usuarios->setQuery("update tb_usuarios set direccion = '" . $post_direccion . "' where cedula=$cedula");
-			if(!$actualizar_usuarios->getQuery()){
-				print "<p>No se pudo modificar Nombre de usuario: $post_direccion</p>";
-			} else {
-				print "<p>El campo nombre se actualizo con exito por : $post_direccion </p>";
-			}	
-		}
-		if(!empty($post_password)) {
-			$actualizar_usuarios->setQuery("update tb_usuarios set password = '" . md5($post_password) . "' where cedula=$cedula");
-			if(!$actualizar_usuarios->getQuery()) {
-				print "<p>No se pudo modificar Clave de usuario: $post_password</p>";
-			} else {
-				print "<p>El campo clave se actualizo con exito por : $post_password</p>";
-			}
-		}
-		print '<div class="mensaje">Se han realizado los cambios con exito <a href="index.php">Aceptar</a></div>';
-	}
+while($rows = pg_fetch_object($buscar_usuario->getQuery())) {
+	$cedula = $rows->cedula;
+	$nombre = $rows->nombre;
+	$apellido = $rows->apellido;
+	$telefono = $rows->telefono;
+	$email = $rows->email;
+	$direccion = $rows->direccion;
+	$fecha_ingreso = $rows->fecha_ingreso;
+	$fecha_egreso = $rows->fecha_egreso;
+	$nacionalidad = $rows->nacionalidad;
+	$id_rol = $rows->id_rol;
+	$usuario = $rows->usuario;
+}
 ?>
-<?php else: ?>
-	<div class="mensaje">Usted no posee privilegios <a href="index.php">Regresar</a></div>
-<?php endif; ?>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#crear-usuario").validate({
+			rules: {
+				nombre: {
+					required: true,
+					minlength: 3,
+				},
+				apellido: {
+					required: true,
+					minlength: 3,
+				},
+				cedula: {
+					required: true,
+					minlength: 7,
+					digits: true
+				},
+				telefono: {
+					required: true,
+					minlength: 11,
+					digits: true
+				},
+				email: {
+					required: true,
+					minlength: 15,
+					email: true
+				},
+				direccion: {
+					required: true,
+					minlength: 15,
+				},
+				usuario: {
+					required: true,
+					minlength: 5,
+				},
+				password: {
+					required: true,
+					minlength: 5
+				},
+				confirmar_password: {
+					required: true,
+					minlength: 5,
+					equalTo: "#password"
+				}
+			},
+		});
+	});
+	$(document).ready(function() {
+		$("#cedula").keydown(function(event) {
+			if(event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || (event.keyCode == 65 && event.ctrlKey === true) || (event.keyCode >= 35 && event.keyCode <= 39)) {
+				 return;
+			} else {
+				if((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105 )) {
+					event.preventDefault(); 
+				}   
+			}
+		});
+	});
+	$(document).ready(function() {
+		$("#telefono").keydown(function(event) {
+			if(event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || (event.keyCode == 65 && event.ctrlKey === true) || (event.keyCode >= 35 && event.keyCode <= 39)) {
+				 return;
+			} else {
+				if((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105 )) {
+					event.preventDefault(); 
+				}   
+			}
+		});
+	});
+	$(document).ready(function() { 
+		var opciones = {
+			success: mostrarRespuesta,
+		};
+		$('.form').ajaxForm(opciones);
+		function mostrarRespuesta(responseText) {
+			alert("Mensaje: " + responseText);
+		}; 
+	}); 
+</script>
+
+<h1>Usuario</h1>
+
+<form action="pages/actualizar-usuario.php" method="post" id="modificar-usuario" class="form">
+	<fieldset>
+		<legend>Información personal</legend>
+		<table>
+			<tr>
+				<td class="etiqueta">
+					<label for="tipo">Tipo de usuario: <span class="obligatorio">*</span></label>
+				</td>
+				<td>
+					<?php if(($_SESSION['session_id_rol'] == 1)): ?>
+						<select name="tipo">
+							<?php while($rows = pg_fetch_object($buscar_roles->getQuery())): ?>
+								<option value="<?php print $rows->id; ?>" <?php ($id_rol == $rows->id) ? print "selected" : print ""; ?>><?php print $rows->descripcion; ?></option>
+							<?php endwhile; ?>
+						</select>
+					<?php else: ?>
+						<select name="tipo" readonly="readonly">
+							<?php while($rows = pg_fetch_object($buscar_roles->getQuery())): ?>
+								<option value="<?php print $rows->id; ?>" <?php ($id_rol == $rows->id) ? print "selected" : print ""; ?>><?php print $rows->descripcion; ?></option>
+							<?php endwhile; ?>
+						</select>
+					<?php endif; ?>
+				</td>
+			</tr>
+			<tr>
+				<td class="etiqueta">
+					<label for="nombre">Nombre: <span class="obligatorio">*</span></label>
+				</td>
+				<td>
+					<input type="text" name="nombre" id="nombre" pattern="[a-zA-Z|(áéíóúñ )]{3,}" maxlength="40" placeholder="Nombre" autocomplete="off" value="<?php print $nombre; ?>" required />
+				</td>
+			</tr>
+			<tr>
+				<td class="etiqueta">
+					<label for="apellido">Apellido: <span class="obligatorio">*</span></label>
+				</td>
+				<td>
+					<input type="text" name="apellido" id="apellido" pattern="[a-zA-Z|(áéíóúñ)]{3,}" maxlength="40" placeholder="Apellido" autocomplete="off" value="<?php print $apellido; ?>" required />
+				</td>
+			</tr>
+			<tr>
+				<td class="etiqueta">
+					<label for="cedula">Cedula: <span class="obligatorio">*</span></label>
+				</td>
+				<td>
+					<input type="text" name="nacionalidad" id="nacionalidad" title="Nacionalidad" size="1" maxlength="1" value="<?php print $nacionalidad; ?>" readonly="readonly" required />
+					<input type="text" name="cedula" id="cedula" title="Cedula" pattern="[0-9]{3,}" size="8" maxlength="20" placeholder="Cedula" autocomplete="off" value="<?php print $cedula; ?>" readonly="readonly" required />
+				</td>
+			</tr>
+			<tr>
+				<td class="etiqueta">
+					<label for="telefono">Telefono: <span class="obligatorio">*</span></label>
+				</td>
+				<td>
+					<input type="text" name="telefono" id="telefono" title="Telefono" pattern="[0-9]{11,}" maxlength="40" placeholder="Teléfono" autocomplete="off" value="<?php print $telefono; ?>" required />
+				</td>
+			</tr>
+			<tr>
+				<td class="etiqueta">
+					<label for="email">Correo electronico: <span class="obligatorio">*</span></label>
+				</td>
+				<td>
+					<input type="email" name="email" id="email" title="Correo electronico" maxlength="40" placeholder="Correo electronico" autocomplete="off" value="<?php print $email; ?>" required />
+				</td>
+			</tr>
+			<tr>
+				<td class="etiqueta direccion">
+					<label for="direccion">Direccion de habitacion: <span class="obligatorio">*</span></label>
+				</td>
+				<td class="textarea">
+					<textarea name="direccion" id="direccion" cols="40" rows="5" required ><?php print $direccion; ?></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td class="etiqueta">
+					<label for="fecha_ingreso">Fecha de ingreso: <span class="obligatorio">*</span></label>
+				</td>
+				<td>
+					<?php if(($_SESSION['session_id_rol'] == 1)): ?>
+						<input type="text" name="fecha_ingreso" id="fecha_ingreso" title="Fecha de ingreso" maxlength="40" placeholder="Fecha de ingreso" autocomplete="off" value="<?php print $fecha_ingreso; ?>" required />
+					<?php else: ?>
+						<input type="datetime" name="fecha_ingreso" id="fecha_ingreso_des" title="Fecha de ingreso" maxlength="40" placeholder="Fecha de ingreso" autocomplete="off" value="<?php print $fecha_ingreso; ?>" readonly="readonly" required />
+					<?php endif; ?>
+				</td>
+			</tr>
+			<?php if(($_SESSION['session_id_rol'] == 1)): ?>
+				<tr>
+					<td class="etiqueta">
+						<label for="fecha_egreso">Fecha de egreso: </label>
+					</td>
+					<td>
+						<input type="datetime" name="fecha_egreso" id="fecha_egreso" title="Fecha de egreso" maxlength="40" placeholder="Fecha de egreso" autocomplete="off" value="<?php print $fecha_egreso; ?>" />
+					</td>
+				</tr>
+			<?php endif; ?>
+		</table>
+	</fieldset>
+	<fieldset class="informacion-cuenta" style="margin: 10px 0;">
+		<legend>Información cuenta</legend>
+		<table>
+			<tr>
+				<td class="etiqueta">
+					<label for="usuario">Usuario: <span class="obligatorio">*</span></label>
+				</td>
+				<td>
+					<input type="text" name="usuario" id="usuario" title="Usuario" maxlength="40" placeholder="Usuario" autocomplete="off" value="<?php print $usuario; ?>" readonly="readonly" required />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="password">Contraseña:</label>
+				</td>
+				<td>
+					<input type="password" name="password" id="password" title="Contraseña" maxlength="40" placeholder="Contraseña" autocomplete="off" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="password">Confirmar contrasena: </label>
+				</td>
+				<td>
+					<input type="password" name="confirmar_password" id="confirmar_password" title="Confirmar contraseña" maxlength="40" placeholder="Confirmar contraseña" autocomplete="off" />
+				</td>
+			</tr>
+		</table>
+	</fieldset>
+	<input id="submit" type="submit" value="Registrar" name="submit" class="boton1"/>
+	<div id="message"></div>
+</form>
+<?php unset($buscar_roles); ?>
