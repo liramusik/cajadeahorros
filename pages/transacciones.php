@@ -41,6 +41,35 @@
 				$('#cuentas').html(scuentas);
 			});
 		});
+		$(function() {
+		                $("#fecha").datepicker({
+			                dateFormat: 'dd/mm/yy'
+		                });
+		});
+		$(document).ready(function() { 
+		                var opciones = {
+		                success: mostrarRespuesta,
+		                };
+		                $('.form').ajaxForm(opciones);
+			                function mostrarRespuesta(responseText) {
+			                        alert("Mensaje: " + responseText);
+				                $('.form').resetForm();
+		                }; 
+		});
+	         $(document).ready(function(){
+		                $("#crear-tranasaccion").validate({
+					rules: {
+						monto: {
+						        required: true,
+						        minlength: 3,
+						},
+						deposito: {
+							required: true,
+							minlength: 3,
+						}
+					}
+				});
+		});
 	</script>	
 
 	<h1>Crear Transacciones</h1>
@@ -93,7 +122,7 @@
 						<label for="fecha">Fecha<span class="obligatorio">*</span></label>
 					</td>
 					<td>
-						<input type="text" name="fecha" id="fecha"  maxlength="40" placeholder="Fecha" autocomplete="on" required />
+						<input type="datetime" name="fecha" id="fecha" maxlength="40" placeholder="Fecha" autocomplete="on" required />
 					</td>
 				</tr>
 				<tr>
