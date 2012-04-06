@@ -48,6 +48,20 @@ class conexion {
 			print "Error " . pg_last_error();
 		}
 	}
+	public function getBuscarUsuario($cedula) {
+		$this->query = "select * from tb_usuarios where cedula=$cedula;";
+		$this->result = pg_query($this->connect, $this->query);
+		if(!$this->result) {
+			print "Error " . pg_last_error();
+		}
+	}
+	public function getBuscarUsuarios() {
+		$this->query = "select * from tb_usuarios where estatus='t';";
+		$this->result = pg_query($this->connect, $this->query);
+		if(!$this->result) {
+			print "Error " . pg_last_error();
+		}
+	}
 	public function getQuery() {
 		return $this->result;
 	}

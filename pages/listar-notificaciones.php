@@ -10,12 +10,12 @@
 	<script>
 		$(document).ready(function() {
 			$('#listado').dataTable({
-                "bJQueryUI": true,
+				"bJQueryUI": true,
 				"bLengthChange": false,
 				"bInfo": false,
 				"aaSorting": [[ 0, "desc" ]],
 				"oLanguage": {
-                    "sEmptyTable": "No hay datos disponibles en la tabla",
+					"sEmptyTable": "No hay datos disponibles en la tabla",
 					"sZeroRecords": "No se han encontrado registros",
 					"sSearch": "Filtrar Búsqueda",
 					"oPaginate": {
@@ -30,18 +30,18 @@
 	<table id="listado" class="listado">
 		<thead>
 			<tr>
+				<th>Asunto</th>
 				<th>Fecha</th>
 				<th>Nombre y Apellido</th>
 				<th>E-mail</th>
-				<th>Asunto</th>
 			</tr>
 		</thead>
 		<?php while($rows = pg_fetch_object($c->getQuery())): ?>
 			<tr>
-				<td class="fecha"><span class="icon"></span><div class="fecha"><a href="index.php?page=ver-notificacion&notificacion=<?php print $rows->id; ?>"><?php print $rows->fecha; ?></a></div></td>
+				<td class="asunto"><span class="icon"></span><div class="asunto"><a href="index.php?page=ver-notificacion&notificacion=<?php print $rows->id; ?>"><?php print $rows->asunto; ?></a></div></td>
+				<td><div><?php print $rows->fecha; ?></div></td>
 				<td><div><?php print $rows->nombre . " " . $rows->apellido; ?></div></td>
 				<td><div><?php print $rows->email; ?></div></td>
-				<td><div><?php print $rows->asunto; ?></div></td>
 			</tr>
 		<?php endwhile; ?>
 	</table>
