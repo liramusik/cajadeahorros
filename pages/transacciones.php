@@ -1,51 +1,47 @@
 <?php if(isset($_SESSION['session_usuario']) and ($_SESSION['session_id_rol'] == 1)); ?>
-<?php
-		include("conexion.php");
-		$cedula = $_SESSION['session_cedula'];
-        	$bancos = new conexion();
-        	$bancos->getListarBancosEnCuentas();
-        	$cuentas = new conexion();
-		$cuentas->getListarCuentas();
-		$tipo_transaccion = new conexion();
-		$tipo_transaccion->getListarTipoTransaccion();
-
-?>
-		<script type="text/javascript">
+	<?php
+	$cedula = $_SESSION['session_cedula'];
+	$bancos = new conexion();
+	$bancos->getListarBancosEnCuentas();
+	$cuentas = new conexion();
+	$cuentas->getListarCuentas();
+	$tipo_transaccion = new conexion();
+	$tipo_transaccion->getListarTipoTransaccion();
+	?>
+	<script type="text/javascript">
 		var bancos = [
-		<?php
+			<?php
 			while($rows = pg_fetch_object($bancos->getQuery())) {
-		              print "{'id_banco':'$rows->id_banco','banco':'$rows->nombre'},";
+			      print "{'id_banco':'$rows->id_banco','banco':'$rows->nombre'},";
 			}
-		?>  
+			?>
 		];
 		var cuentas = [
-		<?php
+			<?php
 			while($rows = pg_fetch_object($cuentas->getQuery())) {
-		              print "{'id_banco':'$rows->id_banco','id':'$rows->id','cuenta':'$rows->cuenta'},";
-			}   
-		?>  
-		];		
-        	$(document).ready(function() {
+				print "{'id_banco':'$rows->id_banco','id':'$rows->id','cuenta':'$rows->cuenta'},";
+			}
+			?>
+		];
+		$(document).ready(function() {
 			var sbancos = '<option value=""></option>';
-				$(bancos).each(function(i) {
-					sbancos += '<option value="'+this.id_banco+'">'+this.banco+'</option>';
-				});
-				$('#bancos').html(sbancos);
+			$(bancos).each(function(i) {
+				sbancos += '<option value="'+this.id_banco+'">'+this.banco+'</option>';
+			});
+			$('#bancos').html(sbancos);
 			$('#bancos').change(function() {
 				var banco = $('#bancos').val();
 				var pcuentas = $.grep(cuentas,function(n,i) {
 					return (n.id_banco == banco); 
 				});
 				var scuentas = '<option value=""></option>';
-			        $(pcuentas).each(function(i) {
+				$(pcuentas).each(function(i) {
 					scuentas += '<option value="'+this.id+'">'+this.cuenta+'</option>';
 				});
 				$('#cuentas').html(scuentas);
 			});
 		});
-
-</script>	
-
+	</script>	
 
 	<h1>Crear Transacciones</h1>
 	<form action="pages/registrar-transacciones.php" method="post" id="crear-transaccion" class="form">
@@ -60,26 +56,26 @@
 					<input type="text" name="cedula" id="cedula" value="<?php print $cedula; ?>" readonly="readonly" />
 					</td>
 				</tr>
-<tr>
-                                        <td class="etiqueta">
-                                                <label for="bancos">Banco <span class="obligatorio">*</span></label>
-                                        </td>
-                                        <td>
-                                                <select name="bancos" id="bancos">
-                                                        <option></option>
-                                                </select>
-                                        </td>
-                                </tr>
-                                <tr>
-                                        <td class="etiqueta">
-                                                <label for="cuentas">Cuentas <span class="obligatorio">*</span></label>
-                                        </td>
-                                        <td>
-                                                <select name="cuentas" id="cuentas">
-                                                        <option></option>
-                                                </select>
-                                        </td>
-                                </tr>
+				<tr>
+					<td class="etiqueta">
+						<label for="bancos">Banco <span class="obligatorio">*</span></label>
+					</td>
+					<td>
+						<select name="bancos" id="bancos">
+							<option></option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td class="etiqueta">
+						<label for="cuentas">Cuentas <span class="obligatorio">*</span></label>
+					</td>
+					<td>
+						<select name="cuentas" id="cuentas">
+							<option></option>
+						</select>
+					</td>
+				</tr>
 				<tr>
 					<td class="etiqueta">
 						<label for="tipo">Tipo transaccion<span class="obligatorio">*</span></label>
@@ -92,7 +88,7 @@
 						</select>
 					</td>
 				</tr>
-                  		<tr>
+				<tr>
 					<td class="etiqueta">
 						<label for="fecha">Fecha<span class="obligatorio">*</span></label>
 					</td>
@@ -100,23 +96,24 @@
 						<input type="text" name="fecha" id="fecha"  maxlength="40" placeholder="Fecha" autocomplete="on" required />
 					</td>
 				</tr>
-                  		<tr>
+				<tr>
 					<td class="etiqueta">
 						<label for="monto">Monto<span class="obligatorio">*</span></label>
 					</td>
 					<td>
 						<input type="text" name="monto" id="monto"  maxlength="40" placeholder="Monto" autocomplete="on" required />
 					</td>
-                       		</tr>
-                  		<tr>
+				</tr>
+				<tr>
 					<td class="etiqueta">
 						<label for="deposito">Deposito<span class="obligatorio">*</span></label>
 					</td>
 					<td>
 						<input type="text" name="deposito" id="deposito"  maxlength="40" placeholder="Deposito" autocomplete="on" required />
 					</td>
-                       		</tr>
+				</tr>
 			</table>
 		</fieldset>
 		<input id="submit" type="submit" value="Aceptar" name="submit" class="boton1"/>
 	</form>
+<?php endif; ?>
