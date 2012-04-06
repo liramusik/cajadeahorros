@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <?php include("includes/top_page.php"); ?>
 <div id="wrapper">	
 	<div id="header">
@@ -22,5 +24,7 @@
 <?php include("includes/bottom_page.php"); ?>
 
 <script type="text/javascript">
-    $("#contenido").load("includes/pages.php");
+  $(document).ready(function(){  
+      $("#contenido").load("includes/pages.php");
+  });    
 </script>

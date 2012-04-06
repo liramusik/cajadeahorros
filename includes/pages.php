@@ -1,9 +1,7 @@
 <?php session_start(); ?>
 <?php 
 chdir("..");
-echo getcwd().$_GET["page"];
 include("conf/connection.php");
-
 $c = new connection();
 if(!isset($_SESSION['session_usuario'])){
 	if (!isset($_GET['page'])) {
@@ -15,7 +13,7 @@ if(!isset($_SESSION['session_usuario'])){
 	if (!isset($_GET['page'])) {
 		include("pages/bienvenida.php");
 	} else {
-		include("../pages/".$_GET['page'].".php");
+		include("pages/".$_GET['page'].".php");
 	}
 }
 ?>
