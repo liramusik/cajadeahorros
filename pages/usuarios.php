@@ -86,6 +86,17 @@ $y->setQuery("select * from tb_nacionalidad;");
 			dateFormat: 'dd/mm/yy'
 		});
 	});
+	$(document).ready(function() { 
+		var opciones = {
+			success: mostrarRespuesta,
+		};
+		$('.form').ajaxForm(opciones);
+		function mostrarRespuesta(responseText) {
+			alert("Mensaje: " + responseText);
+			$('.form').resetForm();
+			$("#contenido").load("includes/pages.php?page=cuentas");
+		}; 
+	}); 
 </script>
 
 <h1>Crear Usuario</h1>

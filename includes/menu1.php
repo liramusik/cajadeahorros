@@ -13,7 +13,7 @@
 		<h3><a href="#">Usuarios</a></h3>
 		<div>
 			<ul>
-				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="usuarios">Usuarios</a></li>
+				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="usuarios">Crear</a></li>
 				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="listar-usuarios">Listar</a></li>
 			</ul>
 		</div>

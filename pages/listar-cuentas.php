@@ -27,14 +27,10 @@
 	<table id="listado" class="listado">
 		<thead>
 			<tr>
-				<th rowspan="2">Banco</th>
-				<th rowspan="2">Tipo de Cuenta</th>
-				<th rowspan="2">Cuenta</th>
-				<th colspan="2">Acciones</th>
-			</tr>
-			<tr>
-				<th></th>
-				<th></th>
+				<th>Banco</th>
+				<th>Tipo de Cuenta</th>
+				<th>Cuenta</th>
+				<th>Acciones</th>
 			</tr>
 		</thead>
 		<?php while($rows = pg_fetch_object($c->getQuery())): ?>
@@ -42,8 +38,10 @@
 				<td class="banco"><span class="icon"></span><div class="banco"><?php print $rows->nombre ?></div></td>
 				<td><div><?php print $rows->tipo; ?></div></td>
 				<td><div><?php print $rows->cuenta; ?></div></td>
-				<td><div><a href="<?php print "index.php?page=modificar-cuenta&cuenta=" . $rows->id; ?>"><img src="img/modificar.png" title="Modificar" alt="Modificar"></a></div></td>
-				<td><div><a href="<?php print "index.php?page=deshabilitar-cuenta&cuenta=" . $rows->id; ?>"><img src="img/deshabilitar.png" title="Deshabilitar" alt="Deshabilitar"></a></div></td>
+				<td>
+					<div class="accion"><a href="<?php print "index.php?page=modificar-cuenta&cuenta=" . $rows->id; ?>"><img src="img/modificar.png" title="Modificar" alt="Modificar"></a></div>
+					<div class="accion"><a href="<?php print "index.php?page=deshabilitar-cuenta&cuenta=" . $rows->id; ?>"><img src="img/deshabilitar.png" title="Deshabilitar" alt="Deshabilitar"></a></div>
+				</td>
 			</tr>
 		<?php endwhile; ?>
 	</table>
