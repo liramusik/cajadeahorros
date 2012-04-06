@@ -11,56 +11,6 @@ $(document).ready(function(){
 	});
 });
 
-$(document).ready(function(){
-	$("#crear-usuario").validate({
-		rules: {
-			nombre: {
-				required: true,
-				minlength: 3,
-			},
-			apellido: {
-				required: true,
-				minlength: 3,
-			},
-			cedula: {
-				required: true,
-				minlength: 8,
-				digits: true
-			},
-			telefono: {
-				required: true,
-				minlength: 11,
-				digits: true
-			},
-			email: {
-				required: true,
-				minlength: 15,
-				email: true
-			},
-			direccion: {
-				required: true,
-				minlength: 15,
-			},
-			fecha_ingreso: {
-				required: true,
-				minlength: 10,
-			},
-			usuario: {
-				required: true,
-				minlength: 8,
-			},
-			password: {
-				required: true,
-				minlength: 5
-			},
-			confirmar_password: {
-				required: true,
-				minlength: 5,
-				equalTo: "#password"
-			}
-		},
-	});
-});
 
 $(document).ready(function(){
 	$("#modificar-usuario").validate({

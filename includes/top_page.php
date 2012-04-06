@@ -25,14 +25,6 @@
 						}
 					});
 			});
-			$(function() {
-				$("#fecha_ingreso").datepicker({
-					dateFormat: 'dd/mm/yy'
-				});
-				$("#fecha_egreso").datepicker({
-					dateFormat: 'dd/mm/yy'
-				});
-			});
 		</script>
 	</head>
 	<body>
