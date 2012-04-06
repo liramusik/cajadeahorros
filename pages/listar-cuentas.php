@@ -9,6 +9,7 @@
 		$(document).ready(function() {
 			$('#listado').dataTable({
 				"bLengthChange": false,
+				"bJQueryUI": true,
 				"bInfo": false,
 				"aaSorting": [[ 0, "desc" ]],
 				"oLanguage": {
