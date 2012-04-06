@@ -35,6 +35,15 @@
 				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="listar-prestamos">Listar</a></li>
 			</ul>
 		</div>
+    </div>
+	<div class="group">
+		<h3><a href="#">Transacciones</a></h3>
+		<div>
+			<ul>
+				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="transacciones">Registrar</a></li>
+				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="listar-transacciones">Listar</a></li>
+            </ul>
+		</div>
 	</div>
 </div>
 <script type="text/javascript">
