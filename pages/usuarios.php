@@ -99,7 +99,7 @@ $y->setQuery("select * from tb_nacionalidad;");
 </script>
 
 <h1>Crear Usuario</h1>
-<form action="pages/registrar-usuarios.php" method="post" id="crear-usuario" class="form">
+<form action="pages/registrar-usuario.php" method="post" id="crear-usuario" class="form">
 	<fieldset>
 		<legend>Información personal</legend>
 		<table>
