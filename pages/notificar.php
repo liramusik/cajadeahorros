@@ -1,34 +1,38 @@
 <?php if(isset($_SESSION['session_usuario']) && ($_SESSION['session_id_rol'] == 1)): ?>
 	<?php
-	$db_hostname = "localhost";
-	$db_database = "db_cadeveher";
-	$db_username = "user_cadeveher";
-	$db_password = "123456";
-
-	$db_connect = pg_connect("host=$db_hostname dbname=$db_database user=$db_username password=$db_password") or die ("Imposible conectarse al servidor " . pg_last_error());
-
-	$cedula = trim($_GET['cedula']);
-
-	if(isset($cedula) and ($cedula == 'all')) {
-		$query = "select cedula, nombre, apellido, email from tb_usuarios where estatus=true";
-	} elseif($cedula != 'all') {
-		$query = "select cedula, nombre, apellido, email from tb_usuarios where cedula=$cedula and estatus=true";
-	}
-	$result = pg_query($db_connect, $query);
-
-	if(!$result) {
-		print "Error " . pg_last_error();
-	}
-
-	while($rows = pg_fetch_object($result)) {
-		$db_cedula[] = $rows->cedula = $rows->cedula;;
-		$db_nombre[] = $rows->nombre;
-		$db_apellido[] = $rows->apellido;
-		$db_email[] = $rows->email;
+	$cedula = $_GET['cedula'];
+	if($cedula != "all") {
+		$buscar_usuario = new conexion();
+		$buscar_usuario->getBuscarUsuario($cedula);
+		while($rows = pg_fetch_object($buscar_usuario->getQuery())) {
+			$nombre = $rows->nombre;
+			$apellido = $rows->apellido;
+			$cedulas[] = $rows->cedula;
+			$emails[] = $rows->email;
+		}
+	} else {
+		$buscar_usuarios = new conexion();
+		$buscar_usuarios->getBuscarUsuario();
+		while($rows = pg_fetch_object($buscar_usuarios->getQuery())) {
+			$cedulas[] = $rows->cedula;
+			$emails[] = $rows->email;
+		}
 	}
 	?>
+	<script type="text/javascript">
+		$(document).ready(function() { 
+			var opciones = {
+				success: mostrarRespuesta,
+			};
+			$('.form').ajaxForm(opciones);
+			function mostrarRespuesta(responseText) {
+				alert("Mensaje: " + responseText);
+				$('.form').resetForm();
+			}; 
+		}); 
+	</script>
 	<h1>Notificaciones</h1>
-	<form action="index.php?page=enviar-notificacion" method="post" id="notificar">
+	<form action="pages/registrar-notificacion.php" method="post" id="notificar" class="form">
 		<fieldset>
 			<legend>Solicitud de Préstamo</legend>
 			<table>
@@ -39,11 +43,11 @@
 					<td>
 						<?php if(isset($cedula) and ($cedula == 'all')): ?>
 							<p>Todos<p/>
-						<?php elseif($cedula != 'all'): ?>
-							<p><?php print $db_nombre[0] . " " . $db_apellido[0]; ?></p>
+						<?php else: ?>
+							<p><?php print $nombre . " " . $apellido; ?></p>
 						<?php endif; ?>
-						<input type="hidden" name="cedulas" value="<?php foreach($db_cedula as $v) { print "$v,"; } ?>" />
-						<input type="hidden" name="emails" value="<?php foreach($db_email as $v) { print "$v,"; } ?>" />
+						<input type="hidden" name="cedulas" value="<?php foreach($cedulas as $v) { print "$v,"; } ?>" />
+						<input type="hidden" name="emails" value="<?php foreach($emails as $v) { print "$v,"; } ?>" />
 					</td>
 				</tr>
 				<tr>

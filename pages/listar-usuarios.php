@@ -6,7 +6,7 @@
 	<script>
 		$(document).ready(function() {
 			$('#listado').dataTable({
-                "bJQueryUI": true,
+				"bJQueryUI": true,
 				"bLengthChange": false,
 				"bInfo": false,
 				"oLanguage": {
@@ -39,15 +39,15 @@
 				<td><div><?php print $rows->descripcion; ?></div></td>
 				<td><div><?php print $rows->telefono; ?></div></td>
 				<td><div><?php print $rows->email; ?></div></td>
-                <td>
-                    <div class="accion"><a href="#" id="<?php print $rows->cedula; ?>" class="notificar"><img src="img/notificar.png" title="Notificar" alt="Notificar"></a></div>
-                    <div class="accion"><a href="<?php print "index.php?page=modificar-usuarios&cedula=" . $rows->cedula; ?>"><img src="img/modificar.png" title="Modificar" alt="Modificar"></a></div>
-                    <?php if($_SESSION['session_cedula'] != $rows->cedula): ?>
-                        <div class="accion"><a href="<?php print "index.php?page=deshabilitar-usuarios&cedula=" . $rows->cedula; ?>"><img src="img/deshabilitar.png" title="Deshabilitar" alt="Deshabilitar"></a></div>
-                    <?php else: ?>
-                        <div class="accion"><a href="#"><img src="img/deshabilitar.png" title="Deshabilitar" alt="Deshabilitar"></a></div>
-                    <?php endif; ?>
-                </td>
+				<td>
+					<div class="accion"><a href="#" id="<?php print $rows->cedula; ?>" class="notificar"><img src="img/notificar.png" title="Notificar" alt="Notificar"></a></div>
+					<div class="accion"><a href="<?php print "index.php?page=modificar-usuarios&cedula=" . $rows->cedula; ?>"><img src="img/modificar.png" title="Modificar" alt="Modificar"></a></div>
+					<?php if($_SESSION['session_cedula'] != $rows->cedula): ?>
+						<div class="accion"><a href="<?php print "index.php?page=deshabilitar-usuarios&cedula=" . $rows->cedula; ?>"><img src="img/deshabilitar.png" title="Deshabilitar" alt="Deshabilitar"></a></div>
+					<?php else: ?>
+						<div class="accion"><a href="#"><img src="img/deshabilitar.png" title="Deshabilitar" alt="Deshabilitar"></a></div>
+					<?php endif; ?>
+				</td>
 			</tr>
 		<?php endwhile; ?>
 	</table>

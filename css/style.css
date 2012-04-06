@@ -185,7 +185,8 @@ table.listado {
 
 table.listado tbody td.nombre > div,
 table.listado tbody td.solicitud > div,
-table.listado tbody td.banco > div {
+table.listado tbody td.banco > div,
+table.listado tbody td.asunto > div {
 	padding-left: 20px;
 }
 
