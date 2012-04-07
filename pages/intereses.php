@@ -59,9 +59,6 @@
 				},
 			});
 		});
-		$("#fecha").datepicker({
-			dateFormat: 'dd/mm/yy'
-		});
 		$(document).ready(function() {
 			$("#monto").keydown(function(event) {
 				if(event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || (event.keyCode == 65 && event.ctrlKey === true) || (event.keyCode >= 35 && event.keyCode <= 39)) {
@@ -82,7 +79,14 @@
 				alert("Mensaje: " + responseText);
 				$('.form').resetForm();
 			}; 
-		}); 
+        });
+        $(function() {
+			$("#fecha").datepicker({
+                dateFormat: 'dd/mm/yy',
+                    dayNamesMin: ['Dom', 'Lun', 'Mar', 'Mier', 'Jue', 'Vier', 'Sab'],
+                    monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Séptiembre', 'Octubre', 'Noviembre', 'Diciembre']
+			});
+		});
 	</script>
 	<h1>Registrar Intereses</h1>
 	<form action="pages/registrar-interes.php" method="post" id="registrar-interes" class="form">
