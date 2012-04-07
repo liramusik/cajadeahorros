@@ -55,7 +55,7 @@
 					<div class="accion">
 						<form action="pages/deshabilitar-cuenta.php" method="post" id="deshabilitar-cuenta" class="form">
 							<input type="hidden" name="id" value="<?php print $rows->id; ?>" />
-							<input type="submit" name="submit" />
+							<input type="submit" name="submit" id="boton-deshabilitar" />
 						</form>
 					</div>
 				</td>
