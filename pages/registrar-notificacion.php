@@ -13,11 +13,10 @@ for($i = 0; $i < sizeof($cedulas) - 1; $i++) {
 	$notificar->setQuery("insert into tb_notificaciones values(default, $cedula, '" . $fecha . "', '" . $asunto . "','" . $mensaje . "')");
 	if(!$notificar) {
 		print "Ha ocurrido un error " . pg_last_error();
-	} else {
-		print "El mensaje ha sido enviado";
-	}
+	} 
 	if(!empty($emails[$i])) {
 		mail($emails[$i], $asunto, wordwrap($mensaje));
 	}
 }
+print "El mensaje ha sido enviado";
 ?>
