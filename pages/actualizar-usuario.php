@@ -15,7 +15,7 @@ $post_password = $_POST['password'];
 $actualizar_usuarios=new conexion();
 
 if(empty($post_password)) {
-	$actualizar_usuarios->setQuery("update tb_usuarios set nombre='" . $post_nombre . "', apellido='" . $post_apellido . "', telefono='" . $post_telefono . "',  email = '" . $post_email . "', direccion = '" . $post_direccion . "' where cedula=$cedula");
+	$actualizar_usuarios->setQuery("update tb_usuarios set nombre='" . $post_nombre . "', apellido='" . $post_apellido . "', telefono='" . $post_telefono . "',  email = '" . $post_email . "', direccion = '" . $post_direccion . "', aporte_mensual=$aporte_mensual where cedula=$cedula");
 	if(!$actualizar_usuarios->getQuery()){
 		print "No se pudo modificar el usuario";
 	} else {
