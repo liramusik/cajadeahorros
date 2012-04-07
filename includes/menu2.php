@@ -3,7 +3,7 @@
 		<h3><a href="#">Cuenta</a></h3>
 		<div>
 			<ul>
-				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="usuarios">Cuenta</a></li>
+			<li><span class="icon"></span><a class="ajaxmenu" href="#" id="<?php print $_SESSION['session_cedula']; ?>" title="modificar-usuario">Cuenta</a></li>
 			</ul>
 		</div>
 	</div>
@@ -11,7 +11,7 @@
 		<h3><a href="#">Notificaciones</a></h3>
 		<div>
 			<ul>
-				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="listar-notificaciones">Listar</a></li>
+				<li><span class="icon"></span><a class="ajaxmenu" href="#" id="<?php print $_SESSION['session_cedula']; ?>" title="listar-notificaciones">Listar</a></li>
 			</ul>
 		</div>
 	</div>
@@ -35,11 +35,11 @@
 		</div>
         </div>
 </div>
-<script type="text/javascript">
+<script type="text/javascript"> 
 	$(document).ready(function() {
 		$(".ajaxmenu").click(function() {
 			var page = $(this).attr("title");
-			$("#contenido").load("includes/pages.php?page="+page);
+			$("#contenido").load("includes/pages.php?page="+page+"&cedula="+$(this).attr('id'));
 		});
 	});    
 </script>
