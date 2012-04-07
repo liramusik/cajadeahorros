@@ -22,7 +22,7 @@ while($rows = pg_fetch_object($buscar_usuario->getQuery())) {
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("#crear-usuario").validate({
+		$("#modificar-usuario").validate({
 			rules: {
 				nombre: {
 					required: true,
@@ -56,11 +56,9 @@ while($rows = pg_fetch_object($buscar_usuario->getQuery())) {
 					minlength: 5,
 				},
 				password: {
-					required: true,
 					minlength: 5
 				},
 				confirmar_password: {
-					required: true,
 					minlength: 5,
 					equalTo: "#password"
 				}
