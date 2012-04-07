@@ -1,6 +1,18 @@
 <?php if(isset($_SESSION['session_usuario']) && ($_SESSION['session_id_rol'] == 1)): ?>
+	<script type="text/javascript">
+		$(document).ready(function() { 
+			var opciones = {
+				success: mostrarRespuesta,
+			};
+			$('.form').ajaxForm(opciones);
+			function mostrarRespuesta(responseText) {
+				alert("Mensaje: " + responseText);
+				$("#contenido").load("includes/pages.php?page=listar-cuentas");
+			}; 
+		}); 
+	</script>
+
 	<?php
-	include("conexion.php");
 	$c = new conexion();
 	$c->setQuery("select tb_cuentas.id, nombre, tipo, cuenta from tb_cuentas left join tb_bancos on tb_cuentas.id_banco = tb_bancos.id left join tb_tipo_cuentas on tb_cuentas.id_tipo_cuenta = tb_tipo_cuentas.id where estatus='t';");
 	?>
@@ -40,7 +52,12 @@
 				<td><div><?php print $rows->cuenta; ?></div></td>
 				<td>
 					<div class="accion"><a href="#" id="<?php print $rows->id; ?>" class="modificar"><img src="img/modificar.png" title="Modificar" alt="Modificar"></a></div>
-					<div class="accion"><a href="<?php print "index.php?page=deshabilitar-cuenta&cuenta=" . $rows->id; ?>"><img src="img/deshabilitar.png" title="Deshabilitar" alt="Deshabilitar"></a></div>
+					<div class="accion">
+						<form action="pages/deshabilitar-cuenta.php" method="post" id="deshabilitar-cuenta" class="form">
+							<input type="hidden" name="id" value="<?php print $rows->id; ?>" />
+							<input type="submit" name="submit" id="boton-deshabilitar" />
+						</form>
+					</div>
 				</td>
 			</tr>
 		<?php endwhile; ?>
