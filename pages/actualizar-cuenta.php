@@ -27,6 +27,19 @@ if(!in_array($post_nombre_banco, $array_bancos)) {
 	} else {
 		print "La cuenta ha sido actualizada";
 	}
+} else {
+	$buscar_id_banco = new conexion();
+	$buscar_id_banco->setQuery("select id from tb_bancos where nombre='" . $post_nombre_banco . "'");
+	while($rows = pg_fetch_object($buscar_id_banco->getQuery())) {
+		$id_banco_encontrado = $rows->id;
+	}
+	$actualizar_banco = new conexion();
+	$actualizar_banco->setQuery("update tb_cuentas set id_banco=$id_banco_encontrado where id=$id_cuenta;");
+	if(!$actualizar_banco->getQuery()) {
+		print "Error " . pg_last_error();
+	} else {
+		print "La cuenta ha sido actualizada";
+	}
 }
 unset($actualizar_banco);
 
