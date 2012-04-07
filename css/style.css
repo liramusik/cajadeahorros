@@ -315,12 +315,17 @@ input#usuario,
 input#password,
 input#confirmar_password,
 input#nombre_banco,
-input#cuenta {
+input#cuenta,
+input#fecha,
+input#monto,
+input#aporte_mensual {
 	width: 218px;
 }
 
 select#tipo_cuenta,
-select#tipo {
+select#tipo,
+select#bancos,
+select#cuentas {
 	width: 228px;
 }
 
