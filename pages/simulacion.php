@@ -1,4 +1,14 @@
 <?php $cedula = $_SESSION['session_cedula']; ?>
+<script type="text/javascript">
+	$(document).ready(function() { 
+		var opciones = {
+			success: redireccionar,
+		};
+		$('.form').ajaxForm(opciones);
+		function redireccionar(parametros) {
+		}; 
+	}); 
+</script>
 
 <h1>Simulación</h1>
 <form action="index.php?page=generar-simulacion" method="post" id="simular">
