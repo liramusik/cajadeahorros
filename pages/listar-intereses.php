@@ -44,7 +44,6 @@
 				<th>Cuenta</th>
 				<th>Interes</th>
 				<th>Fecha</th>
-				<th>Acciones</th>
 			</tr>
 		</thead>
 		<?php while($rows = pg_fetch_object($c->getQuery())): ?>
@@ -54,15 +53,6 @@
 				<td><div><?php print $rows->cuenta; ?></div></td>	
 				<td><div><?php print $rows->monto; ?></div></td>	
 				<td><div><?php print $rows->fecha; ?></div></td>
-				<td>
-					<div class="accion"><a href="#" id="<?php print $rows->id; ?>" class="modificar"><img src="img/modificar.png" title="Modificar" alt="Modificar"></a></div>
-					<div class="accion">
-						<form action="pages/deshabilitar-cuenta.php" method="post" id="deshabilitar-cuenta" class="form">
-							<input type="hidden" name="id" value="<?php print $rows->id; ?>" />
-							<input type="submit" name="submit" id="boton-deshabilitar" />
-						</form>
-					</div>
-				</td>
 			</tr>
 		<?php endwhile; ?>
 	</table>
