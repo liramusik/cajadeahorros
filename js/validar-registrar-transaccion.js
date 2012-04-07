@@ -23,6 +23,26 @@ $(document).ready(function() {
 		monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Séptiembre', 'Octubre', 'Noviembre', 'Diciembre']
 	});
 });
+$(document).ready(function(){
+            $("#crear-transaccion").validate({
+                    rules: {
+                            monto: {
+                                    required: true,
+                                    minlength: 2,
+                            },
+                            deposito: {
+                                    required: true,
+                                    minlength: 3,
+                            },
+                            bancos: { 
+                                required: true,
+                            },
+                            cuentas: { 
+                                required: true,
+                            },
+                    }
+            });
+});
 $(document).ready(function() { 
 		var opciones = {
 		success: mostrarRespuesta,
@@ -33,18 +53,5 @@ $(document).ready(function() {
 				$('.form').resetForm();
 		}; 
 });
- $(document).ready(function(){
-		$("#crear-transaccion").validate({
-			rules: {
-				monto: {
-					required: true,
-					minlength: 2,
-				},
-				deposito: {
-					required: true,
-					minlength: 3,
-				}
-			}
-		});
-});
+
 
