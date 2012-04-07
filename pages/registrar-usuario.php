@@ -8,6 +8,7 @@ $cedula = $_POST['cedula'];
 $telefono = $_POST['telefono'];
 $email = $_POST['email'];
 $direccion = $_POST['direccion'];
+$aporte_mensual = $_POST['aporte_mensual'];
 $fecha_ingreso = $_POST['fecha_ingreso'];
 $usuario = $_POST['usuario'];
 $password = md5($_POST['password']);
@@ -20,7 +21,7 @@ $hora = date("H:i:s", time());
 $fecha .= " " . $hora;
 
 $x = new conexion();
-$x->setQuery("insert into tb_usuarios values($cedula, $nacionalidad, $tipo, '" . $nombre . "', '" . $apellido . "', '" . $telefono . "', '" . $email . "', '" . $direccion . "', '" . $fecha . "', null, '" . $usuario . "', '" . $password . "', default);");
+$x->setQuery("insert into tb_usuarios values($cedula, $nacionalidad, $tipo, '" . $nombre . "', '" . $apellido . "', '" . $telefono . "', '" . $email . "', '" . $direccion . "', $aporte_mensual, '" . $fecha . "', null, '" . $usuario . "', '" . $password . "', default);");
 
 if($x->getQuery()) {
 	print 'El usuario se ha agregado correctamente';
