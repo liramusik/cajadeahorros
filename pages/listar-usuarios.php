@@ -1,4 +1,17 @@
 <?php if(isset($_SESSION['session_usuario']) and ($_SESSION['session_id_rol'] == 1)): ?>
+	<script type="text/javascript">
+		$(document).ready(function() { 
+			var opciones = {
+				success: mostrarRespuesta,
+			};
+			$('.form').ajaxForm(opciones);
+			function mostrarRespuesta(responseText) {
+				alert("Mensaje: " + responseText);
+				$("#contenido").load("includes/pages.php?page=listar-usuarios");
+			}; 
+		}); 
+	</script>
+
 	<?php
 	$c->setQuery("select cedula, nombre, apellido, telefono, email, usuario, descripcion from tb_usuarios left join tb_roles on tb_usuarios.id_rol = tb_roles.id where estatus=true");
 	?>
@@ -42,11 +55,12 @@
 				<td>
 					<div class="accion"><a href="#" id="<?php print $rows->cedula; ?>" class="notificar"><img src="img/notificar.png" title="Notificar" alt="Notificar"></a></div>
 					<div class="accion"><a href="#" id="<?php print $rows->cedula; ?>" class="modificar"><img src="img/modificar.png" title="Modificar" alt="Modificar"></a></div>
-					<?php if($_SESSION['session_cedula'] != $rows->cedula): ?>
-						<div class="accion"><a href="<?php print "index.php?page=deshabilitar-usuarios&cedula=" . $rows->cedula; ?>"><img src="img/deshabilitar.png" title="Deshabilitar" alt="Deshabilitar"></a></div>
-					<?php else: ?>
-						<div class="accion"><a href="#"><img src="img/deshabilitar.png" title="Deshabilitar" alt="Deshabilitar"></a></div>
-					<?php endif; ?>
+					<div class="accion">
+						<form action="pages/deshabilitar-usuario.php" method="post" id="deshabilitar-usuario" class="form">
+							<input type="hidden" name="cedula" value="<?php print $rows->cedula; ?>" />
+							<input type="submit" name="submit" id="boton-deshabilitar" />
+						</form>
+					</div>
 				</td>
 			</tr>
 		<?php endwhile; ?>
