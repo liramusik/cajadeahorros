@@ -48,6 +48,13 @@ class conexion {
                         print "Error " . pg_last_error();
                 }   
         }    
+        public function getListarTipoTransaccion1y2() {
+                $this->query = "select * from tb_tipo_transacciones where id != 3 and id != 4;";
+                $this->result = pg_query($this->connect, $this->query);
+                if(!$this->result) {
+                        print "Error " . pg_last_error();
+                }   
+        }    
 	public function getListarBancosEnCuentas() {
 		$this->query = "select id_banco, nombre from tb_cuentas left join tb_bancos on tb_cuentas.id_banco = tb_bancos.id where estatus=true group by id_banco, nombre;";
 		$this->result = pg_query($this->connect, $this->query);

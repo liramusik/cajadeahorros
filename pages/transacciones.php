@@ -6,7 +6,7 @@
 	$cuentas = new conexion();
 	$cuentas->getListarCuentas();
 	$tipo_transaccion = new conexion();
-	$tipo_transaccion->getListarTipoTransaccion();
+	$tipo_transaccion->getListarTipoTransaccion1y2();
 	?>
 	<script type="text/javascript">
 		var bancos = [
