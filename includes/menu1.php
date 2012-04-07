@@ -3,9 +3,10 @@
 		<h3><a href="#">Bancos</a></h3>
 		<div>
 			<ul>
-				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="cuentas">Crear</a></li>
-				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="listar-cuentas">Listar</a></li>
-				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="intereses">Intereses</a></li>
+				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="cuentas">Añadir</a></li>
+				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="listar-cuentas">Listar Cuentas</a></li>
+                <li><span class="icon"></span><a class="ajaxmenu" href="#" title="intereses">Intereses</a></li>
+                <li><span class="icon"></span><a class="ajaxmenu" href="#" title="listar-intereses">Listar Intereses</a></li>
 			</ul>
 		</div>
 	</div>
@@ -13,7 +14,7 @@
 		<h3><a href="#">Usuarios</a></h3>
 		<div>
 			<ul>
-				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="usuarios">Crear</a></li>
+				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="usuarios">Añadir</a></li>
 				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="listar-usuarios">Listar</a></li>
 			</ul>
 		</div>
