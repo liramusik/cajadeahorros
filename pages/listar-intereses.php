@@ -3,7 +3,7 @@
 	$c = new conexion();
 	$c->setQuery("select tb_cuentas.id, nombre, tipo, cuenta, monto, to_char(fecha_interes,'DD/MM/YYYY') as fecha from tb_cuentas left join tb_bancos on tb_cuentas.id_banco = tb_bancos.id left join tb_tipo_cuentas on tb_cuentas.id_tipo_cuenta = tb_tipo_cuentas.id left join tb_intereses on tb_cuentas.id = tb_intereses.id_cuenta;");
 	?>
-	<h1>Listado de Cuentas</h1>
+	<h1>Listado de Intereses</h1>
 	<script>
 		$(document).ready(function() {
 			$('#listado').dataTable({
@@ -29,7 +29,7 @@
 				<th>Banco</th>
 				<th>Tipo de Cuenta</th>
 				<th>Cuenta</th>
-				<th>Interes</th>
+				<th>Interés</th>
 				<th>Fecha</th>
 			</tr>
 		</thead>
@@ -44,7 +44,7 @@
 		<?php endwhile; ?>
 	</table>
 <?php else: ?>
-	<div class="mensaje">Usted no posee privilegios para ver esta pagina <a href="index.php">Regresar</a></div>
+	<div class="mensaje">Usted no posee privilegios para ver esta página <a href="index.php">Regresar</a></div>
 <?php endif; ?>
 <script type="text/javascript">
 	$(document).ready(function() {
