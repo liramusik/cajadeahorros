@@ -39,7 +39,7 @@
 				<td><div><?php print $rows->tipo; ?></div></td>
 				<td><div><?php print $rows->cuenta; ?></div></td>
 				<td>
-					<div class="accion"><a href="<?php print "index.php?page=modificar-cuenta&cuenta=" . $rows->id; ?>"><img src="img/modificar.png" title="Modificar" alt="Modificar"></a></div>
+					<div class="accion"><a href="#" id="<?php print $rows->id; ?>" class="modificar"><img src="img/modificar.png" title="Modificar" alt="Modificar"></a></div>
 					<div class="accion"><a href="<?php print "index.php?page=deshabilitar-cuenta&cuenta=" . $rows->id; ?>"><img src="img/deshabilitar.png" title="Deshabilitar" alt="Deshabilitar"></a></div>
 				</td>
 			</tr>
@@ -48,3 +48,10 @@
 <?php else: ?>
 	<div class="mensaje">Usted no posee privilegios ver esta pagina <a href="index.php">Regresar</a></div>
 <?php endif; ?>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.modificar').click(function() {
+			$('#contenido').load("includes/pages.php?page=modificar-cuenta&id="+$(this).attr('id'));
+		})
+	});
+</script>
