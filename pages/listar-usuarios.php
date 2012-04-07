@@ -57,7 +57,7 @@
 					<div class="accion"><a href="#" id="<?php print $rows->cedula; ?>" class="modificar"><img src="img/modificar.png" title="Modificar" alt="Modificar"></a></div>
 					<?php if($_SESSION['session_cedula'] != $rows->cedula): ?>
 						<div class="accion">
-							<form action="pages/deshabilitar-usuario.php" method="post" id="deshabilitar-usuario" class="form">
+							<form action="pages/deshabilitar-usuario.php" method="post" id="deshabilitar-usuario" title="Deshabilitar" class="form">
 								<input type="hidden" name="cedula" value="<?php print $rows->cedula; ?>" />
 								<input type="submit" name="submit" id="boton-deshabilitar" />
 							</form>
