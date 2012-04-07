@@ -1,6 +1,6 @@
 <?php if(isset($_SESSION['session_usuario']) && ($_SESSION['session_id_rol'] == 1)): ?>
 	<?php
-	$cedula = $_GET['cedula'];
+	if(isset($_GET['cedula'])) { $cedula = $_GET['cedula']; }
 	if($cedula != "all") {
 		$buscar_usuario = new conexion();
 		$buscar_usuario->getBuscarUsuario($cedula);
@@ -12,7 +12,7 @@
 		}
 	} else {
 		$buscar_usuarios = new conexion();
-		$buscar_usuarios->getBuscarUsuario();
+		$buscar_usuarios->getBuscarUsuarios();
 		while($rows = pg_fetch_object($buscar_usuarios->getQuery())) {
 			$cedulas[] = $rows->cedula;
 			$emails[] = $rows->email;

@@ -1,5 +1,9 @@
 <?php
-$cedula = $_GET['cedula'];
+if(isset($_GET['cedula'])) {
+	$cedula = $_GET['cedula'];
+} else {
+	$cedula = $_SESSION['session_cedula'];
+}
 $buscar_usuario = new conexion();
 $buscar_usuario->getModificarUsuario($cedula);
 $buscar_roles = new conexion();

@@ -26,7 +26,7 @@
 			});
 		});
 	</script>
-	<div class="notificar-todos">Presione clic <a href="index.php?page=notificar&cedula=all">aquí</a> si desea notificar a todos los asociados</div><br />
+	<div class="notificar-todos">Presione clic <a href="#" id="all" class="notificar">aquí</a> si desea notificar a todos los asociados</div><br />
 	<table id="listado" class="listado">
 		<thead>
 			<tr>
@@ -52,6 +52,11 @@
 	$(document).ready(function() {
 		$('.ver-notificacion').click(function() {
 			$('#contenido').load("includes/pages.php?page=ver-notificacion&id="+$(this).attr('id'));
+		})
+	});
+	$(document).ready(function() {
+		$('.notificar').click(function() {
+			$('#contenido').load("includes/pages.php?page=notificar&cedula="+$(this).attr('id'));
 		})
 	});
 </script>
