@@ -17,8 +17,38 @@
 	}
 	?>
 
+	<script>
+		$(document).ready(function(){
+			$("#solicitar-prestamo").validate({
+				rules: {
+					monto: {
+						required: true,
+						minlength: 3,
+						maxlength: 7,
+						digits: true
+					},
+					tiempo: {
+						required: true,
+						minlength: 1,
+						maxlength: 2,
+						digits: true
+					},
+				},
+			});
+		});
+		$(document).ready(function() { 
+			var opciones = {
+				success: mostrarRespuesta,
+			};
+			$('.form').ajaxForm(opciones);
+			function mostrarRespuesta(responseText) {
+				alert("Mensaje: " + responseText);
+				$('.form').resetForm();
+			}; 
+		}); 
+	</script>
 	<h1>Solicitar Préstamo</h1>
-	<form action="index.php?page=generar-solicitud" method="post" id="solicitar-prestamo">
+	<form action="pages/registrar-solicitud-prestamo.php" method="post" id="solicitar-prestamo" class="form">
 		<fieldset>
 			<legend>Solicitud de Préstamo</legend>
 			<table>
@@ -51,7 +81,7 @@
 						<label for="pago">Forma de pago</label>
 					</td>
 					<td>
-						<input name="pago" type="radio" value="1" <?php if((isset($pago)) && ($pago != 1)) { print "disabled "; } if($pago == 1) { print "checked"; } ?> /> Pago de intereses<br />
+						<input name="pago" type="radio" value="1" <?php if((isset($pago)) && ($pago != 1)) { print "disabled "; } elseif(!isset($pago)) { print "checked"; } if($pago == 1) { print "checked"; } ?> /> Pago de intereses<br />
 						<input name="pago" type="radio" value="2" <?php if((isset($pago)) && ($pago != 2)) { print "disabled "; } if($pago == 2) { print "checked"; } ?> /> Pago por cuotas<br />
 						<input name="pago" type="radio" value="3" <?php if((isset($pago)) && ($pago != 3)) { print "disabled "; } if($pago == 3) { print "checked"; } ?> /> Pago al final de cuotas + intereses
 					</td>
