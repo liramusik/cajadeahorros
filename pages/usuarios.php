@@ -40,8 +40,13 @@
 					fecha_ingreso: {
 						required: true,
 						minlength: 10,
-					},
-					usuario: {
+                    },
+                    aporte_mensual: { 
+                        required: true,
+                        minlength: 2,
+                        digits: true,
+                        },
+                    usuario: {
 						required: true,
 						minlength: 5,
 					},
@@ -70,6 +75,17 @@
             });
             $(document).ready(function() {
                 $("#telefono").keydown(function(event) {
+                    if(event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || (event.keyCode == 65 && event.ctrlKey === true) || (event.keyCode >= 35 && event.keyCode <= 39)) {
+                         return;
+                    } else {
+                        if((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105 )) {
+                            event.preventDefault(); 
+                        }   
+                    }
+                });
+            });
+		$(document).ready(function() {
+			$("#aporte_mensual").keydown(function(event) {
                     if(event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || (event.keyCode == 65 && event.ctrlKey === true) || (event.keyCode >= 35 && event.keyCode <= 39)) {
                          return;
                     } else {
@@ -138,7 +154,7 @@
 				</tr>
 				<tr>
 					<td class="etiqueta">
-						<label for="cedula">Cedula <span class="obligatorio">*</span></label>
+						<label for="cedula">Cédula <span class="obligatorio">*</span></label>
 					</td>
 					<td>
 						<select name="nacionalidad" id="nacionalidad" readonly="readonly">
@@ -151,7 +167,7 @@
 				</tr>
 				<tr>
 					<td class="etiqueta">
-						<label for="telefono">Telefono <span class="obligatorio">*</span></label>
+						<label for="telefono">Teléfono <span class="obligatorio">*</span></label>
 					</td>
 					<td>
 						<input type="text" name="telefono" id="telefono" pattern="[0-9]{11,}" maxlength="11" placeholder="Telefono" autocomplete="on" required />
@@ -159,7 +175,7 @@
 				</tr>
 				<tr>
 					<td class="etiqueta">
-						<label for="email">Correo electronico <span class="obligatorio">*</span></label>
+						<label for="email">Correo electrónico <span class="obligatorio">*</span></label>
 					</td>
 					<td>
 						<input type="email" name="email" id="email" maxlength="40" placeholder="Email" autocomplete="on" required />
@@ -180,7 +196,17 @@
 					<td>
 						<input type="datetime" name="fecha_ingreso" id="fecha_ingreso" maxlength="40" placeholder="Fecha de ingreso" autocomplete="on" required />
 					</td>
+                </tr>
 				</tr>
+				<tr>
+			        <td class="etiqueta">
+						<label for="aporte_mensual">Aporte mensual <span class="obligatorio">*</span></label>
+					</td>
+					<td>
+						<input type="text" name="aporte_mensual" id="aporte_mensual" pattern="[0-9]{11,}" maxlength="10" placeholder="Aporte Mensual" autocomplete="off" required />
+					</td>
+				</tr>
+
 			</table>
 		</fieldset>
 		<fieldset class="informacion-cuenta" style="margin: 10px 0;">
@@ -199,7 +225,7 @@
 						<label for="password">Contraseña <span class="obligatorio">*</span></label>
 					</td>
 					<td>
-						<input type="password" name="password" id="password" maxlength="40" placeholder="Contrasena" autocomplete="off" required />
+						<input type="password" name="password" id="password" maxlength="40" placeholder="Contraseña" autocomplete="off" required />
 					</td>
 				</tr>
 				<tr>
@@ -207,7 +233,7 @@
 						<label for="confirmar_password">Confirmar contraseña <span class="obligatorio">*</span></label>
 					</td>
 					<td>
-						<input type="password" name="confirmar_password" id="confirmar_password" maxlength="40" placeholder="Confirmar Password" autocomplete="off" required />
+						<input type="password" name="confirmar_password" id="confirmar_password" maxlength="40" placeholder="Confirmar Contraseña" autocomplete="off" required />
 					</td>
 				</tr>
 			</table>
