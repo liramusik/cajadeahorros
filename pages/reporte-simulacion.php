@@ -15,7 +15,7 @@
 	});
 </script>
 
-<?php if($this->pago == 1): ?>
+<?php if($this->tipo_pago == 1): ?>
 	<div>Para realizar la solicitud de préstamo en base a esta simulación, por favor haga clic <a href="index.php?page=solicitar-prestamo&monto=<?php print $this->monto; ?>&tiempo=<?php print $this->tiempo; ?>&pago=<?php print $this->pago; ?>&porcentaje=<?php print $porcentaje; ?>">aquí</a></div>
 	<table id="listado" class="listado">
 		<thead>
@@ -33,7 +33,7 @@
 			</tr>
 		<?php endfor; ?>
 	</table>
-<?php elseif($this->pago == 2): ?>
+<?php elseif($this->tipo_pago == 2): ?>
 	<div>Para realizar la solicitud de préstamo en base a esta simulación, por favor haga clic <a href="index.php?page=solicitar-prestamo&monto=<?php print $this->monto; ?>&tiempo=<?php print $this->tiempo; ?>&pago=<?php print $this->pago; ?>&porcentaje=<?php print $porcentaje; ?>">aquí</a></div>
 	<table id="listado" class="listado">
 		<thead>
@@ -53,7 +53,7 @@
 			</tr>
 		<?php endfor; ?>
 	</table>
-<?php elseif($this->pago == 3): ?>
+<?php elseif($this->tipo_pago == 3): ?>
 	<?php
 	for($i = 1; $i <= $this->tiempo; $i++) {
 		$interes_total += $interes[$i];

@@ -1,13 +1,14 @@
 <?php
-$cedula = $_SESSION['session_cedula'];
-$monto = $_POST['monto'];
-$tiempo = $_POST['tiempo'];
-$pago = $_POST['pago'];
+$cedula = $_GET['cedula'];
+$monto = $_GET['monto'];
+$tiempo = $_GET['tiempo'];
+$tipo_pago = $_GET['tipo_pago'];
+$id_rol = $_GET['id_rol'];
+
 $fecha_actual = time();
 
-$rol = $_SESSION['session_id_rol'];
-$x = new connection();
-$x->setQuery("select porcentaje from tb_porcentajes where id_roles=$rol order by fecha desc limit 1;");
+$x = new conexion();
+$x->setQuery("select porcentaje from tb_porcentajes where id_roles=$id_rol order by fecha desc limit 1;");
 while($rows = pg_fetch_object($x->getQuery())) {
 	$porcentaje = $rows->porcentaje;
 }
@@ -17,24 +18,24 @@ class simulacion {
 	private $cedula;
 	private $monto;
 	private $tiempo;
-	private $pago;
+	private $tipo_pago;
 	private $fecha;
 	private $porcentaje;
-	public function __construct($p_cedula, $p_monto, $p_tiempo, $p_pago, $p_porcentaje, $p_fecha) {
+	public function __construct($p_cedula, $p_monto, $p_tiempo, $p_tipo_pago, $p_porcentaje, $p_fecha) {
 		$this->cedula = $p_cedula;
 		$this->monto = $p_monto;
 		$this->tiempo = $p_tiempo;
-		$this->pago = $p_pago;
+		$this->tipo_pago = $p_tipo_pago;
 		$this->fecha = $p_fecha;
 		$this->porcentaje = $p_porcentaje;
 	}
 	public function generar() {
-		if($this->pago == 1) {
+		if($this->tipo_pago == 1) {
 			$this->intereses();
-		} elseif($this->pago == 2) {
+		} elseif($this->tipo_pago == 2) {
 			$this->intereses_cuotas();
-		} elseif($this->pago == 3) {
-			$this->pago_final();
+		} elseif($this->tipo_pago == 3) {
+			$this->tipo_pago_final();
 		}
 	}
 	private function intereses() {
@@ -69,11 +70,11 @@ class simulacion {
 		$this->imprimir($prestamo, $interes, $cuota, $fecha, $this->porcentaje);
 	}
 	private function imprimir(&$prestamo, &$interes, &$cuota, &$fecha, $porcentaje) {
-		include("pages/reporte-simulacion.php");
+		include("reporte-simulacion.php");
 	}
 }
 
-$sim = new simulacion($cedula, $monto, $tiempo, $pago, $porcentaje, $fecha_actual);
+$sim = new simulacion($cedula, $monto, $tiempo, $tipo_pago, $porcentaje, $fecha_actual);
 $sim->generar();
 
 ?>
