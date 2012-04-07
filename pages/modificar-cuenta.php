@@ -14,8 +14,20 @@
 		$id_tipo_cuenta = $rows->id_tipo_cuenta;
 	}
 	?>
-	<script type="text/javascript">
-		$(document).ready(function() {
+	<script type="text/javascript">	
+		$(document).ready(function(){
+			$("#crear-cuentas").validate({
+				rules: {
+					cuenta: {
+						required: true,
+						minlength: 20,
+						digits: true
+					}
+				},
+			});
+		});
+	
+	$(document).ready(function() {
 			var availableTags = [
 				<?php
 				$bancos = array();
@@ -28,10 +40,22 @@
 			$("#nombre_banco").autocomplete({
 				source: availableTags
 			});
+	});
+
+		$(document).ready(function() {
+			$("#cuenta").keydown(function(event) {
+				if(event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || (event.keyCode == 65 && event.ctrlKey === true) || (event.keyCode >= 35 && event.keyCode <= 39)) {
+					 return;
+				} else {
+					if((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105 )) {
+						event.preventDefault(); 
+					}   
+				}
+			});
 		});
 	</script>	
 	<h1>Crear Cuentas</h1>
-	<form action="index.php?page=modificar-cuenta" method="post" id="crear-cuentas">
+	<form action="index.php?page=modificar-cuenta" method="post" id="modificar-cuentas">
 		<fieldset>
 			<legend>Información</legend>
 			<table>
@@ -61,8 +85,7 @@
 						<label for="cuenta">Número de cuenta <span class="obligatorio">*</span></label>
 					</td>
 					<td>
-						<input type="text" name="cuenta" id="cuenta" maxlength="20" value="<?php print "$cuenta"; ?>" pattern="[0-9]{3,}" placeholder="Nombre del Banco" autocomplete="on" required />
-						<input type="hidden" name="id_cuenta" id="id_cuenta" value="<?php print $id_cuenta; ?>" />
+						<input type="text" name="cuenta" id="cuenta" maxlength="20" value="<?php print "$cuenta"; ?>" pattern="[0-9]{3,}" placeholder="Número de cuenta" autocomplete="on" required />
 					</td>
 				</tr>
 			</table>
