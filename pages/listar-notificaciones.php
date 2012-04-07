@@ -38,7 +38,7 @@
 		</thead>
 		<?php while($rows = pg_fetch_object($c->getQuery())): ?>
 			<tr>
-				<td class="asunto"><span class="icon"></span><div class="asunto"><a href="index.php?page=ver-notificacion&notificacion=<?php print $rows->id; ?>"><?php print $rows->asunto; ?></a></div></td>
+				<td class="asunto"><span class="icon"></span><div class="asunto"><a href="#" id="<?php print $rows->id; ?>" class="ver-notificacion"><?php print $rows->asunto; ?></a></div></td>
 				<td><div><?php print $rows->fecha; ?></div></td>
 				<td><div><?php print $rows->nombre . " " . $rows->apellido; ?></div></td>
 				<td><div><?php print $rows->email; ?></div></td>
@@ -48,3 +48,10 @@
 <?php else: ?>
 	<div class="mensaje">Usted no posee privilegios ver esta pagina <a href="index.php">Regresar</a></div>
 <?php endif; ?>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.ver-notificacion').click(function() {
+			$('#contenido').load("includes/pages.php?page=ver-notificacion&id="+$(this).attr('id'));
+		})
+	});
+</script>
