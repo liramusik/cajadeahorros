@@ -102,11 +102,6 @@ while($rows = pg_fetch_object($buscar_usuario->getQuery())) {
                dayNamesMin: ['Dom', 'Lun', 'Mar', 'Mier', 'Jue', 'Vier', 'Sab'],
                monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Séptiembre', 'Octubre', 'Noviembre', 'Diciembre']
 	    });
-		$("#fecha_egreso").datepicker({
-               dateFormat: 'dd/mm/yy',
-               dayNamesMin: ['Dom', 'Lun', 'Mar', 'Mier', 'Jue', 'Vier', 'Sab'],
-               monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Séptiembre', 'Octubre', 'Noviembre', 'Diciembre']
-			});
 		}); 
             </script>
 
@@ -198,14 +193,6 @@ while($rows = pg_fetch_object($buscar_usuario->getQuery())) {
 				</td>
 			</tr>
 			<?php if(($_SESSION['session_id_rol'] == 1)): ?>
-				<tr>
-					<td class="etiqueta">
-						<label for="fecha_egreso">Fecha de egreso: </label>
-					</td>
-					<td>
-						<input type="datetime" name="fecha_egreso" id="fecha_egreso" title="Fecha de egreso" maxlength="40" placeholder="Fecha de egreso" autocomplete="off" value="<?php print $fecha_egreso; ?>" />
-					</td>
-				</tr>
 			<?php endif; ?>
 		</table>
 	</fieldset>

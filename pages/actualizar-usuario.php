@@ -22,52 +22,19 @@ $post_password = $_POST['password'];
 
 $actualizar_usuarios=new conexion();
 
-if($post_nombre != $db_nombre) {
-	$actualizar_usuarios->setQuery("update tb_usuarios set nombre = '" . $post_nombre . "' where cedula=$cedula");
+if(empty($post_password)) {
+	$actualizar_usuarios->setQuery("update tb_usuarios set nombre='" . $post_nombre . "', apellido='" . $post_apellido . "', telefono='" . $post_telefono . "',  email = '" . $post_email . "', direccion = '" . $post_direccion . "' where cedula=$cedula");
 	if(!$actualizar_usuarios->getQuery()){
-		print "No se pudo modificar Nombre de usuario: $post_nombre";
+		print "No se pudo modificar el usuario";
 	} else {
-		print "El nombre se actualizo con exito por : $post_nombre";
+		print "El usuario se actualizo con exito";
 	}	
-}
-if ($post_apellido != $db_apellido) {
-	$actualizar_usuarios->setQuery("update tb_usuarios set apellido = '" . $post_apellido . "' where cedula=$cedula");
-	if(!$actualizar_usuarios->getQuery()){
-		print "No se pudo modificar Apellido de usuario: $post_apellido";
-	} else {
-		print "El apellido se actualizo con exito por : $post_apellido";
-	}	
-}
-if($post_telefono != $db_telefono) {
-	$actualizar_usuarios->setQuery("update tb_usuarios set telefono = '" . $post_telefono . "' where cedula=$cedula");
-	if(!$actualizar_usuarios->getQuery()){
-		print "No se pudo modificar Telefono de usuario: $post_telefono";
-	} else {
-		print "El telefono se actualizo con exito por : $post_telefono";
-	}	
-}
-if($post_email != $db_email) {
-	$actualizar_usuarios->setQuery("update tb_usuarios set email = '" . $post_email . "' where cedula=$cedula");
-	if(!$actualizar_usuarios->getQuery()){
-		print "No se pudo modificar Email de usuario: $post_email";
-	} else {
-		print "El campo email se actualizo con exito por : $post_email";
-	}	
-}
-if($post_direccion != $db_direccion) {
-	$actualizar_usuarios->setQuery("update tb_usuarios set direccion = '" . $post_direccion . "' where cedula=$cedula");
-	if(!$actualizar_usuarios->getQuery()){
-		print "No se pudo modificar Nombre de usuario: $post_direccion";
-	} else {
-		print "El campo nombre se actualizo con exito por : $post_direccion";
-	}	
-}
-if(!empty($post_password)) {
-	$actualizar_usuarios->setQuery("update tb_usuarios set password = '" . md5($post_password) . "' where cedula=$cedula");
+} else {
+	$actualizar_usuarios->setQuery("update tb_usuarios set nombre='" . $post_nombre . "', apellido='" . $post_apellido . "', telefono='" . $post_telefono . "',  email = '" . $post_email . "', direccion = '" . $post_direccion . "', password='" . md5($post_password) . "' where cedula=$cedula");
 	if(!$actualizar_usuarios->getQuery()) {
-		print "No se pudo modificar Clave de usuario: $post_password";
+		print "No se pudo modificar el  usuario";
 	} else {
-		print "El campo clave se actualizo con exito por : $post_password";
+		print "El usuario se actualizo con exito";
 	}
 }
 ?>
