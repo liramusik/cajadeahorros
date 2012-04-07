@@ -21,108 +21,7 @@ while($rows = pg_fetch_object($buscar_usuario->getQuery())) {
 }
 ?>
 
-<script type="text/javascript">
-	$(document).ready(function(){
-		$("#modificar-usuario").validate({
-			rules: {
-				nombre: {
-					required: true,
-					minlength: 3,
-				},
-				apellido: {
-					required: true,
-					minlength: 3,
-				},
-				cedula: {
-					required: true,
-					minlength: 7,
-					digits: true
-				},
-				telefono: {
-					required: true,
-					minlength: 11,
-					digits: true
-				},
-				email: {
-					required: true,
-					minlength: 15,
-					email: true
-				},
-				direccion: {
-					required: true,
-					minlength: 15,
-				},
-				aporte_mensual: {
-					required: true,
-					minlenght: 2,
-					digits: true
-				}
-				usuario: {
-					required: true,
-					minlength: 5,
-				},
-				password: {
-					minlength: 5
-				},
-				confirmar_password: {
-					minlength: 5,
-					equalTo: "#password"
-				}
-			},
-		});
-	});
-	$(document).ready(function() {
-		$("#cedula").keydown(function(event) {
-			if(event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || (event.keyCode == 65 && event.ctrlKey === true) || (event.keyCode >= 35 && event.keyCode <= 39)) {
-				 return;
-			} else {
-				if((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105 )) {
-					event.preventDefault(); 
-				}   
-			}
-		});
-	});
-	$(document).ready(function() {
-		$("#telefono").keydown(function(event) {
-			if(event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || (event.keyCode == 65 && event.ctrlKey === true) || (event.keyCode >= 35 && event.keyCode <= 39)) {
-				 return;
-			} else {
-				if((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105 )) {
-					event.preventDefault(); 
-				}   
-			}
-		});
-	});
-	$(document).ready(function() { 
-		var opciones = {
-			success: mostrarRespuesta,
-		};
-		$('.form').ajaxForm(opciones);
-		function mostrarRespuesta(responseText) {
-			alert("Mensaje: " + responseText);
-		}; 
-	});
-	$(document).ready(function() {
-		$("#aporte_mensual").keydown(function(event) {
-			if(event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || (event.keyCode == 65 && event.ctrlKey === true) || (event.keyCode >= 35 && event.keyCode <= 39)) {
-				 return;
-			} else {
-				if((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105 )) {
-					event.preventDefault(); 
-				}   
-			}
-		});
-	});
-   	$(function() {
-		$("#fecha_ingreso").datepicker({
-			dateFormat: 'dd/mm/yy',
-			dayNamesMin: ['Dom', 'Lun', 'Mar', 'Mier', 'Jue', 'Vier', 'Sab'],
-			monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Séptiembre', 'Octubre', 'Noviembre', 'Diciembre']
-		});
-	}); 
-</script>
-
-<h1> Modificar Usuario</h1>
+<h1>Modificar Usuario</h1>
 
 <form action="pages/actualizar-usuario.php" method="post" id="modificar-usuario" class="form">
 	<fieldset>
@@ -133,7 +32,7 @@ while($rows = pg_fetch_object($buscar_usuario->getQuery())) {
 					<label for="tipo">Tipo de usuario: <span class="obligatorio">*</span></label>
 				</td>
 				<td>
-					<?php if(($id_rol == 1)): ?>
+					<?php if(($_SESSION['session_id_rol'] == 1)): ?>
 						<select name="tipo">
 							<?php while($rows = pg_fetch_object($buscar_roles->getQuery())): ?>
 								<option value="<?php print $rows->id; ?>" <?php ($id_rol == $rows->id) ? print "selected" : print ""; ?>><?php print $rows->descripcion; ?></option>
@@ -169,8 +68,8 @@ while($rows = pg_fetch_object($buscar_usuario->getQuery())) {
 					<label for="cedula">Cedula: <span class="obligatorio">*</span></label>
 				</td>
 				<td>
-					<input type="text" name="nacionalidad" id="nacionalidad" title="Nacionalidad" size="1" maxlength="1" value="<?php print $nacionalidad; ?>" readonly="readonly" required />
-					<input type="text" name="cedula" id="cedula" title="Cedula" pattern="[0-9]{3,}" size="8" maxlength="20" placeholder="Cedula" autocomplete="off" value="<?php print $cedula; ?>" readonly="readonly" required />
+					<input type="text" name="nacionalidad" id="nacionalidad" title="Nacionalidad" maxlength="1" value="<?php print $nacionalidad; ?>" readonly="readonly" required />
+					<input type="text" name="cedula" id="cedula" title="Cedula" pattern="[0-9]{3,}" maxlength="8" placeholder="Cédula" autocomplete="off" value="<?php print $cedula; ?>" readonly="readonly" required />
 				</td>
 			</tr>
 			<tr>
@@ -178,7 +77,7 @@ while($rows = pg_fetch_object($buscar_usuario->getQuery())) {
 					<label for="telefono">Telefono: <span class="obligatorio">*</span></label>
 				</td>
 				<td>
-					<input type="text" name="telefono" id="telefono" title="Telefono" pattern="[0-9]{11,}" maxlength="40" placeholder="Teléfono" autocomplete="off" value="<?php print $telefono; ?>" required />
+					<input type="text" name="telefono" id="telefono" title="Telefono" pattern="[0-9]{11,}" maxlength="11" placeholder="Teléfono" autocomplete="off" value="<?php print $telefono; ?>" required />
 				</td>
 			</tr>
 			<tr>
@@ -186,7 +85,7 @@ while($rows = pg_fetch_object($buscar_usuario->getQuery())) {
 					<label for="email">Correo electronico: <span class="obligatorio">*</span></label>
 				</td>
 				<td>
-					<input type="email" name="email" id="email" title="Correo electronico" maxlength="40" placeholder="Correo electronico" autocomplete="off" value="<?php print $email; ?>" required />
+					<input type="email" name="email" id="email" title="Correo electronico" maxlength="40" placeholder="Correo electrónico" autocomplete="off" value="<?php print $email; ?>" required />
 				</td>
 			</tr>
 			<tr>
@@ -194,15 +93,19 @@ while($rows = pg_fetch_object($buscar_usuario->getQuery())) {
 					<label for="direccion">Direccion de habitacion: <span class="obligatorio">*</span></label>
 				</td>
 				<td class="textarea">
-					<textarea name="direccion" id="direccion" cols="40" rows="5" required ><?php print $direccion; ?></textarea>
+					<textarea name="direccion" id="direccion" cols="40" rows="5"><?php print $direccion; ?></textarea>
 				</td>
 			</tr>
 			<tr>
 				<td class="etiqueta">
-					<label for="cedula">Aporte mensual: <span class="obligatorio">*</span></label>
+					<label for="aporte_mensual">Aporte mensual: <span class="obligatorio">*</span></label>
 				</td>
 				<td>
-					<input type="text" name="aporte_mensual" id="aporte_mensual" title="Aporte mensual" pattern="[0-9]{3,}" maxlength="10" placeholder="Aporte mensual" autocomplete="off" value="<?php print $aporte_mensual; ?>" readonly="readonly" required />
+					<?php if(($_SESSION['session_id_rol'] == 1)): ?>
+						<input type="text" name="aporte_mensual" id="aporte_mensual" title="Aporte mensual" maxlength="4" value="<?php print $aporte_mensual; ?>" required />
+					<?php else: ?>
+						<input type="text" name="aporte_mensual_des" id="aporte_mensual_des" title="Aporte mensual" maxlength="4" value="<?php print $aporte_mensual; ?>" readonly="readonly" required />
+					<?php endif; ?>
 				</td>
 			</tr>
 			<tr>
@@ -217,8 +120,6 @@ while($rows = pg_fetch_object($buscar_usuario->getQuery())) {
 					<?php endif; ?>
 				</td>
 			</tr>
-			<?php if(($_SESSION['session_id_rol'] == 1)): ?>
-			<?php endif; ?>
 		</table>
 	</fieldset>
 	<fieldset class="informacion-cuenta" style="margin: 10px 0;">
@@ -253,4 +154,6 @@ while($rows = pg_fetch_object($buscar_usuario->getQuery())) {
 	<input id="submit" type="submit" value="Actualizar" name="submit" class="boton1"/>
 	<div id="message"></div>
 </form>
-<?php unset($buscar_roles); ?>
+
+<script type="text/javascript" src="/cajadeahorros/js/validar-modificar-usuario.js">
+</script>

@@ -84,7 +84,7 @@ class conexion {
 		}
 	}
 	public function getModificarUsuario($cedula) {
-		$this->query = "select cedula, nombre, apellido, telefono, email, direccion, to_char(fecha_ingreso, 'DD/MM/YYYY') as fecha_ingreso, to_char(fecha_egreso, 'DD/MM/YYYY') as fecha_egreso, nacionalidad, id_rol, usuario from tb_usuarios left join tb_nacionalidad on id_nacionalidad = tb_nacionalidad.id left join tb_roles on id_rol = tb_roles.id where cedula=$cedula";
+		$this->query = "select cedula, nombre, apellido, telefono, email, direccion, aporte_mensual, to_char(fecha_ingreso, 'DD/MM/YYYY') as fecha_ingreso, to_char(fecha_egreso, 'DD/MM/YYYY') as fecha_egreso, nacionalidad, id_rol, usuario from tb_usuarios left join tb_nacionalidad on id_nacionalidad = tb_nacionalidad.id left join tb_roles on id_rol = tb_roles.id where cedula=$cedula";
 		$this->result = pg_query($this->connect, $this->query);
 		if(!$this->result) {
 			print "Error " . pg_last_error();

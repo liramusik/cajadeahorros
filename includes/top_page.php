@@ -10,7 +10,6 @@
 		<script language="javascript" src="js/jquery.dataTables.js"></script>
 		<script language="javascript" src="js/jquery.validate.js"></script>
 		<script language="javascript" src="js/jquery.form.js"></script>
-		<script language="javascript" src="js/formularios.js"></script>
 		<script type="text/javascript">
 			$(function() {
 				$("#ui-accordion")
