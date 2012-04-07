@@ -8,7 +8,7 @@
 		$porcentaje = $_GET['porcentaje'];
 	} else {
 		$rol = $_SESSION['session_id_rol'];
-		$x = new connection();
+		$x = new conexion();
 		$x->setQuery("select porcentaje from tb_porcentajes where id_roles=$rol order by fecha desc limit 1;");
 		while($rows = pg_fetch_object($x->getQuery())) {
 			$porcentaje = $rows->porcentaje;
