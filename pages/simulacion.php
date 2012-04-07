@@ -1,17 +1,20 @@
 <?php $cedula = $_SESSION['session_cedula']; ?>
 <script type="text/javascript">
 	$(document).ready(function() { 
-		var opciones = {
-			success: redireccionar,
-		};
-		$('.form').ajaxForm(opciones);
-		function redireccionar(parametros) {
-		}; 
+		$('#simular').submit(function(e){
+			e.preventDefault();
+			var cedula = $('#cedula').attr('value');
+			var monto = $('#monto').attr('value');
+			var tiempo = $('#tiempo').attr('value');
+			var tipo_pago = $('input[type=radio]:checked').attr('value');
+			var id_rol = $('#id_rol').attr('value');
+			$("#contenido").load("includes/pages.php?page=generar-simulacion&cedula="+cedula+"&monto="+monto+"&tiempo="+tiempo+"&tipo_pago="+tipo_pago+"&id_rol="+id_rol);
+		})
 	}); 
 </script>
 
 <h1>Simulación</h1>
-<form action="index.php?page=generar-simulacion" method="post" id="simular">
+<form action="pages/generar-simulacion.php" method="post" id="simular">
 	<fieldset>
 		<legend>Datos de la Simulación</legend>
 		<table id="listado">
@@ -21,6 +24,7 @@
 				</td>
 				<td>
 					<input id="cedula" name="cedula" type="text" value="<?php print $cedula; ?>" readonly="readonly" />
+					<input id="id_rol" name="id_rol" type="hidden" value="<?php print $_SESSION['session_id_rol']; ?>" readonly="readonly" />
 				</td>
 			</tr>
 			<tr>
@@ -41,15 +45,15 @@
 			</tr>
 			<tr>
 				<td class="etiqueta pago">
-					<label for="pago">Forma de pago</label>
+					<label for="tipo_pago">Forma de pago</label>
 				</td>
 				<td>
-					<input name="pago" type="radio" value="1" checked /> Pago de intereses<br />
-					<input name="pago" type="radio" value="2" /> Pago por cuotas<br />
-					<input name="pago" type="radio" value="3" /> Pago al final de cuotas + intereses
+					<input name="tipo_pago" type="radio" value="1" checked /> Pago de intereses<br />
+					<input name="tipo_pago" type="radio" value="2" /> Pago por cuotas<br />
+					<input name="tipo_pago" type="radio" value="3" /> Pago al final de cuotas + intereses
 				</td>
 			</tr>
 		</table>
 	</fieldset>
-	<input class="boton1" type="submit" value="Generar simulación" />
+	<input id="enviar" class="boton1" type="submit" value="Generar simulación" />
 </form>

@@ -2,7 +2,7 @@
 	<h1>Detalle de Préstamo</h1>
 	<form action="index.php?page=ver-prestamo" method="post" id="solicitar-prestamo">
 		<fieldset>
-			<legend>Solicitud de Préstamo</legend>
+			<legend>Detalle del Préstamo</legend>
 			<table>
 				<tr>
 					<td class="etiqueta">
@@ -14,7 +14,7 @@
 				</tr>
 				<tr>
 					<td class="etiqueta">
-						<label for="monto">Monto</label>
+						<label for="monto">Monto Bs. </label>
 					</td>
 					<td>
 						<input id="monto" name="monto" type="text" pattern="[0-9]{2,}" maxlength="5" value="<?php isset($monto) ? print $monto: ""; ?>" <?php isset($monto) ? print 'readonly="readonly"' : "" ?>  required />
@@ -52,5 +52,5 @@
 		<input class="boton1" type="submit" value="Enviar" />
 	</form>
 <?php else: ?>
-        <div class="mensaje">Usted no posee privilegios <a href="index.php">Regresar</a></div>
+        <div class="mensaje">Usted no posee privilegios  <a href="index.php">Regresar</a></div>
 <?php endif; ?>

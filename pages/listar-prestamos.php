@@ -84,7 +84,7 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('.ver-prestamo').click(function() {
-			$('#contenido').load("includes/pages.php?page=ver-prestamo&id="+$(this).attr('id')+"&rol=<?php print $_SESSION['session_rol']; ?>&cedula=<?php ?>");
+			$('#contenido').load("includes/pages.php?page=ver-prestamo&id="+$(this).attr('id'));
 		})
 	});
 </script>

@@ -13,10 +13,21 @@
 			"bAutoWidth": false
 		});
 	});
+	$(document).ready(function() {
+		$('.solicitar').click(function() {
+			var cedula = "<?php print $this->cedula; ?>";
+			var monto = "<?php print $this->monto; ?>";
+			var tiempo = "<?php print $this->tiempo; ?>";
+			var tipo_pago = "<?php print $this->tipo_pago; ?>";
+			var id_rol = "<?php print $this->id_rol; ?>";
+			$("#contenido").load("includes/pages.php?page=solicitar-prestamo&cedula="+cedula+"&monto="+monto+"&tiempo="+tiempo+"&tipo_pago="+tipo_pago+"&id_rol="+id_rol);
+		})
+	});
 </script>
 
-<?php if($this->pago == 1): ?>
-	<div>Para realizar la solicitud de préstamo en base a esta simulación, por favor haga clic <a href="index.php?page=solicitar-prestamo&monto=<?php print $this->monto; ?>&tiempo=<?php print $this->tiempo; ?>&pago=<?php print $this->pago; ?>&porcentaje=<?php print $porcentaje; ?>">aquí</a></div>
+<?php if($this->tipo_pago == 1): ?>
+	<div>Para realizar la solicitud de préstamo en base a esta simulación, por favor haga clic <a class="solicitar" href="#">aquí</a></div>
+	<div><?php print $cedula; ?></div>
 	<table id="listado" class="listado">
 		<thead>
 			<th>No.</th>
@@ -33,8 +44,8 @@
 			</tr>
 		<?php endfor; ?>
 	</table>
-<?php elseif($this->pago == 2): ?>
-	<div>Para realizar la solicitud de préstamo en base a esta simulación, por favor haga clic <a href="index.php?page=solicitar-prestamo&monto=<?php print $this->monto; ?>&tiempo=<?php print $this->tiempo; ?>&pago=<?php print $this->pago; ?>&porcentaje=<?php print $porcentaje; ?>">aquí</a></div>
+<?php elseif($this->tipo_pago == 2): ?>
+	<div>Para realizar la solicitud de préstamo en base a esta simulación, por favor haga clic <a class="solicitar" href="#">aquí</a></div>
 	<table id="listado" class="listado">
 		<thead>
 			<th>No.</th>
@@ -53,7 +64,7 @@
 			</tr>
 		<?php endfor; ?>
 	</table>
-<?php elseif($this->pago == 3): ?>
+<?php elseif($this->tipo_pago == 3): ?>
 	<?php
 	for($i = 1; $i <= $this->tiempo; $i++) {
 		$interes_total += $interes[$i];
@@ -61,5 +72,5 @@
 	?>
 	<div>Total Interés Bs. <?php print number_format($interes_total, 2, ",", "."); ?></div>
 	<div>Para el día <?php print date("d/m/Y", $fecha[0]); ?>. Usted debe pagar un monto de Bs. <?php print number_format($this->monto + $interes_total, 2, ",", "."); ?></div>
-	<div>Para realizar la solicitud de préstamo en base a esta simulación, por favor haga clic <a href="index.php?page=solicitar-prestamo&monto=<?php print $this->monto; ?>&tiempo=<?php print $this->tiempo; ?>&pago=<?php print $this->pago; ?>&porcentaje=<?php print $porcentaje; ?>">aquí</a></div>
+	<div>Para realizar la solicitud de préstamo en base a esta simulación, por favor haga clic <a class="solicitar" href="#">aquí</a></div>
 <?php endif; ?>

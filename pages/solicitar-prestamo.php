@@ -3,7 +3,7 @@
 	$cedula = $_SESSION['session_cedula'];
 	if(isset($_GET['monto'])) { $monto = $_GET['monto']; }
 	if(isset($_GET['tiempo'])) { $tiempo = $_GET['tiempo']; }
-	if(isset($_GET['pago'])) { $pago = $_GET['pago']; }
+	if(isset($_GET['tipo_pago'])) { $tipo_pago = $_GET['tipo_pago']; }
 	if(isset($_GET['porcentaje'])) {
 		$porcentaje = $_GET['porcentaje'];
 	} else {
@@ -77,13 +77,13 @@
 					</td>
 				</tr>
 				<tr>
-					<td class="etiqueta pago">
-						<label for="pago">Forma de pago</label>
+					<td class="etiqueta tipo_pago">
+						<label for="tipo_pago">Forma de pago</label>
 					</td>
 					<td>
-						<input name="pago" type="radio" value="1" <?php if((isset($pago)) && ($pago != 1)) { print "disabled "; } elseif(!isset($pago)) { print "checked"; } if($pago == 1) { print "checked"; } ?> /> Pago de intereses<br />
-						<input name="pago" type="radio" value="2" <?php if((isset($pago)) && ($pago != 2)) { print "disabled "; } if($pago == 2) { print "checked"; } ?> /> Pago por cuotas<br />
-						<input name="pago" type="radio" value="3" <?php if((isset($pago)) && ($pago != 3)) { print "disabled "; } if($pago == 3) { print "checked"; } ?> /> Pago al final de cuotas + intereses
+						<input name="tipo_pago" type="radio" value="1" <?php if(!isset($tipo_pago)) { print "checked "; } else { if($tipo_pago != 1) { print "disabled "; } else { print "checked "; } } ?> /> Pago de intereses<br />
+						<input name="tipo_pago" type="radio" value="2" <?php if(isset($tipo_pago)) { if($tipo_pago != 2) { print "disabled "; } else { print "checked "; } } ?> /> Pago por cuotas<br />
+						<input name="tipo_pago" type="radio" value="3" <?php if(isset($tipo_pago)) { if($tipo_pago != 3) { print "disabled "; } else { print "checked "; } } ?> /> Pago al final de cuotas + intereses
 					</td>
 				</tr>
 				<tr>

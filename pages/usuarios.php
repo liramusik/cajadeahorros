@@ -28,7 +28,7 @@
 						<label for="nombre">Nombre <span class="obligatorio">*</span></label>
 					</td>
 					<td>
-						<input type="text" name="nombre" id="nombre" pattern="[a-zA-Z|(áéíóúñ)]{3,}" maxlength="40" placeholder="Nombre" autocomplete="on" required />
+						<input type="text" name="nombre" id="nombre" pattern="[a-zA-Z|(áéíóúñ )]{3,}" maxlength="40" placeholder="Nombre" autocomplete="on" required />
 					</td>
 				</tr>
 				<tr>
