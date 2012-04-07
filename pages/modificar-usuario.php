@@ -33,7 +33,7 @@ while($rows = pg_fetch_object($buscar_usuario->getQuery())) {
 				</td>
 				<td>
 					<?php if(($_SESSION['session_id_rol'] == 1)): ?>
-						<select name="tipo">
+						<select name="tipo" id="tipo">
 							<?php while($rows = pg_fetch_object($buscar_roles->getQuery())): ?>
 								<option value="<?php print $rows->id; ?>" <?php ($id_rol == $rows->id) ? print "selected" : print ""; ?>><?php print $rows->descripcion; ?></option>
 							<?php endwhile; ?>
