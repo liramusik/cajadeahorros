@@ -1,6 +1,6 @@
 <?php if(isset($_SESSION['session_usuario'])): ?>
 	<?php
-	$cedula = $_GET['cedula'];
+	$cedula = $_SESSION['session_cedula'];
 	$bancos = new conexion();
 	$bancos->getListarBancosEnCuentas();
 	$cuentas = new conexion();
@@ -82,7 +82,7 @@
 						<label for="cedula">Cedula<span class="obligatorio">*</span></label>
 					</td>
 					<td>
-					<input type="text" name="cedula" id="cedula" value="<?php print $cedula; ?>" readonly="readonly" />
+						<input type="text" name="cedula" id="cedula" value="<?php print $cedula; ?>" readonly="readonly" />
 					</td>
 				</tr>
 				<tr>
