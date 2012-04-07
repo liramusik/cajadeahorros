@@ -1,6 +1,12 @@
 <?php if(isset($_SESSION['session_usuario'])): ?>
 	<?php
-	if($_SESSION['session_id_rol'] == 1) {
+	$cedula = $_GET['cedula'];
+	$buscar_rol = new conexion();
+	$buscar_rol->setQuery("select id_rol from tb_usuarios where cedula=$cedula;");
+	while($rows = pg_fetch_object($buscar_rol->getQuery())) { 
+		$id_rol = $rows->id_rol; 
+	}
+	if($id_rol == 1) {
 		$c->setQuery("select id, to_char(fecha, 'DD/MM/YYYY HH:MI a.m.') as fecha, asunto, nombre, apellido, email from tb_notificaciones left join tb_usuarios on cedula_usuario = cedula order by fecha desc");
 	} else {
 		$c->setQuery("select id, to_char(fecha, 'DD/MM/YYYY HH:MI a.m.') as fecha, asunto, nombre, apellido, email from tb_notificaciones left join tb_usuarios on cedula_usuario = cedula where cedula=$cedula order by fecha desc");
@@ -26,7 +32,9 @@
 			});
 		});
 	</script>
-	<div class="notificar-todos">Presione clic <a href="#" id="all" class="notificar">aquí</a> si desea notificar a todos los asociados</div><br />
+	<?php if($id_rol == 1): ?>
+		<div class="notificar-todos">Presione clic <a href="#" id="all" class="notificar">aquí</a> si desea notificar a todos los asociados</div>
+	<?php endif; ?>
 	<table id="listado" class="listado">
 		<thead>
 			<tr>
