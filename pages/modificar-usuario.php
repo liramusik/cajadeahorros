@@ -95,10 +95,22 @@ while($rows = pg_fetch_object($buscar_usuario->getQuery())) {
 		function mostrarRespuesta(responseText) {
 			alert("Mensaje: " + responseText);
 		}; 
-	}); 
-</script>
+    });
+   	$(function() {
+		$("#fecha_ingreso").datepicker({
+               dateFormat: 'dd/mm/yy',
+               dayNamesMin: ['Dom', 'Lun', 'Mar', 'Mier', 'Jue', 'Vier', 'Sab'],
+               monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Séptiembre', 'Octubre', 'Noviembre', 'Diciembre']
+	    });
+		$("#fecha_egreso").datepicker({
+               dateFormat: 'dd/mm/yy',
+               dayNamesMin: ['Dom', 'Lun', 'Mar', 'Mier', 'Jue', 'Vier', 'Sab'],
+               monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Séptiembre', 'Octubre', 'Noviembre', 'Diciembre']
+			});
+		}); 
+            </script>
 
-<h1>Usuario</h1>
+<h1> Modificar Usuario</h1>
 
 <form action="pages/actualizar-usuario.php" method="post" id="modificar-usuario" class="form">
 	<fieldset>
@@ -226,7 +238,7 @@ while($rows = pg_fetch_object($buscar_usuario->getQuery())) {
 			</tr>
 		</table>
 	</fieldset>
-	<input id="submit" type="submit" value="Registrar" name="submit" class="boton1"/>
+	<input id="submit" type="submit" value="Actualizar" name="submit" class="boton1"/>
 	<div id="message"></div>
 </form>
 <?php unset($buscar_roles); ?>

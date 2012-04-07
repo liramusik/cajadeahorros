@@ -81,10 +81,14 @@
 		});
 		$(function() {
 			$("#fecha_ingreso").datepicker({
-				dateFormat: 'dd/mm/yy'
+                dateFormat: 'dd/mm/yy',
+                    dayNamesMin: ['Dom', 'Lun', 'Mar', 'Mier', 'Jue', 'Vier', 'Sab'],
+                    monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Séptiembre', 'Octubre', 'Noviembre', 'Diciembre']
 			});
 			$("#fecha_egreso").datepicker({
-				dateFormat: 'dd/mm/yy'
+                dateFormat: 'dd/mm/yy',
+                dayNamesMin: ['Dom', 'Lun', 'Mar', 'Mier', 'Jue', 'Vier', 'Sab'],
+                monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Séptiembre', 'Octubre', 'Noviembre', 'Diciembre']
 			});
 		});
 		$(document).ready(function() { 
