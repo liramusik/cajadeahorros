@@ -23,54 +23,9 @@
 			}
 			?>
 		];
-		$(document).ready(function() {
-			var sbancos = '<option value=""></option>';
-			$(bancos).each(function(i) {
-				sbancos += '<option value="'+this.id_banco+'">'+this.banco+'</option>';
-			});
-			$('#bancos').html(sbancos);
-			$('#bancos').change(function() {
-				var banco = $('#bancos').val();
-				var pcuentas = $.grep(cuentas,function(n,i) {
-					return (n.id_banco == banco); 
-				});
-				var scuentas = '<option value=""></option>';
-				$(pcuentas).each(function(i) {
-					scuentas += '<option value="'+this.id+'">'+this.cuenta+'</option>';
-				});
-				$('#cuentas').html(scuentas);
-			});
-		});
-		$(function() {
-		                $("#fecha").datepicker({
-			                dateFormat: 'dd/mm/yy'
-		                });
-		});
-		$(document).ready(function() { 
-		                var opciones = {
-		                success: mostrarRespuesta,
-		                };
-		                $('.form').ajaxForm(opciones);
-			                function mostrarRespuesta(responseText) {
-			                        alert("Mensaje: " + responseText);
-				                $('.form').resetForm();
-		                }; 
-		});
-	         $(document).ready(function(){
-		                $("#crear-tranasaccion").validate({
-					rules: {
-						monto: {
-						        required: true,
-						        minlength: 3,
-						},
-						deposito: {
-							required: true,
-							minlength: 3,
-						}
-					}
-				});
-		});
-	</script>	
+	</script>
+	<script type="text/javascript" src="/cajadeahorros/js/validar-registrar-transaccion.js">
+	</script>
 
 	<h1>Registrar Transacciones</h1>
 	<form action="pages/registrar-transacciones.php" method="post" id="crear-transaccion" class="form">
