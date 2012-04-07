@@ -62,7 +62,7 @@
 			}; 
 		}); 
 		</script>	
-	<h1>Crear Cuentas</h1>
+	<h1>Modificar Cuenta</h1>
 	<form action="pages/actualizar-cuenta.php" method="post" id="modificar-cuenta" class="form">
 		<fieldset>
 			<legend>Información</legend>
@@ -99,7 +99,7 @@
 				</tr>
 			</table>
 		</fieldset>
-		<input id="submit" type="submit" value="Registrar" name="submit" class="boton1"/>
+            <input id="submit" type="submit" value="Actualizar" name="submit" class="boton1"/>
 		<div id="message"></div>
 	</form>
 <?php endif; ?>

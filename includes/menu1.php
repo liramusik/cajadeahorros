@@ -44,7 +44,7 @@
 				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="listar-transacciones">Listar</a></li>
             </ul>
 		</div>
-	</div>
+        </div>
 </div>
 <script type="text/javascript">
 	$(document).ready(function() {
