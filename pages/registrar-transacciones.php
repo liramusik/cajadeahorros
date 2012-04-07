@@ -16,8 +16,8 @@ $insertar_transacciones = new conexion();
 $insertar_transacciones->setQuery("insert into tb_transacciones values(default, $cedula, $cuenta, $tipo, default, '" . $fecha . "' , $monto, $deposito);");
 
 if($insertar_transacciones->getQuery()) {
-	print 'La transaccion se ha creado correctamente';
+	print 'La transaccion se ha registrado correctamente';
 } else {
-	print 'La transaccion no se ha creado';
+	print 'La transaccion no se ha registrado';
 }
 ?>

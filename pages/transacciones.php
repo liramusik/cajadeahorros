@@ -34,7 +34,7 @@
 			<table>
 				<tr>
 					<td class="etiqueta">
-						<label for="cedula">Cedula<span class="obligatorio">*</span></label>
+						<label for="cedula">Cédula <span class="obligatorio">*</span></label>
 					</td>
 					<td>
 						<input type="text" name="cedula" id="cedula" value="<?php print $cedula; ?>" readonly="readonly" />
@@ -62,7 +62,7 @@
 				</tr>
 				<tr>
 					<td class="etiqueta">
-						<label for="tipo">Tipo transaccion<span class="obligatorio">*</span></label>
+						<label for="tipo">Tipo transacción <span class="obligatorio">*</span></label>
 					</td>
 					<td>
 						<select name="tipo" id="tipo">
@@ -74,7 +74,7 @@
 				</tr>
 				<tr>
 					<td class="etiqueta">
-						<label for="fecha">Fecha<span class="obligatorio">*</span></label>
+						<label for="fecha">Fecha <span class="obligatorio">*</span></label>
 					</td>
 					<td>
 						<input type="datetime" name="fecha" id="fecha" maxlength="40" placeholder="Fecha" autocomplete="on" required />
@@ -82,22 +82,22 @@
 				</tr>
 				<tr>
 					<td class="etiqueta">
-						<label for="monto">Monto<span class="obligatorio">*</span></label>
+						<label for="monto">Monto Bs. <span class="obligatorio">*</span></label>
 					</td>
 					<td>
-						<input type="text" name="monto" id="monto"  maxlength="40" placeholder="Monto" autocomplete="on" required />
+						<input type="text" name="monto" id="monto" pattern="[0-9]{11,}" maxlength="20" placeholder="Monto Bs." autocomplete="on" required />
 					</td>
 				</tr>
 				<tr>
 					<td class="etiqueta">
-						<label for="deposito">Deposito<span class="obligatorio">*</span></label>
+						<label for="deposito">Deposito <span class="obligatorio">*</span></label>
 					</td>
 					<td>
-						<input type="text" name="deposito" id="deposito"  maxlength="40" placeholder="Deposito" autocomplete="on" required />
+						<input type="text" name="deposito" id="deposito" pattern="[0-9]{11,}" maxlength="20" placeholder="Depósito" autocomplete="on" required />
 					</td>
 				</tr>
 			</table>
 		</fieldset>
-		<input id="submit" type="submit" value="Aceptar" name="submit" class="boton1"/>
+		<input id="submit" type="submit" value="Registrar" name="submit" class="boton1"/>
 	</form>
 <?php endif; ?>

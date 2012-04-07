@@ -49,7 +49,7 @@
 								<option value="<?php print $rows->id; ?>" <?php ($rows->id == 1) ? print "selected" : print ""; ?>><?php print $rows->nacionalidad; ?></option>
 							<?php endwhile; ?>
 						</select>
-						<input type="text" name="cedula" id="cedula" pattern="[0-9]{3,}" size="13" maxlength="8" placeholder="Cedula" autocomplete="on" required />
+						<input type="text" name="cedula" id="cedula" pattern="[0-9]{3,}" size="13" maxlength="8" placeholder="Cédula" autocomplete="on" required />
 					</td>
 				</tr>
 				<tr>
@@ -57,7 +57,7 @@
 						<label for="telefono">Teléfono <span class="obligatorio">*</span></label>
 					</td>
 					<td>
-						<input type="text" name="telefono" id="telefono" pattern="[0-9]{11,}" maxlength="11" placeholder="Telefono" autocomplete="on" required />
+						<input type="text" name="telefono" id="telefono" pattern="[0-9]{11,}" maxlength="11" placeholder="Teléfono" autocomplete="on" required />
 					</td>
 				</tr>
 				<tr>

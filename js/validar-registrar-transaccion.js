@@ -34,11 +34,11 @@ $(document).ready(function() {
 		}; 
 });
  $(document).ready(function(){
-		$("#crear-tranasaccion").validate({
+		$("#crear-transaccion").validate({
 			rules: {
 				monto: {
 					required: true,
-					minlength: 3,
+					minlength: 2,
 				},
 				deposito: {
 					required: true,
