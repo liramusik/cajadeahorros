@@ -1,61 +1,73 @@
-<?php if(isset($_SESSION['session_usuario'])): ?>
+<?php if(isset($_SESSION['session_usuario']) and ($_SESSION['session_id_rol'] == 1)): ?>
 	<?php
-	if(!isset($_POST['submit'])) {
-		$cuenta = $_GET['cuenta'];
-
-		$c->setQuery("select tb_cuentas.id, nombre, cuenta, id_tipo_cuenta from tb_cuentas left join tb_bancos on tb_cuentas.id_banco = tb_bancos.id left join tb_tipo_cuentas on tb_cuentas.id_tipo_cuenta = tb_tipo_cuentas.id where tb_cuentas.id=$cuenta");
-
-		$tipo_cuentas = new connection();
-		$tipo_cuentas->setQuery("select * from tb_tipo_cuentas");
-
-		while($rows = pg_fetch_object($c->getQuery())) {
-			$id_cuenta = $rows->id;
-			$nombre = $rows->nombre;
-			$cuenta = $rows->cuenta;
-			$id_tipo_cuenta = $rows->id_tipo_cuenta;
-		}
-		include("formulario-modificar-cuentas.php");
-		unset($tipo_cuentas);
-		unset($c);
-
-	} else {
-		$id_cuenta = $_POST['id_cuenta'];
-
-		$buscar = new connection();
-		$buscar->setQuery("select id_banco, id_tipo_cuenta, cuenta from tb_cuentas where id=$id_cuenta");
-
-		while($rows = pg_fetch_object($buscar->getQuery())) {
-			$db_id_banco = $rows->id_banco;
-			$db_tipo_cuenta = $rows->id_tipo_cuenta;
-			$db_cuenta = $rows->cuenta;
-		}
-
-		$array_bancos = array();
-		$post_nombre_banco = $_POST['nombre_banco'];
-		$post_tipo_cuenta = $_POST['tipo_cuenta'];
-		$post_cuenta = $_POST['cuenta'];
-
-		$array_bancos = preg_split("/\,/", $_POST['bancos']);
-
-		if(!in_array($post_nombre_banco, $array_bancos)) {
-			$actualizar_banco = new connection();
-			$actualizar_banco->setQuery("update tb_bancos set nombre='" . $post_nombre_banco . "' where id=$db_id_banco;");
-			if(!$actualizar_banco->getQuery()) {
-				print "No se puede actualizar nombre el nonbre del banco por $post_nombre_banco";
-			}
-		}
-		unset($actualizar_banco);
-
-		if(($db_cuenta != $post_cuenta) || ($db_tipo_cuenta !=$post_tipo_cuenta)) { 
-			$actualizar = new connection();
-                        $actualizar->setQuery("update tb_cuentas set cuenta='" . $post_cuenta . "', id_tipo_cuenta=$post_tipo_cuenta where id=$id_cuenta");
-			if(!$actualizar->getQuery()) {
-			       print "<p>No se pudo modificar la cuenta del Banco: $post_cuenta </p>";
-			}
-		}
-		unset($actualizar);
+	$id = $_GET['id'];
+	$listado_bancos = new conexion();
+	$listado_bancos->getListarNombreBancos();
+	$buscar_banco = new conexion();
+	$buscar_banco->getBuscarBancoEnCuenta($id);
+	$tipo_cuentas = new conexion();
+	$tipo_cuentas->getListarTipoCuentas();
+	while($rows = pg_fetch_object($buscar_banco->getQuery())) {
+		$id_cuenta = $rows->id;
+		$nombre = $rows->nombre;
+		$cuenta = $rows->cuenta;
+		$id_tipo_cuenta = $rows->id_tipo_cuenta;
 	}
 	?>
-<?php else: ?>
-	<div class="mensaje">Usted no posee privilegios <a href="index.php">Regresar</a></div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			var availableTags = [
+				<?php
+				$bancos = array();
+				while($rows = pg_fetch_object($listado_bancos->getQuery())) {
+					$bancos[] = $rows->nombre;
+					print "\"$rows->nombre\",\n";
+				}
+				?>
+			];
+			$("#nombre_banco").autocomplete({
+				source: availableTags
+			});
+		});
+	</script>	
+	<h1>Crear Cuentas</h1>
+	<form action="index.php?page=modificar-cuenta" method="post" id="crear-cuentas">
+		<fieldset>
+			<legend>Información</legend>
+			<table>
+				<tr>
+					<td class="etiqueta">
+						<label for="nombre_banco">Nombre del banco <span class="obligatorio">*</span></label>
+					</td>
+					<td>
+						<input type="text" name="nombre_banco" id="nombre_banco" maxlength="40" value="<?php print $nombre; ?>"  placeholder="Nombre del Banco" autocomplete="on" required />
+						<input type="hidden" name="bancos" id="bancos" maxlength="40" value="<?php foreach($bancos as $v) { print "$v,"; } ?>" />
+					</td>
+				</tr>
+				<tr>
+					<td class="etiqueta">
+						<label for="tipo_cuenta">Tipo de cuenta <span class="obligatorio">*</span></label>
+					</td>
+					<td>
+						<select name="tipo_cuenta" id="tipo_cuenta">
+							<?php while($rows = pg_fetch_object($tipo_cuentas->getQuery())): ?>
+								<option value="<?php print $rows->id; ?>" <?php ($rows->id == $id_tipo_cuenta) ? print "selected" : print ""; ?>><?php print $rows->tipo; ?></option>
+							<?php endwhile; ?>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td class="etiqueta">
+						<label for="cuenta">Número de cuenta <span class="obligatorio">*</span></label>
+					</td>
+					<td>
+						<input type="text" name="cuenta" id="cuenta" maxlength="20" value="<?php print "$cuenta"; ?>" pattern="[0-9]{3,}" placeholder="Nombre del Banco" autocomplete="on" required />
+						<input type="hidden" name="id_cuenta" id="id_cuenta" value="<?php print $id_cuenta; ?>" />
+					</td>
+				</tr>
+			</table>
+		</fieldset>
+		<input id="submit" type="submit" value="Registrar" name="submit" class="boton1"/>
+		<div id="message"></div>
+	</form>
 <?php endif; ?>
