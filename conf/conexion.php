@@ -49,7 +49,7 @@ class conexion {
                 }   
         }    
         public function getListarTipoTransaccion1y2() {
-                $this->query = "select * from tb_tipo_transacciones where id != 3 and id != 4;";
+                $this->query = "select * from tb_tipo_transacciones where id != 3 and id != 4 and id != 5;";
                 $this->result = pg_query($this->connect, $this->query);
                 if(!$this->result) {
                         print "Error " . pg_last_error();
