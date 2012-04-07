@@ -29,8 +29,8 @@
 		<h3><a href="#">Transacciones</a></h3>
 		<div>
 			<ul>
-				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="transacciones">Registrar</a></li>
-				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="listar-transacciones">Listar</a></li>
+				<li><span class="icon"></span><a class="ajaxmenu" href="#" id="<?php print $_SESSION['session_cedula']; ?>" title="transacciones">Registrar</a></li>
+				<li><span class="icon"></span><a class="ajaxmenu" href="#" id="<?php print $_SESSION['session_cedula']; ?>" title="listar-transacciones">Listar</a></li>
 			</ul>
 		</div>
         </div>
