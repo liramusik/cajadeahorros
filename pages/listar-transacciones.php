@@ -7,12 +7,11 @@
 			$('.form').ajaxForm(opciones);
 			function mostrarRespuesta(responseText) {
 				alert("Mensaje: " + responseText);
-				$("#contenido").load("includes/pages.php?page=listar-transacciones");
+				$("#contenido").load("includes/pages.php?page=listar-transacciones&cedula=<?php print $_SESSION['session_cedula']; ?>");
 			}; 
 		}); 
 	</script>
 	<?php
-	include("conexion.php");
 	$cedula = $_GET['cedula'];
 	$c = new conexion();
 	if ($_SESSION['session_id_rol']==1) {
