@@ -75,7 +75,7 @@ create table tb_transacciones (
 	id_estatus_transaccion		int references tb_estatus_transacciones(id) default 1,
 	fecha				timestamp not null default now(),
 	monto				real not null,
-	deposito			varchar(20)
+	deposito			varchar(20) not null
 );
 
 create table tb_tipo_pago (
