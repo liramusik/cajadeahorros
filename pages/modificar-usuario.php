@@ -1,9 +1,5 @@
 <?php
-if(isset($_GET['cedula'])) {
-	$cedula = $_GET['cedula'];
-} else {
-	$cedula = $_SESSION['session_cedula'];
-}
+$cedula = $_GET['cedula'];
 $buscar_usuario = new conexion();
 $buscar_usuario->getModificarUsuario($cedula);
 $buscar_roles = new conexion();
@@ -127,7 +123,7 @@ while($rows = pg_fetch_object($buscar_usuario->getQuery())) {
 							<?php endwhile; ?>
 						</select>
 					<?php else: ?>
-						<select name="tipo" readonly="readonly">
+						<select name="tipo" disabled>
 							<?php while($rows = pg_fetch_object($buscar_roles->getQuery())): ?>
 								<option value="<?php print $rows->id; ?>" <?php ($id_rol == $rows->id) ? print "selected" : print ""; ?>><?php print $rows->descripcion; ?></option>
 							<?php endwhile; ?>
