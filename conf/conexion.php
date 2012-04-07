@@ -35,7 +35,7 @@ class conexion {
 		}
 	}
 	public function getListarTipoCuentas() {
-		$this->query = "select id, tipo from tb_tipo_cuentas";
+		$this->query = "select * from tb_tipo_cuentas";
 		$this->result = pg_query($this->connect, $this->query);
 		if(!$this->result) {
 			print "Error " . pg_last_error();
@@ -78,6 +78,13 @@ class conexion {
 	}
 	public function getModificarUsuario($cedula) {
 		$this->query = "select cedula, nombre, apellido, telefono, email, direccion, to_char(fecha_ingreso, 'DD/MM/YYYY') as fecha_ingreso, to_char(fecha_egreso, 'DD/MM/YYYY') as fecha_egreso, nacionalidad, id_rol, usuario from tb_usuarios left join tb_nacionalidad on id_nacionalidad = tb_nacionalidad.id left join tb_roles on id_rol = tb_roles.id where cedula=$cedula";
+		$this->result = pg_query($this->connect, $this->query);
+		if(!$this->result) {
+			print "Error " . pg_last_error();
+		}
+	}
+	public function getBuscarBancoEnCuenta($id) {
+		$this->query = "select tb_cuentas.id, nombre, cuenta, id_tipo_cuenta from tb_cuentas left join tb_bancos on tb_cuentas.id_banco = tb_bancos.id left join tb_tipo_cuentas on tb_cuentas.id_tipo_cuenta = tb_tipo_cuentas.id where tb_cuentas.id=$id;";
 		$this->result = pg_query($this->connect, $this->query);
 		if(!$this->result) {
 			print "Error " . pg_last_error();
