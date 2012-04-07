@@ -16,7 +16,7 @@ $interes->setQuery("insert into tb_intereses values(default, $cuentas, '" . $fec
 if(!$interes->getQuery()) {
 	print 'Ha ocurrido un error inesperado' . pg_last_error();
 } else {
-	print 'La inserción se ha realizado con éxito</div>';
+	print 'La inserción se ha realizado con éxito';
 }
 unset($interes);
 ?>
