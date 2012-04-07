@@ -376,10 +376,23 @@ input#nacionalidad {
 }
 
 input#boton-deshabilitar {
+	background: url("../img/deshabilitar.png");
+}
+
+input#boton-aceptar {
+	background: url("../img/deshabilitar.png");
+}
+
+input#boton-rechazar {
+	background: url("../img/deshabilitar.png");
+}
+
+input#boton-deshabilitar,
+input#boton-aceptar,
+input#boton-rechazar {
 	display: block;
 	border: 0;
 	font-size: 0;
-	background: url("../img/deshabilitar.png");
 	width: 18px;
 	height: 18px;
 	cursor: pointer;

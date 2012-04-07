@@ -1,4 +1,16 @@
 <?php if(isset($_SESSION['session_usuario'])): ?>
+	<script type="text/javascript">
+		$(document).ready(function() { 
+			var opciones = {
+				success: mostrarRespuesta,
+			};
+			$('.form').ajaxForm(opciones);
+			function mostrarRespuesta(responseText) {
+				alert("Mensaje: " + responseText);
+				$("#contenido").load("includes/pages.php?page=listar-transacciones");
+			}; 
+		}); 
+	</script>
 	<?php
 	include("conexion.php");
 	$cedula = $_GET['cedula'];
@@ -53,16 +65,18 @@
 				<td><div><?php print $rows->deposito; ?></div></td>
 				<td><div><?php print $rows->estatus; ?></div></td>
 				<td>
-				<?php if($rows->estatus == 'Pendiente'): ?>
-					<div class="accion"><a href="<?php print "index.php?page=aprobar-transaccion&transaccion=" . $rows->id; ?>"><img src="img/aprobar-prestamo.png" title="Aceptado" alt="Aceptado"></a></div>
-					<div class="accion"><a href="<?php print "index.php?page=rechazar-transaccion&transaccion=" . $rows->id; ?>"><img src="img/rechazar-prestamo.png" title="Rechazado" alt="Rechazado"></a></div>
-				<?php elseif($rows->estatus == 'Aceptado'): ?>
-                                        <div class="accion" style="opacity: .5;"><img src="img/aprobar-prestamo.png" /></div>
-                                        <div class="accion" style="opacity: .5;"><img src="img/rechazar-prestamo.png" /></div>
-                                <?php elseif($rows->estatus == 'Rechazado'): ?>
-                                        <div class="accion" style="opacity: .5;"><img src="img/aprobar-prestamo.png" /></div>
-                                        <div class="accion" style="opacity: .5;"><img src="img/rechazar-prestamo.png" /></div>
-				<?php endif; ?>
+					<div class="accion">
+						<form action="pages/aceptar-transaccion.php" method="post" id="aceptar-transaccion" class="form">
+							<input type="hidden" name="id" value="<?php print $rows->id; ?>" />
+							<input type="submit" name="submit" id="boton-aceptar" />
+						</form>
+					</div>
+					<div class="accion">
+						<form action="pages/rechazar-transaccion.php" method="post" id="rechazar-transaccion" class="form">
+							<input type="hidden" name="id" value="<?php print $rows->id; ?>" />
+							<input type="submit" name="submit" id="boton-rechazar" />
+						</form>
+					</div>
 				</td>
 			</tr>
 		<?php endwhile; ?>
