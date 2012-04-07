@@ -21,13 +21,15 @@ class simulacion {
 	private $tipo_pago;
 	private $fecha;
 	private $porcentaje;
-	public function __construct($p_cedula, $p_monto, $p_tiempo, $p_tipo_pago, $p_porcentaje, $p_fecha) {
+	private $id_rol;
+	public function __construct($p_cedula, $p_monto, $p_tiempo, $p_tipo_pago, $p_porcentaje, $p_fecha, $p_id_rol) {
 		$this->cedula = $p_cedula;
 		$this->monto = $p_monto;
 		$this->tiempo = $p_tiempo;
 		$this->tipo_pago = $p_tipo_pago;
 		$this->fecha = $p_fecha;
 		$this->porcentaje = $p_porcentaje;
+		$this->id_rol = $p_id_rol;
 	}
 	public function generar() {
 		if($this->tipo_pago == 1) {
@@ -35,7 +37,7 @@ class simulacion {
 		} elseif($this->tipo_pago == 2) {
 			$this->intereses_cuotas();
 		} elseif($this->tipo_pago == 3) {
-			$this->tipo_pago_final();
+			$this->pago_final();
 		}
 	}
 	private function intereses() {
@@ -74,7 +76,7 @@ class simulacion {
 	}
 }
 
-$sim = new simulacion($cedula, $monto, $tiempo, $tipo_pago, $porcentaje, $fecha_actual);
+$sim = new simulacion($cedula, $monto, $tiempo, $tipo_pago, $porcentaje, $fecha_actual, $id_rol);
 $sim->generar();
 
 ?>
