@@ -39,7 +39,7 @@
 		</thead>
 		<?php while($rows = pg_fetch_object($c->getQuery())): ?>
 			<tr>
-				<td class="solicitud"><span class="icon"></span><div class="solicitud"><a href="index.php?page=ver-prestamos&solicitud=<?php print $rows->id; ?>"><?php printf("No.- %05d", $rows->id); ?></a></div></td>
+				<td class="solicitud"><span class="icon"></span><div class="solicitud"><a href="#" id="<?php print $rows->id; ?>" class="ver-prestamo"><?php printf("No.- %05d", $rows->id); ?></a></div></td>
 				<td><div><?php print $rows->nombre . " " . $rows->apellido; ?></div></td>
 				<td><div><?php printf("%.2f", $rows->monto); ?></div></td>
 				<td><div><?php print $rows->fecha; ?></div></td>
@@ -50,3 +50,10 @@
 <?php else: ?>
 	<div class="mensaje">Usted no posee privilegios ver esta pagina <a href="index.php">Regresar</a></div>
 <?php endif; ?>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.ver-prestamo').click(function() {
+			$('#contenido').load("includes/pages.php?page=ver-prestamo&id="+$(this).attr('id')+"&rol=<?php print $_SESSION['session_rol']; ?>&cedula=<?php print >");
+		})
+	});
+</script>
