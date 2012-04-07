@@ -35,7 +35,6 @@
 					},
 					direccion: {
 						required: true,
-						minlength: 15,
 					},
 					fecha_ingreso: {
 						required: true,
