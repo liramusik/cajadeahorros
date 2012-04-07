@@ -15,6 +15,6 @@ while($rows = pg_fetch_object($x->getQuery())) {
 	$respuesta = $rows->respuesta;
 	$estatus = $rows->estatus;
 }
-include("formulario-ver-prestamo-admin.php");
+include("ver-prestamo-transacciones-admin.php");
 unset($x);
 ?>
