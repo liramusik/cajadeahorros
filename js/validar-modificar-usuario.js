@@ -18,6 +18,9 @@ $(document).ready(function() {
 				required: true,
 				email: true,
 			},
+			direccion: {
+				required: true,
+			},
 			aporte_mensual: {
 				required: true,
 				minlength: 2,
