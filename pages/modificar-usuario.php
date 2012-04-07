@@ -12,6 +12,7 @@ while($rows = pg_fetch_object($buscar_usuario->getQuery())) {
 	$telefono = $rows->telefono;
 	$email = $rows->email;
 	$direccion = $rows->direccion;
+	$aporte_mensual = $rows->aporte_mensual;
 	$fecha_ingreso = $rows->fecha_ingreso;
 	$fecha_egreso = $rows->fecha_egreso;
 	$nacionalidad = $rows->nacionalidad;
@@ -51,6 +52,11 @@ while($rows = pg_fetch_object($buscar_usuario->getQuery())) {
 					required: true,
 					minlength: 15,
 				},
+				aporte_mensual: {
+					required: true,
+					minlenght: 2,
+					digits: true
+				}
 				usuario: {
 					required: true,
 					minlength: 5,
@@ -95,6 +101,17 @@ while($rows = pg_fetch_object($buscar_usuario->getQuery())) {
 		function mostrarRespuesta(responseText) {
 			alert("Mensaje: " + responseText);
 		}; 
+	});
+	$(document).ready(function() {
+		$("#aporte_mensual").keydown(function(event) {
+			if(event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 27 || (event.keyCode == 65 && event.ctrlKey === true) || (event.keyCode >= 35 && event.keyCode <= 39)) {
+				 return;
+			} else {
+				if((event.keyCode < 48 || event.keyCode > 57) && (event.keyCode < 96 || event.keyCode > 105 )) {
+					event.preventDefault(); 
+				}   
+			}
+		});
 	});
    	$(function() {
 		$("#fecha_ingreso").datepicker({
@@ -178,6 +195,14 @@ while($rows = pg_fetch_object($buscar_usuario->getQuery())) {
 				</td>
 				<td class="textarea">
 					<textarea name="direccion" id="direccion" cols="40" rows="5" required ><?php print $direccion; ?></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td class="etiqueta">
+					<label for="cedula">Aporte mensual: <span class="obligatorio">*</span></label>
+				</td>
+				<td>
+					<input type="text" name="aporte_mensual" id="aporte_mensual" title="Aporte mensual" pattern="[0-9]{3,}" maxlength="10" placeholder="Aporte mensual" autocomplete="off" value="<?php print $aporte_mensual; ?>" readonly="readonly" required />
 				</td>
 			</tr>
 			<tr>
