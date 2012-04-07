@@ -99,15 +99,15 @@ while($rows = pg_fetch_object($buscar_usuario->getQuery())) {
 		function mostrarRespuesta(responseText) {
 			alert("Mensaje: " + responseText);
 		}; 
-    });
+	});
    	$(function() {
 		$("#fecha_ingreso").datepicker({
-               dateFormat: 'dd/mm/yy',
-               dayNamesMin: ['Dom', 'Lun', 'Mar', 'Mier', 'Jue', 'Vier', 'Sab'],
-               monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Séptiembre', 'Octubre', 'Noviembre', 'Diciembre']
-	    });
-		}); 
-            </script>
+			dateFormat: 'dd/mm/yy',
+			dayNamesMin: ['Dom', 'Lun', 'Mar', 'Mier', 'Jue', 'Vier', 'Sab'],
+			monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Séptiembre', 'Octubre', 'Noviembre', 'Diciembre']
+		});
+	}); 
+</script>
 
 <h1> Modificar Usuario</h1>
 
@@ -120,7 +120,7 @@ while($rows = pg_fetch_object($buscar_usuario->getQuery())) {
 					<label for="tipo">Tipo de usuario: <span class="obligatorio">*</span></label>
 				</td>
 				<td>
-					<?php if(($_SESSION['session_id_rol'] == 1)): ?>
+					<?php if(($id_rol == 1)): ?>
 						<select name="tipo">
 							<?php while($rows = pg_fetch_object($buscar_roles->getQuery())): ?>
 								<option value="<?php print $rows->id; ?>" <?php ($id_rol == $rows->id) ? print "selected" : print ""; ?>><?php print $rows->descripcion; ?></option>
