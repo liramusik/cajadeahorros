@@ -55,12 +55,14 @@
 				<td>
 					<div class="accion"><a href="#" id="<?php print $rows->cedula; ?>" class="notificar"><img src="img/notificar.png" title="Notificar" alt="Notificar"></a></div>
 					<div class="accion"><a href="#" id="<?php print $rows->cedula; ?>" class="modificar"><img src="img/modificar.png" title="Modificar" alt="Modificar"></a></div>
-					<div class="accion">
-						<form action="pages/deshabilitar-usuario.php" method="post" id="deshabilitar-usuario" class="form">
-							<input type="hidden" name="cedula" value="<?php print $rows->cedula; ?>" />
-							<input type="submit" name="submit" id="boton-deshabilitar" />
-						</form>
-					</div>
+					<?php if($_SESSION['session_cedula'] != $rows->cedula): ?>
+						<div class="accion">
+							<form action="pages/deshabilitar-usuario.php" method="post" id="deshabilitar-usuario" class="form">
+								<input type="hidden" name="cedula" value="<?php print $rows->cedula; ?>" />
+								<input type="submit" name="submit" id="boton-deshabilitar" />
+							</form>
+						</div>
+					<?php endif; ?>
 				</td>
 			</tr>
 		<?php endwhile; ?>
