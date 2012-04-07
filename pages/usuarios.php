@@ -6,7 +6,7 @@
 	$y->setQuery("select * from tb_nacionalidad;");
 	?>
 
-	<h1>Crear Usuario</h1>
+	<h1>Añadir Usuario</h1>
 	<form action="pages/registrar-usuario.php" method="post" id="crear-usuario" class="form">
 		<fieldset>
 			<legend>Información personal</legend>
@@ -93,7 +93,6 @@
 						<input type="text" name="aporte_mensual" id="aporte_mensual" pattern="[0-9]{11,}" maxlength="10" placeholder="Aporte Mensual" autocomplete="off" required />
 					</td>
 				</tr>
-
 			</table>
 		</fieldset>
 		<fieldset class="informacion-cuenta" style="margin: 10px 0;">
