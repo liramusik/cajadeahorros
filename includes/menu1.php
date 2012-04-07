@@ -3,9 +3,9 @@
 		<h3><a href="#">Bancos</a></h3>
 		<div>
 			<ul>
-				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="cuentas">Añadir</a></li>
+				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="cuentas">Añadir Cuentas</a></li>
+				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="intereses">Registrar Intereses</a></li>
 				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="listar-cuentas">Listar Cuentas</a></li>
-                <li><span class="icon"></span><a class="ajaxmenu" href="#" title="intereses">Intereses</a></li>
                 <li><span class="icon"></span><a class="ajaxmenu" href="#" title="listar-intereses">Listar Intereses</a></li>
 			</ul>
 		</div>

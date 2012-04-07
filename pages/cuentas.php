@@ -60,7 +60,7 @@
 		}); 
 	</script>	
 
-	<h1>Crear Cuentas</h1>
+	<h1>Añadir Cuentas</h1>
 	<form action="pages/registrar-cuenta.php" method="post" id="crear-cuentas" class="form">
 		<fieldset>
 			<legend>Información</legend>

@@ -72,7 +72,7 @@
 		});
 	</script>	
 
-	<h1>Crear Transacciones</h1>
+	<h1>Registrar Transacciones</h1>
 	<form action="pages/registrar-transacciones.php" method="post" id="crear-transaccion" class="form">
 		<fieldset>
 			<legend>Información</legend>
