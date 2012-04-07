@@ -1,6 +1,6 @@
 <?php if(isset($_SESSION['session_usuario'])): ?>
 	<?php
-	$cedula = $_SESSION['session_cedula'];
+	$cedula = $_GET['cedula'];
 	$bancos = new conexion();
 	$bancos->getListarBancosEnCuentas();
 	$cuentas = new conexion();
