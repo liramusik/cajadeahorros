@@ -419,6 +419,9 @@ input#boton-aceptar {
 input#boton-rechazar {
 	background: url("../img/deshabilitar.png");
 }
+input#boton-ver {
+	background: url("../img/ver.png");
+}
 
 input#boton-deshabilitar,
 input#boton-aceptar,
