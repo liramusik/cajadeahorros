@@ -1,20 +1,3 @@
-<script type="text/javascript">
-	$(function() {
-		$("#ver-prestamo-admin")
-			.accordion({
-				header: "> div > h3"
-			})
-			.sortable({
-				axis: "y",
-				handle: "h3",
-				stop: function(event, ui) {
-					ui.item.children("h3").triggerHandler("focusout");
-				}
-			});
-	});
-</script>
-
-
 <?php
 $x = new conexion();
 
@@ -35,31 +18,8 @@ while($rows = pg_fetch_object($x->getQuery())) {
 	$estatus = $rows->estatus;
 }
 ?>
-<div id="ver-prestamo-admin">
-        <div class="group prestamo">
-                <h3><a href="#">Préstamo</a></h3>
-                <div>
-			<?php include("prestamo-admin.php"); ?>
-                </div>
-	</div>
-	<?php if($id_estatus == 2): ?>
-		<div class="group registrar-pago">
-			<h3><a href="#">Registrar Pago de Préstamo</a></h3>
-			<div>
-				<?php include("transacciones-admin.php"); ?>
-			</div>
-		</div>
-		<div class="group listar-transacciones">
-			<h3><a href="#">Listar Transacciones de Préstamo</a></h3>
-			<div>
-				<?php include("listar-transacciones-admin.php"); ?>
-			</div>
-		</div>
-	<?php endif; ?>
-</div>
 
-<div id="listado-prestamo-transacciones">
-</div>
+<?php include("ver-prestamo-transacciones-admin.php"); ?>
 
 <?php
 unset($x);
