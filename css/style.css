@@ -76,31 +76,38 @@ h1 {
 }
 
 .boton1 {
-	background-color: #4D90FE;		
-	background-image: -webkit-linear-gradient(center top ,,#4D90FE, #4787ED);
-	background-image: -moz-linear-gradient(center top ,,#4D90FE, #4787ED);
-	border: 1px solid transparent;
+	background-color: #F5F5F5;		
+	background-image: -webkit-linear-gradient(center top ,,#F5F5F5, #F1F1F1);
+	background-image: -moz-linear-gradient(center top ,,#F5F5F5, #F1F1F1);
+	border: 1px solid  rgba(0, 0, 0, 0.1);
 	border-radius: 2px 2px 2px 2px;
-	color: #FFFFFF;
-	text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+	color: #444444;
+	text-align: center;
+	font-size: 12px;
+	font-weight: bold;
+	height: 23px;
+	line-height: 23px;
+	margin-right: 16px;
+	min-width: 54px;
 }
 
 .boton1:hover {
-	background-color: #4787ED;
-	background-image: -webkit-linear-gradient(center top ,#4D90FE, #4787ED);
-	background-image: -moz-linear-gradient(center top ,#4D90FE, #4787ED);
-	border-color: #B0281A #B0281A #AF301F;
-	border-style: solid;
+	background-color: #F8F8F8;
+	background-image: -webkit-linear-gradient(center top ,#F5F5F5, #F1F1F1);
+	background-image: -moz-linear-gradient(center top ,#F5F5F5, #F1F1F1);
+	border: 1PX solid #C6C6C6;
+	color: #333333;
 	border-width: 1px;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
 }
 
 .boton1:focus {
-    border: 1px solid transparent;
-    box-shadow: 0 0 0 1px #FFFFFF inset;
-    outline: 0 none transparent;
+    	border: 1px solid transparent;
+    	box-shadow: 0 0 0 1px #FFFFFF inset;
+    	outline: 0 none transparent;
 
 }
+
 
 #menu .usuario {
 	color: white;
