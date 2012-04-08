@@ -1,32 +1,35 @@
 <?php if(isset($_SESSION['session_usuario'])): ?>
-<?php 
+	<?php 
 	$buscar_estatus = new conexion();
 	$buscar_estatus->getEstatusSolicitudPrestamo();
-?>
+	?>
+
+	<script type="text/javascript" src="js/validar-modificar-prestamo.js"></script>
 
 	<h1>Detalle de Préstamo</h1>
-	<form action="index.php?page=ver-prestamo" method="post" id="solicitar-prestamo">
+	<form action="pages/modificar-prestamo-admin.php" method="post" id="modificar-prestamo" class="form">
 		<fieldset>
 			<legend>Detalle del Préstamo</legend>
 			<table>
+				<tr>
+					<td class="etiqueta">
+						<label for="estatus">Estatus</label>
+					</td>
+					<td>
+						<select name="estatus" id="estatus">
+							<?php while($rows = pg_fetch_object($buscar_estatus->getQuery())): ?>
+								<option value="<?php print $rows->id; ?>" <?php ($id_estatus == $rows->id) ? print "selected" : print ""; ?>><?php print $rows->estatus; ?></option>
+							<?php endwhile; ?>
+						</select>
+					</td>
+				</tr>
 				<tr>
 					<td class="etiqueta">
 						<label for="nombre">Nombre</label>
 					</td>
 					<td>
 						<input id="nombre" name="nombre" type="text" value="<?php print $nombre . " " . $apellido; ?>" readonly="readonly" />
-					</td>
-				</tr>
-				<tr>
-					<td class="etiqueta">
-						<label for="estatus">Estatus</label>
-					</td>
-					<td>
-						<select name="tipo" id="tipo">
-							<?php while($rows = pg_fetch_object($buscar_estatus->getQuery())): ?>
-								<option value="<?php print $rows->id; ?>" <?php ($id_estatus == $rows->id) ? print "selected" : print ""; ?>><?php print $rows->estatus; ?></option>
-							<?php endwhile; ?>
-						</select>
+						<input id="id_solicitud" name="id_solicitud" type="hidden" value="<?php print $id_solicitud; ?>" />
 					</td>
 				</tr>
 				<tr>
@@ -46,6 +49,14 @@
 					</td>
 				</tr>
 				<tr>
+					<td class="etiqueta">
+						<label for="fecha">Fecha</label>
+					</td>
+					<td>
+						<input type="datetime" name="fecha" id="fecha" maxlength="10" value="<?php print $fecha; ?>" placeholder="Fecha" autocomplete="on" required />
+					</td>
+                </tr>
+				<tr>
 					<td class="etiqueta pago">
 						<label for="pago">Forma de pago</label>
 					</td>
@@ -60,7 +71,7 @@
 						<label for="observacion">Observación</label>
 					</td>
 					<td class="textarea">
-						<textarea name="observacion" maxlength="250" cols="40" rows="5" ><?php print $observacion; ?></textarea>
+						<textarea name="observacion" maxlength="250" cols="40" rows="5" readonly="readonly"><?php print $observacion; ?></textarea>
 					</td>
 				</tr>
 				<tr>
