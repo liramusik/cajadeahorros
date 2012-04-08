@@ -19,20 +19,18 @@ if($tipo == 1) {
 	 	$aporte = $rows->aporte_mensual;
 	}
 			
-	if($aporte < $monto){
-		$exedente = $monto - $aporte;
-		$monto = $monto - $exedente;
-		$insertar_exedente = new conexion();
-		$insertar_exedente->setQuery("insert into tb_transacciones values(default, $cedula, $cuenta, 5, default, '" . $fecha . "', $exedente, $deposito);");
-	} 
-}
-
-$insertar_transacciones = new conexion();
-$insertar_transacciones->setQuery("insert into tb_transacciones values(default, $cedula, $cuenta, $tipo, default, '" . $fecha . "' , $monto, $deposito);");
-
-if($insertar_transacciones->getQuery()) {
-	print 'La transaccion se ha registrado correctamente';
-} else {
-	print 'La transaccion no se ha registrado';
+	if($monto >= $aporte) {		
+		$excedente = $monto - $aporte;
+		$monto = $monto - $excedente;
+		if($excedente > 0) { 
+			$insertar_excedente = new conexion();
+			$insertar_excedente->setQuery("insert into tb_transacciones values(default, $cedula, $cuenta, 5, default, '" . $fecha . "', $excedente, $deposito);");
+		}
+		$insertar_transacciones = new conexion();
+		$insertar_transacciones->setQuery("insert into tb_transacciones values(default, $cedula, $cuenta, $tipo, default, '" . $fecha . "' , $monto, $deposito);");
+		print 'El deposito se ha realizado con exito';
+	} else {
+		print 'El deposito no se a realizado es menor que el aporte';	
+	}
 }
 ?>
