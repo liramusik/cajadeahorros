@@ -71,9 +71,7 @@
 								<input type="submit" name="submit" id="boton-rechazar" />
 							</form>
 						</div>
-						<div class="accion"><a href="#" id="<?php print $rows->id; ?>" class="ver-prestamo"><img src="" />Ver</a></div>
-					<?php else: ?>
-						<div class="accion"><a href="#" id="<?php print $rows->id; ?>" class="ver-prestamo"><img src="" />Ver</a></div>
+						<div class="accion"><a href="#" id="<?php print $rows->id; ?>" class="ver-prestamo"><img src="../img/ver.png"></a></div>
 					<?php endif; ?>
 				</td>
 			</tr>
