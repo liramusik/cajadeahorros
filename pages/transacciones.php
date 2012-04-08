@@ -1,12 +1,28 @@
 <?php if(isset($_SESSION['session_usuario'])): ?>
 	<?php
+
 	$cedula = $_SESSION['session_cedula'];
+
 	$bancos = new conexion();
 	$bancos->getListarBancosEnCuentas();
+
 	$cuentas = new conexion();
 	$cuentas->getListarCuentas();
+
 	$tipo_transaccion = new conexion();
-	$tipo_transaccion->getListarTipoTransaccion1y2();
+	$tipo_transaccion->getListarTipoTransaccion();
+
+	$tiene_prestamos = new conexion();
+	$tiene_prestamos->getTienePrestamos($cedula);
+	while($rows = pg_fetch_object($tiene_prestamos->getQuery())) {
+		$cantidad_prestamos = $rows->total;
+	}
+	
+	if($cantidad_prestamos > 0) {
+		$prestamos = new conexion();
+		$prestamos->getIdPrestamoUsuario($cedula);
+	}
+
 	?>
 	<script type="text/javascript">
 		var bancos = [
@@ -67,11 +83,32 @@
 					<td>
 						<select name="tipo" id="tipo">
 							<?php while($rows = pg_fetch_object($tipo_transaccion->getQuery())): ?>
-								<option value="<?php print $rows->id; ?>" <?php ($rows->id == 1) ? print "selected" : print ""; ?>><?php print $rows->tipo; ?></option>
+								<?php if(($cantidad_prestamos > 0) && ($rows->id < 5)): ?>
+									<option value="<?php print $rows->id; ?>" <?php ($rows->id == 1) ? print "selected" : print ""; ?>><?php print $rows->tipo; ?></option>
+								<?php elseif($cantidad_prestamos == 0): ?>
+									<?php if($rows->id < 3): ?>
+										<option value="<?php print $rows->id; ?>" <?php ($rows->id == 1) ? print "selected" : print ""; ?>><?php print $rows->tipo; ?></option>
+									<?php endif; ?>
+								<?php endif; ?>
 							<?php endwhile; ?>
 						</select>
 					</td>
 				</tr>
+				<?php if($cantidad_prestamos > 0): ?>
+					<tr>
+						<td class="etiqueta">
+							<label for="prestamo">Préstamo No </label>
+						</td>
+						<td>
+							<select name="tipo" id="prestamo">
+								<option value="0"></option>
+								<?php while($rows = pg_fetch_object($prestamos->getQuery())): ?>
+									<option value="<?php print $rows->id; ?>"><?php printf("%05d", $rows->id); ?></option>
+								<?php endwhile; ?>
+							</select>
+						</td>
+					</tr>
+				<?php endif; ?>
 				<tr>
 					<td class="etiqueta">
 						<label for="fecha">Fecha <span class="obligatorio">*</span></label>

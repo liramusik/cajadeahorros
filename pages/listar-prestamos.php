@@ -42,7 +42,7 @@
 	<table id="listado" class="listado">
 		<thead>
 			<tr>
-				<th>Solicitud</th>
+				<th>Solicitud No</th>
 				<th>Nombre</th>
 				<th>Monto</th>
 				<th>Fecha</th>
@@ -52,7 +52,7 @@
 		</thead>
 		<?php while($rows = pg_fetch_object($c->getQuery())): ?>
 			<tr>
-				<td class="solicitud"><span class="icon"></span><div class="solicitud"><?php printf("No.- %05d", $rows->id); ?></div></td>
+				<td class="solicitud"><span class="icon"></span><div class="solicitud"><?php printf("%05d", $rows->id); ?></div></td>
 				<td><div><?php print $rows->nombre . " " . $rows->apellido; ?></div></td>
 				<td><div><?php printf("%.2f", $rows->monto); ?></div></td>
 				<td><div><?php print $rows->fecha; ?></div></td>

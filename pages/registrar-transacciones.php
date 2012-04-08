@@ -12,7 +12,7 @@ $deposito = $_POST['deposito'];
 $fecha_split = preg_split("/\//", $fechas);
 $fecha = $fecha_split[2] . '-' . $fecha_split[1] . '-' . $fecha_split[0];
 
-if(($tipo == 1) || ($tipo == 3))  {
+if($tipo == 1) {
 	$buscar = new conexion();
 	$buscar->setQuery("select aporte_mensual from tb_usuarios where cedula=$cedula");
 	while($rows = pg_fetch_object($buscar->getQuery())) {

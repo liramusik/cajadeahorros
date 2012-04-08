@@ -42,14 +42,7 @@ class conexion {
 		}
 	}
         public function getListarTipoTransaccion() {
-                $this->query = "select id, tipo from tb_tipo_transacciones";
-                $this->result = pg_query($this->connect, $this->query);
-                if(!$this->result) {
-                        print "Error " . pg_last_error();
-                }   
-        }    
-        public function getListarTipoTransaccion1y2() {
-                $this->query = "select * from tb_tipo_transacciones where id != 3 and id != 4 and id != 5;";
+                $this->query = "select * from tb_tipo_transacciones";
                 $this->result = pg_query($this->connect, $this->query);
                 if(!$this->result) {
                         print "Error " . pg_last_error();
@@ -104,6 +97,21 @@ class conexion {
 			print "Error " . pg_last_error();
 		}
 	}
+	public function getTienePrestamos($cedula) {
+		$this->query = "select count(id) as total from tb_solicitud_prestamo where id_estatus_solicitud_prestamo=2 and cedula_usuario=$cedula;";
+		$this->result = pg_query($this->connect, $this->query);
+		if(!$this->result) {
+			print "Error " . pg_last_error();
+		}
+	}
+	public function getIdPrestamoUsuario($cedula) {
+		$this->query = "select id from tb_solicitud_prestamo where id_estatus_solicitud_prestamo=2 and cedula_usuario=$cedula;";
+		$this->result = pg_query($this->connect, $this->query);
+		if(!$this->result) {
+			print "Error " . pg_last_error();
+		}
+	}
+
 	public function getQuery() {
 		return $this->result;
 	}

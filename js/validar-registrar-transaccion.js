@@ -44,12 +44,24 @@ $(document).ready(function(){
             });
 });
 $(document).ready(function() { 
-		var opciones = {
-		success: mostrarRespuesta,
-		};
-		$('.form').ajaxForm(opciones);
-			function mostrarRespuesta(responseText) {
-				alert("Mensaje: " + responseText);
-				$('.form').resetForm();
-		}; 
+	$('#crear-transaccion').submit(function(e) {
+		e.preventDefault();
+		var id_tipo_transaccion = $('#tipo').val();
+		if((id_tipo_transaccion == 3) || (id_tipo_transaccion == 4)) {
+			var id_prestamo = $('#prestamo').val();
+			if(id_prestamo == 0) {
+				alert('Por favor seleccione un préstamo');
+				$('#prestamo').focus();
+			} else {
+				var opciones = {
+					success: mostrarRespuesta,
+				};
+				$('.form').ajaxForm(opciones);
+					function mostrarRespuesta(responseText) {
+						alert("Mensaje: " + responseText);
+						$('.form').resetForm();
+				}; 
+			}
+		}
+	});
 });
