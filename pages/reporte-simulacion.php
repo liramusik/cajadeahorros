@@ -27,7 +27,7 @@
 
 <?php if($this->tipo_pago == 1): ?>
 	<div>Para realizar la solicitud de préstamo en base a esta simulación, por favor haga clic <a class="solicitar" href="#">aquí</a></div>
-	<div><?php print $cedula; ?></div>
+
 	<table id="listado" class="listado">
 		<thead>
 			<th>No.</th>
