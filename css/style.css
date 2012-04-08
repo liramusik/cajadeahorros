@@ -74,7 +74,7 @@ h1 {
     outline: 0 none transparent;
 
 }
-
+/*
 .boton1 {
 	background-color: #F5F5F5;		
 	background-image: -webkit-linear-gradient(center top ,,#F5F5F5, #F1F1F1);
@@ -89,101 +89,122 @@ h1 {
 	line-height: 23px;
 	margin-right: 16px;
 	min-width: 54px;
+        margin-top: 10px;
 }
+*/
 
-.boton1:hover {
-	background-color: #F8F8F8;
-	background-image: -webkit-linear-gradient(center top ,#F5F5F5, #F1F1F1);
-	background-image: -moz-linear-gradient(center top ,#F5F5F5, #F1F1F1);
-	border: 1PX solid #C6C6C6;
-	color: #333333;
-	border-width: 1px;
-	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-}
+.boton1 {
+    color: white;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
+    background-color: #019AD2;
+    background-repeat: repeat-x;
+    background-image: -khtml-gradient(linear,left top,left bottom,from(#33BCEF),to(#019AD2));
+    background-image: -moz-linear-gradient(#33BCEF,#019AD2);
+    background-image: -ms-linear-gradient(#33BCEF,#019AD2);
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#33BCEF),color-stop(100%,#019AD2));
+    background-image: -webkit-linear-gradient(#33BCEF,#019AD2);
+    background-image: -o-linear-gradient(#33BCEF,#019AD2);
+    background-image: linear-gradient(#33BCEF,#019AD2);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#33bcef',endColorstr='#019ad2',GradientType=0);
+    border-color: #057ED0;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
+    -moz-box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
+    }
+/* 
+    .boton1:hover {
+            background-color: #F8F8F8;
+            background-image: -webkit-linear-gradient(center top ,#F5F5F5, #F1F1F1);
+            background-image: -moz-linear-gradient(center top ,#F5F5F5, #F1F1F1);
+            border: 1PX solid #C6C6C6;
+            color: #333333;
+            border-width: 1px;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    }
 
-.boton1:focus {
-    	border: 1px solid transparent;
-    	box-shadow: 0 0 0 1px #FFFFFF inset;
-    	outline: 0 none transparent;
+    .boton1:focus {
+            border: 1px solid transparent;
+            box-shadow: 0 0 0 1px #FFFFFF inset;
+            outline: 0 none transparent;
 
-}
+    }
+*/
+
+    #menu .usuario {
+            color: white;
+            text-align: right;
+            margin-right: 10px;
+    }
+
+    #menu-izquierdo {
+            padding: 30px 0 30px 10px;
+            float: left;
+            width: 200px;
+    }
+
+    #menu-izquierdo #ui-accordion ul {
+            padding: 0;
+            list-style: none;
+    }
+
+    #menu-izquierdo #ui-accordion ul li {
+            position: relative;
+    }
+
+    #menu-izquierdo #ui-accordion ul li a  {
+            color: #EB8F00;
+            font-size: .9em;
+            font-weight: bold;
+            margin-left: 20px;
+            text-decoration: none;
+    }
+
+    #menu-izquierdo #ui-accordion ul li span.icon {
+            position: absolute;
+            display: block;
+            width: 16px;
+            height: 16px;
+            background-image: url(../js/jquery.ui/css/ui-lightness/images/ui-icons_ef8c08_256x240.png);
+            background-position: -32px -16px;
+    }
+
+    #menu-izquierdo #ui-accordion ul li a:hover {
+            color: #1C94C4;
+    }
 
 
-#menu .usuario {
-	color: white;
-	text-align: right;
-	margin-right: 10px;
-}
+    #contenido {
+            float: left;
+            width: 740px;
+    }
 
-#menu-izquierdo {
-	padding: 30px 0 30px 10px;
-	float: left;
-	width: 200px;
-}
+    div.accion {
+        float: left;
+        margin-right: 5px;
+    }
 
-#menu-izquierdo #ui-accordion ul {
-	padding: 0;
-	list-style: none;
-}
+    table {
+            width: 100%;
+    }
 
-#menu-izquierdo #ui-accordion ul li {
-	position: relative;
-}
+    table.dataTable {
+            margin-top: 10px;
+            width: 100%;
+    }
 
-#menu-izquierdo #ui-accordion ul li a  {
-	color: #EB8F00;
-	font-size: .9em;
-	font-weight: bold;
-	margin-left: 20px;
-	text-decoration: none;
-}
+    table td {
+            padding: 5px;
+    }
 
-#menu-izquierdo #ui-accordion ul li span.icon {
-	position: absolute;
-	display: block;
-	width: 16px;
-	height: 16px;
-	background-image: url(../js/jquery.ui/css/ui-lightness/images/ui-icons_ef8c08_256x240.png);
-	background-position: -32px -16px;
-}
+    table tr td.cuota,
+    table tr td.fecha {
+            text-align: center;
+    }
 
-#menu-izquierdo #ui-accordion ul li a:hover {
-	color: #1C94C4;
-}
-
-
-#contenido {
-	float: left;
-	width: 740px;
-}
-
-div.accion {
-    float: left;
-    margin-right: 5px;
-}
-
-table {
-	width: 100%;
-}
-
-table.dataTable {
-	margin-top: 10px;
-	width: 100%;
-}
-
-table td {
-	padding: 5px;
-}
-
-table tr td.cuota,
-table tr td.fecha {
-	text-align: center;
-}
-
-table tr td.interes,
-table tr td.amortizacion,
-table tr td.cuota-fija {
-	text-align: right;
+    table tr td.interes,
+    table tr td.amortizacion,
+    table tr td.cuota-fija {
+            text-align: right;
 }
 
 table.listado {

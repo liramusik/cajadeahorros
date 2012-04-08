@@ -31,7 +31,7 @@
 				<th>Banco</th>
 				<th>Tipo de Cuenta</th>
 				<th>Cuenta</th>
-				<th>Interés</th>
+				<th>Moto Bs.</th>
 				<th>Fecha</th>
 			</tr>
 		</thead>
@@ -40,7 +40,7 @@
 				<td class="banco"><span class="icon"></span><div class="banco"><?php print $rows->nombre ?></div></td>
 				<td><div><?php print $rows->tipo; ?></div></td>
 				<td><div><?php print $rows->cuenta; ?></div></td>	
-				<td><div><?php print $rows->monto; ?></div></td>	
+				<td><div><?php print number_format($rows->monto, 2, ",", "."); ?></div></td>	
 				<td><div><?php print $rows->fecha; ?></div></td>
 			</tr>
 		<?php endwhile; ?>
@@ -49,15 +49,13 @@
 				<td><div></div></td>
 				<td><div></div></td>	
 				<td><div><?php print "Total:"; ?></div></td>
-				<td><div><?php print $row->suma; ?></div></td>
+				<td><div><?php print number_format($rows->suma, 2, ",", "."); ?></div></td>
 				<td><div></div></td>	
 		<?php endwhile; ?>
 			</tr> 
 	</table>
-	<? /*
 	<? include('reporte-listar-intereses.php'); ?>
 	<div><a href="tmp/reporte-intereses.pdf">Imprimir PDF</a></div>
-	*/ ?>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('.modificar').click(function() {
