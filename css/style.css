@@ -385,7 +385,7 @@ input#boton-deshabilitar {
 }
 
 input#boton-aceptar {
-	background: url("../img/deshabilitar.png");
+	background: url("../img/aprobar.png");
 }
 
 input#boton-rechazar {

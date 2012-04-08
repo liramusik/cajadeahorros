@@ -1,7 +1,9 @@
 <?php if(isset($_SESSION['session_usuario']) && ($_SESSION['session_id_rol'] == 1)): ?>
 	<?php
 	$c = new conexion();
-	$c->setQuery("select tb_cuentas.id, nombre, tipo, cuenta, monto, to_char(fecha_interes,'DD/MM/YYYY') as fecha from tb_cuentas left join tb_bancos on tb_cuentas.id_banco = tb_bancos.id left join tb_tipo_cuentas on tb_cuentas.id_tipo_cuenta = tb_tipo_cuentas.id left join tb_intereses on tb_cuentas.id = tb_intereses.id_cuenta;");
+	$c->setQuery("select nombre, tipo, cuenta,  monto, to_char(fecha_interes,'DD/MM/YYYY') as fecha from tb_cuentas left join tb_bancos on tb_cuentas.id_banco = tb_bancos.id left join tb_tipo_cuentas on tb_cuentas.id_tipo_cuenta = tb_tipo_cuentas.id left join tb_intereses on tb_cuentas.id = tb_intereses.id_cuenta;");
+	$suma = new conexion();
+	$suma->setQuery("select sum(monto) as suma from tb_cuentas left join tb_bancos on tb_cuentas.id_banco = tb_bancos.id left join tb_tipo_cuentas on tb_cuentas.id_tipo_cuenta = tb_tipo_cuentas.id left join tb_intereses on tb_cuentas.id = tb_intereses.id_cuenta;");
 	?>
 	<h1>Listado de Intereses</h1>
 	<script>
@@ -42,6 +44,15 @@
 				<td><div><?php print $rows->fecha; ?></div></td>
 			</tr>
 		<?php endwhile; ?>
+			<tr>
+		<?php while($row = pg_fetch_object($suma->getQuery())): ?>
+				<td><div></div></td>
+				<td><div></div></td>	
+				<td><div><?php print "Total:"; ?></div></td>
+				<td><div><?php print $row->suma; ?></div></td>
+				<td><div></div></td>	
+		<?php endwhile; ?>
+			</tr> 
 	</table>
 	<? include('reporte-listar-intereses.php'); ?>
 	<div><a href="tmp/reporte-intereses.pdf">Imprimir PDF</a></div>

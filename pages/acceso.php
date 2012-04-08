@@ -1,3 +1,5 @@
+<script type="text/javascript" src="js/validar-login.js"></script>
+
 <h1>Iniciar sesion</h1>
 
 <form action="includes/pages.php?page=login" method="post" id="login" name="login">
