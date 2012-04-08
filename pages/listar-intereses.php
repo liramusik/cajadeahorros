@@ -43,13 +43,15 @@
 			</tr>
 		<?php endwhile; ?>
 	</table>
+	<? include('reporte-listar-intereses.php'); ?>
+	<div><a href="tmp/reporte-intereses.pdf">Imprimir PDF</a></div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.modificar').click(function() {
+				$('#contenido').load("includes/pages.php?page=modificar-cuenta&id="+$(this).attr('id'));
+			})
+		});
+	</script>
 <?php else: ?>
 	<div class="mensaje">Usted no posee privilegios para ver esta página <a href="index.php">Regresar</a></div>
 <?php endif; ?>
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('.modificar').click(function() {
-			$('#contenido').load("includes/pages.php?page=modificar-cuenta&id="+$(this).attr('id'));
-		})
-	});
-</script>

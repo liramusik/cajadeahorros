@@ -62,13 +62,13 @@
 			</tr>
 		<?php endwhile; ?>
 	</table>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.modificar').click(function() {
+				$('#contenido').load("includes/pages.php?page=modificar-cuenta&id="+$(this).attr('id'));
+			})
+		});
+	</script>
 <?php else: ?>
 	<div class="mensaje">Usted no posee privilegios para ver esta pagina <a href="index.php">Regresar</a></div>
 <?php endif; ?>
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('.modificar').click(function() {
-			$('#contenido').load("includes/pages.php?page=modificar-cuenta&id="+$(this).attr('id'));
-		})
-	});
-</script>
