@@ -1,7 +1,7 @@
 <?php
 
         // Automated configuration. Modify these if they fail. (they shouldn't ;) )
-        $GLOBALS['WKPDF_BASE_PATH']='/home/liramusik/cajadeahorros/conf/';
+        $GLOBALS['WKPDF_BASE_PATH']='/usr/local/bin/';
         $GLOBALS['WKPDF_BASE_SITE']='http://'.$_SERVER['SERVER_NAME'].'/';
         $GLOBALS['WKPDF_BASE_TEMP']='/tmp/';
 	
