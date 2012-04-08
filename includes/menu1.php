@@ -20,10 +20,13 @@
 		</div>
 	</div>
 	<div class="group">
-		<h3><a href="#">Notificaciones</a></h3>
+		<h3><a href="#">Reportes y Notificaciones</a></h3>
 		<div>
 			<ul>
-				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="listar-notificaciones">Listar</a></li>
+				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="listar-notificaciones">Listar Notificaciones</a></li>
+                        </ul>
+			<ul>
+				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="reporte-anual">Reporte Anual Haberes</a></li>
 			</ul>
 		</div>
 	</div>
