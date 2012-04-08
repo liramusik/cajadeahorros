@@ -54,7 +54,7 @@
 		</thead>
 		<?php while($rows = pg_fetch_object($c->getQuery())): ?>
 			<tr>
-				<td class="solicitud"><span class="icon"></span><div class="solicitud"><a href="#" id="<?php print $rows->id; ?>" class="ver-prestamo"><?php printf("No.- %05d", $rows->id); ?></a></div></td>
+				<td class="solicitud"><span class="icon"></span><div class="solicitud"><?php printf("No.- %05d", $rows->id); ?></div></td>
 				<td><div><?php print $rows->nombre . " " . $rows->apellido; ?></div></td>
 				<td><div><?php printf("%.2f", $rows->monto); ?></div></td>
 				<td><div><?php print $rows->fecha; ?></div></td>
@@ -73,6 +73,7 @@
 								<input type="submit" name="submit" id="boton-rechazar" />
 							</form>
 						</div>
+						<div class="accion"><a href="#" id="<?php print $rows->id; ?>" class="ver-prestamo"><img src="" />Ver</a></div>
 					</td>
 				<?php endif; ?>
 			</tr>
