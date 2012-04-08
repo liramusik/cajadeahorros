@@ -1,4 +1,9 @@
 <?php if(isset($_SESSION['session_usuario'])): ?>
+<?php 
+	$buscar_estatus = new conexion();
+	$buscar_estatus->getEstatusSolicitudPrestamo();
+?>
+
 	<h1>Detalle de Préstamo</h1>
 	<form action="index.php?page=ver-prestamo" method="post" id="solicitar-prestamo">
 		<fieldset>
@@ -10,6 +15,18 @@
 					</td>
 					<td>
 						<input id="nombre" name="nombre" type="text" value="<?php print $nombre . " " . $apellido; ?>" readonly="readonly" />
+					</td>
+				</tr>
+				<tr>
+					<td class="etiqueta">
+						<label for="estatus">Estatus</label>
+					</td>
+					<td>
+						<select name="tipo" id="tipo">
+							<?php while($rows = pg_fetch_object($buscar_estatus->getQuery())): ?>
+								<option value="<?php print $rows->id; ?>" <?php ($id_estatus == $rows->id) ? print "selected" : print ""; ?>><?php print $rows->estatus; ?></option>
+							<?php endwhile; ?>
+						</select>
 					</td>
 				</tr>
 				<tr>
@@ -43,7 +60,15 @@
 						<label for="observacion">Observación</label>
 					</td>
 					<td class="textarea">
-						<textarea name="observacion" maxlength="250" cols="40" rows="5" readonly="readonly"><?php print $observacion; ?></textarea>
+						<textarea name="observacion" maxlength="250" cols="40" rows="5" ><?php print $observacion; ?></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td class="etiqueta">
+						<label for="respuesta">Respuesta</label>
+					</td>
+					<td class="textarea">
+						<textarea name="respuesta" maxlength="250" cols="40" rows="5" ><?php print $respuesta; ?></textarea>
 					</td>
 				</tr>
 			</table>
