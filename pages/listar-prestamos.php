@@ -47,9 +47,7 @@
 				<th>Monto</th>
 				<th>Fecha</th>
 				<th>Estatus</th>
-				<?php if($_SESSION['session_id_rol'] == 1): ?>
-					<th>Acciones</th>
-				<?php endif; ?>
+				<th>Acciones</th>
 			</tr>
 		</thead>
 		<?php while($rows = pg_fetch_object($c->getQuery())): ?>
@@ -59,8 +57,8 @@
 				<td><div><?php printf("%.2f", $rows->monto); ?></div></td>
 				<td><div><?php print $rows->fecha; ?></div></td>
 				<td><div><?php print $rows->estatus; ?></div></td>
-				<?php if($_SESSION['session_id_rol']==1): ?>
-					<td>
+				<td>
+					<?php if($_SESSION['session_id_rol']==1): ?>
 						<div class="accion">
 							<form action="pages/aceptar-prestamo.php" method="post" id="aceptar-prestamo" class="form">
 								<input type="hidden" name="id" value="<?php print $rows->id; ?>" />
@@ -74,8 +72,10 @@
 							</form>
 						</div>
 						<div class="accion"><a href="#" id="<?php print $rows->id; ?>" class="ver-prestamo"><img src="" />Ver</a></div>
-					</td>
-				<?php endif; ?>
+					<?php else: ?>
+						<div class="accion"><a href="#" id="<?php print $rows->id; ?>" class="ver-prestamo"><img src="" />Ver</a></div>
+					<?php endif; ?>
+				</td>
 			</tr>
 		<?php endwhile; ?>
 	</table>
