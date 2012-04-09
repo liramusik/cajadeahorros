@@ -68,4 +68,25 @@ if($id_tipo_transaccion == 3) {
 		print "La cuota del préstamo ha sido registrada. Esperando confirmación";
 	}
 }
+
+if($id_tipo_transaccion == 4) {
+	$insertar_transaccion = new conexion();
+	$insertar_transaccion->setQuery("insert into tb_transacciones values(default, $cedula, $id_cuenta, 4, 1, '" . $fecha . "', $monto, '" . $numero_deposito . "')");
+
+	$buscar_id_transaccion = new conexion();
+	$buscar_id_transaccion->setQuery("select id from tb_transacciones where cedula_usuario=$cedula order by id desc limit 1");
+
+	while($rows = pg_fetch_object($buscar_id_transaccion->getQuery())) {
+		$id_transaccion = $rows->id;
+	}
+
+	$insertar_prestamo = new conexion();
+	$insertar_prestamo->setQuery("insert into tb_prestamo values($id_prestamo, $id_transaccion)");
+	if(!$insertar_prestamo) {
+		print "Error " . pg_last_error();
+	} else {
+		print "La cuota del préstamo ha sido registrada. Esperando confirmación";
+	}
+}
+
 ?>
