@@ -100,7 +100,7 @@
 							<label for="prestamo">Préstamo No </label>
 						</td>
 						<td>
-							<select name="tipo" id="prestamo">
+							<select name="prestamo" id="prestamo">
 								<option value="0"></option>
 								<?php while($rows = pg_fetch_object($prestamos->getQuery())): ?>
 									<option value="<?php print $rows->id; ?>"><?php printf("%05d", $rows->id); ?></option>
