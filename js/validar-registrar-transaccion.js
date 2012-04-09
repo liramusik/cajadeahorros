@@ -44,9 +44,25 @@ $(document).ready(function(){
             });
 });
 $(document).ready(function() { 
+	function mostrarRespuesta(responseText) {
+		alert("Mensaje: " + responseText);
+		$('.form').resetForm();
+	};
 	$('#crear-transaccion').submit(function(e) {
 		e.preventDefault();
 		var id_tipo_transaccion = $('#tipo').val();
+		if((id_tipo_transaccion == 1) || (id_tipo_transaccion == 2)) {
+			var id_prestamo = $('#prestamo').val();
+			if(id_prestamo == 0) {
+				var opciones = {
+					success: mostrarRespuesta,
+				};
+				$('#crear-transaccion').ajaxSubmit(opciones);
+			} else {
+				alert('La transacción no puede ser asociada al préstamo');
+				$('#prestamo').focus();
+			}
+		}
 		if((id_tipo_transaccion == 3) || (id_tipo_transaccion == 4)) {
 			var id_prestamo = $('#prestamo').val();
 			if(id_prestamo == 0) {
@@ -56,11 +72,7 @@ $(document).ready(function() {
 				var opciones = {
 					success: mostrarRespuesta,
 				};
-				$('.form').ajaxForm(opciones);
-					function mostrarRespuesta(responseText) {
-						alert("Mensaje: " + responseText);
-						$('.form').resetForm();
-				}; 
+				$('#crear-transaccion').ajaxSubmit(opciones);
 			}
 		}
 	});
