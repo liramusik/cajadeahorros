@@ -20,8 +20,6 @@ $(document).ready(function() {
 				digits: true,
 			},
 			email: {
-				required: true,
-				minlength: 15,
 				email: true,
 			},
 			direccion: {

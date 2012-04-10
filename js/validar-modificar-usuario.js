@@ -15,7 +15,6 @@ $(document).ready(function() {
 				digits: true,
 			},
 			email: {
-				required: true,
 				email: true,
 			},
 			direccion: {
