@@ -111,7 +111,21 @@ class conexion {
 			print "Error " . pg_last_error();
 		}
 	}
+	public function getTotalCuotas($id) {
+		$this->query = "select count(*) as total from tb_prestamo where id_solicitud_prestamo=$id;";
+		$this->result = pg_query($this->connect, $this->query);
+		if(!$this->result) {
+			print "Error " . pg_last_error();
+		}
+	}
+	public function getDetallePrestamo($id) {
+		$this->query = "select * from tb_solicitud_prestamo where id=$id;";
+		$this->result = pg_query($this->connect, $this->query);
+		if(!$this->result) {
+			print "Error " . pg_last_error();
+		}
 
+	}
 	public function getQuery() {
 		return $this->result;
 	}
