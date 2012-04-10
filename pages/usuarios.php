@@ -9,7 +9,7 @@
 	<h1>Añadir Usuario</h1>
 	<form action="pages/registrar-usuario.php" method="post" id="crear-usuario" class="form">
 		<fieldset>
-			<legend>Información personal</legend>
+			<legend>Añadir Usuario</legend>
 			<table>
 				<tr>
 					<td class="etiqueta">

@@ -27,7 +27,7 @@ $(document).ready(function() {
 	<h1>Añadir Cuentas</h1>
 	<form action="pages/registrar-cuenta.php" method="post" id="crear-cuentas" class="form">
 		<fieldset>
-			<legend>Información</legend>
+			<legend>Añadir Cuenta</legend>
 			<table>
 				<tr>
 					<td class="etiqueta">

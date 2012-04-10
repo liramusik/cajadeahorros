@@ -28,10 +28,10 @@
 	<table id="listado" class="listado">
 		<thead>
 			<tr>
-				<th>Banco</th>
+				<th>Nombre del Banco</th>
 				<th>Tipo de Cuenta</th>
-				<th>Cuenta</th>
-				<th>Moto Bs.</th>
+				<th>Cuenta No.</th>
+				<th>Monto Bs.</th>
 				<th>Fecha</th>
 			</tr>
 		</thead>

@@ -29,7 +29,7 @@
 					"sZeroRecords": "No se han encontrado registros",
 					"sSearch": "Filtrar Búsqueda",
 					"oPaginate": {
-						"sPrevious": "Atras",
+						"sPrevious": "Atrás",
 						"sNext": "Siguiente"
 					}
 				}
@@ -39,9 +39,9 @@
 	<table id="listado" class="listado">
 		<thead>
 			<tr>
-				<th>Banco</th>
+				<th>Nombre del Banco</th>
 				<th>Tipo de Cuenta</th>
-				<th>Cuenta</th>
+				<th>Cuenta No.</th>
 				<th>Acciones</th>
 			</tr>
 		</thead>
@@ -70,5 +70,5 @@
 		});
 	</script>
 <?php else: ?>
-	<div class="mensaje">Usted no posee privilegios para ver esta pagina <a href="index.php">Regresar</a></div>
+	<div class="mensaje">Usted no posee privilegios para ver esta página <a href="index.php">Regresar</a></div>
 <?php endif; ?>
