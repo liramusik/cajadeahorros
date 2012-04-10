@@ -50,6 +50,26 @@ if($id_tipo_transaccion == 2) {
 }
 
 if($id_tipo_transaccion == 3) {
+	/*
+	$buscar_total_transacciones = new conexion();
+
+	$buscar_total_transacciones->getTotalCuotas($id_prestamo);
+	while($rows = pg_fetch_object($buscar_total_transacciones->getQuery())) {
+		$total_transacciones = $rows->total;
+	}
+	unset($buscar_total_transacciones);
+	
+	$buscar_detalle_prestamo = new conexion();
+	$buscar_detalle_prestamo->getDetallePrestamo($id_prestamo);
+	while($rows = pg_fetch_object($buscar_detalle_prestamo->getQuery())) {
+		$dp_tipo_pago = $rows->id_tipo_pago;
+		$dp_monto = $rows->monto;
+		$dp_fecha = $rows->fecha;
+		$dp_tiempo = $rows->tiempo;
+		$dp_porcentaje = $rows->tiempo;
+	}
+	unset($buscar_detalle_prestamo);
+	 */
 	$insertar_transaccion = new conexion();
 	$insertar_transaccion->setQuery("insert into tb_transacciones values(default, $cedula, $id_cuenta, 3, 1, '" . $fecha . "', $monto, '" . $numero_deposito . "')");
 

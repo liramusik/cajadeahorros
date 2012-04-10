@@ -43,35 +43,39 @@ class simulacion {
 	private function intereses() {
 		$fecha[0] = $this->fecha;
 		$cuota[0] = ($this->monto / $this->tiempo);
+		$amortizacion = 0;
 		for($i = 1; $i <= $this->tiempo; $i++) {
 			$prestamo[$i] = $this->monto;
 			$interes[$i] = (($this->monto * $this->porcentaje) / 100);
 			$fecha[$i] = strtotime("+1 month", $fecha[$i-1]);
 		}
-		$this->imprimir($prestamo, $interes, $cuota, $fecha, $this->porcentaje);
+		$this->imprimir($prestamo, $interes, $amortizacion, $cuota, $fecha, $this->porcentaje);
 	}
 	private function intereses_cuotas() {
 		$prestamo[0] = $this->monto;
-		$cuota[0] = ($this->monto / $this->tiempo);
 		$fecha[0] = $this->fecha;
+		$amortizacion = ($this->monto / $this->tiempo);
+		$total_intereses = 0;
 		for($i = 1; $i <= $this->tiempo; $i++) {
-			$prestamo[$i] = $prestamo[$i-1] - $cuota[0];
+			$prestamo[$i] = $prestamo[$i-1] - $amortizacion;
 			$interes[$i] = (($prestamo[$i-1] * $this->porcentaje) / 100);
-			$cuota[$i] = $cuota[0] + $interes[$i];
+			$total_intereses += $interes[$i];
 			$fecha[$i] = strtotime("+1 month", $fecha[$i-1]);
 		}
-		$this->imprimir($prestamo, $interes, $cuota, $fecha, $this->porcentaje);
+		$cuota = ($this->monto + $total_intereses) / $this->tiempo;
+		$this->imprimir($prestamo, $interes, $amortizacion, $cuota, $fecha, $this->porcentaje);
 	}
 	private function pago_final() {
 		$cuota[0] = ($this->monto / $this->tiempo);
+		$amortizacion = 0;
 		for($i = 1; $i <= $this->tiempo; $i++) {
 			$prestamo[$i] = $this->monto;
 			$interes[$i] = (($this->monto * $this->porcentaje) / 100);
 		}
 		$fecha[0] = strtotime("$this->tiempo month", $this->fecha);
-		$this->imprimir($prestamo, $interes, $cuota, $fecha, $this->porcentaje);
+		$this->imprimir($prestamo, $interes, $amortizacion, $cuota, $fecha, $this->porcentaje);
 	}
-	private function imprimir(&$prestamo, &$interes, &$cuota, &$fecha, $porcentaje) {
+	private function imprimir(&$prestamo, &$interes, $amortizacion, $cuota, &$fecha, $porcentaje) {
 		include("reporte-simulacion.php");
 	}
 }

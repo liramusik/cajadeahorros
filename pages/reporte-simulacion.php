@@ -39,7 +39,11 @@
 			<tr>
 				<td><?php print $i; ?></td>
 				<td><?php print number_format($prestamo[$i], 2, ",", "."); ?></td>
-				<td><?php print number_format($interes[$i], 2, ",", "."); ?></td>
+				<?php if($i == $this->tiempo): ?>
+					<td><?php print number_format($prestamo[$i] + $interes[$i], 2, ",", "."); ?></td>
+				<?php else: ?>
+					<td><?php print number_format($interes[$i], 2, ",", "."); ?></td>
+				<?php endif; ?>
 				<td><?php print date("d/m/Y", $fecha[$i]); ?></td>
 			</tr>
 		<?php endfor; ?>
@@ -51,6 +55,7 @@
 			<th>No.</th>
 			<th>Préstamo</th>
 			<th>Interés</th>
+			<th>Amortizacion</th>
 			<th>Cuota</th>
 			<th>Fecha de pago</th>
 		</thead>
@@ -59,13 +64,15 @@
 				<td><?php print $i; ?></td>
 				<td><?php print number_format($prestamo[$i - 1], 2, ",", "."); ?></td>
 				<td><?php print number_format($interes[$i], 2, ",", "."); ?></td>
-				<td><?php print number_format($cuota[$i], 2, ",", "."); ?></td>
+				<td><?php print number_format($amortizacion, 2, ",", "."); ?></td>
+				<td><?php print number_format($cuota, 2, ",", "."); ?></td>
 				<td><?php print date("d/m/Y", $fecha[$i]); ?></td>
 			</tr>
 		<?php endfor; ?>
 	</table>
 <?php elseif($this->tipo_pago == 3): ?>
 	<?php
+	$interes_total = 0;
 	for($i = 1; $i <= $this->tiempo; $i++) {
 		$interes_total += $interes[$i];
 	}

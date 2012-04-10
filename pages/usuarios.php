@@ -65,7 +65,7 @@
 						<label for="email">Correo electrónico <span class="obligatorio">*</span></label>
 					</td>
 					<td>
-						<input type="email" name="email" id="email" maxlength="40" placeholder="Email" autocomplete="on" required />
+						<input type="email" name="email" id="email" maxlength="40" placeholder="Email" autocomplete="on" />
 					</td>
 				</tr>
 				<tr>

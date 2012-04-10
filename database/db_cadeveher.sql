@@ -22,14 +22,14 @@ create table tb_usuarios (
 	nombre				varchar(25) not null,
 	apellido			varchar(25) not null,
 	telefono			varchar(11) not null,
-	email				varchar(25) not null,
+	email				varchar(25),
 	direccion			varchar(255) not null,
 	aporte_mensual			real not null,
 	fecha_ingreso			timestamp not null default now(),
 	fecha_egreso			timestamp,
 	usuario				varchar(15) not null unique,
 	password			varchar(33) not null,
-	estatus				boolean default true
+	estatus				boolean default true not null
 );
 
 create table tb_bancos (
@@ -186,25 +186,15 @@ insert into tb_roles values(default, 'Administrador');
 insert into tb_roles values(default, 'Asociado');
 insert into tb_roles values(default, 'No Asociado');
 
-insert into tb_porcentajes values(default, 1, '2009-01-01 01:01', 5.22);
-insert into tb_porcentajes values(default, 2, '2009-01-01 01:01', 5.22);
-insert into tb_porcentajes values(default, 3, '2009-01-01 01:01', 6.33);
-insert into tb_porcentajes values(default, 1, '2010-01-01 01:01', 6.35);
-insert into tb_porcentajes values(default, 2, '2010-01-01 01:01', 6.35);
-insert into tb_porcentajes values(default, 3, '2010-01-01 01:01', 7.78);
-insert into tb_porcentajes values(default, 1, '2011-01-01 01:01', 7.10);
-insert into tb_porcentajes values(default, 2, '2011-01-01 01:01', 7.10);
-insert into tb_porcentajes values(default, 3, '2011-01-01 01:01', 8.54);
-insert into tb_porcentajes values(default, 1, '2012-01-01 01:01', 8.54);
-insert into tb_porcentajes values(default, 2, '2012-01-01 01:01', 8.54);
-insert into tb_porcentajes values(default, 3, '2012-01-01 01:01', 9.13);
+insert into tb_porcentajes values(default, 1, '2012-01-01 01:01', 3);
+insert into tb_porcentajes values(default, 2, '2012-01-01 01:01', 3);
+insert into tb_porcentajes values(default, 3, '2012-01-01 01:01', 6);
 
 insert into tb_nacionalidad values(default, 'V');
 insert into tb_nacionalidad values(default, 'E');
 
 insert into tb_usuarios values(16409503, 1, 1, 'Lilibeth', 'Ramírez', '04165023756', 'liramusik@gmail.com', 'Caracas - Venezuela', 100, default, null, 'liramusik', md5('liramusik'), 'TRUE');
 insert into tb_usuarios values(17108742, 1, 2, 'David', 'Mora', '04264719868', 'davidmora000@gmail.com', 'Caracas - Venezuela', 200, default, null, 'davidmora', md5('davidmora'), 'TRUE');
-insert into tb_usuarios values(16541550, 1, 3, 'Héctor', 'Lozada', '04268061734', 'imatsu@gmail.com', 'Caracas - Venezuela', 300, default, null, 'hlozada', md5('hlozada'), 'TRUE');
 
 insert into tb_bancos values(default, '100% Banco');
 insert into tb_bancos values(default, 'Banco Activo');
