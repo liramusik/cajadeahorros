@@ -12,17 +12,14 @@
 		<h3><a href="#">Bancos</a></h3>
 		<div>
 			<ul>
-<<<<<<< HEAD
 				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="cuentas">Añadir Cuentas</a></li>
 				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="intereses">Registrar Intereses</a></li>
 				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="listar-cuentas">Listar Cuentas</a></li>
                 <li><span class="icon"></span><a class="ajaxmenu" href="#" title="listar-intereses">Listar Intereses</a></li>
-=======
 				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="listar-notificaciones">Listar Notificaciones</a></li>
                         </ul>
 			<ul>
 				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="listar-reportes">Reportes</a></li>
->>>>>>> c365f89c2089ed1e614734f027e66dfb13d42cf3
 			</ul>
 		</div>
 	</div>
