@@ -43,8 +43,6 @@
 		<div>
 			<ul>
 				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="listar-notificaciones">Listar Notificaciones</a></li>
-                        </ul>
-			<ul>
 				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="generar-reportes">Generar Reportes</a></li>
 			</ul>
 		</div>
