@@ -51,7 +51,6 @@ if($id_tipo_transaccion == 1) {
 	} else {
 		print "El monto que usted desea registrar es inferior al aporte mensual establecido";
 	}
-	print "Se ha registrado con éxito la transacción. Esperando confirmación";
 }
 
 if($id_tipo_transaccion == 2) {
