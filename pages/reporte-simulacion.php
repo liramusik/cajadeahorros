@@ -4,7 +4,8 @@
 
 <script>
 	$(document).ready(function() {
-		$('#listado').dataTable({
+            $('#listado').dataTable({
+                	"bJQueryUI": true, 
 			"bPaginate": false,
 			"bLengthChange": false,
 			"bFilter": false,
@@ -31,8 +32,8 @@
 	<table id="listado" class="listado">
 		<thead>
 			<th>No.</th>
-			<th>Préstamo</th>
-			<th>Interes Fijo</th>
+			<th>Monto Bs.</th>
+			<th>Interés Fijo</th>
 			<th>Fecha de pago</th>
 		</thead>
 		<?php for($i = 1; $i <= $this->tiempo; $i++): ?>
@@ -53,9 +54,9 @@
 	<table id="listado" class="listado">
 		<thead>
 			<th>No.</th>
-			<th>Préstamo</th>
+			<th>Monto Bs.</th>
 			<th>Interés</th>
-			<th>Amortizacion</th>
+			<th>Amortización</th>
 			<th>Cuota</th>
 			<th>Fecha de pago</th>
 		</thead>

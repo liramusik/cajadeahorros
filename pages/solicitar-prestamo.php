@@ -62,7 +62,7 @@
 				</tr>
 				<tr>
 					<td class="etiqueta">
-						<label for="monto">Monto</label>
+						<label for="monto">Monto Bs.</label>
 					</td>
 					<td>
 						<input id="monto" name="monto" type="text" pattern="[0-9]{2,}" maxlength="5" value="<?php isset($monto) ? print $monto: ""; ?>" <?php isset($monto) ? print 'readonly="readonly"' : "" ?>  required />
