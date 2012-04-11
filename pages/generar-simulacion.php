@@ -62,6 +62,7 @@ class simulacion {
 			$total_intereses += $interes[$i];
 			$fecha[$i] = strtotime("+1 month", $fecha[$i-1]);
 		}
+		$interes[0] = $total_intereses / $this->tiempo;
 		$cuota = ($this->monto + $total_intereses) / $this->tiempo;
 		$this->imprimir($prestamo, $interes, $amortizacion, $cuota, $fecha, $this->porcentaje);
 	}

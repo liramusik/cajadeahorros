@@ -63,7 +63,7 @@
 			<tr>
 				<td><?php print $i; ?></td>
 				<td><?php print number_format($prestamo[$i - 1], 2, ",", "."); ?></td>
-				<td><?php print number_format($interes[$i], 2, ",", "."); ?></td>
+				<td><?php print number_format($interes[0], 2, ",", "."); ?></td>
 				<td><?php print number_format($amortizacion, 2, ",", "."); ?></td>
 				<td><?php print number_format($cuota, 2, ",", "."); ?></td>
 				<td><?php print date("d/m/Y", $fecha[$i]); ?></td>
