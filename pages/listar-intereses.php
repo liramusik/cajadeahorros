@@ -48,7 +48,7 @@
 		<?php while($row = pg_fetch_object($suma->getQuery())): ?>
 				<td><div></div></td>
 				<td><div></div></td>	
-				<td><div><?php print "Total:"; ?></div></td>
+				<td><div><?php print "Total: "; ?></div></td>
 				<td><div><?php print number_format($rows->suma, 2, ",", "."); ?></div></td>
 				<td><div></div></td>	
 		<?php endwhile; ?>
