@@ -27,8 +27,6 @@ $(document).ready(function() {
 				minlength: 10,
 			},
 			aporte_mensual: { 
-				required: true,
-				minlength: 2,
 				digits: true,
 			},
 			usuario: {
