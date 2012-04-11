@@ -6,6 +6,23 @@
 	$y->setQuery("select * from tb_nacionalidad;");
 	?>
 
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#tipo').change(function() {
+				var id_tipo = $('#tipo').val();
+				if(id_tipo == 3) {
+					$('.aporte_mensual').remove();
+				} else {
+					var hay_aporte_mensual = $('.aporte_mensual').length;
+					if(hay_aporte_mensual == 0) {
+						$('.etiqueta-aporte_mensual').append('<label class="aporte_mensual" for="aporte_mensual">Aporte mensual <span class="obligatorio">*</span></label>');
+						$('.input-aporte_mensual').append('<input class="aporte_mensual" type="text" name="aporte_mensual" id="aporte_mensual" pattern="[0-9]{11,}" maxlength="10" placeholder="Aporte Mensual" autocomplete="off" required />');
+					}
+				}
+			})
+		});
+	</script>
+
 	<h1>Añadir Usuario</h1>
 	<form action="pages/registrar-usuario.php" method="post" id="crear-usuario" class="form">
 		<fieldset>
@@ -86,11 +103,11 @@
                 </tr>
 				</tr>
 				<tr>
-			        <td class="etiqueta">
-						<label for="aporte_mensual">Aporte mensual <span class="obligatorio">*</span></label>
+					<td class="etiqueta etiqueta-aporte_mensual">
+						<label class="aporte_mensual" for="aporte_mensual">Aporte mensual <span class="obligatorio">*</span></label>
 					</td>
-					<td>
-						<input type="text" name="aporte_mensual" id="aporte_mensual" pattern="[0-9]{11,}" maxlength="10" placeholder="Aporte Mensual" autocomplete="off" required />
+					<td class="input-aporte_mensual">
+						<input class="aporte_mensual" type="text" name="aporte_mensual" id="aporte_mensual" pattern="[0-9]{11,}" maxlength="10" placeholder="Aporte Mensual" autocomplete="off" required />
 					</td>
 				</tr>
 			</table>
