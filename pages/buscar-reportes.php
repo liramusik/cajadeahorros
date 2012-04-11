@@ -1,20 +1,17 @@
-<?php if(isset($_SESSION['session_usuario']) && ($_SESSION['session_id_rol'] == 1)): ?>
+<?php session_start(); ?>
 <?php
-$seleccion = $_POST['litar-reporte'];
+$seleccion = @$_POST['listar_reporte'];
 switch ($seleccion) {
     case 0:
-	include('reporte-listar-socios.php');
-	require('tmp/reporte-socios.pdf');
+    	include('reporte-listar-usuarios.php');
+	print '<meta http-equiv="refresh" content="0; url=/tmp/reporte-usuarios.pdf">'; 
         break;
     case 1:
 	include('reporte-listar-intereses.php');
-	require('tmp/reporte-intereses.pdf');
+	print '<meta http-equiv="refresh" content="0; url=/tmp/reporte-intereses.pdf">'; 
         break;
     case 2:
         echo "i es igual a 2";
         break;
 }
 ?>
-<?php else: ?>
-	<div class="mensaje">Usted no posee privilegios para ver esta página <a href="index.php">Regresar</a></div>
-<?php endif; ?>

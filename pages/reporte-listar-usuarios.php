@@ -1,9 +1,9 @@
 <?php 
 include("../conf/wkpdf.php");
+include ("../conf/conexion.php");
 if(isset($_SESSION['session_usuario']) && ($_SESSION['session_id_rol'] == 1)) {
 	$c = new conexion();
 	$c->setQuery("select cedula, nombre, apellido,  to_char(fecha_ingreso, 'DD/MM/YYYY') as fecha from tb_usuarios where id_rol = 2 or id_rol = 1 and estatus=true;");
-        $i++;
 
 	$pdf = 
 		"<style type='text/css'>"
@@ -49,6 +49,7 @@ if(isset($_SESSION['session_usuario']) && ($_SESSION['session_id_rol'] == 1)) {
 				. "<th>Nombre y  Apellido</th>"
 				. "<th>fecha ingreso</th>"
 				. "<th>Capital</th>"
+				. "<th>Interes</th>"
 			. "</tr>"
 		. "</thead>";
 		while($rows = pg_fetch_object($c->getQuery())){
@@ -56,10 +57,8 @@ if(isset($_SESSION['session_usuario']) && ($_SESSION['session_id_rol'] == 1)) {
 			$capital->getUsuarioCapital($rows->cedula);
 				while($row = pg_fetch_object($capital->getQuery())){
 			$pdf.= "<tr>"
-				. "<td><div>" . $i++ . " " . $rows->nombre ." " . $rows->apellido . "</div></td>"
+				. "<td><div>" . $rows->nombre ." " . $rows->apellido . "</div></td>"
 				. "<td><div>" . $rows->fecha  . "</div></td>"
-				. "<td><div>" . $row->capital  . "</div></td>"
-				. "<td><div>" . $rows->interes  . "</div></td>"
 			. "</tr>";
 				}
                 }
@@ -72,5 +71,5 @@ $html = $pdf;
 $pdf = new WKPDF();
 $pdf->set_html($html);
 $pdf->render();
-$pdf->output(WKPDF::$PDF_SAVEFILE, 'reporte-asociados.pdf');
+$pdf->output(WKPDF::$PDF_SAVEFILE, 'reporte-usuarios.pdf');
 ?>
