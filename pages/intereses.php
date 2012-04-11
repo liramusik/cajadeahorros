@@ -88,10 +88,10 @@
 			});
 		});
 	</script>
-	<h1>Registrar Intereses</h1>
+	<h1>Registrar Intereses Bancarios</h1>
 	<form action="pages/registrar-interes.php" method="post" id="registrar-interes" class="form">
 		<fieldset>
-			<legend>Registrar Interés</legend>
+			<legend>Registrar Interés Bancario</legend>
 			<table>
 				<tr>
 					<td class="etiqueta">

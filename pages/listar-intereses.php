@@ -5,7 +5,7 @@
 	//$suma = new conexion();
 	//$suma->setQuery("select sum(monto) as suma from tb_cuentas left join tb_bancos on tb_cuentas.id_banco = tb_bancos.id left join tb_tipo_cuentas on tb_cuentas.id_tipo_cuenta = tb_tipo_cuentas.id left join tb_intereses on tb_cuentas.id = tb_intereses.id_cuenta;");
 	?>
-	<h1>Listado de Intereses</h1>
+	<h1>Listado de Intereses Bancarios</h1>
 	<script>
 		$(document).ready(function() {
 			$('#listado').dataTable({

@@ -50,7 +50,7 @@
 				<td>
 					<input name="tipo_pago" type="radio" value="1" checked /> Pago de intereses<br />
 					<input name="tipo_pago" type="radio" value="2" /> Pago por cuotas<br />
-					<input name="tipo_pago" type="radio" value="3" /> Pago al final de cuotas + intereses
+					<input name="tipo_pago" type="radio" value="3" /> Pago al final + intereses
 				</td>
 			</tr>
 		</table>
