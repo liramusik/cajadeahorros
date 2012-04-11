@@ -108,5 +108,31 @@ if($id_tipo_transaccion == 4) {
 		print "La cuota del préstamo ha sido registrada. Esperando confirmación";
 	}
 }
+/*
+$dp_tipo_pago = $rows->id_tipo_pago;
+$dp_monto = $rows->monto;
+$dp_fecha = $rows->fecha;
+$dp_tiempo = $rows->tiempo;
+$dp_porcentaje = $rows->tiempo;
+ */
+function getMontoPagar($p_tipo_pago, $p_monto, $p_tiempo, $p_porcentaje) {
+	if($p_tipo_pago == 1) {
+		$monto_pagar = ($p_monto * $p_porcentaje) / 100;
+		return $monto_pagar;
+	}
+	if($p_tipo_pago == 2) {
+		$prestamo[0] = $p_monto;
+		$amortizacion = ($p_monto / $p_tiempo);
+		$total_intereses = 0;
+		for($i = 1; $i <= $p_tiempo; $i++) {
+			$prestamo[$i] = $prestamo[$i-1] - $amortizacion;
+			$interes[$i] = (($prestamo[$i-1] * $p_porcentaje) / 100);
+			$total_intereses += $interes[$i];
+		}   
+		$interes[0] = $total_intereses / $p_tiempo;
+		$monto_pagar = ($p_monto + $total_intereses) / $p_tiempo;
+		return $monto_pagar;
+	}
+}
 
 ?>

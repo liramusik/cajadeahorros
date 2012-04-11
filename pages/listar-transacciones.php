@@ -29,6 +29,7 @@
 		$(document).ready(function() {
 			$('#listado').dataTable({
 				"bJQueryUI": true,
+				"aaSorting": [[ 4, "desc" ]],
 				"bLengthChange": false,
 				"bInfo": false,
 				"oLanguage": {
