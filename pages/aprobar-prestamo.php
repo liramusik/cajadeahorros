@@ -5,7 +5,7 @@
 		$x = new connection();
 		$x->setQuery("update tb_solicitud_prestamo set id_estatus_solicitud_prestamo=2 where id=$prestamo;");
 		if($x->getQuery()) {
-			print '<div class="mensaje">El prestamo ha sido Aprobado con éxito <a href="index.php">Aceptar</a></div>';
+			print '<div class="mensaje">Su solicitud de préstamo ha sido aprobada <a href="index.php">Aceptar</a></div>';
 		}
 	}
 	?>

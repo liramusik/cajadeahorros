@@ -51,7 +51,7 @@
 		<?php endwhile; ?>
 	</table>
 <?php else: ?>
-	<div class="mensaje">Usted no posee privilegios ver esta pagina <a href="index.php">Regresar</a></div>
+	<div class="mensaje">Usted no posee privilegios ver esta página <a href="index.php">Regresar</a></div>
 <?php endif; ?>
 <script type="text/javascript">
 	$(document).ready(function() {

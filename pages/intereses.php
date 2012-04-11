@@ -105,7 +105,7 @@
 				</tr>
 				<tr>
 					<td class="etiqueta">
-						<label for="cuentas">Cuentas <span class="obligatorio">*</span></label>
+						<label for="cuentas">Cuenta <span class="obligatorio">*</span></label>
 					</td>
 					<td>
 						<select name="cuentas" id="cuentas">
@@ -123,7 +123,7 @@
 				</tr>
 				<tr>
 					<td class="etiqueta">
-						<label for="monto">Monto <span class="obligatorio">*</span></label>
+						<label for="monto">Monto Bs. <span class="obligatorio">*</span></label>
 					</td>
 					<td>
 						<input type="text" name="monto" id="monto" maxlength="7" pattern="[0-9]{3,}" placeholder="Monto" autocomplete="on" required />

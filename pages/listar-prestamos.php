@@ -32,7 +32,7 @@
 					"sZeroRecords": "No se han encontrado registros",
 					"sSearch": "Filtrar Búsqueda",
 					"oPaginate": {
-						"sPrevious": "Atras",
+						"sPrevious": "Átras",
 						"sNext": "Siguiente"
 					}
 				}
@@ -42,11 +42,11 @@
 	<table id="listado" class="listado">
 		<thead>
 			<tr>
-				<th>Solicitud No</th>
-				<th>Nombre</th>
-				<th>Monto</th>
+				<th>Solicitud No.</th>
+				<th>Nombre y Apellido</th>
+				<th>Monto Bs.</th>
 				<th>Fecha</th>
-				<th>Estatus</th>
+				<th>Estatus del Préstamo</th>
 				<th>Acciones</th>
 			</tr>
 		</thead>
@@ -78,7 +78,7 @@
 		<?php endwhile; ?>
 	</table>
 <?php else: ?>
-	<div class="mensaje">Usted no posee privilegios ver esta pagina <a href="index.php">Regresar</a></div>
+	<div class="mensaje">Usted no posee privilegios ver esta página <a href="index.php">Regresar</a></div>
 <?php endif; ?>
 <script type="text/javascript">
 	$(document).ready(function() {

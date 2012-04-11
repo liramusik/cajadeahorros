@@ -7,7 +7,7 @@ if(isset($id)) {
 	if(!$aceptar_transaccion->getQuery()) {
 		print "Error " . pg_last_error();
 	} else {
-		print "La solicitud ha sido aceptada";
+		print "La solicitud ha sido aprobada";
 	}
 }
 ?>
