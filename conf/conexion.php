@@ -112,14 +112,14 @@ class conexion {
 		}
 	}
 	public function getTotalCuotas($id) {
-		$this->query = "select count(*) as total from tb_prestamo where id_solicitud_prestamo=$id;";
+		$this->query = "select count(*) as total from tb_prestamo left join tb_transacciones on tb_prestamo.id_transaccion = tb_transacciones.id where id_estatus_transaccion=2 and id_solicitud_prestamo=1;";
 		$this->result = pg_query($this->connect, $this->query);
 		if(!$this->result) {
 			print "Error " . pg_last_error();
 		}
 	}
-	public function getUsuarioCapital($cedula) {
-		$this->query = "select sum(monto) as capital from tb_transacciones where id_tipo_transaccion = 1 or id_tipo_transaccion =2 and cedula_usuario=$cedula;";
+	public function getMontoDepositado($id) {
+		$this->query = "select sum(monto) as total from tb_prestamo left join tb_transacciones on tb_prestamo.id_transaccion = tb_transacciones.id where id_estatus_transaccion=2 and id_solicitud_prestamo=1;";
 		$this->result = pg_query($this->connect, $this->query);
 		if(!$this->result) {
 			print "Error " . pg_last_error();
