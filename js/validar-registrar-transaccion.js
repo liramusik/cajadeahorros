@@ -53,7 +53,8 @@ $(document).ready(function() {
 		var id_tipo_transaccion = $('#tipo').val();
 		if((id_tipo_transaccion == 1) || (id_tipo_transaccion == 2)) {
 			var id_prestamo = $('#prestamo').val();
-			if(id_prestamo == 'null') {
+			var hay_prestamo = $('#prestamo').length;
+			if(hay_prestamo == 0 || id_prestamo == 0) {
 				var opciones = {
 					success: mostrarRespuesta,
 				};
@@ -65,7 +66,7 @@ $(document).ready(function() {
 		}
 		if((id_tipo_transaccion == 3) || (id_tipo_transaccion == 4)) {
 			var id_prestamo = $('#prestamo').val();
-			if(id_prestamo == 'null') {
+			if(id_prestamo == 0) {
 				alert('Por favor seleccione un préstamo');
 				$('#prestamo').focus();
 			} else {
