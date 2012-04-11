@@ -22,7 +22,7 @@ create table tb_usuarios (
 	nombre				varchar(25) not null,
 	apellido			varchar(25) not null,
 	telefono			varchar(11) not null,
-	email				varchar(25),
+	email				varchar(50),
 	direccion			varchar(255) not null,
 	aporte_mensual			real not null,
 	fecha_ingreso			timestamp not null default now(),

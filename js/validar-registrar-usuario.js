@@ -19,9 +19,6 @@ $(document).ready(function() {
 				minlength: 11,
 				digits: true,
 			},
-			email: {
-				email: true,
-			},
 			direccion: {
 				required: true,
 			},
