@@ -1,4 +1,5 @@
 <?php 
+/*
 include("../conf/wkpdf.php");
 include("../conf/conexion.php");
 if(isset($_SESSION['session_usuario']) && ($_SESSION['session_id_rol'] == 1)) {
@@ -76,4 +77,5 @@ $pdf = new WKPDF();
 $pdf->set_html($html);
 $pdf->render();
 $pdf->output(WKPDF::$PDF_SAVEFILE, 'reporte-intereses.pdf');
+ */
 ?>
