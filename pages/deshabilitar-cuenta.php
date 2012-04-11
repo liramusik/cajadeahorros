@@ -7,7 +7,7 @@ if(isset($id)) {
 	if(!$deshabilitar_cuenta->getQuery()) {
 		print 'error ' . pg_last_error();
 	} else {
-		print 'La cuenta ha sido deshabilitada';
+		print 'La cuenta ha sido eliminada';
 	}
 }
 ?>
