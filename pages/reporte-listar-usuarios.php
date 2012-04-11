@@ -6,9 +6,13 @@ if(isset($_SESSION['session_usuario']) && ($_SESSION['session_id_rol'] == 1)) {
 	$c->setQuery("select cedula, nombre, apellido,  to_char(fecha_ingreso, 'DD/MM/YYYY') as fecha from tb_usuarios where id_rol = 2 or id_rol = 1 and estatus=true;");
 	$x = new conexion();
 	$x->setQuery("select sum(monto) as total from tb_intereses");
-	
 		while($ro = pg_fetch_object($x->getQuery())){
 			$total=$ro->total;
+		}
+	$y = new conexion();
+	$y->setQuery("select sum(monto) as capital from tb_transacciones where id_tipo_transaccion = 1 or id_tipo_transaccion = 2");
+		while($ro = pg_fetch_object($y->getQuery())){
+			$capital_general=$ro->capital;
 		}
 
 	$diez = $total * 0.1;
@@ -59,6 +63,7 @@ if(isset($_SESSION['session_usuario']) && ($_SESSION['session_id_rol'] == 1)) {
 		."<tr><td>10% Gastos de administracion:  $diez Bs. </td></tr>"
 		."<tr><td>10% Reserva caja de ahorro: $diez Bs. </td></tr>"
 		."<tr><td>Intereses a repartir: $ochenta Bs. </td></tr>"
+		."<tr><td>Capital acumulado:  $capital_general Bs. </td></tr>"
 		."</table>"
 		."<h2>Listado Asociados</h2>"
 	       . "<table>"
