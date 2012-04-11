@@ -18,6 +18,21 @@ $fecha .= " " . $hora;
 
 $mes = (int) $fecha_split[1];
 
+/*
+ * Me traigo toda la información del préstamo
+ */
+$buscar_detalle_prestamo = new conexion();
+$buscar_detalle_prestamo->getDetallePrestamo($id_prestamo);
+while($rows = pg_fetch_object($buscar_detalle_prestamo->getQuery())) {
+	$dp_tipo_pago = $rows->id_tipo_pago;
+	$dp_monto = $rows->monto;
+	$dp_fecha = $rows->fecha;
+	$dp_tiempo = $rows->tiempo;
+	$dp_porcentaje = $rows->porcentaje;
+	$dp_id_estatus = $rows->id_estatus_solicitud_prestamo;
+}
+unset($buscar_detalle_prestamo);
+
 if($id_tipo_transaccion == 1) {
 	$buscar_aporte_mensual = new conexion();
 	$buscar_aporte_mensual->setQuery("select aporte_mensual from tb_usuarios where cedula=$cedula");
@@ -49,44 +64,57 @@ if($id_tipo_transaccion == 2) {
 	}
 }
 
-if($id_tipo_transaccion == 3) {
+if(($id_tipo_transaccion == 3) && ($dp_id_estatus == 2)) {
 	/*
+	 * Cuenta el total de las depósitos cuyos estatus deben ser de tipo 2 (aprobado) de x préstamo.
+	 */
 	$buscar_total_transacciones = new conexion();
-
 	$buscar_total_transacciones->getTotalCuotas($id_prestamo);
-	while($rows = pg_fetch_object($buscar_total_transacciones->getQuery())) {
-		$total_transacciones = $rows->total;
+	$filas = pg_num_rows($buscar_total_transacciones->getQuery());
+	if($filas > 0) {
+		while($rows = pg_fetch_object($buscar_total_transacciones->getQuery())) {
+			$total_transacciones = $rows->total;
+		}
 	}
 	unset($buscar_total_transacciones);
-	
-	$buscar_detalle_prestamo = new conexion();
-	$buscar_detalle_prestamo->getDetallePrestamo($id_prestamo);
-	while($rows = pg_fetch_object($buscar_detalle_prestamo->getQuery())) {
-		$dp_tipo_pago = $rows->id_tipo_pago;
-		$dp_monto = $rows->monto;
-		$dp_fecha = $rows->fecha;
-		$dp_tiempo = $rows->tiempo;
-		$dp_porcentaje = $rows->tiempo;
-	}
-	unset($buscar_detalle_prestamo);
+
+	/*
+	 * Si el total de depósitos es menor al tiempo de pago entonces deposito
 	 */
-	$insertar_transaccion = new conexion();
-	$insertar_transaccion->setQuery("insert into tb_transacciones values(default, $cedula, $id_cuenta, 3, 1, '" . $fecha . "', $monto, '" . $numero_deposito . "')");
+	if($total_transacciones <= $dp_tiempo) {
+		$monto_depositar = getMontoPagar($dp_tipo_pago, $dp_monto, $dp_tiempo, $dp_porcentaje);
+		/*
+		 * Si el monto a depositar es mayor a la cuota del préstamo entonces deposito el excedente
+		 */
+		if($monto > $monto_depositar) {
+			$excedente = $monto - $monto_depositar;
+			$monto -= $excedente;
+			$insertar_excedente = new conexion();
+			$insertar_excedente->setQuery("insert into tb_transacciones values(default, $cedula, $id_cuenta, 5, 1, '" . $fecha . "', $excedente, '" . $numero_deposito . "')");
+		}
+		$insertar_transaccion = new conexion();
+		$insertar_transaccion->setQuery("insert into tb_transacciones values(default, $cedula, $id_cuenta, 3, 1, '" . $fecha . "', $monto, '" . $numero_deposito . "')");
 
-	$buscar_id_transaccion = new conexion();
-	$buscar_id_transaccion->setQuery("select id from tb_transacciones where cedula_usuario=$cedula order by id desc limit 1");
+		/*
+		 * Inserto también en la tabla préstamo
+		 */
+		$buscar_id_transaccion = new conexion();
+		$buscar_id_transaccion->setQuery("select id from tb_transacciones where cedula_usuario=$cedula order by id desc limit 1");
 
-	while($rows = pg_fetch_object($buscar_id_transaccion->getQuery())) {
-		$id_transaccion = $rows->id;
+		$filas = pg_num_rows($buscar_id_transaccion->getQuery());
+		if($filas > 0) {
+			while($rows = pg_fetch_object($buscar_id_transaccion->getQuery())) {
+				$id_transaccion = $rows->id;
+			}
+			$insertar_prestamo = new conexion();
+			$insertar_prestamo->setQuery("insert into tb_prestamo values($id_prestamo, $id_transaccion)");
+		}
+		if($total_transacciones == $dp_tiempo) {
+			$actualizar_estatus_prestamo = new conexion();
+			$actualizar_estatus_prestamo->setQuery("update tb_solicitud_prestamo set id_estatus_solicitud_prestamo=4 where id=$id_prestamo;");
+		}
 	}
-
-	$insertar_prestamo = new conexion();
-	$insertar_prestamo->setQuery("insert into tb_prestamo values($id_prestamo, $id_transaccion)");
-	if(!$insertar_prestamo) {
-		print "Error " . pg_last_error();
-	} else {
-		print "La cuota del préstamo ha sido registrada. Esperando confirmación";
-	}
+	print "La cuota del préstamo ha sido registrada. Esperando confirmación";
 }
 
 if($id_tipo_transaccion == 4) {
@@ -108,17 +136,10 @@ if($id_tipo_transaccion == 4) {
 		print "La cuota del préstamo ha sido registrada. Esperando confirmación";
 	}
 }
-/*
-$dp_tipo_pago = $rows->id_tipo_pago;
-$dp_monto = $rows->monto;
-$dp_fecha = $rows->fecha;
-$dp_tiempo = $rows->tiempo;
-$dp_porcentaje = $rows->tiempo;
- */
+
 function getMontoPagar($p_tipo_pago, $p_monto, $p_tiempo, $p_porcentaje) {
 	if($p_tipo_pago == 1) {
 		$monto_pagar = ($p_monto * $p_porcentaje) / 100;
-		return $monto_pagar;
 	}
 	if($p_tipo_pago == 2) {
 		$prestamo[0] = $p_monto;
@@ -131,8 +152,8 @@ function getMontoPagar($p_tipo_pago, $p_monto, $p_tiempo, $p_porcentaje) {
 		}   
 		$interes[0] = $total_intereses / $p_tiempo;
 		$monto_pagar = ($p_monto + $total_intereses) / $p_tiempo;
-		return $monto_pagar;
 	}
+	return $monto_pagar;
 }
 
 ?>
