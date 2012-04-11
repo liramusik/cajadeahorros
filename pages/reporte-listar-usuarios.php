@@ -4,6 +4,16 @@ include ("../conf/conexion.php");
 if(isset($_SESSION['session_usuario']) && ($_SESSION['session_id_rol'] == 1)) {
 	$c = new conexion();
 	$c->setQuery("select cedula, nombre, apellido,  to_char(fecha_ingreso, 'DD/MM/YYYY') as fecha from tb_usuarios where id_rol = 2 or id_rol = 1 and estatus=true;");
+	$x = new conexion();
+	$x->setQuery("select sum(monto) as total from tb_intereses");
+	
+		while($ro = pg_fetch_object($x->getQuery())){
+			$total=$ro->total;
+		}
+
+	$diez = $total * 0.1;
+	$ochenta = $total * 0.8;
+
 
 	$pdf = 
 		"<style type='text/css'>"
@@ -21,6 +31,9 @@ if(isset($_SESSION['session_usuario']) && ($_SESSION['session_id_rol'] == 1)) {
 		}"
 		."tr{
 			padding: 2px 2px;	
+		}"
+		."td{
+			padding: 0px 40px;	
 		}"
 		."h1 {
 	        	color:#33170D;
@@ -42,6 +55,11 @@ if(isset($_SESSION['session_usuario']) && ($_SESSION['session_id_rol'] == 1)) {
 		."</style>"
 
 		."<h1>CADEVEHER</h1>"
+		."<table>"
+		."<tr><td>10% Gastos de administracion:  $diez Bs. </td></tr>"
+		."<tr><td>10% Reserva caja de ahorro: $diez Bs. </td></tr>"
+		."<tr><td>Intereses a repartir: $ochenta Bs. </td></tr>"
+		."</table>"
 		."<h2>Listado Asociados</h2>"
 	       . "<table>"
 	       . "<thead>"
@@ -50,15 +68,25 @@ if(isset($_SESSION['session_usuario']) && ($_SESSION['session_id_rol'] == 1)) {
 				. "<th>fecha ingreso</th>"
 				. "<th>Capital</th>"
 				. "<th>Interes</th>"
+				. "<th>Monto</th>"
+				. "<th>Acumulado</th>"
 			. "</tr>"
 		. "</thead>";
 		while($rows = pg_fetch_object($c->getQuery())){
 			$capital = new conexion();
 			$capital->getUsuarioCapital($rows->cedula);
-				while($row = pg_fetch_object($capital->getQuery())){
+			while($row = pg_fetch_object($capital->getQuery())){
+				$interes = $capital_general / $capital;
+				$interes = $interes * 100;
+				$monto = $ochenta * $interes;
+				$acumulado = $capital + $monto;
 			$pdf.= "<tr>"
 				. "<td><div>" . $rows->nombre ." " . $rows->apellido . "</div></td>"
 				. "<td><div>" . $rows->fecha  . "</div></td>"
+				. "<td><div>" . $row->capital  . "</div></td>"
+				. "<td><div>" . $interes  . "</div></td>"
+				. "<td><div>" . $monto  . "</div></td>"
+				. "<td><div>" . $acumulado  . "</div></td>"
 			. "</tr>";
 				}
                 }
