@@ -34,11 +34,11 @@
 	<h1>Notificaciones</h1>
 	<form action="pages/registrar-notificacion.php" method="post" id="notificar" class="form">
 		<fieldset>
-			<legend>Solicitud de Préstamo</legend>
+			<legend>Notificar Usuario</legend>
 			<table>
 				<tr>
 					<td>
-						<label for="destinatarios">Destinatarios</label>
+						<label for="destinatarios">Destinatario</label>
 					</td>
 					<td>
 						<?php if(isset($cedula) and ($cedula == 'all')): ?>

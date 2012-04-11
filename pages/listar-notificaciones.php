@@ -9,7 +9,7 @@
 		$c->setQuery("select id, to_char(fecha, 'DD/MM/YYYY HH:MI a.m.') as fecha, asunto, nombre, apellido, email from tb_notificaciones left join tb_usuarios on cedula_usuario = cedula where cedula=$cedula order by fecha desc");
 	}
 	?>
-	<h1>Listado de Usuarios</h1>
+	<h1>Listado de Notificaciones</h1>
 	<script>
 		$(document).ready(function() {
 			$('#listado').dataTable({

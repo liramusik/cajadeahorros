@@ -16,7 +16,6 @@
 				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="intereses">Registrar Intereses</a></li>
 				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="listar-cuentas">Listar Cuentas</a></li>
                 <li><span class="icon"></span><a class="ajaxmenu" href="#" title="listar-intereses">Listar Intereses</a></li>
-				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="listar-notificaciones">Listar Notificaciones</a></li>
 			</ul>
 		</div>
 	</div>
