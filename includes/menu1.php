@@ -15,7 +15,7 @@
 				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="cuentas">Añadir Cuentas</a></li>
 				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="intereses">Registrar Intereses</a></li>
 				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="listar-cuentas">Listar Cuentas</a></li>
-                <li><span class="icon"></span><a class="ajaxmenu" href="#" title="listar-intereses">Listar Intereses</a></li>
+                                <li><span class="icon"></span><a class="ajaxmenu" href="#" title="listar-intereses">Listar Intereses</a></li>
 			</ul>
 		</div>
 	</div>
@@ -23,8 +23,8 @@
 		<h3><a href="#">Préstamos</a></h3>
 		<div>
 			<ul>
-				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="solicitar-prestamo">Solicitar</a></li>
-				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="simulacion">Simulación</a></li>
+				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="solicitar-prestamo">Solicitar Préstamos</a></li>
+				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="simulacion">Simulación Préstamo</a></li>
 				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="listar-prestamos">Listar Préstamos</a></li>
 			</ul>
 		</div>

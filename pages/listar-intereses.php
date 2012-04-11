@@ -3,9 +3,9 @@
 	$c = new conexion();
 	$c->setQuery("select nombre, tipo, cuenta, monto, to_char(fecha_interes, 'DD/MM/YYYY') as fecha  from tb_intereses left join tb_cuentas on tb_intereses.id_cuenta = tb_cuentas.id left join tb_bancos on tb_cuentas.id_banco = tb_bancos.id left join tb_tipo_cuentas on tb_tipo_cuentas.id = tb_cuentas.id_tipo_cuenta;");
 	$suma = new conexion();
-	$suma->setQuery("select sum(monto) as suma from tb_cuentas left join tb_bancos on tb_cuentas.id_banco = tb_bancos.id left join tb_tipo_cuentas on tb_cuentas.id_tipo_cuenta = tb_tipo_cuentas.id left join tb_intereses on tb_cuentas.id = tb_intereses.id_cuenta;");
+	$suma->setQuery("select sum(monto) as total from tb_cuentas left join tb_bancos on tb_cuentas.id_banco = tb_bancos.id left join tb_tipo_cuentas on tb_cuentas.id_tipo_cuenta = tb_tipo_cuentas.id left join tb_intereses on tb_cuentas.id = tb_intereses.id_cuenta;");
 	?>
-	<h1>Listado de Intereses</h1>
+	<h1>Listado de Intereses Bancarios</h1>
 	<script>
 		$(document).ready(function() {
 			$('#listado').dataTable({
@@ -44,15 +44,15 @@
 				<td><div><?php print $rows->fecha; ?></div></td>
 			</tr>
 		<?php endwhile; ?>
-			<tr>
-		<?php while($row = pg_fetch_object($suma->getQuery())): ?>
+		<tr>
+			<?php while($rows = pg_fetch_object($suma->getQuery())): ?>
 				<td><div></div></td>
 				<td><div></div></td>	
 				<td><div><?php print "Total: "; ?></div></td>
-				<td><div><?php print number_format($rows->suma, 2, ",", "."); ?></div></td>
-				<td><div></div></td>	
-		<?php endwhile; ?>
-			</tr> 
+				<td><div><?php print number_format($rows->total, 2, ",", "."); ?></div></td>
+				<td><div></div></td>
+			<?php endwhile; ?>
+		</tr> 
 	</table>
 	<? include('reporte-listar-intereses.php'); ?>
 	<div><a href="tmp/reporte-intereses.pdf">Imprimir PDF</a></div>

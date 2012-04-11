@@ -8,7 +8,11 @@ $cedula = $_POST['cedula'];
 $telefono = $_POST['telefono'];
 $email = $_POST['email'];
 $direccion = $_POST['direccion'];
-$aporte_mensual = $_POST['aporte_mensual'];
+if(isset($_POST['aporte_mensual'])) {
+	$aporte_mensual = $_POST['aporte_mensual'];
+} else {
+	$aporte_mensual = 0;
+}
 $fecha_ingreso = $_POST['fecha_ingreso'];
 $usuario = $_POST['usuario'];
 $password = md5($_POST['password']);

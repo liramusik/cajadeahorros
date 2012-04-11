@@ -59,19 +59,19 @@
 				<td><div><?php print $rows->estatus; ?></div></td>
 				<td>
 					<?php if($_SESSION['session_id_rol']==1): ?>
-						<div class="accion">
+						<div class="accion" title="Aceptar">
 							<form action="pages/aceptar-prestamo.php" method="post" id="aceptar-prestamo" class="form">
 								<input type="hidden" name="id" value="<?php print $rows->id; ?>" />
 								<input type="submit" name="submit" id="boton-aceptar" />
 							</form>
 						</div>
-						<div class="accion">
+						<div class="accion" title="Rechazar" alt="Rechazar">
 							<form action="pages/rechazar-prestamo.php" method="post" id="rechaza-prestamo" class="form">
 								<input type="hidden" name="id" value="<?php print $rows->id; ?>" />
 								<input type="submit" name="submit" id="boton-rechazar" />
 							</form>
 						</div>
-						<div class="accion"><a href="#" id="<?php print $rows->id; ?>" class="ver-prestamo"><img src="img/ver.png"></a></div>
+						<div class="accion" title="Ver" alt="Ver" ><a href="#" id="<?php print $rows->id; ?>" class="ver-prestamo"><img src="img/ver.png"></a></div>
 					<?php endif; ?>
 				</td>
 			</tr>

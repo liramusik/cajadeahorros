@@ -62,7 +62,7 @@
 				</tr>
 				<tr>
 					<td class="etiqueta">
-						<label for="monto">Monto</label>
+						<label for="monto">Monto Bs.</label>
 					</td>
 					<td>
 						<input id="monto" name="monto" type="text" pattern="[0-9]{2,}" maxlength="5" value="<?php isset($monto) ? print $monto: ""; ?>" <?php isset($monto) ? print 'readonly="readonly"' : "" ?>  required />
@@ -83,7 +83,7 @@
 					<td>
 						<input name="tipo_pago" type="radio" value="1" <?php if(!isset($tipo_pago)) { print "checked "; } else { if($tipo_pago != 1) { print "disabled "; } else { print "checked "; } } ?> /> Pago de intereses<br />
 						<input name="tipo_pago" type="radio" value="2" <?php if(isset($tipo_pago)) { if($tipo_pago != 2) { print "disabled "; } else { print "checked "; } } ?> /> Pago por cuotas<br />
-						<input name="tipo_pago" type="radio" value="3" <?php if(isset($tipo_pago)) { if($tipo_pago != 3) { print "disabled "; } else { print "checked "; } } ?> /> Pago al final de cuotas + intereses
+						<input name="tipo_pago" type="radio" value="3" <?php if(isset($tipo_pago)) { if($tipo_pago != 3) { print "disabled "; } else { print "checked "; } } ?> /> Pago al final + Intereses
 					</td>
 				</tr>
 				<tr>

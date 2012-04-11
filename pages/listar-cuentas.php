@@ -52,7 +52,7 @@
 				<td><div><?php print $rows->cuenta; ?></div></td>
 				<td>
 					<div class="accion"><a href="#" id="<?php print $rows->id; ?>" class="modificar"><img src="img/modificar.png" title="Modificar" alt="Modificar"></a></div>
-					<div class="accion">
+					<div class="accion" title="Eliminar" alt="Eliminar">
 						<form action="pages/deshabilitar-cuenta.php" method="post" id="deshabilitar-cuenta" class="form">
 							<input type="hidden" name="id" value="<?php print $rows->id; ?>" />
 							<input type="submit" name="submit" id="boton-deshabilitar" />
