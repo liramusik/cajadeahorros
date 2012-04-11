@@ -133,6 +133,13 @@ class conexion {
 		}
 
 	}
+	public function getUsuarioCapital($cedula) {
+		$this->query = "select sum(monto) as capital from tb_transacciones where id_tipo_transaccion = 1 or id_tipo_transaccion =2 and cedula_usuario=$cedula;";
+		$this->result = pg_query($this->connect, $this->query);
+		if(!$this->result) {
+			print "Error " . pg_last_error();
+		}
+	}
 	public function getQuery() {
 		return $this->result;
 	}
