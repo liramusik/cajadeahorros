@@ -8,9 +8,15 @@
 			var tiempo = $('#tiempo').attr('value');
 			var tipo_pago = $('input[type=radio]:checked').attr('value');
 			var id_rol = $('#id_rol').attr('value');
-			$("#contenido").load("includes/pages.php?page=generar-simulacion&cedula="+cedula+"&monto="+monto+"&tiempo="+tiempo+"&tipo_pago="+tipo_pago+"&id_rol="+id_rol);
+			if(monto.length == 0 && tiempo.length == 0) {
+			} else {
+				$("#contenido").load("includes/pages.php?page=generar-simulacion&cedula="+cedula+"&monto="+monto+"&tiempo="+tiempo+"&tipo_pago="+tipo_pago+"&id_rol="+id_rol);
+			}
 		})
 	}); 
+</script>
+
+<script type="text/javascript" src="/cajadeahorros/js/validar-simulacion-prestamo.js">
 </script>
 
 <h1>Simulación de Préstamos</h1>
