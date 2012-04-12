@@ -24,7 +24,7 @@ $(document).ready(function() {
 		maxDate: 'Now'
 	});
 });
-$(document).ready(function(){
+$(document).ready(function() {
             $("#crear-transaccion").validate({
                     rules: {
                             monto: {
@@ -59,7 +59,7 @@ $(document).ready(function() {
 				var opciones = {
 					success: mostrarRespuesta,
 				};
-				$('#crear-transaccion').ajaxSubmit(opciones);
+				$('#crear-transaccion').ajaxForm(opciones);
 			} else {
 				alert('La transacción no puede ser asociada al préstamo');
 				$('#prestamo').focus();

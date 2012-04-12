@@ -24,12 +24,20 @@ $hora = date("H:i:s", time());
 
 $fecha .= " " . $hora;
 
-$x = new conexion();
-$x->setQuery("insert into tb_usuarios values($cedula, $nacionalidad, $tipo, '" . $nombre . "', '" . $apellido . "', '" . $telefono . "', '" . $email . "', '" . $direccion . "', $aporte_mensual, '" . $fecha . "', null, '" . $usuario . "', '" . $password . "', default);");
-
-if($x->getQuery()) {
-	print 'El usuario se ha agregado correctamente';
+$buscar = new conexion();
+$buscar->setQuery("select cedula from tb_usuarios where cedula=$cedula");
+$rows = pg_num_rows($buscar->getQuery());
+if($rows > 0) {
+	print "Error, el usuario ya existe";
 } else {
-	print 'El usuario no se ha agregado';
+	$x = new conexion();
+	$x->setQuery("insert into tb_usuarios values($cedula, $nacionalidad, $tipo, '" . $nombre . "', '" . $apellido . "', '" . $telefono . "', '" . $email . "', '" . $direccion . "', $aporte_mensual, '" . $fecha . "', null, '" . $usuario . "', '" . $password . "', default);");
+
+	if($x->getQuery()) {
+		print 'El usuario se ha agregado correctamente';
+	} else {
+		print 'El usuario no se ha agregado';
+	}
 }
+
 ?>
