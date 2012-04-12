@@ -193,6 +193,7 @@ insert into tb_porcentajes values(default, 3, '2012-01-01 01:01', 6);
 insert into tb_nacionalidad values(default, 'V');
 insert into tb_nacionalidad values(default, 'E');
 
+insert into tb_usuarios values(12345678, 1, 1, 'cadeveher', 'cadeveher', '0000000000', 'cadeveher@cadeveher.com', 'Caracas - Venezuela', 100, default, null, 'cadeveher', md5('cadeveher'), 'TRUE');
 insert into tb_usuarios values(16409503, 1, 1, 'Lilibeth', 'Ramírez', '04165023756', 'liramusik@gmail.com', 'Caracas - Venezuela', 100, default, null, 'liramusik', md5('liramusik'), 'TRUE');
 insert into tb_usuarios values(17108742, 1, 2, 'David', 'Mora', '04264719868', 'davidmora000@gmail.com', 'Caracas - Venezuela', 200, default, null, 'davidmora', md5('davidmora'), 'TRUE');
 
