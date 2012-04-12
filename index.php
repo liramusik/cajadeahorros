@@ -24,7 +24,13 @@
 <?php include("includes/bottom_page.php"); ?>
 
 <script type="text/javascript">
-  $(document).ready(function(){  
-      $("#contenido").load("includes/pages.php");
-  });    
+	$(document).ready(function(){  
+		$("#contenido").load("includes/pages.php");
+		var url = location.search;
+		param = url.replace('?', '');
+		var split = param.split('=');
+		if(split[0] == 'error') {
+			alert("Acceso no autorizado");
+		}
+	});    
 </script>
