@@ -43,10 +43,10 @@
 	<script type="text/javascript" src="/cajadeahorros/js/validar-registrar-transaccion.js">
 	</script>
 
-	<h1>Registrar Transacciones</h1>
+	<h1>Registrar Transacciones de Pagos</h1>
 	<form action="pages/registrar-transacciones.php" method="post" id="crear-transaccion" class="form">
 		<fieldset>
-			<legend>Información</legend>
+			<legend>Información de Pagos</legend>
 			<table>
 				<tr>
 					<td class="etiqueta">
@@ -97,7 +97,7 @@
 				<?php if($cantidad_prestamos > 0): ?>
 					<tr>
 						<td class="etiqueta">
-							<label for="prestamo">Préstamo No </label>
+							<label for="prestamo">Préstamo No. </label>
 						</td>
 						<td>
 							<select name="prestamo" id="prestamo">
@@ -127,7 +127,7 @@
 				</tr>
 				<tr>
 					<td class="etiqueta">
-						<label for="deposito">Deposito <span class="obligatorio">*</span></label>
+						<label for="deposito">Depósito <span class="obligatorio">*</span></label>
 					</td>
 					<td>
 						<input type="text" name="deposito" id="deposito" pattern="[0-9]{11,}" maxlength="20" placeholder="Depósito" autocomplete="on" required />

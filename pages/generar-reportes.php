@@ -1,6 +1,6 @@
 <?php if(isset($_SESSION['session_usuario']) and ($_SESSION['session_id_rol'] == 1)): ?>
-	<h1>Lista de Reportes</h1>
-	<form action="pages/buscar-reportes.php" method="post" id="listar-Reportes" class="form">
+        <h1>Lista de Reportes</h1>
+        <form action="pages/buscar-reportes.php" method="post" id="listar-Reportes" class="form">
 		<fieldset>
 			<legend>Reportes</legend>
 			<table>
