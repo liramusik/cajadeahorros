@@ -72,13 +72,13 @@
 				<td><div><?php print $rows->estatus; ?></div></td>
 				<?php if($_SESSION['session_id_rol']==1): ?>
 					<td>
-						<div class="accion">
+						<div class="accion" title="Aceptar" alt="Aceptar">
 							<form action="pages/aceptar-transaccion.php" method="post" id="aceptar-transaccion" class="form">
 								<input type="hidden" name="id" value="<?php print $rows->id; ?>" />
 								<input type="submit" name="submit" id="boton-aceptar" />
 							</form>
 						</div>
-						<div class="accion">
+						<div class="accion" title="Rechazar" alt="Rechazar">
 							<form action="pages/rechazar-transaccion.php" method="post" id="rechazar-transaccion" class="form">
 								<input type="hidden" name="id" value="<?php print $rows->id; ?>" />
 								<input type="submit" name="submit" id="boton-rechazar" />
