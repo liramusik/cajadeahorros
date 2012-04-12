@@ -19,17 +19,8 @@
 		}
 	}
 	?>
-	<script type="text/javascript">
-		$(document).ready(function() { 
-			var opciones = {
-				success: mostrarRespuesta,
-			};
-			$('.form').ajaxForm(opciones);
-			function mostrarRespuesta(responseText) {
-				alert("Mensaje: " + responseText);
-				$('.form').resetForm();
-			}; 
-		}); 
+
+	<script type="text/javascript" src="/cajadeahorros/js/validar-enviar-notificaciones.js">
 	</script>
 	<h1>Notificaciones</h1>
 	<form action="pages/registrar-notificacion.php" method="post" id="notificar" class="form">
@@ -37,7 +28,7 @@
 			<legend>Notificar Usuario</legend>
 			<table>
 				<tr>
-					<td>
+					<td class="etiqueta">
 						<label for="destinatarios">Destinatario</label>
 					</td>
 					<td>
@@ -51,19 +42,19 @@
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td class="etiqueta">
 						<label for="asunto">Asunto</label>
 					</td>
 					<td>
-						<input type="text" name="asunto" />
+						<input type="text" id="asunto" name="asunto" />
 					</td>
 				</tr>
 				<tr>
-					<td>
+					<td class="etiqueta">
 						<label for="mensaje">Mensaje</label>
 					</td>
 					<td>
-						<textarea name="mensaje" maxlength="250"></textarea>
+						<textarea name="mensaje" id="mensaje" cols="40" rows="5" maxlength="250"></textarea>
 					</td>
 				</tr>
 

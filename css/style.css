@@ -347,6 +347,7 @@ input#nombre_banco,
 input#cuenta,
 input#fecha,
 input#monto,
+input#asunto,
 input#aporte_mensual {
 	width: 218px;
 }

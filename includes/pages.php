@@ -1,6 +1,5 @@
 <?php session_start(); ?>
 <?php 
-//chdir("..");
 include("../conf/conexion.php");
 $c = new conexion();
 if(!isset($_SESSION['session_usuario'])){
