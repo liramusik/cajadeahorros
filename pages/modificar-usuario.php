@@ -21,6 +21,23 @@ while($rows = pg_fetch_object($buscar_usuario->getQuery())) {
 }
 ?>
 
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#tipo').change(function() {
+			var id_tipo = $('#tipo').val();
+			if(id_tipo == 3) {
+				$('.aporte_mensual').remove();
+			} else {
+				var hay_aporte_mensual = $('.aporte_mensual').length;
+				if(hay_aporte_mensual == 0) {
+					$('.etiqueta-aporte_mensual').append('<label class="aporte_mensual" for="aporte_mensual">Aporte mensual <span class="obligatorio">*</span></label>');
+					$('.input-aporte_mensual').append('<input class="aporte_mensual" type="text" name="aporte_mensual" id="aporte_mensual" pattern="[0-9]{11,}" maxlength="10" placeholder="Aporte Mensual" autocomplete="off" required />');
+				}
+			}
+		})
+	});
+</script>
+
 <h1>Modificar Usuario</h1>
 
 <form action="pages/actualizar-usuario.php" method="post" id="modificar-usuario" class="form">
@@ -98,18 +115,6 @@ while($rows = pg_fetch_object($buscar_usuario->getQuery())) {
 			</tr>
 			<tr>
 				<td class="etiqueta">
-					<label for="aporte_mensual">Aporte mensual: <span class="obligatorio">*</span></label>
-				</td>
-				<td>
-					<?php if(($_SESSION['session_id_rol'] == 1)): ?>
-						<input type="text" name="aporte_mensual" id="aporte_mensual" title="Aporte mensual" maxlength="4" value="<?php print $aporte_mensual; ?>" required />
-					<?php else: ?>
-						<input type="text" name="aporte_mensual_des" id="aporte_mensual_des" title="Aporte mensual" maxlength="4" value="<?php print $aporte_mensual; ?>" readonly="readonly" required />
-					<?php endif; ?>
-				</td>
-			</tr>
-			<tr>
-				<td class="etiqueta">
 					<label for="fecha_ingreso">Fecha de ingreso: <span class="obligatorio">*</span></label>
 				</td>
 				<td>
@@ -117,6 +122,18 @@ while($rows = pg_fetch_object($buscar_usuario->getQuery())) {
 						<input type="text" name="fecha_ingreso" id="fecha_ingreso" title="Fecha de ingreso" maxlength="40" placeholder="Fecha de ingreso" autocomplete="off" value="<?php print $fecha_ingreso; ?>" required />
 					<?php else: ?>
 						<input type="datetime" name="fecha_ingreso" id="fecha_ingreso_des" title="Fecha de ingreso" maxlength="40" placeholder="Fecha de ingreso" autocomplete="off" value="<?php print $fecha_ingreso; ?>" readonly="readonly" required />
+					<?php endif; ?>
+				</td>
+			</tr>
+			<tr>
+				<td class="etiqueta etiqueta-aporte_mensual">
+					<label class="aporte_mensual" for="aporte_mensual">Aporte mensual <span class="obligatorio">*</span></label>
+				</td>
+				<td class="input-aporte_mensual">
+					<?php if(($_SESSION['session_id_rol'] == 1)): ?>
+						<input class="aporte_mensual" type="text" name="aporte_mensual" id="aporte_mensual" title="Aporte mensual" maxlength="4" value="<?php print $aporte_mensual; ?>" required />
+					<?php else: ?>
+						<input class="aporte_mensual" type="text" name="aporte_mensual_des" id="aporte_mensual_des" title="Aporte mensual" maxlength="4" value="<?php print $aporte_mensual; ?>" readonly="readonly" required />
 					<?php endif; ?>
 				</td>
 			</tr>
