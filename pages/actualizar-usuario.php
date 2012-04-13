@@ -4,7 +4,6 @@ $cedula = $_POST['cedula'];
 include("../conf/conexion.php");
 $buscar = new conexion();
 
-$post_tipo = $_POST['tipo'];
 $post_nombre = $_POST['nombre'];
 $post_apellido = $_POST['apellido'];
 $post_telefono = $_POST['telefono'];
@@ -16,6 +15,17 @@ if(isset($_POST['aporte_mensual'])) {
 } else {
 	$aporte_mensual = 0;
 }
+
+if(isset($_POST['tipo'])) {
+	$post_tipo = $_POST['tipo'];
+} else {
+	$buscar_tipo = new conexion();
+	$buscar_tipo->setQuery("select id_rol from tb_usuarios where cedula=$cedula;");
+	while($rows = pg_fetch_object($buscar_tipo->getQuery())) {
+		$post_tipo = $rows->id_rol;
+	}
+}
+
 $actualizar_usuarios=new conexion();
 
 if(empty($post_password)) {
