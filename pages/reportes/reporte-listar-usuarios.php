@@ -51,7 +51,7 @@ $pdf =
        . "<table>"
        . "<thead>"
 	       . "<tr>"
-			. "<th>Cédula</th>"
+			. "<th>C&eacute;dula</th>"
 			. "<th>Nombre y Apellido</th>"
 			. "<th>Tipo de Usuario</th>"
 			. "<th>Aporte Mensual</th>"

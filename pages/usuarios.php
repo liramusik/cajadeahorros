@@ -80,7 +80,6 @@
 				<tr>
 					<td class="etiqueta">
 						<label for="email">Correo electrónico</label>
-						<label for="email">Correo electrónico </label>
 					</td>
 					<td>
 						<input type="email" name="email" id="email" maxlength="40" placeholder="Email" autocomplete="on" />
