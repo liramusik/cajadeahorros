@@ -22,6 +22,8 @@
 					<td>
 						<select name="listar-reporte" id="reportes">
 							<option value="reporte-listar-usuarios">Listar Usuarios</option>
+							<option value="reporte-listar-usuarios-aportes">Listado de aportes de asociados</option>
+							<option value="reporte-listar-intereses">Listar Intereses</option>
 						</select>
 					</td>
 				</tr>
