@@ -79,11 +79,7 @@
 				</tr>
 				<tr>
 					<td class="etiqueta">
-<<<<<<< HEAD
 						<label for="email">Correo electrónico</label>
-=======
-						<label for="email">Correo electrónico </label>
->>>>>>> fb8113d7a9ab0bf55178c0127ebc810110641e03
 					</td>
 					<td>
 						<input type="email" name="email" id="email" maxlength="40" placeholder="Email" autocomplete="on" />
