@@ -1,7 +1,10 @@
 <?php 
 include("../conf/wkpdf.php");
-if(isset($_SESSION['session_usuario']) && ($_SESSION['session_id_rol'] == 1)) {
+if(!isset($c)) {
+	include("../conf/conexion.php");
 	$c = new conexion();
+}
+if(isset($_SESSION['session_usuario']) && ($_SESSION['session_id_rol'] == 1)) {
 	$c->setQuery("select nombre, tipo, cuenta, monto, to_char(fecha_interes, 'DD/MM/YYYY') as fecha  from tb_intereses left join tb_cuentas on tb_intereses.id_cuenta = tb_cuentas.id left join tb_bancos on tb_cuentas.id_banco = tb_bancos.id left join tb_tipo_cuentas on tb_tipo_cuentas.id = tb_cuentas.id_tipo_cuenta;");
         $pdf = 
 		 "<style type='text/css'>"
