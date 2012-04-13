@@ -18,7 +18,7 @@ $pdf =
 	}"
 	."th {
 		border-bottom: 1px dashed #6699CC;
-		font-size: 12px;
+		font-size: 10px;
 		font-weight: normal;
 		padding: 2px 2px;
 	}"
@@ -26,7 +26,7 @@ $pdf =
 		padding: 2px 2px;	
 	}"
 	."td{
-		padding: 0px 40px;	
+		padding: 0px 18px;	
 	}"
 	."h1 {
 		color:#33170D;
@@ -46,8 +46,8 @@ $pdf =
 	}"
 
 	."</style>"
-
-	."<h1>Listado Asociados</h1>"
+	."<h1>CADEVEHER</h1>"
+	."<h2>Listado Asociados</h2>"
        . "<table>"
        . "<thead>"
 	       . "<tr>"
