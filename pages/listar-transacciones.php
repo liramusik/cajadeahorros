@@ -22,6 +22,8 @@
 		$c->setQuery("select t.id, u.nombre, u.apellido, c.cuenta, b.nombre as banco, to_char(t.fecha,'DD/MM/YYYY') as fecha, tt.tipo, t.monto, t.deposito, e.estatus from tb_transacciones as t inner join (tb_cuentas as c left join tb_bancos as b on  c.id_banco = b.id) on t.id_cuenta = c.id left join tb_estatus_transacciones as e on  e.id = t.id_estatus_transaccion left join tb_usuarios as u on u.cedula = t.cedula_usuario left join tb_tipo_transacciones as tt on tt.id = t.id_tipo_transaccion;");
 	} elseif($_SESSION['session_id_rol'] == 2) {
 		$c->setQuery("select t.id, u.nombre, u.apellido, c.cuenta, b.nombre as banco, to_char(t.fecha,'DD/MM/YYYY') as fecha, tt.tipo, t.monto, t.deposito, e.estatus from tb_transacciones as t inner join (tb_cuentas as c left join tb_bancos as b on  c.id_banco = b.id) on t.id_cuenta = c.id left join tb_estatus_transacciones as e on  e.id = t.id_estatus_transaccion left join tb_usuarios as u on u.cedula = t.cedula_usuario left join tb_tipo_transacciones as tt on tt.id = t.id_tipo_transaccion where cedula=$cedula;");
+	} elseif($_SESSION['session_id_rol'] == 3) {
+		$c->setQuery("select t.id, u.nombre, u.apellido, c.cuenta, b.nombre as banco, to_char(t.fecha,'DD/MM/YYYY') as fecha, tt.tipo, t.monto, t.deposito, e.estatus from tb_transacciones as t inner join (tb_cuentas as c left join tb_bancos as b on  c.id_banco = b.id) on t.id_cuenta = c.id left join tb_estatus_transacciones as e on  e.id = t.id_estatus_transaccion left join tb_usuarios as u on u.cedula = t.cedula_usuario left join tb_tipo_transacciones as tt on tt.id = t.id_tipo_transaccion where cedula=$cedula;");
 	}
 	?>
 	<h1>Listado de Transacciones</h1>
