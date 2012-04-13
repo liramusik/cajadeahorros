@@ -48,6 +48,7 @@ if($id_tipo_transaccion == 1) {
 		}
 		$insertar_transaccion = new conexion();
 		$insertar_transaccion->setQuery("insert into tb_transacciones values(default, $cedula, $id_cuenta, 1, 1, '" . $fecha . "', $monto, '" . $numero_deposito . "')");
+		print "La transacción se ha registrado con éxito";
 	} else {
 		print "El monto que usted desea registrar es inferior al aporte mensual establecido";
 	}

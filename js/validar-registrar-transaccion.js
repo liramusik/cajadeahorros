@@ -59,7 +59,7 @@ $(document).ready(function() {
 				var opciones = {
 					success: mostrarRespuesta,
 				};
-				$('#crear-transaccion').ajaxForm(opciones);
+				$('#crear-transaccion').ajaxSubmit(opciones);
 			} else {
 				alert('La transacción no puede ser asociada al préstamo');
 				$('#prestamo').focus();
