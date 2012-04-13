@@ -1,5 +1,6 @@
 <?php if(isset($_SESSION['session_usuario']) && ($_SESSION['session_id_rol'] == 1)): ?>
 	<?php
+	$c = new conexion();
 	$c->setQuery("select nombre, tipo, cuenta, monto, to_char(fecha_interes, 'DD/MM/YYYY') as fecha  from tb_intereses left join tb_cuentas on tb_intereses.id_cuenta = tb_cuentas.id left join tb_bancos on tb_cuentas.id_banco = tb_bancos.id left join tb_tipo_cuentas on tb_tipo_cuentas.id = tb_cuentas.id_tipo_cuenta;");
 	$suma = new conexion();
 	$suma->setQuery("select sum(monto) as total from tb_cuentas left join tb_bancos on tb_cuentas.id_banco = tb_bancos.id left join tb_tipo_cuentas on tb_cuentas.id_tipo_cuenta = tb_tipo_cuentas.id left join tb_intereses on tb_cuentas.id = tb_intereses.id_cuenta;");
