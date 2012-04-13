@@ -1,0 +1,21 @@
+El sistema deberá ser instalado en Debian GNU/Linux 6.0
+
+Pasos de Instalación
+
+1. Instalar el servidor Web Apache
+2. Instalar el lenguaje de programación PHP5
+3. Instalar el complemento de PHP5 para PosgreSQL denomindao "php5-pgsql"
+4. Instalar PostgreSQL
+7. Copie la carpeta "cajadeahorros" en /var/www/
+5. Debe crear un usuario para utilizar la base de datos, para este caso siga las instrucciones que se encuentran /var/www/cajadeahorros/database/README.txt
+6. Verificar la arquitectura del servidor donde se está instalando la
+aplicación:
+        * Si la arquitectura es i386, deberá copiar el archivo
+          "wkhtmltopdf-i386" a la siguiente ruta /usr/local/bin/
+          Recuerde que los permisos de usuario deben coincidir con los del
+          sistema
+
+        * Si la arquitectura es amd-64, deberá copiar el archivo
+          "wkhtmltopdf-amd64" a la siguiente ruta /usr/local/bin/
+          Recuerde que los permisos de usuario deben coincidir con los del
+          sistema
