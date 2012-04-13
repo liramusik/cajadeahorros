@@ -73,6 +73,6 @@ $html = $pdf;
 $pdf = new WKPDF();
 $pdf->set_html($html);
 $pdf->render();
-$pdf->output(WKPDF::$PDF_SAVEFILE, 'reporte-intereses.pdf');
+$pdf->output(WKPDF::$PDF_SAVEFILE, 'reporte-listar-intereses.pdf');
 print '<meta http-equiv="refresh" content="0; url=/tmp/reporte-listar-intereses.pdf">';
 ?>
