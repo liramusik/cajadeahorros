@@ -99,7 +99,7 @@ while($rows = pg_fetch_object($buscar_usuario->getQuery())) {
 			</tr>
 			<tr>
 				<td class="etiqueta">
-					<label for="email">Correo electronico: <span class="obligatorio">*</span></label>
+					<label for="email">Correo electronico: </label>
 				</td>
 				<td>
 					<input type="email" name="email" id="email" title="Correo electronico" maxlength="40" placeholder="Correo electrónico" autocomplete="off" value="<?php print $email; ?>" />
