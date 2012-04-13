@@ -46,8 +46,8 @@ $pdf =
 	}"
 
 	."</style>"
-
-	."<h1>Listado Asociados</h1>"
+	."<h1>CADEVEHER</h1>"
+	."<h2>Listado Asociados</h2>"
        . "<table>"
        . "<thead>"
 	       . "<tr>"
