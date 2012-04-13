@@ -3,8 +3,7 @@
 		$('#listar-reportes').submit(function(e) {
 			e.preventDefault();
 			var val = $('#reportes').attr('value');
-			url = 'pages/reportes/'+val+'.php';;
-			//$(location).attr('href', url);
+			url = 'pages/reportes/'+val+'.php';
 			window.open(url, '_BLANK');
 		});
 	});
