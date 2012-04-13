@@ -4,7 +4,7 @@
 		<div>
 			<ul>
                                 <li><span class="icon"></span><a class="ajaxmenu" href="#" title="usuarios">Añadir Usuarios</a></li>
-				<li><span class="icon"></span><a class="ajaxmenu" href="#" title="listar-usuarios">Listar Usuarios</a></li>
+                                <li><span class="icon"></span><a class="ajaxmenu" href="#" title="listar-usuarios">Listar Usuarios</a></li>
 			</ul>
 		</div>
 	</div>
