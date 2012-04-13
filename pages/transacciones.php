@@ -82,15 +82,25 @@
 					</td>
 					<td>
 						<select name="tipo" id="tipo">
-							<?php while($rows = pg_fetch_object($tipo_transaccion->getQuery())): ?>
-								<?php if(($cantidad_prestamos > 0) && ($rows->id < 5)): ?>
-									<option value="<?php print $rows->id; ?>" <?php ($rows->id == 1) ? print "selected" : print ""; ?>><?php print $rows->tipo; ?></option>
-								<?php elseif($cantidad_prestamos == 0): ?>
-									<?php if($rows->id < 3): ?>
+							<?php if($_SESSION['session_id_rol']==1 || $_SESSION['session_id_rol']==2): ?>
+								<?php while($rows = pg_fetch_object($tipo_transaccion->getQuery())): ?>
+									<?php if(($cantidad_prestamos > 0) && ($rows->id < 5)): ?>
 										<option value="<?php print $rows->id; ?>" <?php ($rows->id == 1) ? print "selected" : print ""; ?>><?php print $rows->tipo; ?></option>
+									<?php elseif($cantidad_prestamos == 0): ?>
+										<?php if($rows->id < 3): ?>
+											<option value="<?php print $rows->id; ?>" <?php ($rows->id == 1) ? print "selected" : print ""; ?>><?php print $rows->tipo; ?></option>
+										<?php endif; ?>
 									<?php endif; ?>
-								<?php endif; ?>
-							<?php endwhile; ?>
+								<?php endwhile; ?>
+							<?php else: ?>
+								<?php while($rows = pg_fetch_object($tipo_transaccion->getQuery())): ?>
+									<?php if($cantidad_prestamos > 0): ?>
+										<?php if($rows->id == 3): ?>
+											<option value="<?php print $rows->id; ?>" <?php ($rows->id == 1) ? print "selected" : print ""; ?>><?php print $rows->tipo; ?></option>
+										<?php endif; ?>
+									<?php endif; ?>
+								<?php endwhile; ?>
+							<?php endif; ?>
 						</select>
 					</td>
 				</tr>
